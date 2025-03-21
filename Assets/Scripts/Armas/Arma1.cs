@@ -14,7 +14,7 @@ public class Arma1 : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Anastasia");
+        player = GameObject.Find("Jugador");
         StartCoroutine("RutinaProyectil");
 
     }
