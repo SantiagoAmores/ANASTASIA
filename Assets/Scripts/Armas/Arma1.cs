@@ -36,7 +36,7 @@ public class Arma1 : MonoBehaviour
 
             float distancia = Vector3.Distance(transform.position, enemigoMasCercano.transform.position);
 
-            if (distancia <= 6f)
+            if (distancia <= 9f)
             {
                 DispararProyectil(enemigoMasCercano);
             }
@@ -66,7 +66,7 @@ public class Arma1 : MonoBehaviour
 
         Rigidbody rb = instanciaProyectil.GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePositionY;
-        rb.AddForce((objetivo.transform.position - transform.position).normalized * 400f);
+        rb.AddForce((objetivo.transform.position - transform.position).normalized * 500f);
 
         StartCoroutine(DespawnProyectilRutina(instanciaProyectil));
         

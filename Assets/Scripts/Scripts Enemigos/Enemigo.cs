@@ -8,6 +8,8 @@ public class Enemigo : MonoBehaviour
     public NavMeshAgent enemigo;
     public GameObject jugador;
 
+    public GameObject puntoExperienciaPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class Enemigo : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
+            Instantiate(puntoExperienciaPrefab, this.gameObject.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
