@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MovimientoJugador : MonoBehaviour
 {
+    GameManager gameManager;
+
     //Controles del jugador
     private float speed = 5f;
     public float rotationSpeed = 10f;
@@ -12,7 +14,8 @@ public class MovimientoJugador : MonoBehaviour
 
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         characterController = GetComponent<CharacterController>();
 
         // Asegurarse de que no haya movimiento al iniciar el juego
@@ -46,6 +49,15 @@ public class MovimientoJugador : MonoBehaviour
         {
             // Detener al personaje cuando no hay movimiento (sin entrada)
             characterController.Move(Vector3.zero);
+        }
+    }
+
+    private void OnTriggerEnter (Collider other)
+    {
+        if (other.CompareTag("Experiencia"))
+        {
+            gameManager.SubirNivel();
+            Destroy(other.gameObject);
         }
     }
 

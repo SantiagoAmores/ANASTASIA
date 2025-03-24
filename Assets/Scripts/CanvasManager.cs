@@ -5,6 +5,15 @@ using TMPro;
 
 public class CanvasManager : MonoBehaviour
 {
+
+    //GameManager
+    GameManager gameManager;
+
+    //Estadisticas
+    public TextMeshProUGUI textoExperiencia;
+    public TextMeshProUGUI textoNivel;
+
+
     //Cuenta atras
     public TextMeshProUGUI cuentaAtras;
     public float startTime = 120f;
@@ -13,6 +22,12 @@ public class CanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        textoExperiencia = GameObject.Find("TextoExperiencia").GetComponent<TextMeshProUGUI>();
+        textoNivel = GameObject.Find("TextoNivel").GetComponent<TextMeshProUGUI>();
+
         timeLeft = startTime;
         StartCoroutine(Countdown());
     }
@@ -20,7 +35,8 @@ public class CanvasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        textoExperiencia.text = gameManager.experienciaTotal.ToString();
+        textoNivel.text = gameManager.nivel.ToString();
     }
 
     IEnumerator Countdown()
