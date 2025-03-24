@@ -10,10 +10,13 @@ public class Enemigo : MonoBehaviour
 
     public GameObject puntoExperienciaPrefab;
 
+    private CanvasManager canvasManager;
+
     // Start is called before the first frame update
     void Start()
     {
         jugador = GameObject.Find("Jugador");
+        canvasManager = FindObjectOfType<CanvasManager>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,12 @@ public class Enemigo : MonoBehaviour
         {
             Instantiate(puntoExperienciaPrefab, this.gameObject.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Time.timeScale = 0f;
+            canvasManager.Derrota();
         }
     }
 }

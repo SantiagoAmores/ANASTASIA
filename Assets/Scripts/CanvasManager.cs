@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
-
     //GameManager
     GameManager gameManager;
 
+    //Paneles Niveles
+    public GameObject PanelVictoria;
+    public GameObject PanelDerrota;
+    public GameObject PanelOpciones;
+    public GameObject PanelMuseo;
+
     //Estadisticas
-    public TextMeshProUGUI textoExperiencia;
-    public TextMeshProUGUI textoNivel;
+    private TextMeshProUGUI textoExperiencia;
+    private TextMeshProUGUI textoNivel;
 
 
     //Cuenta atras
@@ -22,7 +28,6 @@ public class CanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         textoExperiencia = GameObject.Find("TextoExperiencia").GetComponent<TextMeshProUGUI>();
@@ -30,24 +35,76 @@ public class CanvasManager : MonoBehaviour
 
         timeLeft = startTime;
         StartCoroutine(Countdown());
+
+        PanelDerrota.SetActive(false);
+        PanelVictoria.SetActive(false);
+        PanelOpciones.SetActive(false);
+        PanelMuseo.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        textoExperiencia.text = gameManager.experienciaTotal.ToString();
-        textoNivel.text = gameManager.nivel.ToString();
+        textoExperiencia.text = "Exp: " + gameManager.experienciaTotal.ToString();
+        textoNivel.text = "Nv: " + gameManager.nivel.ToString();
     }
 
     IEnumerator Countdown()
     {
         while (timeLeft > 0)
         {
-            cuentaAtras.text = timeLeft.ToString("0");
+            cuentaAtras.text = timeLeft.ToString("0"); 
             yield return new WaitForSeconds(1f);
             timeLeft--;
         }
 
-        cuentaAtras.text = "Te has quedado sin tiempo :(";
+        Victoria();
+        //cuentaAtras.text = "Te has quedado sin tiempo :(";
+    }
+
+    public void Victoria()
+    {
+        PanelVictoria.SetActive(true);
+        Time.timeScale = 0f; // Pausar el juego
+    }
+
+    public void Derrota()
+    {
+        PanelDerrota.SetActive(true);
+        Time.timeScale = 0f; // Pausar el juego
+    }
+
+    public void MenúInicio()
+    {
+        // Reanudar el tiempo antes de reiniciar
+        Time.timeScale = 1f;
+
+        //Volver al menu de inicio
+        SceneManager.LoadScene("MenuInicio");
+    }
+
+    public void ReinicioNivel()
+    {
+        // Reanudar el tiempo antes de reiniciar
+        Time.timeScale = 1f;
+
+        // Cargar la escena desde el principio
+        SceneManager.LoadScene("ESCENA_HEIDI");
+    }
+
+    public void Opciones()
+    {
+        PanelOpciones.SetActive(true);
+    }
+
+    public void Atras()
+    {
+        PanelOpciones.SetActive(false);
+        PanelMuseo.SetActive(false);
+    }
+
+    public void Museo()
+    {
+        PanelMuseo.SetActive(true);
     }
 }
