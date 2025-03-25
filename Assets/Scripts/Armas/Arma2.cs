@@ -35,7 +35,7 @@ public class Arma2 : MonoBehaviour
     {
         if (CompareTag("Enemy"))
         {
-            Destroy(other);
+            Destroy(gameObject);
         }
     }
 }
