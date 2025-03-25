@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Arma1 : MonoBehaviour
 {
-    public GameObject player;
-
     public GameObject[] enemigosLista;
     public GameObject enemigoMasCercano;
 
@@ -14,16 +12,18 @@ public class Arma1 : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Jugador");
         StartCoroutine("RutinaProyectil");
-
     }
 
+    // Actualiza la lista de enemigos
     void Update()
     {
         enemigosLista = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
+
+    // Dispara cada cierta cantidad de tiempo y si hay enemigos busca al mas cercano
+    // Calcula la distancia entre el jugador y el enemigo para que dispare a partir de cierto rango
     public IEnumerator RutinaProyectil()
     {
         while (true)
@@ -35,14 +35,11 @@ public class Arma1 : MonoBehaviour
             if (enemigoMasCercano == null) continue;
 
             float distancia = Vector3.Distance(transform.position, enemigoMasCercano.transform.position);
-
-            if (distancia <= 9f)
-            {
-                DispararProyectil(enemigoMasCercano);
-            }
+            if (distancia <= 9f) { DispararProyectil(enemigoMasCercano); }
         }
     }
 
+    // Calcula cual es el enemigo mas cercano al jugador calculando la distancia entre el jugador y los enemigos
     private void EncontrarEnemigoMasCercano()
     {
         enemigoMasCercano = null;
@@ -59,6 +56,8 @@ public class Arma1 : MonoBehaviour
         }
     }
 
+    // Instancia un proyectil y adicionalmente lo añade a una lista por si el proyectil no impacta que desaparezca tras cierto tiempo
+    // Ademas, le añade fuerza al proyectil para que se dispare en direccion al enemigo mas cercano
     private void DispararProyectil(GameObject objetivo)
     {
         GameObject instanciaProyectil = Instantiate(proyectil, transform.position, Quaternion.identity);
@@ -69,7 +68,6 @@ public class Arma1 : MonoBehaviour
         rb.AddForce((objetivo.transform.position - transform.position).normalized * 500f);
 
         StartCoroutine(DespawnProyectilRutina(instanciaProyectil));
-        
     }
 
     private IEnumerator DespawnProyectilRutina(GameObject proyectilADespawnear)

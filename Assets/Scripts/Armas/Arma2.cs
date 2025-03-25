@@ -21,6 +21,7 @@ public class Arma2 : MonoBehaviour
             
             while (tiempoTranscurrido < 1)
             {
+                Debug.Log(player.transform.position);
                 instanciaProyectil.transform.RotateAround(player.transform.position, Vector3.up, 360f * Time.deltaTime);
                 tiempoTranscurrido += Time.deltaTime;
                 yield return null;
@@ -35,7 +36,7 @@ public class Arma2 : MonoBehaviour
     {
         if (CompareTag("Enemy"))
         {
-            Destroy(other);
+            Destroy(gameObject);
         }
     }
 }
