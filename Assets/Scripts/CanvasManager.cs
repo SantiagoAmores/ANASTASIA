@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
@@ -19,6 +20,10 @@ public class CanvasManager : MonoBehaviour
     private TextMeshProUGUI textoExperiencia;
     private TextMeshProUGUI textoNivel;
 
+    // Slider de Experiencia
+    public Slider sliderExp;
+    public int expMaxPorNivel = 5;
+
 
     //Cuenta atras
     public TextMeshProUGUI cuentaAtras;
@@ -32,6 +37,12 @@ public class CanvasManager : MonoBehaviour
 
         textoExperiencia = GameObject.Find("TextoExperiencia").GetComponent<TextMeshProUGUI>();
         textoNivel = GameObject.Find("TextoNivel").GetComponent<TextMeshProUGUI>();
+
+        sliderExp = GameObject.Find("SliderXP").GetComponent<Slider>();
+
+        sliderExp.minValue = 0;
+        sliderExp.maxValue = expMaxPorNivel;
+        sliderExp.value = 0; // Inicia vacío
 
         timeLeft = startTime;
         StartCoroutine(Countdown());
@@ -47,6 +58,9 @@ public class CanvasManager : MonoBehaviour
     {
         textoExperiencia.text = "Exp: " + gameManager.experienciaTotal.ToString();
         textoNivel.text = "Nv: " + gameManager.nivel.ToString();
+
+        // Actualizar el Slider con la experiencia
+        sliderExp.value = gameManager.experienciaTotal % expMaxPorNivel;
     }
 
     IEnumerator Countdown()
