@@ -1524,10 +1524,10 @@ GameObject:
   - component: {fileID: 746372489}
   - component: {fileID: 746372488}
   - component: {fileID: 746372487}
+  - component: {fileID: 746372482}
   - component: {fileID: 746372486}
   - component: {fileID: 746372485}
   - component: {fileID: 746372483}
-  - component: {fileID: 746372482}
   - component: {fileID: 746372481}
   m_Layer: 0
   m_Name: Jugador
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746372480}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c10d7819b3b97f448a9e56af40b0601e, type: 3}
   m_Name: 
@@ -1646,7 +1646,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
