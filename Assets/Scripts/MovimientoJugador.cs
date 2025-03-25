@@ -54,11 +54,14 @@ public class MovimientoJugador : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        if (other.CompareTag("Experiencia"))
-        {
-            gameManager.SubirNivel();
-            Destroy(other.gameObject);
-        }
+            if (other.CompareTag("Experiencia"))
+            {
+                 Debug.Log (other.name + "-" + this.name);
+                 gameManager.SubirNivel();
+                Destroy(other.gameObject);
+  
+            }
+        
     }
 
     // Control de animación
