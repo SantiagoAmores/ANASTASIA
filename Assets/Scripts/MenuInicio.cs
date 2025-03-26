@@ -26,7 +26,7 @@ public class MenuInicio : MonoBehaviour
 
     public void IniciarJuego()
     {
-        SceneManager.LoadScene("ESCENA_HEIDI");
+        SceneManager.LoadScene("Nivel");
     }
 
     public void MostrarOpciones()
@@ -41,5 +41,10 @@ public class MenuInicio : MonoBehaviour
         menuPrincipal.SetActive(true);
         botonAtras.SetActive(false);
         opciones.SetActive(false);
+    }
+
+    public void SalirJuego()
+    {
+        Application.Quit();
     }
 }

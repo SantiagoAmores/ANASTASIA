@@ -103,7 +103,7 @@ public class CanvasManager : MonoBehaviour
         Time.timeScale = 1f;
 
         // Cargar la escena desde el principio
-        SceneManager.LoadScene("ESCENA_HEIDI");
+        SceneManager.LoadScene("Nivel");
     }
 
     public void Opciones()

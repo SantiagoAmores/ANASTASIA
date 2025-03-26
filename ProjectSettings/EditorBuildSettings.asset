@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ESCENA_HEIDI.unity
     guid: 465303b9c3f725d4787c837fad82b92b
   - enabled: 1
