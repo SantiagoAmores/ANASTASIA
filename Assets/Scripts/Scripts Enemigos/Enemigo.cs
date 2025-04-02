@@ -15,7 +15,7 @@ public class Enemigo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        jugador = GameObject.Find("Jugador");
+        jugador = GameObject.FindGameObjectWithTag("Player");
         canvasManager = FindObjectOfType<CanvasManager>();
     }
 

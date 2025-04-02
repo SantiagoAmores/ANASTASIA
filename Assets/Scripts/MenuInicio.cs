@@ -26,7 +26,7 @@ public class MenuInicio : MonoBehaviour
 
     public void IniciarJuego()
     {
-        SceneManager.LoadScene("Nivel");
+        SceneManager.LoadScene("Scene_Museo");
     }
 
     public void MostrarOpciones()
