@@ -795,6 +795,8 @@ MonoBehaviour:
   PanelDerrota: {fileID: 1249333947}
   PanelOpciones: {fileID: 1049681181}
   PanelMuseo: {fileID: 534427953}
+  sliderExp: {fileID: 0}
+  expMaxPorNivel: 5
   cuentaAtras: {fileID: 1241757936}
   startTime: 20
 --- !u!114 &535024027
@@ -2249,6 +2251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 982659801}
   - component: {fileID: 982659800}
+  - component: {fileID: 982659802}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2285,6 +2288,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &982659802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982659799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da457c352a041ec4fb06a949e3ffdc7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigo1: {fileID: 6460422072173215375, guid: 50aea6d19efba734b8d0a9d41818c613, type: 3}
+  enemigo2: {fileID: 6460422072173215375, guid: 50aea6d19efba734b8d0a9d41818c613, type: 3}
+  enemigoJefe: {fileID: 7165459903828862507, guid: 8c9aedbddf2f58c499c58b98b57f8882, type: 3}
 --- !u!1 &1049681181
 GameObject:
   m_ObjectHideFlags: 0
