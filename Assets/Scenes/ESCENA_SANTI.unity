@@ -198,6 +198,8 @@ MonoBehaviour:
   PanelDerrota: {fileID: 1399382223}
   PanelOpciones: {fileID: 1491032513}
   PanelMuseo: {fileID: 1335864611}
+  sliderExp: {fileID: 0}
+  expMaxPorNivel: 5
   cuentaAtras: {fileID: 784039600}
   startTime: 20
 --- !u!114 &66993096
@@ -858,6 +860,7 @@ GameObject:
   - component: {fileID: 171626099}
   - component: {fileID: 171626098}
   - component: {fileID: 171626097}
+  - component: {fileID: 171626105}
   - component: {fileID: 171626103}
   - component: {fileID: 171626104}
   m_Layer: 0
@@ -992,6 +995,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &171626105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171626096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7458a7bad81fcb54da6c21b20777a00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 171626096}
+  pintura: {fileID: 209788572413664971, guid: a7d309836f42644468a2094b97339087, type: 3}
 --- !u!1 &176494882
 GameObject:
   m_ObjectHideFlags: 0
