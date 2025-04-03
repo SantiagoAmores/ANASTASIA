@@ -11,7 +11,7 @@ public class Arma3 : MonoBehaviour
     // Proyectil
     public GameObject pintura;
     private float duracion = 1f;
-    private float distancia = 5f;
+    private float radio = 5f; // Área alrededor del jugador
     private Vector3 escalaFinal = new Vector3(5f, 0.2f, 5f);
 
     void Start()
@@ -26,7 +26,13 @@ public class Arma3 : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
 
-            GameObject instanciarPintura = Instantiate(pintura, transform.position, Quaternion.identity);
+            // Generar una posición aleatoria dentro de un cuadrado alrededor del jugador
+            float randomX = Random.Range(-radio, radio);
+            float randomZ = Random.Range(-radio, radio);
+
+            Vector3 spawnPosition = player.transform.position + new Vector3(randomX, 0, randomZ);
+
+            GameObject instanciarPintura = Instantiate(pintura, spawnPosition, Quaternion.identity);
 
             Vector3 escalaInicial = Vector3.zero;
             instanciarPintura.transform.localScale = escalaInicial;
