@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 348254696}
   - component: {fileID: 348254697}
+  - component: {fileID: 348254698}
   m_Layer: 0
   m_Name: Nivel1
   m_TagString: Untagged
@@ -385,6 +386,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &348254698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348254695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddad1d3b24995b44af27aade5ca7e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PantallaNivelCanvas: {fileID: 1307245074}
+  nivel: Scene_Nivel_1
+  empezarNivel: {fileID: 0}
 --- !u!4 &426088774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
@@ -504,7 +520,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 579921597}
-  - component: {fileID: 579921598}
   m_Layer: 0
   m_Name: CanvasManager
   m_TagString: Untagged
@@ -528,20 +543,6 @@ Transform:
   - {fileID: 1307245075}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &579921598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579921596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ddad1d3b24995b44af27aade5ca7e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PantallaNivelCanvas: {fileID: 0}
-  nivel: 
 --- !u!1 &697326379
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 741558109}
   - component: {fileID: 741558110}
+  - component: {fileID: 741558111}
   m_Layer: 0
   m_Name: Nivel3
   m_TagString: Untagged
@@ -775,6 +777,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &741558111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741558108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddad1d3b24995b44af27aade5ca7e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PantallaNivelCanvas: {fileID: 1307245074}
+  nivel: Scene_Nivel_3
+  empezarNivel: {fileID: 0}
 --- !u!1 &815211973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,6 +1209,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1607707567546913804, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20
@@ -1409,7 +1430,7 @@ GameObject:
   - component: {fileID: 1222819329}
   - component: {fileID: 1222819328}
   m_Layer: 5
-  m_Name: 
+  m_Name: TextoAdicional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1431,7 +1452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 400}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1222819328
@@ -1454,7 +1475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NIVEL X
+  m_text: Elige una herramienta
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
   m_sharedMaterial: {fileID: 395646844236519771, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
@@ -1481,15 +1502,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2161,7 +2182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 400}
+  m_AnchoredPosition: {x: 0, y: 385}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837995639
@@ -2219,7 +2240,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2597,6 +2618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1994168482}
   - component: {fileID: 1994168483}
+  - component: {fileID: 1994168484}
   m_Layer: 0
   m_Name: Nivel2
   m_TagString: Untagged
@@ -2640,6 +2662,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1994168484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994168481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddad1d3b24995b44af27aade5ca7e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PantallaNivelCanvas: {fileID: 1307245074}
+  nivel: Scene_Nivel_2
+  empezarNivel: {fileID: 0}
 --- !u!1 &2027070232
 GameObject:
   m_ObjectHideFlags: 0

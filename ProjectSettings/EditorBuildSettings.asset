@@ -5,17 +5,20 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/ESCENA_HEIDI.unity
-    guid: 465303b9c3f725d4787c837fad82b92b
   - enabled: 1
     path: Assets/Scenes/EscenasJuego/MenuInicio.unity
     guid: e5cb64841b87610458b35633d722639b
   - enabled: 1
     path: Assets/Scenes/EscenasJuego/Scene_Museo.unity
     guid: e659cbf2084c66b4c92cdd95641ef2e7
-  - enabled: 0
-    path: Assets/Scenes/EscenasJuego/Nivel.unity
-    guid: f8b62aec11936af4ba2e5c588b55d25d
+  - enabled: 1
+    path: Assets/Scenes/EscenasJuego/Scene_Nivel_1.unity
+    guid: 3212882aa1e238b48ab0924a95c115c6
+  - enabled: 1
+    path: Assets/Scenes/EscenasJuego/Scene_Nivel_2.unity
+    guid: 721dd05b13b3290449f4ac49db715128
+  - enabled: 1
+    path: Assets/Scenes/EscenasJuego/Scene_Nivel_3.unity
+    guid: 6ca762c6823b5c54691e54e1f6fb57a9
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4ff7636010b27744e9e65d4e84e77b04, type: 2}
