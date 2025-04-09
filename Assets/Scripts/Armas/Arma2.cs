@@ -8,7 +8,7 @@ public class Arma2 : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Jugador");
+        player = GameObject.Find("Anastasia");
         StartCoroutine(InstanciarProyectil());
     }
 
