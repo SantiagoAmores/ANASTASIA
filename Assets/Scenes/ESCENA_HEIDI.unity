@@ -999,14 +999,14 @@ RectTransform:
   - {fileID: 622795819}
   - {fileID: 1541458428}
   - {fileID: 1432367347}
+  - {fileID: 337536184}
+  - {fileID: 1087437631}
   - {fileID: 425731010}
   - {fileID: 1722258195}
   - {fileID: 1035088754}
   - {fileID: 804770983}
   - {fileID: 1393160944}
   - {fileID: 2123956572}
-  - {fileID: 337536184}
-  - {fileID: 1087437631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2732,6 +2732,7 @@ GameObject:
   - component: {fileID: 1205244592}
   - component: {fileID: 1205244593}
   - component: {fileID: 1205244594}
+  - component: {fileID: 1205244595}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -2856,7 +2857,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205244583}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 920e8ecf183c7404aa2544d1741bb6f8, type: 3}
   m_Name: 
@@ -2904,6 +2905,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1205244595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205244583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bbeb80bc6b6874285b7732f1f19555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boomerangPrefab: {fileID: 8931575368003309421, guid: 1b351d7174d013449b7ae3455eecbef7, type: 3}
+  shootInterval: 2
+  boomerangSpeed: 10
 --- !u!1 &1223025125
 GameObject:
   m_ObjectHideFlags: 0
