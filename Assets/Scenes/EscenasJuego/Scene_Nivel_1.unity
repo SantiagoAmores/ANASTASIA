@@ -811,6 +811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anastasia
       objectReference: {fileID: 0}
+    - target: {fileID: 8920793231583791727, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1190138250}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2415,6 +2419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armaSeleccionada: 0
+  textoArma: {fileID: 0}
 --- !u!4 &775215568
 Transform:
   m_ObjectHideFlags: 0
@@ -3734,6 +3739,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111470091}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1190138250 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 331023904852516706, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+  m_PrefabInstance: {fileID: 144851870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237517723
 GameObject:
   m_ObjectHideFlags: 0
