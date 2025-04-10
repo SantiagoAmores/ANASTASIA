@@ -27,7 +27,7 @@ public class Enemigo : MonoBehaviour
         //// Iniciar la animación de caminar
         //if (animator != null)
         //{
-        //    animator.SetBool("isWalking", true);  // Asegúrate de que 'isWalking' es un parámetro booleano en tu Animator
+        //    animator.SetBool("Walking", true);
         //}
 
     }

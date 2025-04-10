@@ -3967,7 +3967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09684fff1c75ac44906e4573f77313c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigoPrefab: {fileID: 919132149155446097, guid: 4753cbb120061fe4ba38ef41be4b0878, type: 3}
+  enemigoPrefab: {fileID: 374344966642074657, guid: 0717377a851fe2b4696d430547b0acb4, type: 3}
   seguir: 1
   spawnAreaRadius: 10
 --- !u!1 &1387271221
