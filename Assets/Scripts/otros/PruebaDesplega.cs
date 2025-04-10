@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 // NOTA: SelectorDePrefabs se reemplaza por el nombre del script en el que haya que poner los desplegables
-[CustomEditor(typeof(SelectorDePrefabs))]
+/*[CustomEditor(typeof(SelectorDePrefabs))]
 public class PruebaDesplega : Editor
 {
     public override void OnInspectorGUI()
@@ -82,3 +82,4 @@ public class PruebaDesplega : Editor
         DrawDefaultInspector();
     }
 }
+*/
