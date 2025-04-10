@@ -10,6 +10,11 @@ public class ActivadorDeArma : MonoBehaviour
 
     void Start()
     {
+        if (!WeaponManagerDDOL.cargarEscena)
+        {
+            return;
+        }
+
         arma1.enabled = false;
         arma2.enabled = false;
         arma3.enabled = false;

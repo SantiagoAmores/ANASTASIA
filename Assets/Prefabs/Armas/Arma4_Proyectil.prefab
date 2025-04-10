@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 7421711869562257418}
   - component: {fileID: 3314750140948037376}
   - component: {fileID: 1707156774939014657}
-  - component: {fileID: -6496154230746114986}
   m_Layer: 0
   m_Name: Arma4_Proyectil
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,15 +107,3 @@ CapsuleCollider:
   m_Height: 50.00001
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: -0.00000011920929}
---- !u!114 &-6496154230746114986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931575368003309421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3becbe533a6eb849a6c89666a245453, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
