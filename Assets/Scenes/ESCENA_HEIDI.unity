@@ -1035,7 +1035,6 @@ MonoBehaviour:
   PanelVictoria: {fileID: 1035088753}
   PanelDerrota: {fileID: 804770982}
   PanelOpciones: {fileID: 1393160941}
-  PanelMuseo: {fileID: 2123956571}
   sliderExp: {fileID: 0}
   expMaxPorNivel: 5
   cuentaAtras: {fileID: 622795820}
