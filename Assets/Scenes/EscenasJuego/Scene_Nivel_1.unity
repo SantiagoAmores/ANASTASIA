@@ -1875,6 +1875,9 @@ MonoBehaviour:
   - {fileID: 374344966642074657, guid: ee3eb84a7f973134f94c23bb4e36dba2, type: 3}
   - {fileID: 374344966642074657, guid: f6e55a60d9a7c564497e51c2399c15a4, type: 3}
   - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
+  - {fileID: 374344966642074657, guid: 527c5352acb023b4a81ca44745d67f60, type: 3}
+  - {fileID: 374344966642074657, guid: b9be6e5a3a6a9a8499afd246c7c685e1, type: 3}
+  - {fileID: 374344966642074657, guid: 0717377a851fe2b4696d430547b0acb4, type: 3}
   seguir: 1
   spawnAreaRadius: 20
 --- !u!114 &640954497
