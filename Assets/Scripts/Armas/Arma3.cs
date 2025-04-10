@@ -25,6 +25,7 @@ public class Arma3 : MonoBehaviour
         while (true)
         {
 
+            // Comprobamos que funciona el bucle
             Debug.Log("Instanciando pintura...");
 
             yield return new WaitForSeconds(1f);
