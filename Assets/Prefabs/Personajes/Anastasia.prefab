@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7951365172276653742}
   - component: {fileID: 6096415705295080951}
   - component: {fileID: 913102841305326103}
+  - component: {fileID: 7557716002391435356}
   m_Layer: 0
   m_Name: Inventario
   m_TagString: Untagged
@@ -42,7 +43,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 920e8ecf183c7404aa2544d1741bb6f8, type: 3}
   m_Name: 
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c10d7819b3b97f448a9e56af40b0601e, type: 3}
   m_Name: 
@@ -72,7 +73,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7458a7bad81fcb54da6c21b20777a00b, type: 3}
   m_Name: 
@@ -86,7 +87,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16bbeb80bc6b6874285b7732f1f19555, type: 3}
   m_Name: 
@@ -94,6 +95,22 @@ MonoBehaviour:
   boomerangPrefab: {fileID: 8931575368003309421, guid: 1b351d7174d013449b7ae3455eecbef7, type: 3}
   shootInterval: 2
   boomerangSpeed: 10
+--- !u!114 &7557716002391435356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501023126614973725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f1d98160f185146845c59bbfab5aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arma1: {fileID: 3233730339502621928}
+  arma2: {fileID: 7951365172276653742}
+  arma3: {fileID: 6096415705295080951}
+  arma4: {fileID: 913102841305326103}
 --- !u!1 &7986659953479751430
 GameObject:
   m_ObjectHideFlags: 0

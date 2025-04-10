@@ -43,6 +43,7 @@ public class PantallaIniciarNivel : MonoBehaviour
 
     public void CambioDeNivel()
     {
+        WeaponManagerDDOL.cargarEscena = true;
         SceneManager.LoadScene(nivel);
     }
 }
