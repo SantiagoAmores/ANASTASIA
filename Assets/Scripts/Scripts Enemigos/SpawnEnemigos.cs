@@ -31,7 +31,7 @@ public class SpawnEnemigos : MonoBehaviour
             
             if(randomPosition != Vector3.zero)
             {
-                int aleatorio = Random.Range(0, 5);
+                int aleatorio = Random.Range(0, 3);
                 Instantiate(enemigoPrefab[aleatorio], randomPosition, Quaternion.identity);
             }
         }

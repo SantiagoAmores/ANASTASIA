@@ -14,7 +14,6 @@ public class CanvasManager : MonoBehaviour
     public GameObject PanelVictoria;
     public GameObject PanelDerrota;
     public GameObject PanelOpciones;
-    public GameObject PanelMuseo;
 
     //Estadisticas
     private TextMeshProUGUI textoExperiencia;
@@ -50,7 +49,6 @@ public class CanvasManager : MonoBehaviour
         PanelDerrota.SetActive(false);
         PanelVictoria.SetActive(false);
         PanelOpciones.SetActive(false);
-        PanelMuseo.SetActive(false);
     }
 
     // Update is called once per frame
@@ -114,11 +112,10 @@ public class CanvasManager : MonoBehaviour
     public void Atras()
     {
         PanelOpciones.SetActive(false);
-        PanelMuseo.SetActive(false);
     }
 
     public void Museo()
     {
-        PanelMuseo.SetActive(true);
+        SceneManager.LoadScene("Scene_Museo");
     }
 }

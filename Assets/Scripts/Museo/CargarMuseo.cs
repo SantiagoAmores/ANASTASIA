@@ -12,6 +12,8 @@ public class CargarMuseo : MonoBehaviour
     public Button botonArma3;
     void Start()
     {
+        Time.timeScale = 1f;
+
         WeaponManagerDDOL.instancia.armaSeleccionada = -1;
         botonArma0.onClick.RemoveAllListeners();
         //botonArma1.onClick.RemoveAllListeners();
@@ -22,8 +24,5 @@ public class CargarMuseo : MonoBehaviour
         //botonArma1.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma1());
         botonArma2.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma2());
         botonArma3.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma3());
-
-
     }
-
 }
