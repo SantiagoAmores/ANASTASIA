@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class SpawnEnemigos : MonoBehaviour
 {
-    public GameObject enemigoPrefab;
+    public GameObject[] enemigoPrefab;
     public bool seguir = true;
     public float spawnAreaRadius = 10f;
 
@@ -31,7 +31,8 @@ public class SpawnEnemigos : MonoBehaviour
             
             if(randomPosition != Vector3.zero)
             {
-                Instantiate(enemigoPrefab, randomPosition, Quaternion.identity);
+                int aleatorio = Random.Range(0, 5);
+                Instantiate(enemigoPrefab[aleatorio], randomPosition, Quaternion.identity);
             }
         }
     }
