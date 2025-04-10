@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class PantallaIniciarNivel : MonoBehaviour
@@ -10,6 +11,8 @@ public class PantallaIniciarNivel : MonoBehaviour
     public GameObject PantallaNivelCanvas;
     public string nivel;
     public Button empezarNivel;
+    public TMP_Text textoNivel;
+    public TMP_Text armaSeleccionada;
 
     // NOTA: Cada uno de los triggers incluye el nivel por escrito desde el inspector de Unity.
     // Elimina las funciones del boton de empezar el nivel al principio para evitar bugs, y cada vez que se entra en el collider de uno de los niveles
@@ -17,9 +20,12 @@ public class PantallaIniciarNivel : MonoBehaviour
 
     void Start()
     {
-        PantallaNivelCanvas = GameObject.Find("CanvasSeleccionNivel");
+        PantallaNivelCanvas.SetActive(false);
         
-        empezarNivel = GameObject.Find("EmpezarNivel").GetComponent<Button>();
+        if (empezarNivel == null)
+        {
+            empezarNivel = PantallaNivelCanvas.GetComponentInChildren<Button>();
+        }
         empezarNivel.onClick.RemoveAllListeners();
     }
 
@@ -29,7 +35,11 @@ public class PantallaIniciarNivel : MonoBehaviour
         {
             PantallaNivelCanvas.SetActive(true);
             empezarNivel.onClick.RemoveAllListeners();
-            empezarNivel.onClick.AddListener(CambioDeNivel);
+
+            string nivelActual = nivel;
+            textoNivel.text = nivelActual;
+
+            empezarNivel.onClick.AddListener(() => CambioDeNivel(nivelActual));
         }
     }
 
@@ -41,9 +51,9 @@ public class PantallaIniciarNivel : MonoBehaviour
         }
     }
 
-    public void CambioDeNivel()
+    public void CambioDeNivel(string nivelCargar)
     {
         WeaponManagerDDOL.cargarEscena = true;
-        SceneManager.LoadScene(nivel);
+        SceneManager.LoadScene(nivelCargar);
     }
 }
