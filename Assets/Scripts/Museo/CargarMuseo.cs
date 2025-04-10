@@ -13,16 +13,20 @@ public class CargarMuseo : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        if (WeaponManagerDDOL.instancia != null)
+        {
+            WeaponManagerDDOL.instancia.armaSeleccionada = -1;
+            botonArma0.onClick.RemoveAllListeners();
+            //botonArma1.onClick.RemoveAllListeners();
+            botonArma2.onClick.RemoveAllListeners();
+            botonArma3.onClick.RemoveAllListeners();
 
-        WeaponManagerDDOL.instancia.armaSeleccionada = -1;
-        botonArma0.onClick.RemoveAllListeners();
-        //botonArma1.onClick.RemoveAllListeners();
-        botonArma2.onClick.RemoveAllListeners();
-        botonArma3.onClick.RemoveAllListeners();
+            botonArma0.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma0());
+            //botonArma1.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma1());
+            botonArma2.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma2());
+            botonArma3.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma3());
+        }
 
-        botonArma0.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma0());
-        //botonArma1.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma1());
-        botonArma2.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma2());
-        botonArma3.onClick.AddListener(() => WeaponManagerDDOL.instancia.SeleccionarArma3());
+
     }
 }

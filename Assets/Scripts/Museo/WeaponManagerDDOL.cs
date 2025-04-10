@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WeaponManagerDDOL : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class WeaponManagerDDOL : MonoBehaviour
 
     public static bool cargarEscena = false;
 
+    public TextMeshProUGUI textoArma;
+
     void Awake()
     {
         if (instancia == null)
@@ -17,10 +21,25 @@ public class WeaponManagerDDOL : MonoBehaviour
             instancia = this;
             DontDestroyOnLoad(gameObject);
             armaSeleccionada = -1;
+            SceneManager.sceneLoaded += activarArmaPorSiAcaso;
+
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= activarArmaPorSiAcaso;
+    }
+
+    void activarArmaPorSiAcaso(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "Scene_Museo" && armaSeleccionada == -1)
+        {
+            SeleccionarArma(0);
         }
     }
 
@@ -31,7 +50,15 @@ public class WeaponManagerDDOL : MonoBehaviour
 
     public void SeleccionarArma(int index)
     {
-        Debug.Log("Arma numero " + index + " activada. Si pulsas empezar deberia activarse");
+        if (textoArma == null)
+        {
+            textoArma = GameObject.Find("textoArma")?.GetComponent<TextMeshProUGUI>();
+        }
+
+        if (textoArma != null)
+        {
+            textoArma.text = "Arma numero " + index + " seleccionada.";
+        }
         armaSeleccionada = index;
     }
 }
