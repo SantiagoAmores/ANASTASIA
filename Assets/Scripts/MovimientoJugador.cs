@@ -12,11 +12,15 @@ public class MovimientoJugador : MonoBehaviour
     public float rotationSpeed = 10f;
     private CharacterController characterController;
 
+    private Animator animator;
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         characterController = GetComponent<CharacterController>();
+
+        animator = GetComponentInChildren<Animator>();
 
         // Asegurarse de que no haya movimiento al iniciar el juego
         characterController.Move(Vector3.zero);
@@ -31,23 +35,20 @@ public class MovimientoJugador : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
-        // Solo permitir el movimiento si hay entrada del jugador
-        if (moveX != 0 || moveZ != 0)
-        {
-            Vector3 movement = new Vector3(moveX, 0, moveZ).normalized;
-            float movementSpeed = movement.magnitude;
+        Vector3 movement = new Vector3(moveX, 0, moveZ).normalized;
 
-            // Mover al personaje
+        // 🟢 Activamos o desactivamos el bool según haya movimiento o no
+        animator.SetBool("isWalking", movement.magnitude > 0.05f);
+
+        if (movement.magnitude > 0)
+        {
             characterController.Move(movement * speed * Time.deltaTime);
 
-            // Rotación suave hacia la dirección del movimiento
             Quaternion targetRotation = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
-
         else
         {
-            // Detener al personaje cuando no hay movimiento (sin entrada)
             characterController.Move(Vector3.zero);
         }
     }
