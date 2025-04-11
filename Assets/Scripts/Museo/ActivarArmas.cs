@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ActivadorDeArma : MonoBehaviour
 {
+    // Define las cuatro armas, es decir los scripts
     public MonoBehaviour arma1;
     public MonoBehaviour arma2;
     public MonoBehaviour arma3;
@@ -10,11 +11,13 @@ public class ActivadorDeArma : MonoBehaviour
 
     void Start()
     {
+        // Si cargarEscena es false, ignora el start
         if (!WeaponManagerDDOL.cargarEscena)
         {
             return;
         }
 
+        // Desactiva las armas
         arma1.enabled = false;
         arma2.enabled = false;
         arma3.enabled = false;
@@ -23,11 +26,14 @@ public class ActivadorDeArma : MonoBehaviour
 
     void Update()
     {
+        // Si cargarEscena es false, ignora el start
         if (!WeaponManagerDDOL.cargarEscena)
         {
             return;
         }
+        
 
+        // Activa el arma
         int arma = WeaponManagerDDOL.instancia.armaSeleccionada;
 
         arma1.enabled = (arma == 0);

@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-
 
 public class PantallaIniciarNivel : MonoBehaviour
 {
@@ -14,21 +11,24 @@ public class PantallaIniciarNivel : MonoBehaviour
     public TMP_Text textoNivel;
     public TMP_Text armaSeleccionada;
 
-    // NOTA: Cada uno de los triggers incluye el nivel por escrito desde el inspector de Unity.
-    // Elimina las funciones del boton de empezar el nivel al principio para evitar bugs, y cada vez que se entra en el collider de uno de los niveles
-    // se vuelve a asignar la funcion del nivel teniendo en cuenta el nivel escrito por el inspector
-
     void Start()
     {
+        // Oculta la ventana de la interfaz
         PantallaNivelCanvas.SetActive(false);
         
+        // Por si acaso busca el boton
         if (empezarNivel == null)
         {
             empezarNivel = PantallaNivelCanvas.GetComponentInChildren<Button>();
         }
+
+        // Elimina las listeners previos del boton, para que se asigne en OnTriggerEnter
         empezarNivel.onClick.RemoveAllListeners();
     }
 
+    // Cuando el jugador entra en el trigger, muestra el canvas, vuelve a eliminar los listeners por si aca, coge el texto escrito manualmente en el inspector,
+    // que es el nombre de la escena a cargar, muestra el nombre del nivel en el canvas y añade el listener que llama a la funcion de cargar la escena
+    // y carga la escena del texto que se muestra en el canvas
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -43,6 +43,7 @@ public class PantallaIniciarNivel : MonoBehaviour
         }
     }
 
+    // Cuando el jugador sale esconde el canvas
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -51,6 +52,7 @@ public class PantallaIniciarNivel : MonoBehaviour
         }
     }
 
+    // Funcion para cargar la escena
     public void CambioDeNivel(string nivelCargar)
     {
         WeaponManagerDDOL.cargarEscena = true;

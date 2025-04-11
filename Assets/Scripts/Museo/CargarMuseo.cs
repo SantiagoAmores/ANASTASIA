@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CargarMuseo : MonoBehaviour
@@ -12,10 +9,16 @@ public class CargarMuseo : MonoBehaviour
     public Button botonArma3;
     void Start()
     {
+        // Restaura el tiempo por si acaso al volver al museo
         Time.timeScale = 1f;
+        WeaponManagerDDOL.cargarEscena = false;
+
+        // Si hay un arma activada, se asigna por defecto un arma vacia
         if (WeaponManagerDDOL.instancia != null)
         {
             WeaponManagerDDOL.instancia.armaSeleccionada = -1;
+
+            // Limpia las funciones de los botones de armas y luego las vuelve a rellenar
             botonArma0.onClick.RemoveAllListeners();
             //botonArma1.onClick.RemoveAllListeners();
             botonArma2.onClick.RemoveAllListeners();
