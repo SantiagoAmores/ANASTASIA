@@ -9,6 +9,7 @@ public class SpawnEnemigos : MonoBehaviour
     public bool seguir = true;
     public float spawnAreaRadius = 10f;
 
+    public GameObject spawnEfectoPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,12 @@ public class SpawnEnemigos : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
             Vector3 randomPosition = GetRandomPositionOnNavMesh(transform.position, spawnAreaRadius);
+
+            if (spawnEfectoPrefab != null)
+            {
+                GameObject efecto = Instantiate(spawnEfectoPrefab, randomPosition, Quaternion.identity);
+                Destroy(efecto, 1f);
+            }
             
             if(randomPosition != Vector3.zero)
             {

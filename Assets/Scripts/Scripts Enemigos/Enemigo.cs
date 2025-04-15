@@ -59,7 +59,7 @@ public class Enemigo : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
-            Vector3 puntoDeExperienciaPosicion = new Vector3(transform.position.x, 1f, transform.position.z);
+            Vector3 puntoDeExperienciaPosicion = new Vector3(transform.position.x, 0.5f, transform.position.z);
             Instantiate(puntoExperienciaPrefab, puntoDeExperienciaPosicion, Quaternion.identity);
             Destroy(this.gameObject);
         }
@@ -79,7 +79,7 @@ public class Enemigo : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         enemigoCollider.enabled = true;
-        enemigo.speed = 3.5f;
+        enemigo.speed = 2.5f;
 
     }
 }
