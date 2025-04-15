@@ -13,6 +13,8 @@ public class Opciones : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(panelBrillo);
+
         //Brillo
         float brilloGuardado = PlayerPrefs.GetFloat("brillo", 1f);
         sliderBrillo.value = brilloGuardado;
