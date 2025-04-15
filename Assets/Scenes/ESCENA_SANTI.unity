@@ -200,7 +200,7 @@ MonoBehaviour:
   sliderExp: {fileID: 0}
   expMaxPorNivel: 5
   cuentaAtras: {fileID: 784039600}
-  startTime: 20
+  startTime: 50
 --- !u!114 &66993096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2823,7 +2823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc242e1349195f469d12929ddf692ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trailPrefab: {fileID: 1392915274599990847, guid: 2ad5b761d9b43bf43846745fec1b734b, type: 3}
+  proyectilPrefab: {fileID: 1392915274599990847, guid: 2ad5b761d9b43bf43846745fec1b734b, type: 3}
   spawnInterval: 2
 --- !u!1 &783633720
 GameObject:
