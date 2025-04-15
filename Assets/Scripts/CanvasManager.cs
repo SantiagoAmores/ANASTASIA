@@ -29,6 +29,9 @@ public class CanvasManager : MonoBehaviour
     public float startTime = 120f;
     private float timeLeft;
 
+    private TextMeshProUGUI tiempo;
+    private TextMeshProUGUI experiencia;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,9 @@ public class CanvasManager : MonoBehaviour
         textoNivel = GameObject.Find("TextoNivel").GetComponent<TextMeshProUGUI>();
 
         sliderExp = GameObject.Find("SliderXP").GetComponent<Slider>();
+
+        tiempo = GameObject.Find("TiempoDemo").GetComponent<TextMeshProUGUI>();
+        experiencia = GameObject.Find("ExperienciaDemo").GetComponent<TextMeshProUGUI>();
 
         sliderExp.minValue = 0;
         sliderExp.maxValue = expMaxPorNivel;
@@ -70,13 +76,22 @@ public class CanvasManager : MonoBehaviour
             timeLeft--;
         }
 
-        Victoria();
+        //Victoria();
+        VictoriaDemo();
         //cuentaAtras.text = "Te has quedado sin tiempo :(";
     }
 
     public void Victoria()
     {
         PanelVictoria.SetActive(true);
+        Time.timeScale = 0f; // Pausar el juego
+    }
+
+    public void VictoriaDemo()
+    {
+        PanelVictoria.SetActive(true);
+        tiempo.text = "Tiempo que has sobrevivido\n" + (999 - startTime) + " segundos";
+        tiempo.text = "Tiempo que has sobrevivido\n" + (999 - startTime) + " segundos";
         Time.timeScale = 0f; // Pausar el juego
     }
 
