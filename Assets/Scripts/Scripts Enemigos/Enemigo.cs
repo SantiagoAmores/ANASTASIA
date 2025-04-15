@@ -14,11 +14,28 @@ public class Enemigo : MonoBehaviour
 
     private Animator animator;
 
+    private Collider enemigoCollider;
+
+    private void Awake()
+    {
+        enemigo = GetComponent<NavMeshAgent>();
+        enemigoCollider = GetComponent<Collider>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         jugador = GameObject.FindGameObjectWithTag("Player");
         canvasManager = FindObjectOfType<CanvasManager>();
+
+        Vector3 miraAnastasia = jugador.transform.position - transform.position;
+        miraAnastasia.y = 0f;
+        if (miraAnastasia != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(miraAnastasia);
+        }
+
+        StartCoroutine(AlSpawnear());
 
         //animator = GetComponent<Animator>();  // Obtener el Animator del enemigo
 
@@ -42,7 +59,8 @@ public class Enemigo : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
-            Instantiate(puntoExperienciaPrefab, this.gameObject.transform.position, Quaternion.identity);
+            Vector3 puntoDeExperienciaPosicion = new Vector3(transform.position.x, 1f, transform.position.z);
+            Instantiate(puntoExperienciaPrefab, puntoDeExperienciaPosicion, Quaternion.identity);
             Destroy(this.gameObject);
         }
 
@@ -51,5 +69,17 @@ public class Enemigo : MonoBehaviour
             Time.timeScale = 0f;
             canvasManager.Derrota();
         }
+    }
+
+    public IEnumerator AlSpawnear()
+    {
+        enemigoCollider.enabled = false;
+        enemigo.speed = 0f;
+
+        yield return new WaitForSeconds(0.5f);
+
+        enemigoCollider.enabled = true;
+        enemigo.speed = 3.5f;
+
     }
 }

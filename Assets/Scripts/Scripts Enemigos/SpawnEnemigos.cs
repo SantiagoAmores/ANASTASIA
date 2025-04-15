@@ -25,7 +25,7 @@ public class SpawnEnemigos : MonoBehaviour
     {
         while (seguir)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.75f);
 
             Vector3 randomPosition = GetRandomPositionOnNavMesh(transform.position, spawnAreaRadius);
             
