@@ -10,11 +10,25 @@ public class Opciones : MonoBehaviour
     public Slider sliderBrillo;
     public Toggle pantallaCompletaToggle;
 
+    public static Opciones patatilla;
+
+    /*void Awake()
+    {
+        if (patatilla == null)
+        {
+            patatilla = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }*/
+
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(panelBrillo);
-
         //Brillo
         float brilloGuardado = PlayerPrefs.GetFloat("brillo", 1f);
         sliderBrillo.value = brilloGuardado;
@@ -32,13 +46,16 @@ public class Opciones : MonoBehaviour
         
     }
 
-    public void CambiarBrillo (float valor)
+    public void CambiarBrillo(float valor)
     {
+        // Cambiar el alpha del panel
         Color colorActual = panelBrillo.color;
         colorActual.a = 1f - valor;
         panelBrillo.color = colorActual;
 
+        // Guardar la configuración
         PlayerPrefs.SetFloat("brillo", valor);
+        PlayerPrefs.Save(); // Opcional pero recomendable
     }
 
     public void CambiarPantallaCompleta (bool esCompleta)

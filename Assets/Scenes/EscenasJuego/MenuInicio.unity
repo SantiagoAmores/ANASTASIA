@@ -611,7 +611,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1680378612}
   - {fileID: 1042368106}
   - {fileID: 195834891}
   - {fileID: 406988948}
@@ -886,7 +885,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &467552933
 RectTransform:
@@ -2415,11 +2414,11 @@ Transform:
   m_GameObject: {fileID: 1680378611}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66.39819, y: -0.82611084, z: 0}
+  m_LocalPosition: {x: 1026.3982, y: 539.1739, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 271274253}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1680378613
 MonoBehaviour:
@@ -2747,3 +2746,4 @@ SceneRoots:
   - {fileID: 467552933}
   - {fileID: 206371800}
   - {fileID: 396380304}
+  - {fileID: 1680378612}
