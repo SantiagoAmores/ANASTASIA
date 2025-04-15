@@ -67,8 +67,10 @@ public class Arma1 : MonoBehaviour
         proyectilLista.Add(instanciaProyectil);
 
         Rigidbody rb = instanciaProyectil.GetComponent<Rigidbody>();
+        Debug.Log("Antes de AddForce: " + rb.velocity);
         rb.constraints = RigidbodyConstraints.FreezePositionY;
         rb.AddForce(direccion * 500f);
+        Debug.Log("Después de AddForce: " + rb.velocity);
 
         StartCoroutine(DespawnProyectilRutina(instanciaProyectil));
     }
