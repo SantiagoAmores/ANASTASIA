@@ -29,7 +29,7 @@ public class Arma1 : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(1f);
 
             if (enemigosLista.Length == 0) continue;
             EncontrarEnemigoMasCercano();
