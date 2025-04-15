@@ -37,7 +37,7 @@ public class MovimientoJugador : MonoBehaviour
 
         Vector3 movement = new Vector3(moveX, 0, moveZ).normalized;
 
-        // 🟢 Activamos o desactivamos el bool según haya movimiento o no
+        // Activamos o desactivamos el bool según haya movimiento o no
         animator.SetBool("isWalking", movement.magnitude > 0.05f);
 
         if (movement.magnitude > 0)
@@ -64,7 +64,4 @@ public class MovimientoJugador : MonoBehaviour
             }
         
     }
-
-    // Control de animación
-    //animator.SetFloat("Speed", movementSpeed);
 }
