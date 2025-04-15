@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Experiencia
   - Projectile2
+  - brillo
   layers:
   - Default
   - TransparentFX
