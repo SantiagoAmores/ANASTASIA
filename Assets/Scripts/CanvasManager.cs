@@ -29,8 +29,10 @@ public class CanvasManager : MonoBehaviour
     public float startTime = 120f;
     private float timeLeft;
 
-    private TextMeshProUGUI tiempo;
-    private TextMeshProUGUI experiencia;
+    public TextMeshProUGUI tiempo;
+    public GameObject tiempoPanel;
+    public TextMeshProUGUI experiencia;
+    public GameObject experienciaPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,8 @@ public class CanvasManager : MonoBehaviour
         PanelDerrota.SetActive(false);
         PanelVictoria.SetActive(false);
         PanelOpciones.SetActive(false);
+        tiempoPanel.SetActive(false);
+        experienciaPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -81,25 +85,40 @@ public class CanvasManager : MonoBehaviour
         //cuentaAtras.text = "Te has quedado sin tiempo :(";
     }
 
+    /*
     public void Victoria()
     {
         PanelVictoria.SetActive(true);
         Time.timeScale = 0f; // Pausar el juego
-    }
+    }*/
 
     public void VictoriaDemo()
     {
         PanelVictoria.SetActive(true);
-        tiempo.text = "Tiempo que has sobrevivido\n" + (999 - startTime) + " segundos";
-        tiempo.text = "Tiempo que has sobrevivido\n" + (999 - startTime) + " segundos";
+        tiempo.text = "Tiempo: \n" + startTime + " segundos";
+        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
+        tiempoPanel.SetActive(true);
+        experienciaPanel.SetActive(true);
+
         Time.timeScale = 0f; // Pausar el juego
     }
 
+    public void DerrotaDemo()
+    {
+        PanelDerrota.SetActive(true);
+        Time.timeScale = 0f;
+        tiempo.text = "Tiempo: \n" + (startTime - timeLeft) + " segundos";
+        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
+        tiempoPanel.SetActive(true);
+        experienciaPanel.SetActive(true);
+    }
+
+    /*
     public void Derrota()
     {
         PanelDerrota.SetActive(true);
         Time.timeScale = 0f; // Pausar el juego
-    }
+    }*/
 
     public void MenúInicio()
     {

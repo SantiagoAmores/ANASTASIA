@@ -67,7 +67,7 @@ public class Enemigo : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Time.timeScale = 0f;
-            canvasManager.Derrota();
+            canvasManager.DerrotaDemo(); //Cambiar Cuando se quite la demo
         }
     }
 
