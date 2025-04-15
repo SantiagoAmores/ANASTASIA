@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Arma1 : MonoBehaviour
@@ -28,7 +29,7 @@ public class Arma1 : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.05f);
 
             if (enemigosLista.Length == 0) continue;
             EncontrarEnemigoMasCercano();
@@ -60,12 +61,14 @@ public class Arma1 : MonoBehaviour
     // Ademas, le añade fuerza al proyectil para que se dispare en direccion al enemigo mas cercano
     private void DispararProyectil(GameObject objetivo)
     {
-        GameObject instanciaProyectil = Instantiate(proyectil, transform.position, Quaternion.identity);
+        Vector3 direccion = (objetivo.transform.position -transform.position).normalized;
+
+        GameObject instanciaProyectil = Instantiate(proyectil, transform.position, Quaternion.LookRotation(direccion));
         proyectilLista.Add(instanciaProyectil);
 
         Rigidbody rb = instanciaProyectil.GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePositionY;
-        rb.AddForce((objetivo.transform.position - transform.position).normalized * 500f);
+        rb.AddForce(direccion * 500f);
 
         StartCoroutine(DespawnProyectilRutina(instanciaProyectil));
     }
