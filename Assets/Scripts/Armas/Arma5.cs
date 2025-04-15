@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Arma5 : MonoBehaviour
 {
-    public GameObject trailPrefab;
+    public GameObject proyectilPrefab;
     public float spawnInterval = 2f;
 
     private float timer = 0f;
@@ -14,17 +14,13 @@ public class Arma5 : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, lastPosition) > 0.1f && timer >= spawnInterval)
+        if (Vector3.Distance(transform.position, lastPosition) > 0.01f && timer >= spawnInterval)
         {
-            SpawnTrail();
+            Vector3 spawnPos = new Vector3(transform.position.x, 0.5f, transform.position.z);
+            Instantiate(proyectilPrefab, spawnPos, Quaternion.identity);
             timer = 0f;
         }
 
         lastPosition = transform.position;
-    }
-
-    void SpawnTrail()
-    {
-        Instantiate(trailPrefab, transform.position, Quaternion.identity);
     }
 }
