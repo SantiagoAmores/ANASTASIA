@@ -3170,7 +3170,7 @@ MonoBehaviour:
   sliderExp: {fileID: 0}
   expMaxPorNivel: 5
   cuentaAtras: {fileID: 1386057500}
-  startTime: 999
+  startTime: 120
   tiempo: {fileID: 1020845805}
   tiempoPanel: {fileID: 1020845804}
   experiencia: {fileID: 229265264}
@@ -5734,6 +5734,7 @@ MonoBehaviour:
   seguir: 1
   spawnAreaRadius: 20
   spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
+  tiempoEntreSpawns: 5
 --- !u!82 &1270992912
 AudioSource:
   m_ObjectHideFlags: 0

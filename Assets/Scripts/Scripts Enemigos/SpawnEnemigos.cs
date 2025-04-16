@@ -11,10 +11,13 @@ public class SpawnEnemigos : MonoBehaviour
 
     public GameObject spawnEfectoPrefab;
 
+    public float tiempoEntreSpawns = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Spawns());
+        StartCoroutine(CambiarRatioEnemigos());
     }
 
     // Update is called once per frame
@@ -26,7 +29,7 @@ public class SpawnEnemigos : MonoBehaviour
     {
         while (seguir)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(tiempoEntreSpawns);
 
             Vector3 randomPosition = GetRandomPositionOnNavMesh(transform.position, spawnAreaRadius);
 
@@ -56,5 +59,14 @@ public class SpawnEnemigos : MonoBehaviour
         }
 
         return Vector3.zero;
+    }
+
+    public IEnumerator CambiarRatioEnemigos()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(10f);
+            tiempoEntreSpawns = Mathf.Max(0.1f, tiempoEntreSpawns/2f);
+        }
     }
 }
