@@ -34,7 +34,7 @@ public class Arma3 : MonoBehaviour
             float randomX = Random.Range(-radio, radio);
             float randomZ = Random.Range(-radio, radio);
 
-            Vector3 spawnPosition = player.transform.position + new Vector3(randomX, 0, randomZ);
+            Vector3 spawnPosition = player.transform.position + new Vector3(randomX, -1f, randomZ);
 
             GameObject instanciarPintura = Instantiate(pintura, spawnPosition, Quaternion.identity);
 
@@ -64,7 +64,7 @@ public class Arma3 : MonoBehaviour
             if (instanciarPintura != null)
             {
                 instanciarPintura.transform.localScale = escalaFinal;
-                Destroy(instanciarPintura, 0.2f);
+                Destroy(instanciarPintura, 2f);
             }
 
             yield return new WaitForSeconds(2f);
