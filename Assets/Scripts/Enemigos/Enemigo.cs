@@ -85,7 +85,27 @@ public class Enemigo : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             moverJugador.herirAnastasia(enemigoAtaque);
+            AnimacionHerida();
         }
+    }
+
+    IEnumerator AnimacionHerida()
+    {
+        //SkinnedMeshRenderer [] anastasiaPiezas;
+
+        //anastasiaPiezas = jugador.GetComponentsInChildren<SkinnedMeshRenderer>();
+
+        //foreach (var pieza in anastasiaPiezas)
+        //{
+        //    pieza.material.color = Color.red;
+        //}
+
+        yield return new WaitForSeconds(0.5f);
+
+        //foreach (var pieza in anastasiaPiezas)
+        //{
+        //    pieza.material.color = Color.white;
+        //}
     }
 
     public void RecibirGolpe(int cantidadDeGolpe)
