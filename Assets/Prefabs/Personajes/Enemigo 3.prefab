@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7107119439095979228}
   - component: {fileID: 6191976480151542571}
   - component: {fileID: 2127145669773595877}
+  - component: {fileID: 565694356089094150}
   m_Layer: 0
   m_Name: Enemigo 3
   m_TagString: Enemy
@@ -148,6 +149,10 @@ MonoBehaviour:
   enemigo: {fileID: 7107119439095979228}
   jugador: {fileID: 0}
   puntoExperienciaPrefab: {fileID: 4945588894475210533, guid: 87862d5f6903b034c9db1cc0eb324180, type: 3}
+  enemigoVida: 0
+  enemigoVelocidad: 0
+  enemigoAtaque: 0
+  enemigoExperiencia: 0
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -175,6 +180,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &565694356089094150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374344966642074657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306946cb38886054fa1f7ea6add90b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigoVida: 0
+  enemigoVelocidad: 0
+  enemigoAtaque: 0
+  enemigoExperiencia: 0
 --- !u!1001 &7887410442582364696
 PrefabInstance:
   m_ObjectHideFlags: 0

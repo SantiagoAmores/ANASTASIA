@@ -8,19 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscenasJuego/MenuInicio.unity
     guid: e5cb64841b87610458b35633d722639b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EscenasJuego/Scene_Museo.unity
     guid: e659cbf2084c66b4c92cdd95641ef2e7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EscenasJuego/Scene_Nivel_1.unity
     guid: 3212882aa1e238b48ab0924a95c115c6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EscenasJuego/Scene_Nivel_2.unity
     guid: 721dd05b13b3290449f4ac49db715128
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EscenasJuego/Scene_Nivel_3.unity
     guid: 6ca762c6823b5c54691e54e1f6fb57a9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EscenasJuego/Scene_Demo.unity
     guid: 4ba1d685bad65914d82bfe2f232f85e6
   m_configObjects:

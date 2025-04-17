@@ -43,7 +43,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 920e8ecf183c7404aa2544d1741bb6f8, type: 3}
   m_Name: 
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c10d7819b3b97f448a9e56af40b0601e, type: 3}
   m_Name: 
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7458a7bad81fcb54da6c21b20777a00b, type: 3}
   m_Name: 
@@ -87,12 +87,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16bbeb80bc6b6874285b7732f1f19555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomerangPrefab: {fileID: 8931575368003309421, guid: 1b351d7174d013449b7ae3455eecbef7, type: 3}
+  boomerangPrefab: {fileID: 4502277416638159692, guid: 00a8cae20654b4648a39959144a9a89a, type: 3}
   shootInterval: 2
   boomerangSpeed: 10
 --- !u!114 &7557716002391435356
