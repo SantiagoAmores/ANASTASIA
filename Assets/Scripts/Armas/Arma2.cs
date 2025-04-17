@@ -17,6 +17,8 @@ public class Arma2 : MonoBehaviour
         while (true)
         {
             GameObject instanciaProyectil = Instantiate(proyectil, (player.transform.position + new Vector3(0,0,2)), Quaternion.Euler(0, -90, 90));
+            instanciaProyectil.transform.parent = player.transform;
+            
             float tiempoTranscurrido = 0f;
             
             while (tiempoTranscurrido < 1)
