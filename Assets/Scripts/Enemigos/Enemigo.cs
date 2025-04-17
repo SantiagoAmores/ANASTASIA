@@ -13,6 +13,8 @@ public class Enemigo : MonoBehaviour
 
     private CanvasManager canvasManager;
 
+    private bool golpeable = true;
+
     //private Animator animator;
 
     private Collider enemigoCollider;
@@ -110,6 +112,14 @@ public class Enemigo : MonoBehaviour
 
     public void RecibirGolpe(int cantidadDeGolpe)
     {
+        
+        if (!golpeable)
+        {
+            return;
+        }
+
+        StartCoroutine(HeridaPausa());
+
         // Le resta al enemigo de su salud el daño que hace el golpe recibido
         enemigoVidaActual -= cantidadDeGolpe;
 
@@ -147,5 +157,16 @@ public class Enemigo : MonoBehaviour
 
         enemigoCollider.enabled = true;
         enemigo.speed = enemigoVelocidad;
+    }
+
+    public IEnumerator HeridaPausa()
+    {
+
+        golpeable = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        golpeable = true;
+
     }
 }

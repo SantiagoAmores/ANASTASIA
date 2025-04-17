@@ -19,7 +19,7 @@ public class StatsAnastasia : MonoBehaviour
     public int arma2AtaqueBase = 1;
 
     // ARMA 3 BASE
-    public float arma3CadenciaBase = 1.3f;
+    public static float arma3CadenciaBase = 1f;
     public int arma3AtaqueBase = 1;
 
     // ARMA 4 BASE

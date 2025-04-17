@@ -75,7 +75,6 @@ public class Arma3 : MonoBehaviour
                 Destroy(instanciarPintura, 2f);
             }
 
-            yield return new WaitForSeconds(2f);
         }
     }
 }

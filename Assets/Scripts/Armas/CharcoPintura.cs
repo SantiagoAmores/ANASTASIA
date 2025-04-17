@@ -5,7 +5,8 @@ using UnityEngine;
 public class CharcoPintura : MonoBehaviour
 {
     public int golpe;
-    private void OnTriggerEnter (Collider other)
+
+    private void OnTriggerStay (Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
@@ -15,16 +16,9 @@ public class CharcoPintura : MonoBehaviour
 
                 enemigo.RecibirGolpe(golpe);
 
-                heridaPausa();
-
             }
 
         }
     }
 
-    // Para evitar que reciba golpe todo el rato cuando esta dentro del charco
-    private IEnumerator heridaPausa()
-    {
-        yield return new WaitForSeconds(0.5f);
-    }
 }
