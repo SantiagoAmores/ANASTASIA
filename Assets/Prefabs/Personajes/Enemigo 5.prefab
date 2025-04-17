@@ -104,7 +104,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -149,10 +149,11 @@ MonoBehaviour:
   enemigo: {fileID: 7107119439095979228}
   jugador: {fileID: 0}
   puntoExperienciaPrefab: {fileID: 4945588894475210533, guid: 87862d5f6903b034c9db1cc0eb324180, type: 3}
-  enemigoVida: 0
+  enemigoVidaTotal: 0
   enemigoVelocidad: 0
   enemigoAtaque: 0
   enemigoExperiencia: 0
+  enemigoVidaActual: 0
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -176,7 +177,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -193,9 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigoVida: 0
-  enemigoVelocidad: 0
   enemigoAtaque: 0
+  enemigoVelocidad: 0
   enemigoExperiencia: 0
+  esUnJefe: 0
+  faseDeJefe: 0
 --- !u!1001 &971412479079734279
 PrefabInstance:
   m_ObjectHideFlags: 0

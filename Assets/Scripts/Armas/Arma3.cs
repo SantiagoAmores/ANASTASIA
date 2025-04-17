@@ -14,9 +14,13 @@ public class Arma3 : MonoBehaviour
     private float radio = 5f; // Área alrededor del jugador
     private Vector3 escalaFinal = new Vector3(5f, 0.1f, 5f);
 
+    // Stats
+    public StatsAnastasia stats;
+
     void Start()
     {
         player = GameObject.Find("Anastasia");
+        stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
         StartCoroutine(InstanciarPintura());
     }
 
@@ -28,7 +32,7 @@ public class Arma3 : MonoBehaviour
             // Comprobamos que funciona el bucle
             Debug.Log("Instanciando pintura...");
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(stats.arma3Cadencia);
 
             // Generar una posición aleatoria dentro de un cuadrado alrededor del jugador
             float randomX = Random.Range(-radio, radio);
@@ -37,6 +41,10 @@ public class Arma3 : MonoBehaviour
             Vector3 spawnPosition = player.transform.position + new Vector3(randomX, -1f, randomZ);
 
             GameObject instanciarPintura = Instantiate(pintura, spawnPosition, Quaternion.identity);
+
+            // CALCULA EL DAÑO DEL PROYECTIL
+            CharcoPintura charcoScript = instanciarPintura.GetComponent<CharcoPintura>();
+            if (charcoScript != null) { charcoScript.golpe = (int)stats.arma3Ataque; }
 
             Vector3 escalaInicial = Vector3.zero;
             instanciarPintura.transform.localScale = escalaInicial;
@@ -60,7 +68,7 @@ public class Arma3 : MonoBehaviour
                 yield return null;
             }
 
-            // Solo si aún existe, le damos la escala final y la destruimos después
+            // Solo si aun existe, le damos la escala final y la destruimos después
             if (instanciarPintura != null)
             {
                 instanciarPintura.transform.localScale = escalaFinal;

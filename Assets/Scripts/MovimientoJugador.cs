@@ -43,6 +43,9 @@ public class MovimientoJugador : MonoBehaviour
 
     void Update()
     {
+        // Actualizar vida Anastasia
+        vidaTotal = stats.vida;
+
         // Para el movimiento del personaje usaremos el Input Manager de Unity que nos va a permitir exportarlo a diferentes dispositivos sin modificar el script,
         // personalizar los controles y mantener ordenado el script trabajando desde los Axes
         float moveX = Input.GetAxis("Horizontal");
@@ -66,6 +69,7 @@ public class MovimientoJugador : MonoBehaviour
         {
             characterController.Move(Vector3.zero);
         }
+
     }
 
     private void OnTriggerEnter (Collider other)
