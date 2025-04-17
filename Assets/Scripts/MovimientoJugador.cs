@@ -8,11 +8,13 @@ public class MovimientoJugador : MonoBehaviour
     GameManager gameManager;
 
     //Controles del jugador
-    private float speed = 5f;
+    //private float speed = 5f;
     public float rotationSpeed = 10f;
     private CharacterController characterController;
 
     private Animator animator;
+
+    public StatsAnastasia stats;
 
     void Start()
     {
@@ -25,11 +27,11 @@ public class MovimientoJugador : MonoBehaviour
         // Asegurarse de que no haya movimiento al iniciar el juego
         characterController.Move(Vector3.zero);
 
+        stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
     }
 
     void Update()
     {
-
         // Para el movimiento del personaje usaremos el Input Manager de Unity que nos va a permitir exportarlo a diferentes dispositivos sin modificar el script,
         // personalizar los controles y mantener ordenado el script trabajando desde los Axes
         float moveX = Input.GetAxis("Horizontal");
@@ -42,7 +44,9 @@ public class MovimientoJugador : MonoBehaviour
 
         if (movement.magnitude > 0)
         {
-            characterController.Move(movement * speed * Time.deltaTime);
+            // Utiliza la estadistica de velocidad de StatsAnastasia
+            float velocidad = stats.velocidadMovimiento;
+            characterController.Move(movement * velocidad * Time.deltaTime);
 
             Quaternion targetRotation = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);

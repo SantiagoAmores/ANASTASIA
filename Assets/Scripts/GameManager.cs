@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public int nivel = 1;
 
     public static GameManager instancia;
+    public GameObject anastasia;
+
+    public delegate void NivelSubido();
+    public static event NivelSubido AlSubirDeNivel;
 
     void Awake()
     {
@@ -36,6 +40,15 @@ public class GameManager : MonoBehaviour
     void AlCargarEscena(Scene scene, LoadSceneMode mode)
     {
         ReiniciarNiveles();
+        anastasia = GameObject.FindWithTag("Player");
+        if (anastasia != null)
+        {
+
+        }
+        else
+        {
+            Debug.Log("En esta escena no esta Anastasia.");
+        }
     }
 
     public void SubirNivel()
@@ -45,6 +58,10 @@ public class GameManager : MonoBehaviour
         if (experienciaTotal % 5 == 0)
         {
             nivel++;
+            if (AlSubirDeNivel != null)
+            {
+                AlSubirDeNivel.Invoke();
+            }
         }
     }
 

@@ -516,7 +516,7 @@ MonoBehaviour:
   sliderExp: {fileID: 0}
   expMaxPorNivel: 5
   cuentaAtras: {fileID: 518441827}
-  startTime: 20
+  startTime: 120
 --- !u!114 &78019975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1965,6 +1965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experienciaTotal: 0
   nivel: 1
+  anastasia: {fileID: 0}
 --- !u!4 &640954498
 Transform:
   m_ObjectHideFlags: 0
@@ -2538,7 +2539,6 @@ MonoBehaviour:
   seguir: 1
   spawnAreaRadius: 10
   spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
-  tiempoEntreSpawns: 2
 --- !u!4 &854819793
 Transform:
   m_ObjectHideFlags: 0

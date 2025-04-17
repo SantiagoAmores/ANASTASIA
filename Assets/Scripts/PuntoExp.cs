@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PuntoExp : MonoBehaviour
 {
+    // Script adicional para que cuando Anastasia se acerque a un punto de experiencia lo absorba
+
     private Transform anastasia;
 
-    private void Start()
+    void Start()
     {
         anastasia = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void Update()
+    void Update()
     {
         if (anastasia != null)
         {
