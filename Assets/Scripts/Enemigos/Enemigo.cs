@@ -8,6 +8,7 @@ public class Enemigo : MonoBehaviour
     public NavMeshAgent enemigo;
 
     public GameObject jugador;
+    private MovimientoJugador moverJugador;
     public GameObject puntoExperienciaPrefab;
 
     private CanvasManager canvasManager;
@@ -35,6 +36,7 @@ public class Enemigo : MonoBehaviour
     void Start()
     {
         jugador = GameObject.FindGameObjectWithTag("Player");
+        moverJugador = jugador.GetComponent<MovimientoJugador>();
         canvasManager = FindObjectOfType<CanvasManager>();
 
         // Estadisticas del enemigo
@@ -82,8 +84,7 @@ public class Enemigo : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Time.timeScale = 0f;
-            canvasManager.Derrota();
+            moverJugador.herirAnastasia(enemigoAtaque);
         }
     }
 

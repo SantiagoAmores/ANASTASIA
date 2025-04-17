@@ -7,6 +7,8 @@ public class MovimientoJugador : MonoBehaviour
 {
     GameManager gameManager;
 
+    private CanvasManager canvasManager;
+
     //Controles del jugador
     //private float speed = 5f;
     public float rotationSpeed = 10f;
@@ -16,9 +18,14 @@ public class MovimientoJugador : MonoBehaviour
 
     public StatsAnastasia stats;
 
+    public int vidaTotal;
+    public int vidaActual;
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        canvasManager = FindObjectOfType<CanvasManager>();
 
         characterController = GetComponent<CharacterController>();
 
@@ -28,6 +35,10 @@ public class MovimientoJugador : MonoBehaviour
         characterController.Move(Vector3.zero);
 
         stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
+
+        // Declaramos la vida de Anastasia al comienzo del nivel
+        vidaTotal = stats.vidaBase;
+        vidaActual = vidaTotal;
     }
 
     void Update()
@@ -67,5 +78,16 @@ public class MovimientoJugador : MonoBehaviour
   
             }
         
+    }
+
+    public void herirAnastasia(int cantidadHerida)
+    {
+        vidaActual -= cantidadHerida;
+
+        if (vidaActual <= 0)
+        {
+            Time.timeScale = 0f;
+            canvasManager.Derrota();
+        }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class StatsAnastasia : MonoBehaviour
 {
     // VIDA BASE DE ANASTASIA
+    public int vidaBase = 5;
 
     // VELOCIDAD BASE DE ANASTASIA
     public float velocidadMovimientoBase = 5f;
@@ -34,6 +35,8 @@ public class StatsAnastasia : MonoBehaviour
     // ataque base
 
     // Los getters y setters hacen que solo este script pueda modificar los stats con AumentarEstadisticas()
+
+    public float vida { get; private set; }
     public float velocidadMovimiento { get; private set; }
     public float arma1Cadencia {  get; private set; }
     public float arma1Ataque { get; private set; }
@@ -43,6 +46,7 @@ public class StatsAnastasia : MonoBehaviour
     private void Start()
     {
         // ESTABLECER stats = statsBase
+        vida = vidaBase;
         velocidadMovimiento = velocidadMovimientoBase;
         
         arma1Cadencia = arma1CadenciaBase;
@@ -61,7 +65,7 @@ public class StatsAnastasia : MonoBehaviour
     void AumentarEstadisticas()
     {
         // Vida
-
+        vida += 1;
 
         // Velocidad de movimiento
         velocidadMovimiento += 0.25f;
