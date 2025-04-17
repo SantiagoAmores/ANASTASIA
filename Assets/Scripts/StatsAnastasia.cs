@@ -5,22 +5,22 @@ using UnityEngine;
 public class StatsAnastasia : MonoBehaviour
 {
     // VIDA BASE DE ANASTASIA
-    public int vidaBase = 5;
+    public static int vidaBase = 5;
 
     // VELOCIDAD BASE DE ANASTASIA
-    public float velocidadMovimientoBase = 5f;
+    public static float velocidadMovimientoBase = 5f;
 
     // ARMA 1 BASE
-    public float arma1CadenciaBase = 1.3f;
-    public int arma1AtaqueBase = 1;
+    public static float arma1CadenciaBase = 1.3f;
+    public static int arma1AtaqueBase = 1;
 
     // ARMA 2 BASE
-    public float arma2CadenciaBase = 1f;
-    public int arma2AtaqueBase = 1;
+    public static float arma2CadenciaBase = 1f;
+    public static int arma2AtaqueBase = 1;
 
     // ARMA 3 BASE
     public static float arma3CadenciaBase = 1f;
-    public int arma3AtaqueBase = 1;
+    public static int arma3AtaqueBase = 1;
 
     // ARMA 4 BASE
     // cadencia base aqui
