@@ -36,7 +36,18 @@ public class StatsAnastasia : MonoBehaviour
     // Los getters y setters hacen que solo este script pueda modificar los stats con AumentarEstadisticas()
     public float velocidadMovimiento { get; private set; }
     public float arma1Cadencia {  get; private set; }
+
+
+
+
+
     public float arma1Ataque { get; private set; }
+
+
+
+
+
+
 
     // PONER EL RESTO DE LOS GETTERS Y SETTERS AQUI
 
@@ -66,7 +77,7 @@ public class StatsAnastasia : MonoBehaviour
         // Velocidad de movimiento
         velocidadMovimiento += 0.25f;
 
-        // Cadencia de disparo
+        // Cadencia de disparos de las armas
         arma1Cadencia = Mathf.Max(0.3f, arma1Cadencia - 0.1f);
         
         // Daño de las armas
