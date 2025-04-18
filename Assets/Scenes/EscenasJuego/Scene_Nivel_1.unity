@@ -516,11 +516,7 @@ MonoBehaviour:
   sliderExp: {fileID: 0}
   expMaxPorNivel: 5
   cuentaAtras: {fileID: 518441827}
-  startTime: 20
-  tiempo: {fileID: 0}
-  tiempoPanel: {fileID: 0}
-  experiencia: {fileID: 0}
-  experienciaPanel: {fileID: 0}
+  startTime: 120
 --- !u!114 &78019975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,10 +900,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anastasia
       objectReference: {fileID: 0}
-    - target: {fileID: 8920793231583791727, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1190138250}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1948,7 +1940,6 @@ GameObject:
   m_Component:
   - component: {fileID: 640954498}
   - component: {fileID: 640954497}
-  - component: {fileID: 640954496}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1956,27 +1947,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &640954496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640954495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09684fff1c75ac44906e4573f77313c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigoPrefab:
-  - {fileID: 374344966642074657, guid: ee3eb84a7f973134f94c23bb4e36dba2, type: 3}
-  - {fileID: 374344966642074657, guid: f6e55a60d9a7c564497e51c2399c15a4, type: 3}
-  - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
-  - {fileID: 374344966642074657, guid: 527c5352acb023b4a81ca44745d67f60, type: 3}
-  - {fileID: 374344966642074657, guid: b9be6e5a3a6a9a8499afd246c7c685e1, type: 3}
-  - {fileID: 374344966642074657, guid: 0717377a851fe2b4696d430547b0acb4, type: 3}
-  seguir: 1
-  spawnAreaRadius: 20
 --- !u!114 &640954497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,6 +1961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experienciaTotal: 0
   nivel: 1
+  anastasia: {fileID: 0}
 --- !u!4 &640954498
 Transform:
   m_ObjectHideFlags: 0
@@ -2520,6 +2491,57 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775215566}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &854819790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 854819793}
+  - component: {fileID: 854819791}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &854819791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854819790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09684fff1c75ac44906e4573f77313c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigoPrefab:
+  - {fileID: 374344966642074657, guid: ee3eb84a7f973134f94c23bb4e36dba2, type: 3}
+  - {fileID: 374344966642074657, guid: f6e55a60d9a7c564497e51c2399c15a4, type: 3}
+  - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
+  seguir: 1
+  spawnAreaRadius: 10
+  spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
+--- !u!4 &854819793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854819790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -3832,11 +3854,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111470091}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!95 &1190138250 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 331023904852516706, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-  m_PrefabInstance: {fileID: 144851870}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237517723
 GameObject:
   m_ObjectHideFlags: 0
@@ -6077,6 +6094,7 @@ SceneRoots:
   - {fileID: 1495298064}
   - {fileID: 640954498}
   - {fileID: 775215568}
+  - {fileID: 854819793}
   - {fileID: 1237517726}
   - {fileID: 144851870}
   - {fileID: 78019978}

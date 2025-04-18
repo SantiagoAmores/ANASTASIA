@@ -11,8 +11,11 @@ public class Arma1 : MonoBehaviour
     public GameObject proyectil;
     public List<GameObject> proyectilLista = new List<GameObject>();
 
+    public StatsAnastasia stats;
+
     void Start()
     {
+        stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
         StartCoroutine("RutinaProyectil");
     }
 
@@ -29,7 +32,7 @@ public class Arma1 : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(stats.arma1Cadencia);
 
             if (enemigosLista.Length == 0) continue;
             EncontrarEnemigoMasCercano();
@@ -67,10 +70,12 @@ public class Arma1 : MonoBehaviour
         proyectilLista.Add(instanciaProyectil);
 
         Rigidbody rb = instanciaProyectil.GetComponent<Rigidbody>();
-        Debug.Log("Antes de AddForce: " + rb.velocity);
         rb.constraints = RigidbodyConstraints.FreezePositionY;
         rb.AddForce(direccion * 500f);
-        Debug.Log("Después de AddForce: " + rb.velocity);
+
+        // CALCULA EL DAÑO DEL PROYECTIL
+        ProyectilDestruible proyectilScript = instanciaProyectil.GetComponent<ProyectilDestruible>();
+        if (proyectilScript != null) { proyectilScript.golpe = (int)stats.arma1Ataque; }
 
         StartCoroutine(DespawnProyectilRutina(instanciaProyectil));
     }

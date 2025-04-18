@@ -3753,10 +3753,6 @@ MonoBehaviour:
   expMaxPorNivel: 5
   cuentaAtras: {fileID: 1055314596}
   startTime: 20
-  tiempo: {fileID: 0}
-  tiempoPanel: {fileID: 0}
-  experiencia: {fileID: 0}
-  experienciaPanel: {fileID: 0}
 --- !u!114 &1114979858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3984,6 +3980,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140059336}
   m_CullTransparentMesh: 1
+--- !u!1 &1167375882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167375884}
+  - component: {fileID: 1167375883}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1167375883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167375882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09684fff1c75ac44906e4573f77313c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigoPrefab:
+  - {fileID: 374344966642074657, guid: ee3eb84a7f973134f94c23bb4e36dba2, type: 3}
+  - {fileID: 374344966642074657, guid: f6e55a60d9a7c564497e51c2399c15a4, type: 3}
+  - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
+  - {fileID: 374344966642074657, guid: 527c5352acb023b4a81ca44745d67f60, type: 3}
+  - {fileID: 374344966642074657, guid: b9be6e5a3a6a9a8499afd246c7c685e1, type: 3}
+  - {fileID: 374344966642074657, guid: 0717377a851fe2b4696d430547b0acb4, type: 3}
+  seguir: 1
+  spawnAreaRadius: 20
+  spawnEfectoPrefab: {fileID: 0}
+  tiempoEntreSpawns: 2
+--- !u!4 &1167375884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167375882}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1226747164
 GameObject:
   m_ObjectHideFlags: 0
@@ -5115,7 +5166,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1613470020}
   - component: {fileID: 1613470019}
-  - component: {fileID: 1613470018}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5123,27 +5173,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1613470018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613470017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09684fff1c75ac44906e4573f77313c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigoPrefab:
-  - {fileID: 374344966642074657, guid: ee3eb84a7f973134f94c23bb4e36dba2, type: 3}
-  - {fileID: 374344966642074657, guid: f6e55a60d9a7c564497e51c2399c15a4, type: 3}
-  - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
-  - {fileID: 374344966642074657, guid: 527c5352acb023b4a81ca44745d67f60, type: 3}
-  - {fileID: 374344966642074657, guid: b9be6e5a3a6a9a8499afd246c7c685e1, type: 3}
-  - {fileID: 374344966642074657, guid: 0717377a851fe2b4696d430547b0acb4, type: 3}
-  seguir: 1
-  spawnAreaRadius: 20
 --- !u!114 &1613470019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6635,6 +6664,7 @@ SceneRoots:
   - {fileID: 209595525}
   - {fileID: 1613470020}
   - {fileID: 338676903}
+  - {fileID: 1167375884}
   - {fileID: 990336371}
   - {fileID: 1819029603}
   - {fileID: 1114979861}

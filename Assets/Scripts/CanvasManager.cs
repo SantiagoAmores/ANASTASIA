@@ -23,16 +23,16 @@ public class CanvasManager : MonoBehaviour
     public Slider sliderExp;
     public int expMaxPorNivel = 5;
 
-
     //Cuenta atras
     public TextMeshProUGUI cuentaAtras;
     public float startTime = 120f;
     private float timeLeft;
 
-    public TextMeshProUGUI tiempo;
+    /*public TextMeshProUGUI tiempo;
     public GameObject tiempoPanel;
     public TextMeshProUGUI experiencia;
     public GameObject experienciaPanel;
+    */
 
     // Start is called before the first frame update
     void Start()
@@ -44,8 +44,8 @@ public class CanvasManager : MonoBehaviour
 
         sliderExp = GameObject.Find("SliderXP").GetComponent<Slider>();
 
-        tiempo = GameObject.Find("TiempoDemo").GetComponent<TextMeshProUGUI>();
-        experiencia = GameObject.Find("ExperienciaDemo").GetComponent<TextMeshProUGUI>();
+        /*tiempo = GameObject.Find("TiempoDemo").GetComponent<TextMeshProUGUI>();
+        experiencia = GameObject.Find("ExperienciaDemo").GetComponent<TextMeshProUGUI>();*/
 
         sliderExp.minValue = 0;
         sliderExp.maxValue = expMaxPorNivel;
@@ -57,8 +57,8 @@ public class CanvasManager : MonoBehaviour
         PanelDerrota.SetActive(false);
         PanelVictoria.SetActive(false);
         PanelOpciones.SetActive(false);
-        tiempoPanel.SetActive(false);
-        experienciaPanel.SetActive(false);
+        /*tiempoPanel.SetActive(false);
+        experienciaPanel.SetActive(false);*/
     }
 
     // Update is called once per frame
@@ -80,45 +80,23 @@ public class CanvasManager : MonoBehaviour
             timeLeft--;
         }
 
-        //Victoria();
-        VictoriaDemo();
+        Victoria();
+        //VictoriaDemo();
         //cuentaAtras.text = "Te has quedado sin tiempo :(";
     }
 
-    /*
+    
     public void Victoria()
     {
         PanelVictoria.SetActive(true);
         Time.timeScale = 0f; // Pausar el juego
-    }*/
-
-    public void VictoriaDemo()
-    {
-        PanelVictoria.SetActive(true);
-        tiempo.text = "Tiempo: \n" + startTime + " segundos";
-        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
-        tiempoPanel.SetActive(true);
-        experienciaPanel.SetActive(true);
-
-        Time.timeScale = 0f; // Pausar el juego
     }
 
-    public void DerrotaDemo()
-    {
-        PanelDerrota.SetActive(true);
-        Time.timeScale = 0f;
-        tiempo.text = "Tiempo: \n" + (startTime - timeLeft) + " segundos";
-        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
-        tiempoPanel.SetActive(true);
-        experienciaPanel.SetActive(true);
-    }
-
-    /*
     public void Derrota()
     {
         PanelDerrota.SetActive(true);
         Time.timeScale = 0f; // Pausar el juego
-    }*/
+    }
 
     public void MenúInicio()
     {
@@ -152,4 +130,25 @@ public class CanvasManager : MonoBehaviour
     {
         SceneManager.LoadScene("Scene_Museo");
     }
+
+    /*public void VictoriaDemo()
+    {
+        PanelVictoria.SetActive(true);
+        tiempo.text = "Tiempo: \n" + startTime + " segundos";
+        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
+        tiempoPanel.SetActive(true);
+        experienciaPanel.SetActive(true);
+
+        Time.timeScale = 0f; // Pausar el juego
+    }
+
+    public void DerrotaDemo()
+    {
+        PanelDerrota.SetActive(true);
+        Time.timeScale = 0f;
+        tiempo.text = "Tiempo: \n" + (startTime - timeLeft) + " segundos";
+        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
+        tiempoPanel.SetActive(true);
+        experienciaPanel.SetActive(true);
+    }*/
 }

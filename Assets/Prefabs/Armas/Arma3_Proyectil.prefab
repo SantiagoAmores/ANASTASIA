@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 234249981155950328}
   - component: {fileID: 7449401543717738805}
   - component: {fileID: 4647865073441499326}
-  - component: {fileID: 5154786735682274974}
+  - component: {fileID: -7190055670811414702}
   m_Layer: 0
   m_Name: Arma3_Proyectil
   m_TagString: Projectile
@@ -108,7 +108,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &5154786735682274974
+--- !u!114 &-7190055670811414702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 209788572413664971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e28d98f83bf8d94594d929f29f81507, type: 3}
+  m_Script: {fileID: 11500000, guid: 22e88aab85a24da40843e0887bb443c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  golpe: 0

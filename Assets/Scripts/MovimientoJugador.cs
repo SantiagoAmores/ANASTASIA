@@ -7,16 +7,25 @@ public class MovimientoJugador : MonoBehaviour
 {
     GameManager gameManager;
 
+    private CanvasManager canvasManager;
+
     //Controles del jugador
-    private float speed = 5f;
+    //private float speed = 5f;
     public float rotationSpeed = 10f;
     private CharacterController characterController;
 
     private Animator animator;
 
+    public StatsAnastasia stats;
+
+    public int vidaTotal;
+    public int vidaActual;
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        canvasManager = FindObjectOfType<CanvasManager>();
 
         characterController = GetComponent<CharacterController>();
 
@@ -25,10 +34,17 @@ public class MovimientoJugador : MonoBehaviour
         // Asegurarse de que no haya movimiento al iniciar el juego
         characterController.Move(Vector3.zero);
 
+        stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
+
+        // Declaramos la vida de Anastasia al comienzo del nivel
+        vidaTotal = stats.vidaBase;
+        vidaActual = vidaTotal;
     }
 
     void Update()
     {
+        // Actualizar vida Anastasia
+        vidaTotal = stats.vida;
 
         // Para el movimiento del personaje usaremos el Input Manager de Unity que nos va a permitir exportarlo a diferentes dispositivos sin modificar el script,
         // personalizar los controles y mantener ordenado el script trabajando desde los Axes
@@ -42,7 +58,9 @@ public class MovimientoJugador : MonoBehaviour
 
         if (movement.magnitude > 0)
         {
-            characterController.Move(movement * speed * Time.deltaTime);
+            // Utiliza la estadistica de velocidad de StatsAnastasia
+            float velocidad = stats.velocidadMovimiento;
+            characterController.Move(movement * velocidad * Time.deltaTime);
 
             Quaternion targetRotation = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -51,6 +69,7 @@ public class MovimientoJugador : MonoBehaviour
         {
             characterController.Move(Vector3.zero);
         }
+
     }
 
     private void OnTriggerEnter (Collider other)
@@ -63,5 +82,16 @@ public class MovimientoJugador : MonoBehaviour
   
             }
         
+    }
+
+    public void herirAnastasia(int cantidadHerida)
+    {
+        vidaActual -= cantidadHerida;
+
+        if (vidaActual <= 0)
+        {
+            Time.timeScale = 0f;
+            canvasManager.Derrota();
+        }
     }
 }
