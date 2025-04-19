@@ -31,8 +31,8 @@ public class StatsAnastasia : MonoBehaviour
     // ataque base
 
     // ARMA 6 BASE
-    // cadencia base aqui
-    // ataque base
+    public static float arma6CadenciaBase = 2f;
+    public static int arma6AtaqueBase = 1;
 
     // Los getters y setters hacen que solo este script pueda modificar los stats con AumentarEstadisticas()
 
@@ -43,6 +43,9 @@ public class StatsAnastasia : MonoBehaviour
     public float arma3Cadencia { get; private set; }
     public float arma4Cadencia { get; private set; }
 
+    //arma 5 
+
+    public float arma6Cadencia { get; private set; }
 
 
 
@@ -51,7 +54,9 @@ public class StatsAnastasia : MonoBehaviour
     public float arma3Ataque { get; private set; }
     public float arma4Ataque { get; private set; }
 
+    //arma 5
 
+    public float arma6Ataque { get; private set; }
 
 
 
@@ -74,6 +79,11 @@ public class StatsAnastasia : MonoBehaviour
 
         arma4Cadencia = arma4CadenciaBase;
         arma4Ataque = arma4AtaqueBase;
+
+        //arma 5
+
+        arma6Cadencia = arma6CadenciaBase;
+        arma6Ataque = arma6AtaqueBase;
 
         // Llama a AumentarEstadisticas al subir de nivel
         GameManager.AlSubirDeNivel += AumentarEstadisticas;
@@ -98,11 +108,16 @@ public class StatsAnastasia : MonoBehaviour
         arma2Cadencia = Mathf.Max(0.3f, arma2Cadencia - 0.1f);
         arma3Cadencia = Mathf.Max(0.3f, arma3Cadencia - 0.1f);
         arma4Cadencia = Mathf.Max(0.3f, arma4Cadencia - 0.1f);
+        //arma 5
+        arma6Cadencia = Mathf.Max(0.3f, arma6Cadencia - 0.1f);
+
 
         // Daño de las armas
         arma1Ataque += 1;
         arma2Ataque += 1;
         arma3Ataque += 1;
         arma4Ataque += 1;
+        //arma 5
+        arma6Ataque += 1;
     }
 }
