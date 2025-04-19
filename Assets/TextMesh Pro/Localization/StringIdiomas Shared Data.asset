@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: StringIdiomas Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: StringIdiomas
+  m_TableCollectionNameGuidString: 49b768a68a6d19e4886588b571ef486c
+  m_Entries:
+  - m_Id: 9624502272
+    m_Key: JugarKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 866701164544
+    m_Key: OpcionesKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 988126265344
+    m_Key: SalirKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1359338946560
+    m_Key: AtrasKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1642479632384
+    m_Key: PantallaKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1861476827136
+    m_Key: ResolucionKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2019602087936
+    m_Key: VolumenKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5123730980864
+    m_Key: BrilloKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8473604145152
+    m_Key: "Espa\xF1olKey"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8611475111936
+    m_Key: InglesKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8766236540928
+    m_Key: ValencianoKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8993727201280
+    m_Key: IdiomasKey
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5276701884936093720
+  references:
+    version: 2
+    RefIds:
+    - rid: 5276701884936093720
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1745087486378
