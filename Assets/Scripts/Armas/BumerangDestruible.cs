@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class BumerangDestruible : MonoBehaviour
 {
+    public int golpe;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject); // Destruye al enemigo
+            Enemigo enemigo = other.GetComponent<Enemigo>();
+
+            if (enemigo != null)
+            {
+                enemigo.RecibirGolpe(golpe); //le hace daño al enemigo
+            }
+            //Destroy(other.gameObject); // Destruye al enemigo
         }
     }
 }

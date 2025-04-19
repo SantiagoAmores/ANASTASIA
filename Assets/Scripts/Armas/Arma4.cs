@@ -6,20 +6,32 @@ using UnityEngine;
 public class Arma4 : MonoBehaviour
 {
     public GameObject boomerangPrefab;
-    public float shootInterval = 2f;
+    //public float shootInterval = 2f;
     public float boomerangSpeed = 10f;
 
-    private float timer;
+    public StatsAnastasia stats;
 
-    void Update()
+
+    private void Start()
     {
-        timer += Time.deltaTime;
+        stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
+        StartCoroutine(RutinaBumerang());
+    }
 
-        if (timer >= shootInterval)
+    IEnumerator RutinaBumerang()
+    {
+        while (true)
         {
-            timer = 0f;
+            yield return new WaitForSeconds(stats.arma4Cadencia);
 
             GameObject boomerang = Instantiate(boomerangPrefab, transform.position, Quaternion.identity);
+            BumerangDestruible bumerangScript = boomerang.GetComponent<BumerangDestruible>();
+            
+            if( bumerangScript != null )
+            {
+                bumerangScript.golpe = (int)stats.arma4Ataque;
+            }
+
             StartCoroutine(BoomerangMovement(boomerang.transform));
         }
     }

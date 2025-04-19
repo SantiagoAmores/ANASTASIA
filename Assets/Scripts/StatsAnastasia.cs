@@ -23,8 +23,8 @@ public class StatsAnastasia : MonoBehaviour
     public static int arma3AtaqueBase = 1;
 
     // ARMA 4 BASE
-    // cadencia base aqui
-    // ataque base
+    public static float arma4CadenciaBase = 2f;
+    public static int arma4AtaqueBase = 1;
 
     // ARMA 5 BASE
     // cadencia base aqui
@@ -41,7 +41,7 @@ public class StatsAnastasia : MonoBehaviour
     public float arma1Cadencia {  get; private set; }
     public float arma2Cadencia { get; private set; }
     public float arma3Cadencia { get; private set; }
-
+    public float arma4Cadencia { get; private set; }
 
 
 
@@ -49,8 +49,7 @@ public class StatsAnastasia : MonoBehaviour
     public float arma1Ataque { get; private set; }
     public float arma2Ataque { get; private set; }
     public float arma3Ataque { get; private set; }
-
-
+    public float arma4Ataque { get; private set; }
 
 
 
@@ -73,6 +72,9 @@ public class StatsAnastasia : MonoBehaviour
         arma3Cadencia = arma3CadenciaBase;
         arma3Ataque = arma3AtaqueBase;
 
+        arma4Cadencia = arma4CadenciaBase;
+        arma4Ataque = arma4AtaqueBase;
+
         // Llama a AumentarEstadisticas al subir de nivel
         GameManager.AlSubirDeNivel += AumentarEstadisticas;
     }
@@ -93,12 +95,14 @@ public class StatsAnastasia : MonoBehaviour
 
         // Cadencia de disparos de las armas
         arma1Cadencia = Mathf.Max(0.3f, arma1Cadencia - 0.1f);
-        arma2Cadencia = Mathf.Max(0.3f, arma1Cadencia - 0.1f);
-        arma3Cadencia = Mathf.Max(0.3f, arma1Cadencia - 0.1f);
+        arma2Cadencia = Mathf.Max(0.3f, arma2Cadencia - 0.1f);
+        arma3Cadencia = Mathf.Max(0.3f, arma3Cadencia - 0.1f);
+        arma4Cadencia = Mathf.Max(0.3f, arma4Cadencia - 0.1f);
 
         // Daño de las armas
         arma1Ataque += 1;
         arma2Ataque += 1;
         arma3Ataque += 1;
+        arma4Ataque += 1;
     }
 }
