@@ -20,28 +20,17 @@ public class Arma4 : MonoBehaviour
             timer = 0f;
 
             GameObject boomerang = Instantiate(boomerangPrefab, transform.position, Quaternion.identity);
-
-            // Agregamos el script de movimiento directamente si no está en el prefab
-            BoomerangMover mover = boomerang.AddComponent<BoomerangMover>();
-            mover.Initialize(transform, boomerangSpeed);
+            StartCoroutine(BoomerangMovement(boomerang.transform));
         }
     }
 
-    public class BoomerangMover : MonoBehaviour
+    IEnumerator BoomerangMovement(Transform boomerang)
     {
-        private Transform player;
-        private Transform target;
-        private float speed;
-        private bool returning = false;
+        Transform player = transform;
+        Transform target = FindFarthestEnemy();
+        bool returning = false;
 
-        public void Initialize(Transform playerTransform, float speed)
-        {
-            this.player = playerTransform;
-            this.speed = speed;
-            this.target = FindFarthestEnemy();
-        }
-
-        void Update()
+        while (true)
         {
             if (target == null && !returning)
             {
@@ -51,10 +40,10 @@ public class Arma4 : MonoBehaviour
 
             if (target != null)
             {
-                Vector3 direction = (target.position - transform.position).normalized;
-                transform.position += direction * speed * Time.deltaTime;
+                Vector3 direction = (target.position - boomerang.position).normalized;
+                boomerang.position += direction * boomerangSpeed * Time.deltaTime;
 
-                float distance = Vector3.Distance(transform.position, target.position);
+                float distance = Vector3.Distance(boomerang.position, target.position);
                 if (distance < 0.5f)
                 {
                     if (!returning)
@@ -64,21 +53,23 @@ public class Arma4 : MonoBehaviour
                     }
                     else
                     {
-                        Destroy(gameObject);
+                        Destroy(boomerang.gameObject);
+                        yield break;
                     }
                 }
             }
-        }
 
-        Transform FindFarthestEnemy()
-        {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            if (enemies.Length == 0) return null;
-
-            return enemies
-                .OrderByDescending(e => Vector3.Distance(e.transform.position, player.position))
-                .First().transform;
+            yield return null;
         }
     }
-}
 
+    Transform FindFarthestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length == 0) return null;
+
+        return enemies
+            .OrderByDescending(e => Vector3.Distance(e.transform.position, transform.position))
+            .First().transform;
+    }
+}

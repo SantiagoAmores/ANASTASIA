@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatsAnastasia : MonoBehaviour
 {
     // VIDA BASE DE ANASTASIA
-    public static int vidaBase = 5;
+    public int vidaBase = 5;
 
     // VELOCIDAD BASE DE ANASTASIA
     public static float velocidadMovimientoBase = 5f;

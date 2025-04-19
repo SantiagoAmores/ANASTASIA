@@ -6,6 +6,10 @@ public class MenuPausa : MonoBehaviour
 {
     public GameObject menuPausa;
 
+    //variables para comprobar si hay otros paneles abiertos y asi que no te deje pausar
+    public GameObject panelVictoria;
+    public GameObject panelDerrota;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +21,16 @@ public class MenuPausa : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menuPausa.activeSelf)
+            if (!panelVictoria.activeSelf && !panelDerrota.activeSelf)
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
+                if (menuPausa.activeSelf)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
     }

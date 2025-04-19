@@ -3,34 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Opciones : MonoBehaviour
 {
+    [Header("Brillo")]
     public Image panelBrillo;
     public Slider sliderBrillo;
+
+    [Header("Pantalla")]
     public Toggle pantallaCompletaToggle;
 
-    public static Opciones patatilla;
-
-    /*void Awake()
-    {
-        if (patatilla == null)
-        {
-            patatilla = this;
-
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }*/
+    [Header("Volumen")]
+    public Slider sliderVolumen;
+    public AudioMixer mixer;
 
     // Start is called before the first frame update
     void Start()
     {
         //Brillo
-        float brilloGuardado = PlayerPrefs.GetFloat("brillo", 1f);
+        float brilloGuardado = PlayerPrefs.GetFloat("Brillo", 1f);
         sliderBrillo.value = brilloGuardado;
         CambiarBrillo(brilloGuardado);
 
@@ -38,6 +30,12 @@ public class Opciones : MonoBehaviour
         bool pantallaCompleta = PlayerPrefs.GetInt("pantallaCompleta", 1) == 1;
         pantallaCompletaToggle.isOn = pantallaCompleta;
         CambiarPantallaCompleta(pantallaCompleta);
+
+        //Cargar volumen guardado
+        float volumenGuardado = PlayerPrefs.GetFloat("Volumen", 1f);
+        sliderVolumen.value = volumenGuardado;
+        CambiarVolumen(volumenGuardado);
+        sliderVolumen.onValueChanged.AddListener(delegate { CambiarVolumen(sliderVolumen.value); });
     }
 
     // Update is called once per frame
@@ -54,7 +52,7 @@ public class Opciones : MonoBehaviour
         panelBrillo.color = colorActual;
 
         // Guardar la configuración
-        PlayerPrefs.SetFloat("brillo", valor);
+        PlayerPrefs.SetFloat("Brillo", valor);
         PlayerPrefs.Save(); // Opcional pero recomendable
     }
 
@@ -62,5 +60,15 @@ public class Opciones : MonoBehaviour
     {
         Screen.fullScreen = esCompleta;
         PlayerPrefs.SetInt("pantallaCompleta", esCompleta ? 1 : 0);
+    }
+
+    public void CambiarVolumen(float valor)
+    {
+        valor = Mathf.Clamp(valor, 0.1f, 1f);
+        float volumenDB = Mathf.Log10(valor) * 20;
+        mixer.SetFloat("Volumen general", volumenDB);
+
+        PlayerPrefs.SetFloat("Volumen", valor);
+        PlayerPrefs.Save();
     }
 }
