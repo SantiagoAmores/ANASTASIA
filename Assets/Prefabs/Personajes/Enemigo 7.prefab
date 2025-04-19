@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7107119439095979228}
   - component: {fileID: 6191976480151542571}
   - component: {fileID: 2127145669773595877}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemigo 7
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -148,6 +148,11 @@ MonoBehaviour:
   enemigo: {fileID: 7107119439095979228}
   jugador: {fileID: 0}
   puntoExperienciaPrefab: {fileID: 4945588894475210533, guid: 87862d5f6903b034c9db1cc0eb324180, type: 3}
+  enemigoVidaTotal: 0
+  enemigoVelocidad: 0
+  enemigoAtaque: 0
+  enemigoExperiencia: 0
+  enemigoVidaActual: 0
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -238,6 +243,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 088e5b451c676f543ab2f897fd2ee81b, type: 3}
       propertyPath: m_Name
       value: modelo_enemigo_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 088e5b451c676f543ab2f897fd2ee81b, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

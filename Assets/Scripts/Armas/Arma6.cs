@@ -31,6 +31,7 @@ public class Arma6 : MonoBehaviour
         GameObject objetivo = enemigos[Random.Range(0, enemigos.Length)];
 
         GameObject gato = Instantiate(gatoPrefab, transform.position, Quaternion.identity);
+        gato.layer = LayerMask.NameToLayer("Gato");
         GatoRebota gatoScript = gato.GetComponent<GatoRebota>();
 
         if (gatoScript != null)

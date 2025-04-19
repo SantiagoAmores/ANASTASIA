@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6191976480151542571}
   - component: {fileID: 2127145669773595877}
   - component: {fileID: 565694356089094150}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemigo 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -247,9 +247,77 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7611661634702333960, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5426353283541118185, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5029118058560287686, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3540272279435206582, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3225932308244901014, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2835375930379232893, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2376718058937505222, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2356723994858563766, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1116502343022899559, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1018664272722485354, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -378306206231422382, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
       propertyPath: m_Name
       value: ModeloBasePatata
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905609870639353253, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942076174455184735, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429599570162155599, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8719771546195959716, guid: a90248a5c7362bb46ae6fc3018568562, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
