@@ -13,6 +13,8 @@ public class GatoRebota : MonoBehaviour
     private Rigidbody rb;
     private bool haChocado = false;
 
+    public GameObject particulasExplosion;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -71,6 +73,11 @@ public class GatoRebota : MonoBehaviour
 
     void Explotar()
     {
+        if (particulasExplosion != null)
+        {
+            Instantiate(particulasExplosion, transform.position, Quaternion.identity);
+        }
+
         Collider[] enemigos = Physics.OverlapSphere(transform.position, radioExplosion);
         foreach (Collider enemigo in enemigos)
         {
