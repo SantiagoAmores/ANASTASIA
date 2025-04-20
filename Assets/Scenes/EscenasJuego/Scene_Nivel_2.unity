@@ -2018,6 +2018,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7557716002391435356, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: arma6
+      value: 
+      objectReference: {fileID: 1154624274}
     - target: {fileID: 7951365172276653742, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3831,6 +3835,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128421623}
   m_CullTransparentMesh: 1
+--- !u!114 &1154624274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 60255810020451838, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+  m_PrefabInstance: {fileID: 621085213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291d7f9946372d442aa49aa83ab11741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1201846519
 GameObject:
   m_ObjectHideFlags: 0
