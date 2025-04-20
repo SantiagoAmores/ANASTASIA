@@ -16,7 +16,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject PanelOpciones;
 
     //Estadisticas
-    private TextMeshProUGUI textoExperiencia;
+    //private TextMeshProUGUI textoExperiencia;
     private TextMeshProUGUI textoNivel;
 
     // Slider de Experiencia
@@ -39,7 +39,7 @@ public class CanvasManager : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        textoExperiencia = GameObject.Find("TextoExperiencia").GetComponent<TextMeshProUGUI>();
+        //textoExperiencia = GameObject.Find("TextoExperiencia").GetComponent<TextMeshProUGUI>();
         textoNivel = GameObject.Find("TextoNivel").GetComponent<TextMeshProUGUI>();
 
         sliderExp = GameObject.Find("SliderXP").GetComponent<Slider>();
@@ -64,7 +64,7 @@ public class CanvasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textoExperiencia.text = "Exp: " + gameManager.experienciaTotal.ToString();
+        //textoExperiencia.text = "Exp: " + gameManager.experienciaTotal.ToString();
         textoNivel.text = "Nv: " + gameManager.nivel.ToString();
 
         // Actualizar el Slider con la experiencia
