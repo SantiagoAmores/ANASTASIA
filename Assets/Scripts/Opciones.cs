@@ -17,6 +17,7 @@ public class Opciones : MonoBehaviour
     [Header("Volumen")]
     public Slider sliderVolumen;
     public AudioMixer mixer;
+    public GameObject[] notas;
 
     // Start is called before the first frame update
     void Start()
@@ -70,5 +71,13 @@ public class Opciones : MonoBehaviour
 
         PlayerPrefs.SetFloat("Volumen", valor);
         PlayerPrefs.Save();
+
+        //mostrar las notas segun el volumen
+        int cantidadNotas = Mathf.RoundToInt(valor * notas.Length);
+
+        for (int i = 0; i < notas.Length; i++)
+        {
+            notas[i].SetActive(i < cantidadNotas);
+        }
     }
 }
