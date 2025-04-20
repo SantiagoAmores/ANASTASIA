@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,6 +29,8 @@ public class Enemigo : MonoBehaviour
     public int enemigoVidaActual;
 
     private StatsEnemigos estadisticas;
+
+    public GameObject textoDanoPrefab;
 
     private void Awake()
     {
@@ -120,6 +123,8 @@ public class Enemigo : MonoBehaviour
 
         StartCoroutine(HeridaPausa());
 
+        MostrarTextoDano(cantidadDeGolpe);
+
         // Le resta al enemigo de su salud el daño que hace el golpe recibido
         enemigoVidaActual -= cantidadDeGolpe;
 
@@ -168,5 +173,19 @@ public class Enemigo : MonoBehaviour
 
         golpeable = true;
 
+    }
+
+    void MostrarTextoDano(int cantidad)
+    {
+        if (textoDanoPrefab != null)
+        {
+            Vector3 posicionTexto = transform.position + new Vector3(0, 0.2f, 0);
+            GameObject textoInstancia = Instantiate(textoDanoPrefab, posicionTexto, Quaternion.identity);
+            TextMeshProUGUI texto = textoInstancia.GetComponentInChildren<TextMeshProUGUI>();
+            if (texto != null)
+            {
+                texto.text = cantidad.ToString();
+            }
+        }
     }
 }

@@ -155,6 +155,7 @@ MonoBehaviour:
   enemigoAtaque: 0
   enemigoExperiencia: 0
   enemigoVidaActual: 0
+  textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0

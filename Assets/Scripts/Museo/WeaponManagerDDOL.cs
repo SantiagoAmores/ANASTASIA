@@ -47,6 +47,8 @@ public class WeaponManagerDDOL : MonoBehaviour
     public void SeleccionarArma1() => SeleccionarArma(1);
     public void SeleccionarArma2() => SeleccionarArma(2);
     public void SeleccionarArma3() => SeleccionarArma(3);
+    public void SeleccionarArma4() => SeleccionarArma(4);
+    public void SeleccionarArma5() => SeleccionarArma(5);
 
     // Funcion para asignar el arma en si
     public void SeleccionarArma(int index)
