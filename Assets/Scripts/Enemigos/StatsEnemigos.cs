@@ -48,7 +48,14 @@ public class StatsEnemigos : MonoBehaviour
         else if (diccionarioBosses.TryGetValue(enemigoNombre, out var estadisticasJefe))
         {
             esUnJefe = true;
-            AsignarEstadisticas(estadisticasJefe.fase1);
+            if (faseDeJefe == 1)
+            {
+                AsignarEstadisticas(estadisticasJefe.fase1);
+            }
+            else if (faseDeJefe == 2)
+            {
+                AsignarEstadisticas(estadisticasJefe.fase2);
+            }
         }
     }
 
