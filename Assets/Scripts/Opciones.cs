@@ -13,6 +13,9 @@ public class Opciones : MonoBehaviour
 
     [Header("Pantalla")]
     public Toggle pantallaCompletaToggle;
+    public TMPro.TMP_Dropdown dropdownResolucion;
+    private Resolution[] resoluciones;
+    private int resolucionActualIndex;
 
     [Header("Volumen")]
     public Slider sliderVolumen;
@@ -37,6 +40,32 @@ public class Opciones : MonoBehaviour
         sliderVolumen.value = volumenGuardado;
         CambiarVolumen(volumenGuardado);
         sliderVolumen.onValueChanged.AddListener(delegate { CambiarVolumen(sliderVolumen.value); });
+
+        //Resoluciones
+        resoluciones = Screen.resolutions;
+        dropdownResolucion.ClearOptions();
+
+        List<string> opciones = new List<string>();
+        resolucionActualIndex = 0;
+
+        for (int i = 0; i < resoluciones.Length; i++)
+        {
+            string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
+            opciones.Add(opcion);
+
+            if (resoluciones[i].width == Screen.currentResolution.width &&
+                resoluciones[i].height == Screen.currentResolution.height)
+            {
+                resolucionActualIndex = i;
+            }
+        }
+
+        dropdownResolucion.AddOptions(opciones);
+        dropdownResolucion.value = resolucionActualIndex;
+        dropdownResolucion.RefreshShownValue();
+
+        // Listener
+        dropdownResolucion.onValueChanged.AddListener(CambiarResolucion);
     }
 
     // Update is called once per frame
@@ -61,6 +90,13 @@ public class Opciones : MonoBehaviour
     {
         Screen.fullScreen = esCompleta;
         PlayerPrefs.SetInt("pantallaCompleta", esCompleta ? 1 : 0);
+    }
+
+    public void CambiarResolucion(int indiceResolucion)
+    {
+        Resolution resolucion = resoluciones[indiceResolucion];
+        Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen);
+        PlayerPrefs.SetInt("ResolucionIndex", indiceResolucion);
     }
 
     public void CambiarVolumen(float valor)
