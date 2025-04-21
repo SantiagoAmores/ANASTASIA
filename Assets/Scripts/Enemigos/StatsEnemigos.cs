@@ -24,7 +24,7 @@ public class StatsEnemigos : MonoBehaviour
             { "Enemigo 2", (5, 2, 3, 2) },
             { "Enemigo 4", (4, 2, 2.75f, 1) },
             { "Enemigo 5", (7, 3, 3, 3) },
-            { "Enemigo 7", (3, 2, 3, 1) },
+            { "Enemigo 7", (2, 1, 4.25f, 1) },
             { "Enemigo 8", (5, 4, 3, 2) }
         };
 

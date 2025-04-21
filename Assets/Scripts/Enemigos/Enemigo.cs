@@ -158,7 +158,7 @@ public class Enemigo : MonoBehaviour
         enemigoCollider.enabled = false;
         enemigo.speed = 0f;
 
-        yield return new WaitForSeconds(0.33f);
+        yield return new WaitForSeconds(0.15f);
 
         enemigoCollider.enabled = true;
         enemigo.speed = enemigoVelocidad;

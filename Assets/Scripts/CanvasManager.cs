@@ -34,6 +34,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject experienciaPanel;
     */
 
+    public GameObject objetoActivable;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,8 @@ public class CanvasManager : MonoBehaviour
         textoNivel = GameObject.Find("TextoNivel").GetComponent<TextMeshProUGUI>();
 
         sliderExp = GameObject.Find("SliderXP").GetComponent<Slider>();
+
+        objetoActivable = GameObject.Find("Activable");
 
         /*tiempo = GameObject.Find("TiempoDemo").GetComponent<TextMeshProUGUI>();
         experiencia = GameObject.Find("ExperienciaDemo").GetComponent<TextMeshProUGUI>();*/
@@ -57,6 +61,7 @@ public class CanvasManager : MonoBehaviour
         PanelDerrota.SetActive(false);
         PanelVictoria.SetActive(false);
         PanelOpciones.SetActive(false);
+        objetoActivable.SetActive(false);
         /*tiempoPanel.SetActive(false);
         experienciaPanel.SetActive(false);*/
     }
