@@ -5301,7 +5301,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7257,14 +7257,14 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1732150010}
-  - {fileID: 1082301098}
-  - {fileID: 1832495120}
+  - {fileID: 359083952}
   - {fileID: 1486258899}
-  - {fileID: 1936307002}
+  - {fileID: 1732150010}
+  - {fileID: 1883988963}
+  - {fileID: 1082301098}
   - {fileID: 1600122177}
   - {fileID: 693604215}
-  - {fileID: 1883988963}
-  - {fileID: 359083952}
+  - {fileID: 1936307002}
   - {fileID: 621085213}
   - {fileID: 310635004}
+  - {fileID: 1832495120}
