@@ -66,18 +66,26 @@ public class Opciones : MonoBehaviour
     public void CambiarVolumen(float valor)
     {
         valor = Mathf.Clamp(valor, 0.1f, 1f);
-        float volumenDB = Mathf.Log10(valor) * 20;
-        mixer.SetFloat("Volumen general", volumenDB);
 
-        PlayerPrefs.SetFloat("Volumen", valor);
-        PlayerPrefs.Save();
-
-        //mostrar las notas segun el volumen
-        int cantidadNotas = Mathf.RoundToInt(valor * notas.Length);
-
-        for (int i = 0; i < notas.Length; i++)
+        if (valor < 0.1f)
         {
-            notas[i].SetActive(i < cantidadNotas);
+            mixer.SetFloat("Volumen general", -80f);
+        }
+        else
+        {
+            float volumenDB = Mathf.Log10(valor) * 20;
+            mixer.SetFloat("Volumen general", volumenDB);
+
+            PlayerPrefs.SetFloat("Volumen", valor);
+            PlayerPrefs.Save();
+
+            //mostrar las notas segun el volumen
+            int cantidadNotas = Mathf.RoundToInt(valor * notas.Length);
+
+            for (int i = 0; i < notas.Length; i++)
+            {
+                notas[i].SetActive(i < cantidadNotas);
+            }
         }
     }
 }

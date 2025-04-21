@@ -80,6 +80,12 @@ public class Arma4 : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0) return null;
 
+        GameObject[] enemiesInRange = enemies
+            .Where(e => Vector3.Distance(e.transform.position, transform.position) <= 9f)
+            .ToArray();
+
+        if(enemiesInRange.Length == 0) return null;
+
         return enemies
             .OrderByDescending(e => Vector3.Distance(e.transform.position, transform.position))
             .First().transform;

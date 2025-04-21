@@ -15,9 +15,23 @@ public class GatoRebota : MonoBehaviour
 
     public GameObject particulasExplosion;
 
+    public Collider childCollider;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        childCollider = GetComponentInChildren<Collider>();
+        if (childCollider == null)
+        {
+            Debug.Log("no tiene collider");
+        }
+        else
+        {
+            childCollider.isTrigger = true;
+        }
+
         StartCoroutine(ExplotarDespuesDeTiempo());
     }
 
@@ -32,13 +46,18 @@ public class GatoRebota : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Solo procesar colisiones con enemigos
-        if (other.CompareTag("Enemy"))
+        if (other == childCollider || other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemigo>().RecibirGolpe(golpe);
-            if (!haChocado)
+            Debug.Log("Me va a dar un algo");
+            Enemigo enemigo = other.GetComponent<Enemigo>();
+            if (enemigo != null)
             {
-                velocidad *= multiplicadorVelocidad;
-                haChocado = true;
+                enemigo.RecibirGolpe(golpe);
+                if (!haChocado)
+                {
+                    velocidad *= multiplicadorVelocidad;
+                    haChocado = true;
+                }
             }
         }
     }
