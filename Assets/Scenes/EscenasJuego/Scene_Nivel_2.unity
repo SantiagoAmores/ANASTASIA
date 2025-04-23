@@ -5636,7 +5636,7 @@ MonoBehaviour:
   - {fileID: 374344966642074657, guid: b9be6e5a3a6a9a8499afd246c7c685e1, type: 3}
   - {fileID: 374344966642074657, guid: 0717377a851fe2b4696d430547b0acb4, type: 3}
   seguir: 1
-  spawnAreaRadius: 20
+  spawnAreaRadius: 10
   spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
 --- !u!4 &1600122177
 Transform:

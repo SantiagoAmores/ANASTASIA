@@ -11,7 +11,7 @@ public class SpawnEnemigos : MonoBehaviour
 
     public GameObject spawnEfectoPrefab;
 
-    private float tiempoEntreSpawns = 2f;
+    private float tiempoEntreSpawns = 6f;
 
     // Start is called before the first frame update
     void Start()

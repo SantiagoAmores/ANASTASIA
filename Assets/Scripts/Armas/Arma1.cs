@@ -38,8 +38,11 @@ public class Arma1 : MonoBehaviour
             EncontrarEnemigoMasCercano();
             if (enemigoMasCercano == null) continue;
 
+            Collider col = enemigoMasCercano.GetComponent<Collider>();
+            if (col == null || !col.enabled) continue;
+
             float distancia = Vector3.Distance(transform.position, enemigoMasCercano.transform.position);
-            if (distancia <= 9f) { DispararProyectil(enemigoMasCercano); }
+            if (distancia <= 7.5f) { DispararProyectil(enemigoMasCercano); }
         }
     }
 
@@ -51,6 +54,9 @@ public class Arma1 : MonoBehaviour
 
         foreach (GameObject enemigo in enemigosLista)
         {
+            Collider col = enemigo.GetComponent<Collider>();
+            if (col == null || !col.enabled) continue;
+
             float distancia = (enemigo.transform.position - transform.position).sqrMagnitude;
             if (distancia < distanciaMasCercana)
             {

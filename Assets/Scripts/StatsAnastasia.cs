@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class StatsAnastasia : MonoBehaviour
@@ -41,6 +42,8 @@ public class StatsAnastasia : MonoBehaviour
     public int mejorasAtaque = 0;
     private const int mejorasMaximas = 5;
 
+    public GameObject textoSubirNivelPrefab;
+
     // Los getters y setters hacen que solo este script pueda modificar los stats con AumentarEstadisticas()
     public int vida { get; private set; }
     public float velocidadMovimiento { get; private set; }
@@ -50,18 +53,12 @@ public class StatsAnastasia : MonoBehaviour
     public float arma4Cadencia { get; private set; }
     public float arma5Cadencia { get; private set; }
     public float arma6Cadencia { get; private set; }
-
-
     public float arma1Ataque { get; private set; }
     public float arma2Ataque { get; private set; }
     public float arma3Ataque { get; private set; }
     public float arma4Ataque { get; private set; }
     public float arma5Ataque { get; private set; }
     public float arma6Ataque { get; private set; }
-
-
-
-    // PONER EL RESTO DE LOS GETTERS Y SETTERS AQUI
 
     private void Start()
     {
@@ -86,17 +83,31 @@ public class StatsAnastasia : MonoBehaviour
 
         arma6Cadencia = arma6CadenciaBase;
         arma6Ataque = arma6AtaqueBase;
-
     }
 
     public void SubidaDeNivelAleatoria()
     {
         List<int> subidasDeNivelIncompletas = new List<int>();
 
-        if (mejorasVida         <   mejorasMaximas)     { subidasDeNivelIncompletas.Add(0); }
-        if (mejorasVelocidad    <   mejorasMaximas)     { subidasDeNivelIncompletas.Add(1); }
-        if (mejorasCadencia     <   mejorasMaximas)     { subidasDeNivelIncompletas.Add(2); }
-        if (mejorasAtaque       <   mejorasMaximas)     { subidasDeNivelIncompletas.Add(3); }
+        if (mejorasVida < mejorasMaximas)
+        {
+            subidasDeNivelIncompletas.Add(0);
+        }
+        if (mejorasVelocidad < mejorasMaximas)
+        { 
+            subidasDeNivelIncompletas.Add(1);
+        }
+        if (mejorasCadencia < mejorasMaximas)
+        { 
+            subidasDeNivelIncompletas.Add(2);
+            subidasDeNivelIncompletas.Add(2);
+        }
+        if (mejorasAtaque < mejorasMaximas)
+        {
+            subidasDeNivelIncompletas.Add(3);
+            subidasDeNivelIncompletas.Add(3);
+            subidasDeNivelIncompletas.Add(3);
+        }
 
         if (subidasDeNivelIncompletas.Count == 0)
         {
@@ -109,27 +120,26 @@ public class StatsAnastasia : MonoBehaviour
         switch (subidaDeNivel)
         {
             case 0:
-                Debug.Log("Mas vida!");
                 AumentarVida();
                 mejorasVida++;
+                MostrarSubidaDeNivel("+ VIDA");
                 break;
             case 1:
-                Debug.Log("Mas movimiento!");
                 AumentarVelocidadMovimiento();
                 mejorasVelocidad++;
+                MostrarSubidaDeNivel("+ VELOCIDAD");
                 break;
             case 2:
-                Debug.Log("Mas cadencia!");
                 AumentarCadencia();
                 mejorasCadencia++;
+                MostrarSubidaDeNivel("+ CADENCIA");
                 break;
             case 3:
-                Debug.Log("Mas ataque!");
                 AumentarAtaque();
                 mejorasAtaque++;
+                MostrarSubidaDeNivel("+ ATAQUE");
                 break;
         }
-
     }
 
     void AumentarVida()
@@ -164,5 +174,20 @@ public class StatsAnastasia : MonoBehaviour
         arma4Ataque += 1;
         arma5Ataque += 1;
         arma6Ataque += 1;
+    }
+
+    void MostrarSubidaDeNivel(string subida)
+    {
+        if (textoSubirNivelPrefab != null)
+        {
+            float alturaOffset = 0.2f + (transform.localScale.y * 0.5f);
+            Vector3 posicionTexto = transform.position + new Vector3(0, alturaOffset, 0);
+            GameObject textoInstancia = Instantiate(textoSubirNivelPrefab, posicionTexto, Quaternion.identity);
+            TextMeshProUGUI texto = textoInstancia.GetComponentInChildren<TextMeshProUGUI>();
+            if (texto != null)
+            {
+                texto.text = subida.ToString();
+            }
+        }
     }
 }

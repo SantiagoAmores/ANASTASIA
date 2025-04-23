@@ -174,7 +174,7 @@ public class Enemigo : MonoBehaviour
 
         golpeable = false;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
 
         golpeable = true;
 

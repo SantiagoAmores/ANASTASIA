@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TextoDano : MonoBehaviour
 {
-    public float tiempoDesaparicion = 0.5f;
+    public float tiempoDesaparicion = 1f;
 
     private void Start()
     {
