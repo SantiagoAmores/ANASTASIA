@@ -2540,11 +2540,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 60255810020451838, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 913102841305326103, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2588,11 +2588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3233730339502621928, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6096415705295080951, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7557716002391435356, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: arma6
@@ -2600,7 +2600,7 @@ PrefabInstance:
       objectReference: {fileID: 1154624274}
     - target: {fileID: 7951365172276653742, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7951365172276653742, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: slashPrefab
@@ -3848,6 +3848,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemigo 3
       objectReference: {fileID: 0}
+    - target: {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 565694356089094150, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
       propertyPath: faseDeJefe
       value: 2
@@ -4470,7 +4474,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 621085213}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 291d7f9946372d442aa49aa83ab11741, type: 3}
   m_Name: 
@@ -5622,15 +5626,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600122175}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d09684fff1c75ac44906e4573f77313c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemigoPrefab:
-  - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
-  - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
-  - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
+  - {fileID: 374344966642074657, guid: 527c5352acb023b4a81ca44745d67f60, type: 3}
+  - {fileID: 374344966642074657, guid: b9be6e5a3a6a9a8499afd246c7c685e1, type: 3}
+  - {fileID: 374344966642074657, guid: 0717377a851fe2b4696d430547b0acb4, type: 3}
   seguir: 1
   spawnAreaRadius: 20
   spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
@@ -6260,14 +6264,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.7739364, b: 0.4292453, a: 1}
+  m_Color: {r: 1, g: 0.6683252, b: 0.16509432, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

@@ -76,7 +76,7 @@ public class MovimientoJugador : MonoBehaviour
     {
             if (other.CompareTag("Experiencia"))
             {
-                 Debug.Log (other.name + "-" + this.name);
+                 //Debug.Log (other.name + "-" + this.name);
                  gameManager.SubirNivel();
                 Destroy(other.gameObject);
   
@@ -86,9 +86,9 @@ public class MovimientoJugador : MonoBehaviour
 
     public void herirAnastasia(int cantidadHerida)
     {
-        Debug.Log("Daño recibido: " + cantidadHerida);
+        //Debug.Log("Daño recibido: " + cantidadHerida);
         vidaActual -= cantidadHerida;
-        Debug.Log("Vida actual: " + vidaActual);
+        //Debug.Log("Vida actual: " + vidaActual);
 
         if (vidaActual <= 0)
         {

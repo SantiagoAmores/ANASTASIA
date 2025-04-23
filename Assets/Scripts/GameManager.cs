@@ -12,9 +12,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instancia;
     public GameObject anastasia;
 
-    public delegate void NivelSubido();
-    public static event NivelSubido AlSubirDeNivel;
-
     void Awake()
     {
         if (instancia == null)
@@ -58,9 +55,9 @@ public class GameManager : MonoBehaviour
         if (experienciaTotal % 5 == 0)
         {
             nivel++;
-            if (AlSubirDeNivel != null)
+            if (anastasia != null)
             {
-                AlSubirDeNivel.Invoke();
+                anastasia.GetComponent<StatsAnastasia>().SubidaDeNivelAleatoria();
             }
         }
     }
