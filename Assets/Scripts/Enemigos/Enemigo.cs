@@ -28,7 +28,7 @@ public class Enemigo : MonoBehaviour
 
     public int enemigoVidaActual;
 
-    private StatsEnemigos estadisticas;
+    public StatsEnemigos estadisticas;
 
     public GameObject textoDanoPrefab;
 
@@ -49,10 +49,18 @@ public class Enemigo : MonoBehaviour
         // Busca al enemigo a partir del nombre de su prefab y le otorga sus respectivas estadisticas
         estadisticas.revisarEnemigo();
 
-        enemigoVidaTotal    = estadisticas.enemigoVida;
-        enemigoAtaque       = estadisticas.enemigoAtaque;
-        enemigoVelocidad    = estadisticas.enemigoVelocidad;
-        enemigoExperiencia  = estadisticas.enemigoExperiencia;
+        if (estadisticas.esUnJefe)
+        {
+            // Asigna como fase por defecto del jefe la fase 1
+            if (estadisticas.faseDeJefe == 0) { estadisticas.faseDeJefe = 1; }
+            // Asigna los stats del jefe dependiendo de su fase
+            if (estadisticas.faseDeJefe == 1 || estadisticas.faseDeJefe == 2) { estadisticas.revisarEnemigo(); }
+        }
+
+        enemigoVidaTotal = estadisticas.enemigoVida;
+        enemigoAtaque = estadisticas.enemigoAtaque;
+        enemigoVelocidad = estadisticas.enemigoVelocidad;
+        enemigoExperiencia = estadisticas.enemigoExperiencia;
 
         // Asigna su salud actual = su vida total
         enemigoVidaActual   = enemigoVidaTotal;
@@ -60,10 +68,7 @@ public class Enemigo : MonoBehaviour
         // Asigna la velocidad del navMeshAgent = su velocidad
         enemigo.speed       = enemigoVelocidad;
 
-        // Hace que el enemigo mire hacia Anastasia al ser instanciado
-        Vector3 miraAnastasia = jugador.transform.position - transform.position;
-        miraAnastasia.y = 0f;
-        if (miraAnastasia != Vector3.zero) { transform.rotation = Quaternion.LookRotation(miraAnastasia); }
+        MirarAnastasia();
 
         StartCoroutine(AlSpawnear());
 
@@ -158,7 +163,7 @@ public class Enemigo : MonoBehaviour
         enemigoCollider.enabled = false;
         enemigo.speed = 0f;
 
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(1f);
 
         enemigoCollider.enabled = true;
         enemigo.speed = enemigoVelocidad;
@@ -179,7 +184,8 @@ public class Enemigo : MonoBehaviour
     {
         if (textoDanoPrefab != null)
         {
-            Vector3 posicionTexto = transform.position + new Vector3(0, 0.2f, 0);
+            float alturaOffset = 0.2f + (transform.localScale.y * 0.5f);
+            Vector3 posicionTexto = transform.position + new Vector3(0, alturaOffset, 0);
             GameObject textoInstancia = Instantiate(textoDanoPrefab, posicionTexto, Quaternion.identity);
             TextMeshProUGUI texto = textoInstancia.GetComponentInChildren<TextMeshProUGUI>();
             if (texto != null)
@@ -187,5 +193,13 @@ public class Enemigo : MonoBehaviour
                 texto.text = cantidad.ToString();
             }
         }
+    }
+
+    public void MirarAnastasia()
+    {
+        // Hace que el enemigo mire hacia Anastasia al ser instanciado
+        Vector3 miraAnastasia = jugador.transform.position - transform.position;
+        miraAnastasia.y = 0f;
+        if (miraAnastasia != Vector3.zero) { transform.rotation = Quaternion.LookRotation(miraAnastasia); }
     }
 }

@@ -86,7 +86,9 @@ public class MovimientoJugador : MonoBehaviour
 
     public void herirAnastasia(int cantidadHerida)
     {
+        Debug.Log("Daño recibido: " + cantidadHerida);
         vidaActual -= cantidadHerida;
+        Debug.Log("Vida actual: " + vidaActual);
 
         if (vidaActual <= 0)
         {
