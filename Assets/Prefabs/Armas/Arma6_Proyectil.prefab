@@ -106,7 +106,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.68
+  m_Radius: 0.56
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &308315904751547497
 MonoBehaviour:
@@ -122,10 +122,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   golpe: 0
   direccion: {x: 0, y: 0, z: 0}
-  velocidad: 5
+  velocidad: 8
   multiplicadorVelocidad: 1.5
   radioExplosion: 5
   particulasExplosion: {fileID: 3238455142961331409, guid: efb33598e81b66b4f86f9795a0bd8b35, type: 3}
+  childCollider: {fileID: 0}
 --- !u!54 &8743167633055954696
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &1884392768912748267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,10 +278,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.3042028
+  m_Radius: 4.1
   m_Height: 6.608405
   m_Direction: 1
-  m_Center: {x: -0.012033863, y: 0.7277375, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2138097393032661248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 63e5123c13d9df442bc8a721e767b212, type: 3}

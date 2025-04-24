@@ -52,7 +52,7 @@ public class CanvasManager : MonoBehaviour
         experiencia = GameObject.Find("ExperienciaDemo").GetComponent<TextMeshProUGUI>();*/
 
         sliderExp.minValue = 0;
-        sliderExp.maxValue = expMaxPorNivel;
+        sliderExp.maxValue = gameManager.experienciaRequerida;
         sliderExp.value = 0; // Inicia vacío
 
         timeLeft = startTime;
@@ -73,7 +73,8 @@ public class CanvasManager : MonoBehaviour
         textoNivel.text = "Nv: " + gameManager.nivel.ToString();
 
         // Actualizar el Slider con la experiencia
-        sliderExp.value = gameManager.experienciaTotal % expMaxPorNivel;
+        sliderExp.maxValue = gameManager.experienciaRequerida;
+        sliderExp.value = gameManager.experienciaActual;
     }
 
     IEnumerator Countdown()

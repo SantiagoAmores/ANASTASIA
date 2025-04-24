@@ -23,13 +23,10 @@ public class GatoRebota : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         childCollider = GetComponentInChildren<Collider>();
+
         if (childCollider == null)
         {
             Debug.Log("no tiene collider");
-        }
-        else
-        {
-            childCollider.isTrigger = true;
         }
 
         StartCoroutine(ExplotarDespuesDeTiempo());
@@ -48,7 +45,6 @@ public class GatoRebota : MonoBehaviour
         // Solo procesar colisiones con enemigos
         if (other == childCollider || other.CompareTag("Enemy"))
         {
-            Debug.Log("Me va a dar un algo");
             Enemigo enemigo = other.GetComponent<Enemigo>();
             if (enemigo != null)
             {
@@ -85,7 +81,7 @@ public class GatoRebota : MonoBehaviour
 
     IEnumerator ExplotarDespuesDeTiempo()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(1.75f);
         Explotar();
         Destroy(gameObject);
     }

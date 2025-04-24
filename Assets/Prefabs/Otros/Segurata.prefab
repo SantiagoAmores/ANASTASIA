@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2485313548946855950}
   - component: {fileID: 1438492450281975665}
   m_Layer: 8
-  m_Name: Enemigo 4
+  m_Name: Segurata
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
