@@ -3716,7 +3716,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.14999999
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 9306b28357b44664182057d1625fa568, type: 2}
   m_BuildHeightMesh: 0
@@ -4660,7 +4660,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienciaTotal: 0
+  experienciaActual: 0
   nivel: 1
+  experienciaRequerida: 5
   anastasia: {fileID: 0}
 --- !u!4 &1303907954
 Transform:
@@ -5527,6 +5529,8 @@ MonoBehaviour:
   seguir: 1
   spawnAreaRadius: 10
   spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
+  tiempoEntreSpawns: 6
+  rondaTemporal: 0
 --- !u!4 &1539868387
 Transform:
   m_ObjectHideFlags: 0
@@ -6560,6 +6564,7 @@ MonoBehaviour:
   expMaxPorNivel: 5
   cuentaAtras: {fileID: 728954854}
   startTime: 120
+  objetoActivable: {fileID: 0}
 --- !u!114 &2005013977
 MonoBehaviour:
   m_ObjectHideFlags: 0

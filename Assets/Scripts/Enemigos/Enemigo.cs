@@ -32,6 +32,8 @@ public class Enemigo : MonoBehaviour
 
     public GameObject textoDanoPrefab;
 
+    private Jefe01 jefeScript;
+
     private void Awake()
     {
         enemigo = GetComponent<NavMeshAgent>();
@@ -56,6 +58,8 @@ public class Enemigo : MonoBehaviour
             // Asigna los stats del jefe dependiendo de su fase
             if (estadisticas.faseDeJefe == 1 || estadisticas.faseDeJefe == 2) { estadisticas.revisarEnemigo(); }
         }
+
+        jefeScript = GetComponent<Jefe01>();
 
         enemigoVidaTotal = estadisticas.enemigoVida;
         enemigoAtaque = estadisticas.enemigoAtaque;
@@ -151,6 +155,9 @@ public class Enemigo : MonoBehaviour
                     );
                 Instantiate(puntoExperienciaPrefab, dropPosicion, Quaternion.identity);
             }
+
+            if (jefeScript != null) { jefeScript.EliminarTodosLosProyectiles(); }
+
             // Y despues destruye al enemigo
             Destroy(this.gameObject);
         }
@@ -163,7 +170,7 @@ public class Enemigo : MonoBehaviour
         enemigoCollider.enabled = false;
         enemigo.speed = 0f;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         enemigoCollider.enabled = true;
         enemigo.speed = enemigoVelocidad;
@@ -174,7 +181,7 @@ public class Enemigo : MonoBehaviour
 
         golpeable = false;
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.65f);
 
         golpeable = true;
 

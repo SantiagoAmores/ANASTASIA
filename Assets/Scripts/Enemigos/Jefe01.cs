@@ -168,4 +168,14 @@ public class Jefe01 : MonoBehaviour
             proyectilListaJefe.RemoveAt(0);
         }
     }
+
+    public void EliminarTodosLosProyectiles()
+    {
+        foreach (GameObject proyectil in proyectilListaJefe)
+        {
+            if (proyectil != null)
+                Destroy(proyectil);
+        }
+        proyectilListaJefe.Clear();
+    }
 }
