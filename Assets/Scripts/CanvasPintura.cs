@@ -99,4 +99,7 @@ public class CanvasPintura : MonoBehaviour
 
         return new Vector2(x, y);
     }
+
+   public void PrimeraFase() { }
+   public void SegundaFase() { }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tostada : MonoBehaviour
+public class Jefe02_Proyectil : MonoBehaviour
 {
 
 
