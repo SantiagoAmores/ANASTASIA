@@ -30,7 +30,7 @@ public class Arma3 : MonoBehaviour
         {
 
             // Comprobamos que funciona el bucle
-            Debug.Log("Instanciando pintura...");
+            //Debug.Log("Instanciando pintura...");
 
             yield return new WaitForSeconds(stats.arma3Cadencia);
 

@@ -8,25 +8,42 @@ public class RoundManager : MonoBehaviour
     public int ronda = 0;
 
     public float duracionRonda = 120f;
-    public GameObject bossPrefab;
-    public Transform bossSpawn;
+    /*public GameObject bossPrefab;
+    public Transform bossSpawn;*/
+
+    public SpawnEnemigos spawner;
 
     private Coroutine rondaActual;
 
     // Start is called before the first frame update
     void Start()
     {
+        spawner = GetComponent<SpawnEnemigos>();
+        if (spawner != null)
+        {
+            spawner.rondaTemporal = ronda;
+            spawner.seguir = true;
+        }
+
         IniciarSiguienteFase(); 
     }
 
     public void IniciarSiguienteFase()
     {
+        if (spawner != null)
+        {
+            spawner.rondaTemporal = ronda;
+        }
+
+
         if (ronda == 0 || ronda == 2)
         {
+            ActivarSpawner(true);
             rondaActual = StartCoroutine(Ronda());
         }
         else if (ronda ==1 || ronda == 3)
         {
+            ActivarSpawner(false);
             SpawnBoss();
         }
         else if (ronda >= 4)
@@ -47,7 +64,7 @@ public class RoundManager : MonoBehaviour
     void SpawnBoss()
     {
         Debug.Log("Aparece jefe " + (ronda == 1 ? "1" : "Final"));
-        GameObject boss = Instantiate(bossPrefab, bossSpawn.position, Quaternion.identity);
+        /*GameObject boss = Instantiate(bossPrefab, bossSpawn.position, Quaternion.identity);
 
         StatsEnemigos statsBoss = boss.GetComponent<StatsEnemigos>();
 
@@ -65,6 +82,11 @@ public class RoundManager : MonoBehaviour
 
             //actualizar stats llamando a revisarEnemigo
             statsBoss.revisarEnemigo();
+        }*/
+        if (spawner != null)
+        {
+            int fase = (ronda == 1) ? 1 : 2;
+            spawner.SpawnBoss(fase);
         }
     }
 
@@ -78,7 +100,16 @@ public class RoundManager : MonoBehaviour
     void PantallaVictoria()
     {
         Debug.Log("Has Ganado");
+        ActivarSpawner(false);
 
         //Aqui pondremos las animaciones y demas cosas
+    }
+
+    void ActivarSpawner(bool activo)
+    {
+        if (spawner != null)
+        {
+            spawner.seguir = activo;
+        }
     }
 }

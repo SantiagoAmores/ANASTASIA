@@ -33,7 +33,7 @@ public class Arma2 : MonoBehaviour
             GameObject instanciaLapiz = Instantiate(proyectil, (player.transform.position + new Vector3(0, 0, 2)), Quaternion.Euler(0, -90, 90));
             // Escala el tamaño del arma con las subidas de ataque
             float rango = 1.3f + ((float)stats.mejorasAtaque / 10f);
-            Debug.Log(rango);
+            //Debug.Log(rango);
             instanciaLapiz.transform.localScale = new Vector3(0.5f, rango, 0.5f);
             Arma2_Adicional lapizScript = instanciaLapiz.GetComponent<Arma2_Adicional>();
             if (lapizScript != null) { lapizScript.golpe = (int)stats.arma2Ataque; }

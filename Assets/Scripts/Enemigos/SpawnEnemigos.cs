@@ -110,4 +110,24 @@ public class SpawnEnemigos : MonoBehaviour
 
         return Vector3.zero;
     }
+
+    public void SpawnBoss(int fase)
+    {
+        Vector3 randomPositionBoss = GetRandomPositionOnNavMesh(transform.position, spawnAreaRadius);
+
+        GameObject boss = Instantiate(enemigoPrefab[2], randomPositionBoss, Quaternion.identity);
+
+        if (spawnEfectoPrefab != null)
+        {
+            GameObject efecto = Instantiate(spawnEfectoPrefab, randomPositionBoss, Quaternion.identity);
+            Destroy(efecto, 1f);
+        }
+
+        StatsEnemigos stats = boss.GetComponent<StatsEnemigos>();
+        if (stats != null)
+        {
+            stats.faseDeJefe = fase;
+            stats.revisarEnemigo();
+        }
+    }
 }
