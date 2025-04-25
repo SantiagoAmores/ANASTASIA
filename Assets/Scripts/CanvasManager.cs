@@ -86,7 +86,7 @@ public class CanvasManager : MonoBehaviour
             timeLeft--;
         }
 
-        Victoria();
+        //Victoria();
         //VictoriaDemo();
         //cuentaAtras.text = "Te has quedado sin tiempo :(";
     }

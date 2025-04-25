@@ -12,7 +12,7 @@ public class StatsAnastasia : MonoBehaviour
     public static float velocidadMovimientoBase = 5f;
 
     // ARMA 1 BASE
-    public static float arma1CadenciaBase = 2f;
+    public static float arma1CadenciaBase = 1.5f;
     public static int arma1AtaqueBase = 2;
 
     // ARMA 2 BASE

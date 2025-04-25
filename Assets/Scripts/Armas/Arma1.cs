@@ -42,7 +42,7 @@ public class Arma1 : MonoBehaviour
             if (col == null || !col.enabled) continue;
 
             float distancia = Vector3.Distance(transform.position, enemigoMasCercano.transform.position);
-            if (distancia <= 7.5f) { DispararProyectil(enemigoMasCercano); }
+            if (distancia <= 9f) { DispararProyectil(enemigoMasCercano); }
         }
     }
 
@@ -77,7 +77,7 @@ public class Arma1 : MonoBehaviour
 
         Rigidbody rb = instanciaProyectil.GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePositionY;
-        rb.AddForce(direccion * 500f);
+        rb.AddForce(direccion * 750f);
 
         // CALCULA EL DAÑO DEL PROYECTIL
         ProyectilDestruible proyectilScript = instanciaProyectil.GetComponent<ProyectilDestruible>();

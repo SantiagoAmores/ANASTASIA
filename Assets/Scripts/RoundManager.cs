@@ -15,13 +15,15 @@ public class RoundManager : MonoBehaviour
 
     private Coroutine rondaActual;
 
+    private Enemigo jefeActual;
+
     // Start is called before the first frame update
     void Start()
     {
         spawner = GetComponent<SpawnEnemigos>();
         if (spawner != null)
         {
-            spawner.rondaTemporal = ronda;
+            spawner.ronda = ronda;
             spawner.seguir = true;
         }
 
@@ -32,7 +34,7 @@ public class RoundManager : MonoBehaviour
     {
         if (spawner != null)
         {
-            spawner.rondaTemporal = ronda;
+            spawner.ronda = ronda;
         }
 
 
@@ -82,11 +84,20 @@ public class RoundManager : MonoBehaviour
 
             //actualizar stats llamando a revisarEnemigo
             statsBoss.revisarEnemigo();
-        }*/
+        }
         if (spawner != null)
         {
             int fase = (ronda == 1) ? 1 : 2;
             spawner.SpawnBoss(fase);
+        }
+        */
+
+        GameObject jefeGameObject = spawner.SpawnBoss((ronda == 1) ? 1 : 2);
+        jefeActual = jefeGameObject.GetComponent<Enemigo>();
+
+        if (jefeActual != null)
+        {
+            StartCoroutine(EsperarMuerteJefe());
         }
     }
 
@@ -111,5 +122,20 @@ public class RoundManager : MonoBehaviour
         {
             spawner.seguir = activo;
         }
+    }
+
+    IEnumerator EsperarMuerteJefe()
+    {
+        while (jefeActual != null && jefeActual.enemigoVidaActual <= 0)
+        {
+            yield return null;
+        }
+
+        while (jefeActual != null && jefeActual.enemigoVidaActual > 0)
+        {
+            yield return null;
+        }
+
+        BossDerrotado();
     }
 }

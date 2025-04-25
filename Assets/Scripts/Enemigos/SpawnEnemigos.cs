@@ -11,26 +11,38 @@ public class SpawnEnemigos : MonoBehaviour
 
     public GameObject spawnEfectoPrefab;
 
-    public float tiempoEntreSpawns = 6f;
+    public float tiempoEntreSpawns = 10f;
 
     private bool primerSpawn = true;
 
-    public int rondaTemporal;
+    public int ronda;
 
     private int minimoSpawns;
     private int maximoSpawns;
 
+    public bool instanciar = true;
+
+    private bool ronda2Empezada;
+
     void Start()
     {
+        ronda = GetComponent<RoundManager>().ronda;
         minimoSpawns = 2;
-        maximoSpawns = 5;
+        maximoSpawns = 4;
         StartCoroutine(Spawns());
     }
 
     private void Update()
     {
-        minimoSpawns = 3;
-        maximoSpawns = 6;
+        if (ronda == 2 && !ronda2Empezada)
+        {
+            ronda2Empezada = true;
+            primerSpawn = true;
+            instanciar = true;
+            StartCoroutine(Spawns());
+            minimoSpawns = 4;
+            maximoSpawns = 7;
+        }
     }
 
     public IEnumerator Spawns()
@@ -39,7 +51,7 @@ public class SpawnEnemigos : MonoBehaviour
         {
             if (primerSpawn)
             {
-                yield return new WaitForSeconds(tiempoEntreSpawns / 2);
+                yield return new WaitForSeconds(tiempoEntreSpawns / 4);
                 primerSpawn = false;
             }
             else
@@ -59,9 +71,8 @@ public class SpawnEnemigos : MonoBehaviour
                 }
 
                 int aleatorio = 0;
-                bool instanciar = true;
 
-                switch (rondaTemporal)
+                switch (ronda)
                 {
                     case 0:
                         aleatorio = (Random.value < 0.8f) ? 0 : 1;
@@ -111,7 +122,7 @@ public class SpawnEnemigos : MonoBehaviour
         return Vector3.zero;
     }
 
-    public void SpawnBoss(int fase)
+    public GameObject SpawnBoss(int fase)
     {
         Vector3 randomPositionBoss = GetRandomPositionOnNavMesh(transform.position, spawnAreaRadius);
 
@@ -129,5 +140,6 @@ public class SpawnEnemigos : MonoBehaviour
             stats.faseDeJefe = fase;
             stats.revisarEnemigo();
         }
+        return boss;
     }
 }
