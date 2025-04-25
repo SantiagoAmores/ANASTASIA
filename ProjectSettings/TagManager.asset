@@ -7,8 +7,8 @@ TagManager:
   - Enemy
   - Projectile
   - Experiencia
-  - Projectile2
   - brillo
+  - ProjectileDPS
   layers:
   - Default
   - TransparentFX
