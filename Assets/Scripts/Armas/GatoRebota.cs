@@ -48,7 +48,7 @@ public class GatoRebota : MonoBehaviour
             Enemigo enemigo = other.GetComponent<Enemigo>();
             if (enemigo != null)
             {
-                enemigo.RecibirGolpe(golpe);
+                enemigo.RecibirGolpe(golpe, this.gameObject);
                 if (!haChocado)
                 {
                     velocidad *= multiplicadorVelocidad;
@@ -98,7 +98,7 @@ public class GatoRebota : MonoBehaviour
         {
             if (enemigo.CompareTag("Enemy"))
             {
-                enemigo.GetComponent<Enemigo>().RecibirGolpe((int)golpe * 2);
+                enemigo.GetComponent<Enemigo>().RecibirGolpe((int)golpe * 2, this.gameObject);
             }
         }
         Destroy(gameObject);

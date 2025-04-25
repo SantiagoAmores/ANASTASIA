@@ -32,7 +32,7 @@ public class Arma2 : MonoBehaviour
             // Crea una instancia del lapiz y le otorga el daño
             GameObject instanciaLapiz = Instantiate(proyectil, (player.transform.position + new Vector3(0, 0, 2)), Quaternion.Euler(0, -90, 90));
             // Escala el tamaño del arma con las subidas de ataque
-            float rango = 1.3f + ((float)stats.mejorasAtaque / 10f);
+            float rango = 1.3f + ((float)stats.mejorasAtaque / 9f);
             //Debug.Log(rango);
             instanciaLapiz.transform.localScale = new Vector3(0.5f, rango, 0.5f);
             Arma2_Adicional lapizScript = instanciaLapiz.GetComponent<Arma2_Adicional>();
@@ -42,12 +42,12 @@ public class Arma2 : MonoBehaviour
             instanciaLapiz.transform.parent = contenedor.transform;
 
             // Calcula el tiempo de rotacion total, para que escale con el daño del arma
-            // float tiempoRotacionTotal = 0.5f + ((stats.arma2Ataque / 10) - 0.2f);
+             float tiempoRotacionTotal = 0.5f + ((stats.arma2Ataque / 10) - 0.2f);
             float tiempoTranscurrido = 0f;
 
             // Gira alrededor del contenedor
             // Si no se colocase el lapiz en el contenedor, este aceleraria/deceleraria cada vez que el jugador girase. El contenedor evita eso
-            while (tiempoTranscurrido < 0.5f)
+            while (tiempoTranscurrido < tiempoRotacionTotal)
             {
                 contenedor.transform.position = player.transform.position;
 

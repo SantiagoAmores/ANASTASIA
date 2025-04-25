@@ -129,12 +129,12 @@ Material:
     - _ZWrite: 1
     - _foamDistance: 1.5
     - _size: 7
-    - _speed: 0.03
+    - _speed: 0.05
     - _strength: 0.005
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _darkFoamColor: {r: 0, g: 0.2768035, b: 0.5471698, a: 1}
+    - _darkFoamColor: {r: 0, g: 0.095687255, b: 0.18867922, a: 1}
     - _lightFoamColor: {r: 1, g: 1, b: 1, a: 0}
-    - _waterColor: {r: 0, g: 0.5054994, b: 1, a: 1}
+    - _waterColor: {r: 0, g: 0.22430629, b: 0.4433962, a: 1}
   m_BuildTextureStacks: []

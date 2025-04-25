@@ -14,7 +14,7 @@ public class BumerangDestruible : MonoBehaviour
 
             if (enemigo != null)
             {
-                enemigo.RecibirGolpe(golpe); //le hace daño al enemigo
+                enemigo.RecibirGolpe(golpe, this.gameObject); //le hace daño al enemigo
             }
             //Destroy(other.gameObject); // Destruye al enemigo
         }

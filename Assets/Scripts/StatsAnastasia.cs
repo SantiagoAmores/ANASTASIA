@@ -9,14 +9,14 @@ public class StatsAnastasia : MonoBehaviour
     public int vidaBase = 5;
 
     // VELOCIDAD BASE DE ANASTASIA
-    public static float velocidadMovimientoBase = 5f;
+    public static float velocidadMovimientoBase = 4.25f;
 
     // ARMA 1 BASE
-    public static float arma1CadenciaBase = 1.5f;
+    public static float arma1CadenciaBase = 1.7f;
     public static int arma1AtaqueBase = 2;
 
     // ARMA 2 BASE
-    public static float arma2CadenciaBase = 4f;
+    public static float arma2CadenciaBase = 4.3f;
     public static int arma2AtaqueBase = 3;
 
     // ARMA 3 BASE
@@ -40,7 +40,7 @@ public class StatsAnastasia : MonoBehaviour
     public int mejorasVelocidad = 0;
     public int mejorasCadencia = 0;
     public int mejorasAtaque = 0;
-    private const int mejorasMaximas = 5;
+    private const int mejorasMaximas = 6;
 
     public GameObject textoSubirNivelPrefab;
 
@@ -111,7 +111,8 @@ public class StatsAnastasia : MonoBehaviour
 
         if (subidasDeNivelIncompletas.Count == 0)
         {
-            Debug.Log("Si sube al nivel maximo, le cura 5 de vida cada vez que sube de nivel!");
+            AumentarVida();
+            MostrarSubidaDeNivel("+ VIDA");
             return;
         }
 

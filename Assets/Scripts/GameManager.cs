@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
             if (nivel % 5 == 0)
             {
-                experienciaRequerida += 2;
+                experienciaRequerida += 4;
             }
 
             if (anastasia != null)

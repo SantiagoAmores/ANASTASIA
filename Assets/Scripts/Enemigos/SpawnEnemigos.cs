@@ -27,8 +27,8 @@ public class SpawnEnemigos : MonoBehaviour
     void Start()
     {
         ronda = GetComponent<RoundManager>().ronda;
-        minimoSpawns = 2;
-        maximoSpawns = 4;
+        minimoSpawns = 1;
+        maximoSpawns = 3;
         StartCoroutine(Spawns());
     }
 
@@ -39,9 +39,9 @@ public class SpawnEnemigos : MonoBehaviour
             ronda2Empezada = true;
             primerSpawn = true;
             instanciar = true;
-            StartCoroutine(Spawns());
             minimoSpawns = 4;
-            maximoSpawns = 7;
+            maximoSpawns = 8;
+            StartCoroutine(Spawns());
         }
     }
 
@@ -75,7 +75,7 @@ public class SpawnEnemigos : MonoBehaviour
                 switch (ronda)
                 {
                     case 0:
-                        aleatorio = (Random.value < 0.8f) ? 0 : 1;
+                        aleatorio = (Random.value < 0.975f) ? 0 : 1;
                         break;
                     case 1:
                         instanciar = false;

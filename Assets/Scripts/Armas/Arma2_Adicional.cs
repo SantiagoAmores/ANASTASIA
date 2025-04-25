@@ -10,7 +10,7 @@ public class Arma2_Adicional : MonoBehaviour
             Enemigo enemigo = other.GetComponent<Enemigo>();
             if (enemigo != null)
             {
-                enemigo.RecibirGolpe(golpe);
+                enemigo.RecibirGolpe(golpe, this.gameObject);
             }
         }
     }

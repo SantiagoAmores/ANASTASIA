@@ -112,7 +112,7 @@ public class Jefe01 : MonoBehaviour
                 // PROYECTIL PRINCIPAL DEL JEFE
                 GameObject instanciaProyectilJefe   = Instantiate(proyectilJefe, ojo, Quaternion.LookRotation(direccion));
 
-                instanciaProyectilJefe.transform.localScale *= 2f;
+                instanciaProyectilJefe.transform.localScale *= 1.5f;
                 proyectilListaJefe.Add(instanciaProyectilJefe);
 
                 Jefe01_Proyectil scriptProyectil = instanciaProyectilJefe.GetComponent<Jefe01_Proyectil>();
@@ -127,7 +127,7 @@ public class Jefe01 : MonoBehaviour
                 // PROYECTIL SECUNDARIO DEL JEFE (45 ANGULOS POSITIVOS)
                 Vector3 direccion45                 = Quaternion.Euler(0, 45, 0) * direccion;
                 GameObject proyectilAdicional1      = Instantiate(proyectilJefe, ojo, Quaternion.LookRotation(direccion45));
-                proyectilAdicional1.transform.localScale *= 2f;
+                proyectilAdicional1.transform.localScale *= 1.5f;
                 proyectilListaJefe.Add(proyectilAdicional1);
 
                 Jefe01_Proyectil scriptProyectilAdicional1 = proyectilAdicional1.GetComponent<Jefe01_Proyectil>();
@@ -142,7 +142,7 @@ public class Jefe01 : MonoBehaviour
                 // PROYECTIL SECUNDARIO DEL JEFE (45 ANGULOS NEGATIVOS)
                 Vector3 direccion45nega             = Quaternion.Euler(0, -45, 0) * direccion;
                 GameObject proyectilAdicional2      = Instantiate(proyectilJefe, ojo, Quaternion.LookRotation(direccion45nega));
-                proyectilAdicional2.transform.localScale *= 2f;
+                proyectilAdicional2.transform.localScale *= 1.5f;
                 proyectilListaJefe.Add(proyectilAdicional2);
 
                 Jefe01_Proyectil scriptProyectilAdicional2 = proyectilAdicional2.GetComponent<Jefe01_Proyectil>();

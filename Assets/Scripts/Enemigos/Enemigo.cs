@@ -122,15 +122,17 @@ public class Enemigo : MonoBehaviour
         //}
     }
 
-    public void RecibirGolpe(int cantidadDeGolpe)
+    public void RecibirGolpe(int cantidadDeGolpe, GameObject atacante)
     {
         
         if (!golpeable)
         {
             return;
         }
-
-        StartCoroutine(HeridaPausa());
+        if (atacante.CompareTag("ProjectileDPS"))
+        {
+            StartCoroutine(HeridaPausa());
+        }
 
         MostrarTextoDano(cantidadDeGolpe);
 
@@ -181,7 +183,7 @@ public class Enemigo : MonoBehaviour
 
         golpeable = false;
 
-        yield return new WaitForSeconds(0.65f);
+        yield return new WaitForSeconds(1.1f);
 
         golpeable = true;
 
