@@ -2531,6 +2531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 554850417}
   - component: {fileID: 554850416}
+  - component: {fileID: 554850418}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2615,6 +2616,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &554850418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554850415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &562554518
 GameObject:
   m_ObjectHideFlags: 0
@@ -5402,7 +5426,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 912f2a08c2389f44e835df3a13b33669, type: 3}
+  - {fileID: 2100000, guid: 4936212c26b4fca47895cf48131595b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7073,7 +7097,8 @@ MonoBehaviour:
   spawnAreaRadius: 10
   spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
   tiempoEntreSpawns: 6
-  rondaTemporal: 3
+  ronda: 0
+  instanciar: 1
 --- !u!4 &1539868387
 Transform:
   m_ObjectHideFlags: 0
@@ -7679,7 +7704,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 912f2a08c2389f44e835df3a13b33669, type: 3}
+  - {fileID: 2100000, guid: 4936212c26b4fca47895cf48131595b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
