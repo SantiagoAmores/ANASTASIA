@@ -156,6 +156,7 @@ MonoBehaviour:
   enemigoVidaActual: 0
   estadisticas: {fileID: 0}
   textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
+  seguirJugador: 1
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -215,6 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
   puntosMovimiento: []
+  llamaPrefab: {fileID: 3509816606227039377, guid: 3ed3d7a59080db445bbdc614c60fc600, type: 3}
+  intervaloLlamas: 0.5
 --- !u!1001 &6126666807198651381
 PrefabInstance:
   m_ObjectHideFlags: 0

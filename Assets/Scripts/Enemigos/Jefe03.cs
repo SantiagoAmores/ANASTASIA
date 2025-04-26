@@ -29,6 +29,12 @@ public class Jefe03 : MonoBehaviour
     private Vector3 direccionJugador;
     private bool direccionCalculada = false;
 
+    public GameObject llamaPrefab; // Asigna el prefab desde el inspector
+    public float intervaloLlamas = 0.5f; // Tiempo entre cada llama
+    private Vector3 ultimaPosicionFuego;
+    private float distanciaEntreLlamas = 1f; 
+
+
     void Start()
     {
         enemigoScript = GetComponent<Enemigo>();
@@ -36,6 +42,9 @@ public class Jefe03 : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         jugador = GameObject.FindGameObjectWithTag("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        maxSpeedPhase1 = statsScript.enemigoVelocidad;
+        maxSpeedPhase2 = statsScript.enemigoVelocidad;
 
         GameObject[] puntos = GameObject.FindGameObjectsWithTag("PuntoMovimiento");
         foreach (GameObject punto in puntos)
@@ -114,7 +123,7 @@ public class Jefe03 : MonoBehaviour
             direccionCalculada = true;
         }
 
-        float attackDuration = 2.5f;
+        float attackDuration = 3f;
         float timer = 0f;
 
         while (timer < attackDuration)
@@ -142,35 +151,67 @@ public class Jefe03 : MonoBehaviour
     private IEnumerator MovimientoPuntosAleatorios()
     {
         isAttacking = true;
-        animator.SetBool("atacando", true);
+        enemigoScript.seguirJugador = false;
 
-        enemigoScript.seguirJugador = false; // ❌ Desactivar seguimiento
+        navMeshAgent.speed = maxSpeedPhase2;
 
-        List<Transform> puntosDisponibles = new List<Transform>(puntosMovimiento);
-        int puntosVisitados = 0;
-
-        while (puntosVisitados < 5)
+        while (true) // bucle para seguir los puntos aleatorios
         {
-            if (puntosDisponibles.Count == 0) break;
 
-            int index = Random.Range(0, puntosDisponibles.Count);
-            Transform destino = puntosDisponibles[index];
-            puntosDisponibles.RemoveAt(index);
+            List<Transform> puntosDisponibles = new List<Transform>(puntosMovimiento);
+            int puntosVisitados = 0;
 
-            navMeshAgent.SetDestination(destino.position);
-
-            while (Vector3.Distance(transform.position, destino.position) > 0.5f)
+            while (puntosVisitados < 5)
             {
-                yield return null;
+                if (puntosDisponibles.Count == 0) break;
+
+                int index = Random.Range(0, puntosDisponibles.Count);
+                Transform destino = puntosDisponibles[index];
+                puntosDisponibles.RemoveAt(index);
+
+                navMeshAgent.SetDestination(destino.position);
+
+                ultimaPosicionFuego = transform.position;
+
+                animator.SetBool("atacando", true); // Activar animación de movimiento
+
+                // Esperar a que llegue al destino
+                while (Vector3.Distance(transform.position, destino.position) > 0.5f)
+                {
+                    float distanciaRecorrida = Vector3.Distance(transform.position, ultimaPosicionFuego);
+
+                    if (distanciaRecorrida >= distanciaEntreLlamas)
+                    {
+                        Vector3 posicionFuego = transform.position;
+                        posicionFuego.y = 0.5f; // Pegado al suelo
+
+                        // Calcular dirección de movimiento
+                        Vector3 direccionMovimiento = (transform.position - ultimaPosicionFuego).normalized;
+
+                        // Calcular ángulo en grados
+                        float angulo = Mathf.Atan2(direccionMovimiento.x, direccionMovimiento.z) * Mathf.Rad2Deg;
+
+                        // Crear la rotación
+                        Quaternion rotacionFuego = Quaternion.Euler(0, angulo + 90f, 0);
+
+                        // Instanciar con rotación
+                        Instantiate(llamaPrefab, posicionFuego, rotacionFuego);
+
+                        ultimaPosicionFuego = transform.position;
+                    }
+
+                    yield return null;
+                }
+
+                // Llegó al destino
+                animator.SetBool("atacando", false); // Cambiar a animación idle
+
+                yield return new WaitForSeconds(2f); // Esperar 2 segundo
+
+                puntosVisitados++;
             }
 
-            yield return new WaitForSeconds(1f);
-            puntosVisitados++;
+            yield return new WaitForSeconds(4f); // Espera 4 segundos tras 5 puntos
         }
-
-        isAttacking = false;
-        animator.SetBool("atacando", false);
-
-        enemigoScript.seguirJugador = true; // ✅ Reactivar seguimiento si hiciera falta
     }
 }
