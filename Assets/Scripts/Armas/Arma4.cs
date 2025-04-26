@@ -7,7 +7,7 @@ public class Arma4 : MonoBehaviour
 {
     public GameObject boomerangPrefab;
     //public float shootInterval = 2f;
-    public float boomerangSpeed = 10f;
+    public float boomerangSpeed = 15f;
 
     public StatsAnastasia stats;
 
@@ -39,7 +39,7 @@ public class Arma4 : MonoBehaviour
     IEnumerator BoomerangMovement(Transform boomerang)
     {
         Transform player = transform;
-        Transform target = FindFarthestEnemy();
+        Transform target = FindRandomEnemy();
         bool returning = false;
 
         while (true)
@@ -75,7 +75,7 @@ public class Arma4 : MonoBehaviour
         }
     }
 
-    Transform FindFarthestEnemy()
+    Transform FindRandomEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0) return null;
@@ -86,8 +86,11 @@ public class Arma4 : MonoBehaviour
 
         if(enemiesInRange.Length == 0) return null;
 
-        return enemies
-            .OrderByDescending(e => Vector3.Distance(e.transform.position, transform.position))
-            .First().transform;
+        int randomIndex = Random.Range(0, enemiesInRange.Length);
+        return enemiesInRange[randomIndex].transform;
+
+        /*return enemies
+            .OrderByDescending(e => Vector3.Distance(e.transform.position, transform.position)) //Al mas lejano
+            .First().transform;*/
     }
 }

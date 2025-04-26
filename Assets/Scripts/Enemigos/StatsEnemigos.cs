@@ -13,8 +13,8 @@ public class StatsEnemigos : MonoBehaviour
     public int faseDeJefe;
 
     // Guarda las estadisticas de los enemigos en un dicciconario accesible
-    private Dictionary<string, (int, int, float, int)> diccionarioEnemigos;
-    private Dictionary<string, ((int, int, float, int) fase1, (int, int, float, int) fase2, string drop)> diccionarioBosses;
+    public Dictionary<string, (int, int, float, int)> diccionarioEnemigos;
+    public Dictionary<string, ((int, int, float, int) fase1, (int, int, float, int) fase2, string drop)> diccionarioBosses;
 
     private void Awake()
     {

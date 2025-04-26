@@ -24,7 +24,7 @@ public class StatsAnastasia : MonoBehaviour
     public static int arma3AtaqueBase = 1;
 
     // ARMA 4 BASE
-    public static float arma4CadenciaBase = 2f;
+    public static float arma4CadenciaBase = 2.5f;
     public static int arma4AtaqueBase = 1;
 
     // ARMA 5 BASE
@@ -32,8 +32,9 @@ public class StatsAnastasia : MonoBehaviour
     public static int arma5AtaqueBase = 1;
 
     // ARMA 6 BASE
-    public static float arma6CadenciaBase = 2f;
+    public static float arma6CadenciaBase = 3f;
     public static int arma6AtaqueBase = 1;
+
 
     // LIMITAR SUBIDAS DE NIVEL
     public int mejorasVida = 0;
@@ -58,7 +59,7 @@ public class StatsAnastasia : MonoBehaviour
     public float arma3Ataque { get; private set; }
     public float arma4Ataque { get; private set; }
     public float arma5Ataque { get; private set; }
-    public float arma6Ataque { get; private set; }
+    public static float arma6Ataque { get; private set; }
 
     private void Start()
     {

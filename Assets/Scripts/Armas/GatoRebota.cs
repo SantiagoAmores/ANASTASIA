@@ -90,10 +90,11 @@ public class GatoRebota : MonoBehaviour
     {
         if (particulasExplosion != null)
         {
-            Instantiate(particulasExplosion, transform.position, Quaternion.identity);
+            GameObject particulas = Instantiate(particulasExplosion, transform.position, Quaternion.identity);
+            Destroy(particulas, 2f); // se destruyen despues de 2 segundos
         }
 
-        Collider[] enemigos = Physics.OverlapSphere(transform.position, radioExplosion);
+        Collider[] enemigos = Physics.OverlapSphere(transform.position, (radioExplosion + (float)StatsAnastasia.arma6Ataque/10));
         foreach (Collider enemigo in enemigos)
         {
             if (enemigo.CompareTag("Enemy"))

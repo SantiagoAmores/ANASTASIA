@@ -125,7 +125,7 @@ MonoBehaviour:
   velocidad: 8
   multiplicadorVelocidad: 1.5
   radioExplosion: 5
-  particulasExplosion: {fileID: 3238455142961331409, guid: efb33598e81b66b4f86f9795a0bd8b35, type: 3}
+  particulasExplosion: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   childCollider: {fileID: 0}
 --- !u!54 &8743167633055954696
 Rigidbody:

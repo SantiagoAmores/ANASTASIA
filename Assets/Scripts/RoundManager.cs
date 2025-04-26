@@ -17,9 +17,13 @@ public class RoundManager : MonoBehaviour
 
     private Enemigo jefeActual;
 
+    private CanvasManager canvasManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        canvasManager = GameObject.Find("Canvas").GetComponent<CanvasManager>();
+
         spawner = GetComponent<SpawnEnemigos>();
         if (spawner != null)
         {
@@ -28,6 +32,7 @@ public class RoundManager : MonoBehaviour
         }
 
         IniciarSiguienteFase(); 
+
     }
 
     public void IniciarSiguienteFase()
@@ -114,6 +119,7 @@ public class RoundManager : MonoBehaviour
         ActivarSpawner(false);
 
         //Aqui pondremos las animaciones y demas cosas
+        canvasManager.Victoria();
     }
 
     void ActivarSpawner(bool activo)

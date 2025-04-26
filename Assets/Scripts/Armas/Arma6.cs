@@ -36,7 +36,7 @@ public class Arma6 : MonoBehaviour
 
         if (gatoScript != null)
         {
-            gatoScript.golpe = (int)stats.arma6Ataque;
+            gatoScript.golpe = (int)StatsAnastasia.arma6Ataque;
             gatoScript.direccion = (objetivo.transform.position - transform.position).normalized;
         }
     }
