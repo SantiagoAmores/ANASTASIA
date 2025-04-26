@@ -34,6 +34,9 @@ public class Enemigo : MonoBehaviour
 
     private Jefe01 jefeScript;
 
+    public bool seguirJugador = true;
+
+
     private void Awake()
     {
         enemigo = GetComponent<NavMeshAgent>();
@@ -91,8 +94,12 @@ public class Enemigo : MonoBehaviour
 
     void Update()
     {
-        enemigo.SetDestination(jugador.transform.position);
+        if (seguirJugador)
+        {
+            enemigo.SetDestination(jugador.transform.position);
+        }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

@@ -1,6 +1,8 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Jefe03 : MonoBehaviour
 {
@@ -8,23 +10,24 @@ public class Jefe03 : MonoBehaviour
     StatsEnemigos statsScript;
     Animator animator;
     public GameObject jugador;
+    private NavMeshAgent navMeshAgent;
 
-    // Variables de movimiento
+    // Variables de movimiento y ataque
     private bool isAttacking = false;
-    private RoundManager roundManager;
 
-    // Variables de zigzag (fase 2)
-    private float zigzagTimer = 0f;
-    private float zigzagSpeed = 15f; // Aumentada
-    private float zigzagWidth = 12f;  // Aumentada
-    private Vector3 moveDirection;
+    // Variables para movimiento aleatorio (fase 2)
+    public List<Transform> puntosMovimiento = new List<Transform>();
 
-    // Variables de aceleraciÛn
+    // Variables de aceleraciÔøΩn
     private float currentSpeed = 0f;
     private float acceleration = 5f;
     private float deceleration = 8f;
     private float maxSpeedPhase1 = 7f;
     private float maxSpeedPhase2 = 10f;
+
+    // Variables para controlar la direcci√≥n hacia el jugador
+    private Vector3 direccionJugador;
+    private bool direccionCalculada = false;
 
     void Start()
     {
@@ -32,18 +35,21 @@ public class Jefe03 : MonoBehaviour
         statsScript = GetComponent<StatsEnemigos>();
         animator = GetComponentInChildren<Animator>();
         jugador = GameObject.FindGameObjectWithTag("Player");
-        roundManager = FindObjectOfType<RoundManager>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
-        // ConfiguraciÛn inicial basada en la ronda
-        if (roundManager.ronda == 1) // Primera ronda de jefe
+        GameObject[] puntos = GameObject.FindGameObjectsWithTag("PuntoMovimiento");
+        foreach (GameObject punto in puntos)
         {
-            statsScript.faseDeJefe = 1; // Solo fase 1
-            transform.localScale = Vector3.one; // TamaÒo normal
+            if (punto.activeInHierarchy && punto.transform.position != Vector3.zero)
+            {
+                puntosMovimiento.Add(punto.transform);
+            }
         }
-        else if (roundManager.ronda == 3) // Segunda ronda de jefe
+
+        // Se puede configurar visualmente en el prefab si comienza en fase 1 o 2
+        if (statsScript.faseDeJefe == 2)
         {
-            statsScript.faseDeJefe = 1; // Comienza en fase 1
-            transform.localScale = Vector3.one; // TamaÒo normal inicial
+            transform.localScale *= 1.5f;
         }
 
         statsScript.revisarEnemigo();
@@ -53,25 +59,28 @@ public class Jefe03 : MonoBehaviour
     void Update()
     {
         animator.SetFloat("velocidadActual", enemigoScript.enemigo.speed);
-        enemigoScript.MirarAnastasia();
 
-        // Solo permitir cambio de fase en la ronda 3
-        if (roundManager.ronda == 3 && statsScript.faseDeJefe == 1 &&
-            statsScript.enemigoVida <= statsScript.enemigoVida / 2f)
+        // Solo mirar al jugador si no est√° atacando puntos
+        if (!isAttacking)
+        {
+            enemigoScript.MirarAnastasia(); // ‚Üê O desact√≠valo si mueve al enemigo
+        }
+
+        if (statsScript.faseDeJefe == 1 &&
+            statsScript.enemigoVida <= statsScript.enemigoVida * 0.5f)
         {
             CambiarAFase2();
         }
     }
 
-    void CambiarAFase2()
+    // Se puede llamar desde otros scripts si lo querÔøΩis activar de forma externa
+    public void CambiarAFase2()
     {
         statsScript.faseDeJefe = 2;
-        statsScript.revisarEnemigo(); // Actualizar stats con los de fase 2
-        transform.localScale *= 1.5f; // Aumentar tamaÒo
+        statsScript.revisarEnemigo(); // Cargar nuevas stats
+        transform.localScale *= 1.5f;
+        navMeshAgent.speed = statsScript.enemigoVelocidad;
         animator.SetTrigger("CambioFase");
-
-        // Opcional: efecto visual al cambiar de fase
-        //Instantiate(particulasCambioFase, transform.position, Quaternion.identity);
     }
 
     public IEnumerator ComportamientoJefe()
@@ -82,15 +91,14 @@ public class Jefe03 : MonoBehaviour
 
             if (statsScript.faseDeJefe == 1)
             {
-                // Comportamiento fase 1 (movimiento lineal)
+                // Movimiento recto, tipo embestida
                 yield return StartCoroutine(MovimientoLineal());
-                yield return new WaitForSeconds(1.5f); // Pausa entre ataques
+                yield return new WaitForSeconds(1.5f);
             }
-            else if (statsScript.faseDeJefe == 2 && roundManager.ronda == 3)
+            else if (statsScript.faseDeJefe == 2)
             {
-                // Comportamiento fase 2 (zigzag) solo en ronda 3
-                yield return StartCoroutine(MovimientoZigZag());
-                yield return new WaitForSeconds(0.8f); // Pausa m·s corta
+                yield return StartCoroutine(MovimientoPuntosAleatorios());
+                yield return new WaitForSeconds(0.8f);
             }
         }
     }
@@ -100,97 +108,69 @@ public class Jefe03 : MonoBehaviour
         isAttacking = true;
         animator.SetBool("atacando", true);
 
-        float attackDuration = roundManager.ronda == 1 ? 3f : 2.5f; // Ajuste por ronda
+        if (!direccionCalculada)
+        {
+            direccionJugador = (jugador.transform.position - transform.position).normalized;
+            direccionCalculada = true;
+        }
+
+        float attackDuration = 2.5f;
         float timer = 0f;
-        Vector3 direction = (jugador.transform.position - transform.position).normalized;
 
         while (timer < attackDuration)
         {
             timer += Time.deltaTime;
-
-            // AceleraciÛn gradual
-            if (currentSpeed < maxSpeedPhase1)
-            {
-                currentSpeed += acceleration * Time.deltaTime;
-                currentSpeed = Mathf.Min(currentSpeed, maxSpeedPhase1);
-            }
-
-            // Actualizar direcciÛn
-            direction = (jugador.transform.position - transform.position).normalized;
-            transform.position += direction * currentSpeed * Time.deltaTime;
-
+            currentSpeed = Mathf.Min(currentSpeed + acceleration * Time.deltaTime, maxSpeedPhase1);
+            transform.position += direccionJugador * currentSpeed * Time.deltaTime;
             yield return null;
         }
 
-        // Frenado gradual
         while (currentSpeed > 0.1f)
         {
             currentSpeed -= deceleration * Time.deltaTime;
-            transform.position += direction * currentSpeed * Time.deltaTime;
+            transform.position += direccionJugador * currentSpeed * Time.deltaTime;
             yield return null;
         }
 
         currentSpeed = 0f;
         isAttacking = false;
         animator.SetBool("atacando", false);
+        direccionCalculada = false;
     }
 
-    private IEnumerator MovimientoZigZag()
+
+    private IEnumerator MovimientoPuntosAleatorios()
     {
         isAttacking = true;
         animator.SetBool("atacando", true);
 
-        float attackDuration = 3.5f;
-        float timer = 0f;
-        zigzagTimer = 0f;
+        enemigoScript.seguirJugador = false; // ‚ùå Desactivar seguimiento
 
-        moveDirection = (jugador.transform.position - transform.position).normalized;
+        List<Transform> puntosDisponibles = new List<Transform>(puntosMovimiento);
+        int puntosVisitados = 0;
 
-        while (timer < attackDuration)
+        while (puntosVisitados < 5)
         {
-            timer += Time.deltaTime;
-            zigzagTimer += Time.deltaTime * zigzagSpeed;
+            if (puntosDisponibles.Count == 0) break;
 
-            // AceleraciÛn m·s r·pida en fase 2
-            if (currentSpeed < maxSpeedPhase2)
+            int index = Random.Range(0, puntosDisponibles.Count);
+            Transform destino = puntosDisponibles[index];
+            puntosDisponibles.RemoveAt(index);
+
+            navMeshAgent.SetDestination(destino.position);
+
+            while (Vector3.Distance(transform.position, destino.position) > 0.5f)
             {
-                currentSpeed += acceleration * 1.5f * Time.deltaTime;
-                currentSpeed = Mathf.Min(currentSpeed, maxSpeedPhase2);
+                yield return null;
             }
 
-            // Movimiento en zigzag m·s pronunciado
-            Vector3 baseMovement = moveDirection * currentSpeed * Time.deltaTime;
-            Vector3 perpendicular = new Vector3(-moveDirection.z, 0, moveDirection.x);
-            Vector3 zigzagOffset = perpendicular * Mathf.Sin(zigzagTimer) * zigzagWidth * Time.deltaTime;
-
-            transform.position += baseMovement + zigzagOffset;
-
-            // Actualizar direcciÛn m·s frecuentemente para cambios m·s bruscos
-            if (timer % 0.3f < Time.deltaTime)
-            {
-                moveDirection = (jugador.transform.position - transform.position).normalized;
-            }
-
-            yield return null;
+            yield return new WaitForSeconds(1f);
+            puntosVisitados++;
         }
 
-        // Frenado gradual
-        while (currentSpeed > 0.1f)
-        {
-            currentSpeed -= deceleration * 1.5f * Time.deltaTime;
-            transform.position += moveDirection * currentSpeed * Time.deltaTime;
-            yield return null;
-        }
-
-        currentSpeed = 0f;
         isAttacking = false;
         animator.SetBool("atacando", false);
-    }
 
-    // Llamar este mÈtodo cuando el jefe sea derrotado
-    public void Derrotado()
-    {
-        roundManager.BossDerrotado();
-        Destroy(gameObject);
+        enemigoScript.seguirJugador = true; // ‚úÖ Reactivar seguimiento si hiciera falta
     }
 }

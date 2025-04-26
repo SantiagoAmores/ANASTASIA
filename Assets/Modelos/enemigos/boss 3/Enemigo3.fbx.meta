@@ -68,8 +68,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Walk_Robot (1)
-      takeName: Armature|Walk_Robot
+      name: Armature|RuedaAction (1)
+      takeName: Armature|RuedaAction
       internalID: -4968658641044393821
       firstFrame: 0
       lastFrame: 12
