@@ -1,62 +1,168 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+
+// Clase que contiene toda la información de cada entrada del bestiario
+[System.Serializable]
+public class EntradaBestiario
+{
+    public Sprite imagen;       // Imagen del elemento
+    public string nombre;       // Nombre a mostrar
+    public string descripcion;  // Descripción detallada
+    public bool desbloqueado;   // Si está disponible para ver
+}
 
 public class BestiarioManager : MonoBehaviour
 {
-    [Header("UI")]
+    [Header("UI Principal")]
     public GameObject bestiarioCanvas;
-    public Transform contenidoBestiario;
-    public GameObject entradaPrefab;
+    public Image imagenDisplay;
+    public TextMeshProUGUI textoNombre;
+    public TextMeshProUGUI textoDescripcion;
 
-    [Header("Datos")]
-    public StatsEnemigos statsEnemigos;
-    public StatsAnastasia statsAnastasia;
+    [Header("Contenido Organizado")]
+    public EntradaBestiario[] enemigos;
+    public EntradaBestiario[] armas;
+    public EntradaBestiario[] jefes;
+    public EntradaBestiario[] coleccionables;
 
-    private bool abierto = false;
+    [Header("Botones Categorías")] 
+    public Button botonEnemigos;
+    public Button botonArmas;
+    public Button botonJefes;
+    public Button botonColeccionables;
 
-    public void ToggleBestiario()
+    [Header("Botones Navegación")]
+    public Button botonAnterior;
+    public Button botonSiguiente;
+    public TextMeshProUGUI textoPagina;
+    public TextMeshProUGUI textoCategoria; // Muestra la categoría actual
+
+    // Variables de control
+    private EntradaBestiario[] entradasActuales;
+    private int indiceActual = 0;
+    private string categoriaActual = "";
+
+    void Start()
     {
-        abierto = !abierto;
-        bestiarioCanvas.SetActive(abierto);
+        ConfigurarBotones(); 
+        CerrarBestiario();
+    }
 
-        if (abierto)
+    void ConfigurarBotones()
+    {
+        // Asignacin directa desde Inspector
+        botonEnemigos.onClick.AddListener(() => MostrarCategoria("ENEMIGOS", enemigos));
+        botonArmas.onClick.AddListener(() => MostrarCategoria("ARMAS", armas));
+        botonJefes.onClick.AddListener(() => MostrarCategoria("JEFES", jefes));
+        botonColeccionables.onClick.AddListener(() => MostrarCategoria("COLECCIONABLES", coleccionables));
+
+        botonAnterior.onClick.AddListener(() => CambiarEntrada(-1));
+        botonSiguiente.onClick.AddListener(() => CambiarEntrada(1));
+    }
+
+    void InicializarEstados()
+    {
+        // Aquí puedes cargar datos guardados o inicializar desbloqueos
+        // Ejemplo: desbloquear el primer elemento de cada categoría
+        if (enemigos.Length > 0) enemigos[0].desbloqueado = true;
+        if (armas.Length > 0) armas[0].desbloqueado = true;
+        if (jefes.Length > 0) jefes[0].desbloqueado = true;
+        if (coleccionables.Length > 0) coleccionables[0].desbloqueado = true;
+    }
+
+    public void AbrirBestiario()
+    {
+        bestiarioCanvas.SetActive(true);
+        if (string.IsNullOrEmpty(categoriaActual))
+            MostrarCategoria("enemigos", enemigos);
+    }
+
+    public void CerrarBestiario()
+    {
+        bestiarioCanvas.SetActive(false);
+    }
+
+    public void MostrarCategoria(string categoria, EntradaBestiario[] entradas)
+    {
+        categoriaActual = categoria;
+        entradasActuales = entradas;
+        indiceActual = 0;
+
+        // Actualizar UI
+        textoCategoria.text = categoria.ToUpper();
+        MostrarEntradaActual();
+    }
+
+    void CambiarEntrada(int cambio)
+    {
+        if (entradasActuales == null || entradasActuales.Length == 0) return;
+
+        // Buscar próxima entrada desbloqueada
+        int intentos = 0;
+        do
         {
-            ActualizarBestiario();
+            indiceActual += cambio;
+
+            // Navegación circular
+            if (indiceActual < 0) indiceActual = entradasActuales.Length - 1;
+            if (indiceActual >= entradasActuales.Length) indiceActual = 0;
+
+            intentos++;
+            if (intentos > entradasActuales.Length) break; // Evitar bucle infinito
+        } while (!entradasActuales[indiceActual].desbloqueado && entradasActuales.Length > 1);
+
+        MostrarEntradaActual();
+    }
+
+    void MostrarEntradaActual()
+    {
+        if (entradasActuales == null || indiceActual >= entradasActuales.Length) return;
+
+        EntradaBestiario entrada = entradasActuales[indiceActual];
+
+        if (entrada.desbloqueado)
+        {
+            imagenDisplay.sprite = entrada.imagen;
+            textoNombre.text = entrada.nombre;
+            textoDescripcion.text = entrada.descripcion;
+        
+            // Actualizar página
+            textoPagina.text = $"{indiceActual + 1}/{entradasActuales.Length}";
+        }
+        else
+        {
+            MostrarBloqueado();
         }
     }
 
-    void ActualizarBestiario()
+    void MostrarBloqueado()
     {
-        /*// Elimina entradas anteriores
-        foreach (Transform child in contenidoBestiario)
+        imagenDisplay.sprite = Resources.Load<Sprite>("bloqueado"); // Necesitarás una imagen "bloqueado"
+        textoNombre.text = "???";
+        textoDescripcion.text = "Aún no has descubierto este elemento";
+    }
+
+    // Método para desbloquear entradas desde otros scripts
+    public void DesbloquearEntrada(string categoria, int indice)
+    {
+        EntradaBestiario[] entradas = null;
+
+        switch (categoria.ToLower())
         {
-            Destroy(child.gameObject);
+            case "enemigos": entradas = enemigos; break;
+            case "armas": entradas = armas; break;
+            case "jefes": entradas = jefes; break;
+            case "coleccionables": entradas = coleccionables; break;
         }
 
-        // ENEMIGOS
-        foreach (var enemigo in statsEnemigos.diccionarioEnemigos)
+        if (entradas != null && indice >= 0 && indice < entradas.Length)
         {
-            GameObject nuevaEntrada = Instantiate(entradaPrefab, contenidoBestiario);
-            nuevaEntrada.GetComponentInChildren<TextMeshProUGUI>().text = enemigo.Key + "\nVida: " + enemigo.Value.Item1 + "\nAtaque: " + enemigo.Value.Item2;
-            // Aquí luego pondríamos la imagen también
-        }
+            entradas[indice].desbloqueado = true;
 
-        // BOSS
-        foreach (var boss in statsEnemigos.diccionarioBosses)
-        {
-            GameObject nuevaEntrada = Instantiate(entradaPrefab, contenidoBestiario);
-            nuevaEntrada.GetComponentInChildren<TextMeshProUGUI>().text = boss.Key + " (Boss)\nVida Fase 1: " + boss.Value.fase1.Item1 + "\nVida Fase 2: " + boss.Value.fase2.Item1;
-            // También luego pondríamos imagen y drop
+            // Si es la categoría actual, actualizar visual
+            if (categoria.ToLower() == categoriaActual)
+                MostrarEntradaActual();
         }
-
-        // ARMAS
-        GameObject entradaArmas = Instantiate(entradaPrefab, contenidoBestiario);
-        entradaArmas.GetComponentInChildren<TextMeshProUGUI>().text =
-            "Armas:\n" +
-            "- Arma 1: Daño " + StatsAnastasia.arma1AtaqueBase + ", Cadencia " + StatsAnastasia.arma1CadenciaBase + "\n" +
-            "- Arma 2: Daño " + StatsAnastasia.arma2AtaqueBase + ", Cadencia " + StatsAnastasia.arma2CadenciaBase + "\n" +
-            "- ...";*/
     }
 }

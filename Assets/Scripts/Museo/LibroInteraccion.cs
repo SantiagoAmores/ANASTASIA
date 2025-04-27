@@ -29,18 +29,16 @@ public class LibroInteraccion : MonoBehaviour
 
     void Update()
     {
-        // Si el jugador está cerca y presiona "E"
         if (isNearBook && Input.GetKeyDown(KeyCode.E))
         {
-            // Aquí podrías activar el bestiario o cualquier otra acción
-            Debug.Log("Interacción con el libro");
-
-            // llama al bestiario
-            if (isNearBook && Input.GetKeyDown(KeyCode.E))
+            if (bestiarioManager.bestiarioCanvas.activeSelf)
             {
-                bestiarioManager.ToggleBestiario();
+                bestiarioManager.CerrarBestiario();
             }
-
+            else
+            {
+                bestiarioManager.AbrirBestiario();
+            }
         }
     }
 
