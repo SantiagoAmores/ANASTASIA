@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7951365172276653742}
   - component: {fileID: 6096415705295080951}
   - component: {fileID: 913102841305326103}
+  - component: {fileID: 3400856347996301974}
   - component: {fileID: 60255810020451838}
   - component: {fileID: 7557716002391435356}
   m_Layer: 7
@@ -83,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   pintura: {fileID: 209788572413664971, guid: a7d309836f42644468a2094b97339087, type: 3}
+  cuboPintura: {fileID: 0}
   stats: {fileID: 0}
 --- !u!114 &913102841305326103
 MonoBehaviour:
@@ -99,6 +101,22 @@ MonoBehaviour:
   boomerangPrefab: {fileID: 4502277416638159692, guid: 00a8cae20654b4648a39959144a9a89a, type: 3}
   boomerangSpeed: 10
   stats: {fileID: 0}
+--- !u!114 &3400856347996301974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501023126614973725}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc242e1349195f469d12929ddf692ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  rastroPintura: {fileID: 1392915274599990847, guid: 2ad5b761d9b43bf43846745fec1b734b, type: 3}
+  rodilloPrefab: {fileID: 195257089558091227, guid: d1624d18464e95540970f0718a02c61e, type: 3}
+  stats: {fileID: 0}
 --- !u!114 &60255810020451838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +124,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 291d7f9946372d442aa49aa83ab11741, type: 3}
   m_Name: 
@@ -129,8 +147,8 @@ MonoBehaviour:
   arma2: {fileID: 7951365172276653742}
   arma3: {fileID: 6096415705295080951}
   arma4: {fileID: 913102841305326103}
-  arma5: {fileID: 0}
-  arma6: {fileID: 0}
+  arma5: {fileID: 3400856347996301974}
+  arma6: {fileID: 60255810020451838}
 --- !u!1 &7986659953479751430
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,12 +315,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4009a44f54666d42b2bc7d95dfc1ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaBase: 5
+  vidaBase: 300
   mejorasVida: 0
   mejorasVelocidad: 0
   mejorasCadencia: 0
   mejorasAtaque: 0
-  textoSubirNivelPrefab: {fileID: 0}
+  textoSubirNivelPrefab: {fileID: 6474264951493391942, guid: 9e4797d3dc1786f479cc96c0c94e45a3, type: 3}
 --- !u!1001 &6599262778893182260
 PrefabInstance:
   m_ObjectHideFlags: 0

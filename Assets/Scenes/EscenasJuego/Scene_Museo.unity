@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &29780622
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1547,7 +1547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddad1d3b24995b44af27aade5ca7e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PantallaNivelCanvas: {fileID: 1307245074}
+  PantallaNivelCanvas: {fileID: 29780621}
   nivel: Scene_Nivel_1
   empezarNivel: {fileID: 1905451754}
   textoNivel: {fileID: 1837995639}
@@ -3286,7 +3286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddad1d3b24995b44af27aade5ca7e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PantallaNivelCanvas: {fileID: 1307245074}
+  PantallaNivelCanvas: {fileID: 29780621}
   nivel: Scene_Nivel_3
   empezarNivel: {fileID: 1905451754}
   textoNivel: {fileID: 1837995639}
@@ -8840,7 +8840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddad1d3b24995b44af27aade5ca7e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PantallaNivelCanvas: {fileID: 1307245074}
+  PantallaNivelCanvas: {fileID: 29780621}
   nivel: Scene_Nivel_2
   empezarNivel: {fileID: 1905451754}
   textoNivel: {fileID: 1837995639}

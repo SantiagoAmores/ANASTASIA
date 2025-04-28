@@ -44,7 +44,7 @@ public class ActivadorDeArma : MonoBehaviour
         arma2.enabled = (arma == 1);
         arma3.enabled = (arma == 2);
         arma4.enabled = (arma == 3);
-        arma5.enabled = (arma == 2);
-        arma6.enabled = (arma == 3);
+        arma5.enabled = (arma == 4);
+        arma6.enabled = (arma == 5);
     }
 }
