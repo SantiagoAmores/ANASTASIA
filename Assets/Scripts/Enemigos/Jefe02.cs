@@ -13,6 +13,7 @@ public class Jefe02 : MonoBehaviour
     Enemigo enemigoScript;
     StatsEnemigos statsScript;
     Animator animator;
+    public GameObject jugador;
 
     public GameObject jefeProyectil;
     public List<GameObject> listaProyectiles = new List<GameObject>();

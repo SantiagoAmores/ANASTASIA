@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2253067808621884053}
   - component: {fileID: 320460615469193347}
   - component: {fileID: 7421227876878384127}
-  - component: {fileID: 4781227185244344853}
+  - component: {fileID: 4945556617937804977}
   m_Layer: 0
   m_Name: Arma5_Proyectil
   m_TagString: ProjectileDPS
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1392915274599990847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.286668, y: 0.008, z: 6.7318215}
-  m_LocalScale: {x: 3.538, y: 0.03174, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.9014413, y: 0.03174, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,13 +100,13 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4781227185244344853
+--- !u!114 &4945556617937804977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1392915274599990847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e28d98f83bf8d94594d929f29f81507, type: 3}
+  m_Script: {fileID: 11500000, guid: 22e88aab85a24da40843e0887bb443c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  golpe: 1
+  golpe: 0

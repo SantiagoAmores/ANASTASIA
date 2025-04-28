@@ -23,6 +23,13 @@ public class CanvasManager : MonoBehaviour
     public Slider sliderExp;
     public int expMaxPorNivel = 5;
 
+    // Slider vida
+    public Slider sliderVida;
+    public int vidaMax;
+
+    // Stats
+    public StatsAnastasia stats;
+
     //Cuenta atras
     public TextMeshProUGUI cuentaAtras;
     public float startTime = 120f;
@@ -40,11 +47,20 @@ public class CanvasManager : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
 
         //textoExperiencia = GameObject.Find("TextoExperiencia").GetComponent<TextMeshProUGUI>();
         textoNivel = GameObject.Find("TextoNivel").GetComponent<TextMeshProUGUI>();
 
         sliderExp = GameObject.Find("SliderXP").GetComponent<Slider>();
+
+        // Slider vida
+        sliderVida = GameObject.Find("SliderVida").GetComponent<Slider>();
+        vidaMax = stats.vidaBase;
+
+        sliderVida.minValue = 0;
+        sliderVida.maxValue = vidaMax;
+        sliderVida.value = vidaMax; // Al principio tiene toda la vida
 
         objetoActivable = GameObject.Find("Activable");
 
@@ -75,6 +91,10 @@ public class CanvasManager : MonoBehaviour
         // Actualizar el Slider con la experiencia
         sliderExp.maxValue = gameManager.experienciaRequerida;
         sliderExp.value = gameManager.experienciaActual;
+
+        // Actualizar el slider de la vida que tiene
+        sliderVida.maxValue = vidaMax;
+        //sliderVida.value = vidaActual;
     }
 
     IEnumerator Countdown()

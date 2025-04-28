@@ -10,6 +10,9 @@ public class Arma3 : MonoBehaviour
 
     // Proyectil
     public GameObject pintura;
+    public GameObject cuboPintura;
+
+    //Parametros
     private float duracion = 1f;
     private float radio = 5f; // Área alrededor del jugador
     private Vector3 escalaFinal = new Vector3(5f, 0.1f, 5f);
@@ -40,12 +43,23 @@ public class Arma3 : MonoBehaviour
 
             Vector3 spawnPosition = player.transform.position + new Vector3(randomX, -1f, randomZ);
 
+            // Instanciar charco de pintura
             GameObject instanciarPintura = Instantiate(pintura, spawnPosition, Quaternion.identity);
 
-            // CALCULA EL DAÑO DEL PROYECTIL
+            // Instanciar cubo de pintura
+            if (cuboPintura != null)
+            {
+                Vector3 cuboPosition = spawnPosition + new Vector3(0, 5f, 0); // Posicion mas arriba de donde se situa el charco
+                GameObject cuboInstancia = Instantiate(cuboPintura, cuboPosition, Quaternion.identity);
+                StartCoroutine(RotarCubo(cuboInstancia)); // Animacion del arma
+                Destroy(cuboInstancia, 1.5f); // Destruir el cubo después de que termine la animación
+            }
+
+            // Se calcula el dano del charco de pintura
             CharcoPintura charcoScript = instanciarPintura.GetComponent<CharcoPintura>();
             if (charcoScript != null) { charcoScript.golpe = (int)stats.arma3Ataque; }
 
+            // Escalado d ela pintura
             Vector3 escalaInicial = Vector3.zero;
             instanciarPintura.transform.localScale = escalaInicial;
 
@@ -75,6 +89,35 @@ public class Arma3 : MonoBehaviour
                 Destroy(instanciarPintura, 2f);
             }
 
+        }
+    }
+    private IEnumerator RotarCubo(GameObject cubo)
+    {
+        // Rotacion
+        Quaternion rotacionInicial = cubo.transform.rotation;
+        Quaternion rotacionFinal = Quaternion.Euler(180f, 0f, 0f); // Girarlo 180 grados en el eje X
+
+        float duracionRotacion = 0.5f; // Tiempo para que se complete la rotacion
+        float tiempo = 0f;
+
+        while (tiempo < duracionRotacion)
+        {
+            if (cubo != null)
+            {
+                cubo.transform.rotation = Quaternion.Lerp(rotacionInicial, rotacionFinal, tiempo / duracionRotacion);
+            }
+            else
+            {
+                break;
+            }
+
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        if (cubo != null)
+        {
+            cubo.transform.rotation = rotacionFinal;
         }
     }
 }
