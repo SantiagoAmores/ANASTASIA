@@ -36,7 +36,6 @@ public class Enemigo : MonoBehaviour
 
     public bool seguirJugador = true;
 
-
     private void Awake()
     {
         enemigo = GetComponent<NavMeshAgent>();
@@ -165,6 +164,11 @@ public class Enemigo : MonoBehaviour
                 Instantiate(puntoExperienciaPrefab, dropPosicion, Quaternion.identity);
             }
 
+            if (estadisticas.esUnJefe && estadisticas.faseDeJefe == 1)
+            {
+                DropDeJefe();
+            }
+
             if (jefeScript != null) { jefeScript.EliminarTodosLosProyectiles(); }
 
             // Y despues destruye al enemigo
@@ -217,5 +221,27 @@ public class Enemigo : MonoBehaviour
         Vector3 miraAnastasia = jugador.transform.position - transform.position;
         miraAnastasia.y = 0f;
         if (miraAnastasia != Vector3.zero) { transform.rotation = Quaternion.LookRotation(miraAnastasia); }
+    }
+
+    public void DropDeJefe()
+    {
+        GameObject inventarioDeAnastasia = GameObject.Find("Inventario");
+
+        string nombreJefe = gameObject.name.Replace("(Clone)", "").Trim();
+
+        switch (nombreJefe)
+        {
+            case "Enemigo 3":
+                inventarioDeAnastasia.GetComponent<Arma2>().enabled = true;
+                break;
+            case "Enemigo 6":
+                inventarioDeAnastasia.GetComponent<Arma3>().enabled = true;
+                break;
+            case "Enemigo 9":
+                inventarioDeAnastasia.GetComponent<Arma5>().enabled = true;
+                break;
+            default:
+                break;
+        }
     }
 }
