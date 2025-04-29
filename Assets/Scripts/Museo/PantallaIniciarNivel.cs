@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Cinemachine;
+using Unity.VisualScripting;
+using System.Collections;
 
 public class PantallaIniciarNivel : MonoBehaviour
 {
@@ -11,8 +14,17 @@ public class PantallaIniciarNivel : MonoBehaviour
     //public TMP_Text textoNivel;
     public TMP_Text armaSeleccionada;
 
+    // Camara para niveles
+    private Transform jugadorTransform;
+    public Transform targetNivel;
+    public CinemachineVirtualCamera museoCamara;
+    private Coroutine zoomCoroutine; // Cambio de camara fluida
+
     void Start()
     {
+       
+        museoCamara = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+        
         // Oculta la ventana de la interfaz
         PantallaNivelCanvas.SetActive(false);
         
@@ -40,6 +52,19 @@ public class PantallaIniciarNivel : MonoBehaviour
             //textoNivel.text = nivelActual;
 
             empezarNivel.onClick.AddListener(() => CambioDeNivel(nivelActual));
+
+            // Camara apuntar cuadros antes de entrar al nivel
+
+            jugadorTransform = other.transform; // Guarda al jugador
+
+            targetNivel = transform.Find("target");
+
+            museoCamara.LookAt = targetNivel.transform;
+            museoCamara.Follow = targetNivel.transform;
+
+            // Inicia el zoom suave
+            if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
+            zoomCoroutine = StartCoroutine(zoomCuadro(40f, 1f)); // Zoom a 30 en medio segundo
         }
     }
 
@@ -49,7 +74,30 @@ public class PantallaIniciarNivel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PantallaNivelCanvas.SetActive(false);
+
+            // La camara vuelve a su posicion
+            museoCamara.LookAt = jugadorTransform;
+            museoCamara.Follow = jugadorTransform;
+
+            // Zoom suave de regreso
+            if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
+            zoomCoroutine = StartCoroutine(zoomCuadro(60f, 0.5f));
         }
+    }
+
+    public IEnumerator zoomCuadro(float nuevoZoom, float duracion)
+    {
+        float tiempo = 0f;
+        float zoomInicial = museoCamara.m_Lens.FieldOfView;
+
+        while (tiempo < duracion)
+        {
+            museoCamara.m_Lens.FieldOfView = Mathf.Lerp(zoomInicial, nuevoZoom, tiempo / duracion);
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        museoCamara.m_Lens.FieldOfView = nuevoZoom;
     }
 
     // Funcion para cargar la escena
