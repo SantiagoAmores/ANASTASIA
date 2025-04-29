@@ -71,7 +71,7 @@ public class Arma3 : MonoBehaviour
                 // Si no fue destruida antes la pintura
                 if (instanciarPintura != null)
                 {
-                    instanciarPintura.transform.localScale = Vector3.Lerp(Vector3.zero, escalaFinal, tiempo / duracion);
+                    instanciarPintura.transform.localScale = Vector3.Lerp(Vector3.zero, escalaFinal * (1 + stats.arma4Ataque / 5f), tiempo / duracion);
                 }
                 else
                 {
@@ -85,7 +85,7 @@ public class Arma3 : MonoBehaviour
             // Solo si aun existe, le damos la escala final y la destruimos después
             if (instanciarPintura != null)
             {
-                instanciarPintura.transform.localScale = escalaFinal;
+                instanciarPintura.transform.localScale = escalaFinal * (1 + stats.arma4Ataque / 5f);
                 Destroy(instanciarPintura, 2f);
             }
 

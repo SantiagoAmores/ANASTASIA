@@ -1815,7 +1815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6096415705295080951, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6096415705295080951, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: cuboPintura
@@ -14562,6 +14562,8 @@ GameObject:
   m_Component:
   - component: {fileID: 854819793}
   - component: {fileID: 854819791}
+  - component: {fileID: 854819794}
+  - component: {fileID: 854819795}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -14606,6 +14608,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854819794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854819790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408834838765a43498a0eb338e3127d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ronda: 0
+  duracionRonda: 120
+  spawner: {fileID: 0}
+--- !u!114 &854819795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854819790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92e95cb2d3f8f84698909f0da33b012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigoPrefab:
+  - {fileID: 7953884465996740025, guid: 5d30a3d2e62c68142978f85c427d0783, type: 3}
+  spawnAreaRadius: 10
+  tiempoEntreSpawns: 1
+  spawnEfectoPrefab: {fileID: 0}
 --- !u!1001 &858070236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21306,7 +21340,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644376344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fc242e1349195f469d12929ddf692ff, type: 3}
   m_Name: 
