@@ -8,7 +8,7 @@ public class PantallaIniciarNivel : MonoBehaviour
     public GameObject PantallaNivelCanvas;
     public string nivel;
     public Button empezarNivel;
-    public TMP_Text textoNivel;
+    //public TMP_Text textoNivel;
     public TMP_Text armaSeleccionada;
 
     void Start()
@@ -37,7 +37,7 @@ public class PantallaIniciarNivel : MonoBehaviour
             empezarNivel.onClick.RemoveAllListeners();
 
             string nivelActual = nivel;
-            textoNivel.text = nivelActual;
+            //textoNivel.text = nivelActual;
 
             empezarNivel.onClick.AddListener(() => CambioDeNivel(nivelActual));
         }
