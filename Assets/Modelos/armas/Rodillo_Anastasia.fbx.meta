@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: c552563c6283a424992106e04f4716ee
+guid: fd5e09387dc67564c8b280b11ad23aa9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mango
-    second: {fileID: 2100000, guid: bb9707a0b4ebaab46a60ea36ba03e8a7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: ecca7d8cc4da63d429659754cba8de9a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rodillo
-    second: {fileID: 2100000, guid: 8e924e2e69454fa44afa2af9682bf520, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -105,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.4
+    globalScale: 0.004
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

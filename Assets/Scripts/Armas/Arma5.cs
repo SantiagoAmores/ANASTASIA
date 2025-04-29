@@ -38,15 +38,19 @@ public class Arma5 : MonoBehaviour
             yield return new WaitForSeconds(cadencia); // Espera el tiempo especificado por la cadencia
 
             activado = true;
-            GameObject rodillo = Instantiate(rodilloPrefab, ObtenerPosicionDetras(), Quaternion.identity); // Instanciamos el rodillo
+            Quaternion rotacionJugador = player.transform.rotation; // Siempre quede mirando a las espaldas
+            Quaternion rotacionRodillo = Quaternion.Euler(-90f, rotacionJugador.eulerAngles.y, 0f); // Rotacion del rodillo
+            GameObject rodillo = Instantiate(rodilloPrefab, ObtenerPosicionDetras(), rotacionRodillo); // Instanciamos el rodillo
             rodillo.transform.parent = player.transform; // Hacemos que el rodillo se mueva con el jugador
+            rodillo.transform.parent = player.transform;
+
             StartCoroutine(GenerarRastro());
 
             yield return new WaitForSeconds(2f); // Tiempo en el que se genera el rastro
             activado = false; // Se desactiva el arma
 
             // Destruimos el rodillo después de un tiempo (igual que el rastro)
-            Destroy(rodillo, duracion);
+            Destroy(rodillo);
         }
     }
     private IEnumerator GenerarRastro()

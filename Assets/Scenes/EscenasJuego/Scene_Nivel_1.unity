@@ -239,7 +239,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.93207544, g: 0.19520827, b: 0.19520827, a: 1}
+    m_NormalColor: {r: 1, g: 0.30588236, b: 0.30588236, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -13513,6 +13513,9 @@ MonoBehaviour:
   PanelOpciones: {fileID: 0}
   sliderExp: {fileID: 0}
   expMaxPorNivel: 5
+  sliderVida: {fileID: 0}
+  vidaMax: 0
+  statVida: {fileID: 0}
   cuentaAtras: {fileID: 0}
   startTime: 120
   objetoActivable: {fileID: 0}
@@ -15111,6 +15114,9 @@ MonoBehaviour:
   PanelOpciones: {fileID: 902655557}
   sliderExp: {fileID: 1577905545}
   expMaxPorNivel: 5
+  sliderVida: {fileID: 0}
+  vidaMax: 0
+  statVida: {fileID: 0}
   cuentaAtras: {fileID: 742713364}
   startTime: 120
   objetoActivable: {fileID: 0}
@@ -20459,6 +20465,9 @@ MonoBehaviour:
   PanelOpciones: {fileID: 902655557}
   sliderExp: {fileID: 0}
   expMaxPorNivel: 5
+  sliderVida: {fileID: 0}
+  vidaMax: 0
+  statVida: {fileID: 0}
   cuentaAtras: {fileID: 742713364}
   startTime: 120
   objetoActivable: {fileID: 0}
@@ -21304,7 +21313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   rastroPintura: {fileID: 1392915274599990847, guid: 2ad5b761d9b43bf43846745fec1b734b, type: 3}
-  rodilloPrefab: {fileID: 195257089558091227, guid: d1624d18464e95540970f0718a02c61e, type: 3}
+  rodilloPrefab: {fileID: 5903666341966004448, guid: d1624d18464e95540970f0718a02c61e, type: 3}
   stats: {fileID: 0}
 --- !u!1001 &1644431084
 PrefabInstance:

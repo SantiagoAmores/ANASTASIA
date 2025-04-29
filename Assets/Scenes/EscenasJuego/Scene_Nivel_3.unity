@@ -9123,6 +9123,9 @@ MonoBehaviour:
   PanelOpciones: {fileID: 586832439}
   sliderExp: {fileID: 0}
   expMaxPorNivel: 5
+  sliderVida: {fileID: 0}
+  vidaMax: 0
+  statVida: {fileID: 0}
   cuentaAtras: {fileID: 728954854}
   startTime: 120
   objetoActivable: {fileID: 0}
@@ -9929,7 +9932,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.93207544, g: 0.19520827, b: 0.19520827, a: 1}
+    m_NormalColor: {r: 1, g: 0.30588236, b: 0.30588236, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
