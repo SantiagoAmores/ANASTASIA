@@ -19,7 +19,7 @@ public class LocaleSelector : MonoBehaviour
         StartCoroutine(SetLocale(localeID));
     }
 
-   IEnumerator SetLocale(int _localeID)
+   public IEnumerator SetLocale(int _localeID)
     {
         active = false;
         yield return LocalizationSettings.InitializationOperation;
