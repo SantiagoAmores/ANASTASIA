@@ -45,8 +45,9 @@ public class BestiarioManager : MonoBehaviour
 
     void Start()
     {
-        ConfigurarBotones(); 
+        ConfigurarBotones();
         CerrarBestiario();
+        CargarDesbloqueos(); // Nueva línea añadida
     }
 
     void ConfigurarBotones()
@@ -165,4 +166,33 @@ public class BestiarioManager : MonoBehaviour
                 MostrarEntradaActual();
         }
     }
+    public void CargarDesbloqueos()
+    {
+        // Para cada categoría, verificar qué entradas están desbloqueadas
+        ProcesarCategoria(enemigos, "enemigos");
+        ProcesarCategoria(armas, "armas");
+        ProcesarCategoria(jefes, "jefes");
+        ProcesarCategoria(coleccionables, "coleccionables");
+
+        // Si estamos mostrando una categoría, actualizar la vista
+        if (!string.IsNullOrEmpty(categoriaActual))
+        {
+            MostrarEntradaActual();
+        }
+    }
+
+    void ProcesarCategoria(EntradaBestiario[] entradas, string categoria)
+    {
+        for (int i = 0; i < entradas.Length; i++)
+        {
+            bool estaDesbloqueado = NivelManager.EstaDesbloqueado(categoria, i);
+            Debug.Log($"Categoría: {categoria}, Índice: {i}, Desbloqueado: {estaDesbloqueado}");
+
+            if (estaDesbloqueado)
+            {
+                entradas[i].desbloqueado = true;
+            }
+        }
+    }
+
 }

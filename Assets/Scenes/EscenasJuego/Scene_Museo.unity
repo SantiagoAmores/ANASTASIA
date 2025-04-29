@@ -1803,7 +1803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2071735253, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93862be7f5bd02446930a0b84db82334, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2768,78 +2768,95 @@ MonoBehaviour:
   enemigos:
   - imagen: {fileID: -1262876075, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Bicho Navidad
-    descripcion: 
-    desbloqueado: 1
+    descripcion: "Camina como si estuviera en un desfile navide\xF1o, uno que solo
+      ve \xE9l. Es el arbol de navidad que siempre te da pereza quitar del sal\xF3n
+      y lo dejas hasta marzo."
+    desbloqueado: 0
   - imagen: {fileID: -106010384, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Tortuga Ajolote
-    descripcion: 
-    desbloqueado: 1
+    descripcion: 'Se mueve como si no tuviera prisa en la vida (spoiler: no la tiene).
+      Le encanta observar charcos mientras llueve.'
+    desbloqueado: 0
   - imagen: {fileID: -698700476, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Tiburon Guiri
-    descripcion: 
+    descripcion: "Anda por la playa buscando el chiringuito m\xE1s barato, aunque
+      no sabe que \xE9s. Se ha quemado con el sol... debajo del agua."
     desbloqueado: 0
-  - imagen: {fileID: 292138092, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
+  - imagen: {fileID: 1361278222, guid: 9a31f7dc486d0f64bb634ae811e50c1f, type: 3}
     nombre: Cangrejo Bolos
-    descripcion: 
+    descripcion: 'Le cuesta entrar y salir de su bola, pero lo hace con dignidad.
+      Cuando llueve, se resbala y rueda dando vueltas murmurando: "Ayyyy...."'
     desbloqueado: 0
   - imagen: {fileID: -1062023364, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Mantis
-    descripcion: 
+    descripcion: "Es muy hiperactivo, como si se hubiera metido 8 tazas de caf\xE9s
+      encima. Se asusta de su propia sombra pero luego intenta asustarla de vuelta."
     desbloqueado: 0
   - imagen: {fileID: 1524009343, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Ballena Voladora
-    descripcion: "Una enorme ballena a\xE9rea con cuerpo regordete y alas. Flota
-      como un globo, a veces se queda dormida en el aire."
+    descripcion: "Una enorme ballena a\xE9rea con cuerpo regordete y alas. Tiene
+      cara de acabar de descubrir el helado por primera vez... todos los d\xEDas."
     desbloqueado: 0
   armas:
+  - imagen: {fileID: 21300000, guid: f501e669631ff864e970435d7da43e96, type: 3}
+    nombre: Pincel
+    descripcion: Se cree un instrumento de arte fino, pero siempre termina pintando
+      garabatos torcidos.
+    desbloqueado: 1
   - imagen: {fileID: 0}
-    nombre: 
-    descripcion: 
-    desbloqueado: 0
+    nombre: "L\xE1piz"
+    descripcion: "Un l\xE1piz afilado como sus opiniones. Si lo usas mucho, empieza
+      a hacerte criticas como \"\xBFeso era un circulo...?\""
+    desbloqueado: 1
   - imagen: {fileID: 0}
-    nombre: 
-    descripcion: 
-    desbloqueado: 0
-  - imagen: {fileID: 0}
-    nombre: 
-    descripcion: 
-    desbloqueado: 0
-  - imagen: {fileID: 0}
-    nombre: 
-    descripcion: 
-    desbloqueado: 0
-  - imagen: {fileID: 0}
-    nombre: 
-    descripcion: 
-    desbloqueado: 0
-  - imagen: {fileID: 0}
-    nombre: 
-    descripcion: 
-    desbloqueado: 0
+    nombre: Cubo de pintura
+    descripcion: En cuanto se mueve, empieza a salpicar a lo loco. Cuando lo agitas,
+      hace el sonido exacto de una tormenta de tomate.
+    desbloqueado: 1
+  - imagen: {fileID: 21300000, guid: 8ca7589db156dfb4ab7fe137ede1764e, type: 3}
+    nombre: Bumerang Paleta
+    descripcion: "Tiene manchas de colores tan secas que ya forman su propia biograf\xEDa.
+      A veces vuelve con pintura que no es tuya."
+    desbloqueado: 1
+  - imagen: {fileID: 21300000, guid: bfdcec40c1fd8b847a93e78587c767a4, type: 3}
+    nombre: Rodillo
+    descripcion: "Rueda como si supiera lo que hace, claramente no lo hace. Cuando
+      lo recoges, siempre est\xE1 cubierto de pintura de un color que no recuerdas
+      haber usado."
+    desbloqueado: 1
+  - imagen: {fileID: -1754417610, guid: 9a31f7dc486d0f64bb634ae811e50c1f, type: 3}
+    nombre: Gato
+    descripcion: "A veces ataca, a veces duerme encima de los enemigos, a veces te
+      ignora por completo. Nadie sabe de d\xF3nde lo sacaste, pero ahora es parte
+      del inventario y no puedes desequiparlo, \xE9l manda."
+    desbloqueado: 1
   jefes:
   - imagen: {fileID: -2071735253, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Patata
-    descripcion: 
+    descripcion: 'Cree que es un robot sofisticado, pero esta lleno de grasa de freidora.
+      Cuando lo ves piensas: "Es una patatilla"'
     desbloqueado: 0
   - imagen: {fileID: -1461927097, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Tostadora
-    descripcion: 
+    descripcion: Saca tostadas sin previo aviso y se ofende si nadie las coge. Cada
+      tanto te lanza las tostadas que te olvidaste dentro.
     desbloqueado: 0
   - imagen: {fileID: 1544937732, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Robot
-    descripcion: 
+    descripcion: 'Cambia de direccion como si acabara de recordar algo importante,
+      aunque nunca lo dice. '
     desbloqueado: 0
   coleccionables:
   - imagen: {fileID: 0}
-    nombre: 
+    nombre: Nemunai
     descripcion: 
     desbloqueado: 0
   - imagen: {fileID: 0}
-    nombre: 
+    nombre: My dear robot
     descripcion: 
     desbloqueado: 0
   - imagen: {fileID: 0}
-    nombre: 
+    nombre: Renasci
     descripcion: 
     desbloqueado: 0
   botonEnemigos: {fileID: 1804151553}
@@ -3175,7 +3192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &704046711
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9687,15 +9704,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.9
+  m_fontSize: 34.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 32
-  m_HorizontalAlignment: 16
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 32
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

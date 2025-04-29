@@ -7168,6 +7168,7 @@ GameObject:
   - component: {fileID: 1539868387}
   - component: {fileID: 1539868386}
   - component: {fileID: 1539868388}
+  - component: {fileID: 1539868389}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -7227,6 +7228,27 @@ MonoBehaviour:
   ronda: 3
   duracionRonda: 10
   spawner: {fileID: 0}
+  nivelManager: {fileID: 1539868389}
+  numeroNivelActual: 3
+--- !u!114 &1539868389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539868385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbcc11d996d8ba4ea154ee03e77e84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desbloqueosPorNivel:
+  - numeroNivel: 3
+    categoria: enemigo
+    indicesEntradas: 0400000005000000
+  - numeroNivel: 3
+    categoria: jefes
+    indicesEntradas: 02000000
 --- !u!1 &1544232410
 GameObject:
   m_ObjectHideFlags: 0

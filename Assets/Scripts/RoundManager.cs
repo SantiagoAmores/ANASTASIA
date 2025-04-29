@@ -19,6 +19,9 @@ public class RoundManager : MonoBehaviour
 
     private CanvasManager canvasManager;
 
+    public NivelManager nivelManager;
+    public int numeroNivelActual = 1; // se mira a ver que nivel es
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,7 +98,7 @@ public class RoundManager : MonoBehaviour
             int fase = (ronda == 1) ? 1 : 2;
             spawner.SpawnBoss(fase);
         }
-        */
+        */ //esto era para instanciar al jefe desde aqui en un punto exacto
 
         GameObject jefeGameObject = spawner.SpawnBoss((ronda == 1) ? 1 : 2);
         jefeActual = jefeGameObject.GetComponent<Enemigo>();
@@ -120,6 +123,8 @@ public class RoundManager : MonoBehaviour
 
         //Aqui pondremos las animaciones y demas cosas
         canvasManager.Victoria();
+        // Desbloquear entradas del bestiario correspondientes a este nivel
+        nivelManager.NivelCompletado(numeroNivelActual);
     }
 
     void ActivarSpawner(bool activo)

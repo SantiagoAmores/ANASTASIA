@@ -14564,6 +14564,7 @@ GameObject:
   - component: {fileID: 854819791}
   - component: {fileID: 854819794}
   - component: {fileID: 854819795}
+  - component: {fileID: 854819796}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -14621,8 +14622,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ronda: 0
-  duracionRonda: 120
+  duracionRonda: 10
   spawner: {fileID: 0}
+  nivelManager: {fileID: 854819796}
+  numeroNivelActual: 1
 --- !u!114 &854819795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14636,10 +14639,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigoPrefab:
-  - {fileID: 7953884465996740025, guid: 5d30a3d2e62c68142978f85c427d0783, type: 3}
+  - {fileID: 919132149155446097, guid: 8b375ff0aa6ca764388f8c51dcf988e8, type: 3}
   spawnAreaRadius: 10
   tiempoEntreSpawns: 1
   spawnEfectoPrefab: {fileID: 0}
+--- !u!114 &854819796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854819790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbcc11d996d8ba4ea154ee03e77e84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desbloqueosPorNivel:
+  - numeroNivel: 1
+    categoria: enemigos
+    indicesEntradas: 0000000001000000
+  - numeroNivel: 1
+    categoria: jefes
+    indicesEntradas: 00000000
 --- !u!1001 &858070236
 PrefabInstance:
   m_ObjectHideFlags: 0
