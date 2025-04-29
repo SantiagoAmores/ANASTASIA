@@ -23,13 +23,14 @@ public class NivelManager : MonoBehaviour
             {
                 foreach (int indice in desbloqueo.indicesEntradas)
                 {
-                    // Guardar cada desbloqueo en PlayerPrefs
+                    // Guarda el índice tal cual (sin restar 1)
                     string clave = $"desbloqueo_{desbloqueo.categoria}_{indice}";
                     PlayerPrefs.SetInt(clave, 1);
+                    Debug.Log($"Guardado: {clave}"); // Para depuración
                 }
             }
         }
-        PlayerPrefs.Save(); // Asegurar que se guarda inmediatamente
+        PlayerPrefs.Save();
     }
 
     // Método para verificar si una entrada está desbloqueada

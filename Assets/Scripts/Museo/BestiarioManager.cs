@@ -1,15 +1,15 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-// Clase que contiene toda la informaciÛn de cada entrada del bestiario
+// Clase que contiene toda la informaci√≥n de cada entrada del bestiario
 [System.Serializable]
 public class EntradaBestiario
 {
     public Sprite imagen;       // Imagen del elemento
     public string nombre;       // Nombre a mostrar
-    public string descripcion;  // DescripciÛn detallada
-    public bool desbloqueado;   // Si est· disponible para ver
+    public string descripcion;  // Descripci√≥n detallada
+    public bool desbloqueado;   // Si est√° disponible para ver
 }
 
 public class BestiarioManager : MonoBehaviour
@@ -26,17 +26,20 @@ public class BestiarioManager : MonoBehaviour
     public EntradaBestiario[] jefes;
     public EntradaBestiario[] coleccionables;
 
-    [Header("Botones CategorÌas")] 
+    [Header("Botones Categor√≠as")] 
     public Button botonEnemigos;
     public Button botonArmas;
     public Button botonJefes;
     public Button botonColeccionables;
 
-    [Header("Botones NavegaciÛn")]
+    [Header("Botones Navegaci√≥n")]
     public Button botonAnterior;
     public Button botonSiguiente;
     public TextMeshProUGUI textoPagina;
-    public TextMeshProUGUI textoCategoria; // Muestra la categorÌa actual
+    public TextMeshProUGUI textoCategoria; // Muestra la categor√≠a actual
+
+    [Header("Configuraci√≥n de Bloqueado")]
+    public Sprite imagenBloqueado; // Arrastra tu imagen de "bloqueado" desde el Inspector
 
     // Variables de control
     private EntradaBestiario[] entradasActuales;
@@ -47,7 +50,7 @@ public class BestiarioManager : MonoBehaviour
     {
         ConfigurarBotones();
         CerrarBestiario();
-        CargarDesbloqueos(); // Nueva lÌnea aÒadida
+        CargarDesbloqueos(); // Nueva l√≠nea a√±adida
     }
 
     void ConfigurarBotones()
@@ -64,8 +67,8 @@ public class BestiarioManager : MonoBehaviour
 
     void InicializarEstados()
     {
-        // AquÌ puedes cargar datos guardados o inicializar desbloqueos
-        // Ejemplo: desbloquear el primer elemento de cada categorÌa
+        // Aqu√≠ puedes cargar datos guardados o inicializar desbloqueos
+        // Ejemplo: desbloquear el primer elemento de cada categor√≠a
         if (enemigos.Length > 0) enemigos[0].desbloqueado = true;
         if (armas.Length > 0) armas[0].desbloqueado = true;
         if (jefes.Length > 0) jefes[0].desbloqueado = true;
@@ -99,13 +102,13 @@ public class BestiarioManager : MonoBehaviour
     {
         if (entradasActuales == null || entradasActuales.Length == 0) return;
 
-        // Buscar prÛxima entrada desbloqueada
+        // Buscar pr√≥xima entrada desbloqueada
         int intentos = 0;
         do
         {
             indiceActual += cambio;
 
-            // NavegaciÛn circular
+            // Navegaci√≥n circular
             if (indiceActual < 0) indiceActual = entradasActuales.Length - 1;
             if (indiceActual >= entradasActuales.Length) indiceActual = 0;
 
@@ -128,7 +131,7 @@ public class BestiarioManager : MonoBehaviour
             textoNombre.text = entrada.nombre;
             textoDescripcion.text = entrada.descripcion;
         
-            // Actualizar p·gina
+            // Actualizar p√°gina
             textoPagina.text = $"{indiceActual + 1}/{entradasActuales.Length}";
         }
         else
@@ -139,12 +142,12 @@ public class BestiarioManager : MonoBehaviour
 
     void MostrarBloqueado()
     {
-        imagenDisplay.sprite = Resources.Load<Sprite>("bloqueado"); // Necesitar·s una imagen "bloqueado"
+        imagenDisplay.sprite = imagenBloqueado; // Necesitar√°s una imagen "bloqueado"
         textoNombre.text = "???";
-        textoDescripcion.text = "A˙n no has descubierto este elemento";
+        textoDescripcion.text = "A√∫n no has descubierto este elemento";
     }
 
-    // MÈtodo para desbloquear entradas desde otros scripts
+    // M√©todo para desbloquear entradas desde otros scripts
     public void DesbloquearEntrada(string categoria, int indice)
     {
         EntradaBestiario[] entradas = null;
@@ -161,20 +164,20 @@ public class BestiarioManager : MonoBehaviour
         {
             entradas[indice].desbloqueado = true;
 
-            // Si es la categorÌa actual, actualizar visual
+            // Si es la categor√≠a actual, actualizar visual
             if (categoria.ToLower() == categoriaActual)
                 MostrarEntradaActual();
         }
     }
     public void CargarDesbloqueos()
     {
-        // Para cada categorÌa, verificar quÈ entradas est·n desbloqueadas
+        // Para cada categor√≠a, verificar qu√© entradas est√°n desbloqueadas
         ProcesarCategoria(enemigos, "enemigos");
         ProcesarCategoria(armas, "armas");
         ProcesarCategoria(jefes, "jefes");
         ProcesarCategoria(coleccionables, "coleccionables");
 
-        // Si estamos mostrando una categorÌa, actualizar la vista
+        // Si estamos mostrando una categor√≠a, actualizar la vista
         if (!string.IsNullOrEmpty(categoriaActual))
         {
             MostrarEntradaActual();
@@ -186,7 +189,7 @@ public class BestiarioManager : MonoBehaviour
         for (int i = 0; i < entradas.Length; i++)
         {
             bool estaDesbloqueado = NivelManager.EstaDesbloqueado(categoria, i);
-            Debug.Log($"CategorÌa: {categoria}, Õndice: {i}, Desbloqueado: {estaDesbloqueado}");
+            Debug.Log($"Verificando: {categoria}[{i}] = {entradas[i].nombre} ‚Üí Desbloqueado: {estaDesbloqueado}");
 
             if (estaDesbloqueado)
             {
@@ -194,5 +197,4 @@ public class BestiarioManager : MonoBehaviour
             }
         }
     }
-
 }

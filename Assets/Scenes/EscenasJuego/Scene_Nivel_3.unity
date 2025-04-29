@@ -7244,7 +7244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desbloqueosPorNivel:
   - numeroNivel: 3
-    categoria: enemigo
+    categoria: enemigos
     indicesEntradas: 0400000005000000
   - numeroNivel: 3
     categoria: jefes
