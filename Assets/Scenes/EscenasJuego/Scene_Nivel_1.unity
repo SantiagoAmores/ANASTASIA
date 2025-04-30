@@ -12269,8 +12269,8 @@ GameObject:
   - component: {fileID: 854819793}
   - component: {fileID: 854819791}
   - component: {fileID: 854819794}
-  - component: {fileID: 854819795}
   - component: {fileID: 854819796}
+  - component: {fileID: 854819797}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -12332,19 +12332,6 @@ MonoBehaviour:
   spawner: {fileID: 0}
   nivelManager: {fileID: 854819796}
   numeroNivelActual: 1
---- !u!114 &854819795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854819790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92e95cb2d3f8f84698909f0da33b012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetoAInstanciar: {fileID: 1663456486259750102, guid: 20743f5b261d34b409e7975cef35599d, type: 3}
 --- !u!114 &854819796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12364,6 +12351,22 @@ MonoBehaviour:
   - numeroNivel: 1
     categoria: jefes
     indicesEntradas: 00000000
+--- !u!114 &854819797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854819790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131a04d31558c3349b64229086af5ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigoPrefab: []
+  spawnAreaRadius: 10
+  tiempoEntreSpawns: 30
+  spawnEfectoPrefab: {fileID: 0}
 --- !u!1001 &858070236
 PrefabInstance:
   m_ObjectHideFlags: 0

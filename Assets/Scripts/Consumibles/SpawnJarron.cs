@@ -5,26 +5,40 @@ using UnityEngine.AI;
 
 public class SpawnJarron : MonoBehaviour
 {
-    public GameObject objetoAInstanciar;
-    private StatsEnemigos stats;
+    public GameObject[] enemigoPrefab;
+    public float spawnAreaRadius = 10f;
+    public float tiempoEntreSpawns = 30f;
 
+    public GameObject spawnEfectoPrefab;
+
+    // Start is called before the first frame update
     void Start()
     {
-        stats = GetComponent<StatsEnemigos>();
+        StartCoroutine(spawnJarrones());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator spawnJarrones()
     {
-        if (stats.enemigoVida <= 0)
+        while (true)
         {
-            InstanciarObjeto();
-            Destroy(gameObject); // Destruye el jarrón
+            yield return new WaitForSeconds(tiempoEntreSpawns);
+
+            Vector3 randomPosition = GetRandomPositionOnNavMesh(transform.position, spawnAreaRadius);
+            Instantiate(enemigoPrefab[0], randomPosition, Quaternion.identity);
         }
     }
 
-    void InstanciarObjeto()
+    private Vector3 GetRandomPositionOnNavMesh(Vector3 center, float radius)
     {
-        Instantiate(objetoAInstanciar, transform.position, Quaternion.identity);
+        Vector2 randomCircle = Random.insideUnitCircle * radius;
+        Vector3 randomPosition = center + new Vector3(randomCircle.x, 0f, randomCircle.y);
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomPosition, out hit, radius, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+
+        return Vector3.zero;
     }
 }
