@@ -158,6 +158,7 @@ MonoBehaviour:
   estadisticas: {fileID: 0}
   textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
   seguirJugador: 1
+  spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0

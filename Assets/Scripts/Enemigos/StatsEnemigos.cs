@@ -21,11 +21,11 @@ public class StatsEnemigos : MonoBehaviour
         diccionarioEnemigos = new Dictionary<string, (int, int, float, int)>
         {
             { "Enemigo 1", (4, 1, 3f, 2) },
-            { "Enemigo 2", (15, 3, 2.5f, 3) },
+            { "Enemigo 2", (15, 2, 2.5f, 3) },
             { "Enemigo 4", (4, 1, 3f, 2) },
-            { "Enemigo 5", (15, 3, 2.5f, 3) },
+            { "Enemigo 5", (15, 2, 2.5f, 3) },
             { "Enemigo 7", (4, 1, 3f, 2) },
-            { "Enemigo 8", (15, 3, 2.5f, 3) },
+            { "Enemigo 8", (15, 2, 2.5f, 3) },
             { "Jarron", (1, 0, 0.1f, 0) }
         };
 

@@ -9,7 +9,7 @@ public class SpawnJarron : MonoBehaviour
     public float spawnAreaRadius = 10f;
     public float tiempoEntreSpawns = 30f;
 
-    public GameObject spawnEfectoPrefab;
+    //public GameObject spawnEfectoPrefab;
 
     // Start is called before the first frame update
     void Start()

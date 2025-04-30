@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6191976480151542571}
   - component: {fileID: 2127145669773595877}
   - component: {fileID: 3109873247370955292}
-  - component: {fileID: 2697104427690931092}
   m_Layer: 8
   m_Name: Jarron
   m_TagString: Enemy
@@ -158,6 +157,7 @@ MonoBehaviour:
   estadisticas: {fileID: 0}
   textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
   seguirJugador: 1
+  spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 4bfb43afcad562446a0db8a3236d0090, type: 3}
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -203,26 +203,6 @@ MonoBehaviour:
   enemigoExperiencia: 0
   esUnJefe: 0
   faseDeJefe: 0
---- !u!114 &2697104427690931092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374344966642074657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69ba5a86ba1099e42985c1b8c93cdd7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetosAInstanciar:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  probabilidades:
-  - 40
-  - 40
-  - 20
 --- !u!1001 &3890003332092454422
 PrefabInstance:
   m_ObjectHideFlags: 0

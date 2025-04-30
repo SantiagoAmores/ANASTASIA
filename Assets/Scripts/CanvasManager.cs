@@ -56,10 +56,10 @@ public class CanvasManager : MonoBehaviour
 
         // Slider vida
         sliderVida = GameObject.Find("SliderVida").GetComponent<Slider>();
-        vidaMax = statVida.vidaTotal;
 
         sliderVida.minValue = 0;
         sliderVida.maxValue = vidaMax;
+        vidaMax = statVida.vidaTotal;
         sliderVida.value = vidaMax; // Al principio tiene toda la vida
 
         objetoActivable = GameObject.Find("Activable");
@@ -93,6 +93,7 @@ public class CanvasManager : MonoBehaviour
         sliderExp.value = gameManager.experienciaActual;
 
         // Actualizar el slider de la vida que tiene
+        vidaMax = statVida.vidaTotal;
         sliderVida.maxValue = vidaMax;
         sliderVida.value = statVida.vidaActual;
     }

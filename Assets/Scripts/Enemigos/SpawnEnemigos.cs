@@ -8,9 +8,6 @@ public class SpawnEnemigos : MonoBehaviour
     public GameObject[] enemigoPrefab;
     public bool seguir = true;
     public float spawnAreaRadius = 10f;
-
-    public GameObject spawnEfectoPrefab;
-
     public float tiempoEntreSpawns = 10f;
 
     private bool primerSpawn = true;
@@ -65,10 +62,7 @@ public class SpawnEnemigos : MonoBehaviour
             {
                 Vector3 randomPosition = GetRandomPositionOnNavMesh(transform.position, spawnAreaRadius);
 
-                if (randomPosition == Vector3.zero)
-                {
-                    continue;
-                }
+                if (randomPosition == Vector3.zero) { continue; }
 
                 int aleatorio = 0;
 
@@ -91,17 +85,7 @@ public class SpawnEnemigos : MonoBehaviour
                         break;
                 }
 
-                if (!instanciar)
-                {
-                    continue;
-                }
-
-                if (spawnEfectoPrefab != null)
-                {
-                    GameObject efecto = Instantiate(spawnEfectoPrefab, randomPosition, Quaternion.identity);
-                    Destroy(efecto, 1f);
-                }
-
+                if (!instanciar) { continue; }
                 Instantiate(enemigoPrefab[aleatorio], randomPosition, Quaternion.identity);
             }
 
@@ -127,12 +111,6 @@ public class SpawnEnemigos : MonoBehaviour
         Vector3 randomPositionBoss = GetRandomPositionOnNavMesh(transform.position, spawnAreaRadius);
 
         GameObject boss = Instantiate(enemigoPrefab[2], randomPositionBoss, Quaternion.identity);
-
-        if (spawnEfectoPrefab != null)
-        {
-            GameObject efecto = Instantiate(spawnEfectoPrefab, randomPositionBoss, Quaternion.identity);
-            Destroy(efecto, 1f);
-        }
 
         StatsEnemigos stats = boss.GetComponent<StatsEnemigos>();
         if (stats != null)

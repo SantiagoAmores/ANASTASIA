@@ -992,22 +992,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6341184225360161705, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: vidaBase
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: -6341184225360161705, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: textoSubirNivelPrefab
-      value: 
-      objectReference: {fileID: 6474264951493391942, guid: 9e4797d3dc1786f479cc96c0c94e45a3, type: 3}
-    - target: {fileID: 60255810020451838, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 913102841305326103, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1048,38 +1032,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3233730339502621928, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400856347996301974, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400856347996301974, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: rodilloPrefab
-      value: 
-      objectReference: {fileID: 5903666341966004448, guid: d1624d18464e95540970f0718a02c61e, type: 3}
-    - target: {fileID: 6096415705295080951, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6096415705295080951, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: cuboPintura
-      value: 
-      objectReference: {fileID: 919132149155446097, guid: 4b7b8e878d7e86648b9a58e9208f0e00, type: 3}
-    - target: {fileID: 7557716002391435356, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: arma6
-      value: 
-      objectReference: {fileID: 1154624274}
-    - target: {fileID: 7951365172276653742, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951365172276653742, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: slashPrefab
-      value: 
-      objectReference: {fileID: 6460422072173215375, guid: 50aea6d19efba734b8d0a9d41818c613, type: 3}
     - target: {fileID: 7986659953479751430, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Name
       value: Anastasia
@@ -1729,17 +1681,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106701450}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1154624274 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 60255810020451838, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-  m_PrefabInstance: {fileID: 621085213}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291d7f9946372d442aa49aa83ab11741, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1194072414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 15c25284e2c1bde4cbbc52a2004ebac7, type: 3}
@@ -2338,7 +2279,6 @@ MonoBehaviour:
   - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
   seguir: 1
   spawnAreaRadius: 30
-  spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
   tiempoEntreSpawns: 4
   ronda: 0
   instanciar: 1
@@ -2405,10 +2345,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131a04d31558c3349b64229086af5ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigoPrefab: []
-  spawnAreaRadius: 10
-  tiempoEntreSpawns: 30
-  spawnEfectoPrefab: {fileID: 0}
+  enemigoPrefab:
+  - {fileID: 374344966642074657, guid: b4d1911828c5d1e49b73135b00b10a99, type: 3}
+  spawnAreaRadius: 30
+  tiempoEntreSpawns: 60
 --- !u!1 &1651334335
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,6 +37,8 @@ public class Enemigo : MonoBehaviour
 
     public bool seguirJugador = true;
 
+    public GameObject spawnEfectoPrefab;
+
     private void Awake()
     {
         enemigo = GetComponent<NavMeshAgent>();
@@ -45,6 +47,7 @@ public class Enemigo : MonoBehaviour
 
     void Start()
     {
+        InstanciarEfectoDeSpawn();
         jugador = GameObject.FindGameObjectWithTag("Player");
         moverJugador = jugador.GetComponent<MovimientoJugador>();
         canvasManager = FindObjectOfType<CanvasManager>();
@@ -198,7 +201,7 @@ public class Enemigo : MonoBehaviour
         enemigoCollider.enabled = false;
         enemigo.speed = 0f;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.33f);
 
         enemigoCollider.enabled = true;
         enemigo.speed = enemigoVelocidad;
@@ -206,13 +209,9 @@ public class Enemigo : MonoBehaviour
 
     public IEnumerator HeridaPausa()
     {
-
         golpeable = false;
-
         yield return new WaitForSeconds(1.1f);
-
         golpeable = true;
-
     }
 
     void MostrarTextoDano(int cantidad)
@@ -257,6 +256,15 @@ public class Enemigo : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    void InstanciarEfectoDeSpawn()
+    {
+        if (spawnEfectoPrefab != null)
+        {
+            GameObject efecto = Instantiate(spawnEfectoPrefab, transform.position, Quaternion.identity);
+            Destroy(efecto, 1f);
         }
     }
 }
