@@ -149,6 +149,7 @@ MonoBehaviour:
   enemigo: {fileID: 7107119439095979228}
   jugador: {fileID: 0}
   puntoExperienciaPrefab: {fileID: 4945588894475210533, guid: 87862d5f6903b034c9db1cc0eb324180, type: 3}
+  corazonPrefab: {fileID: 9170100802169879125, guid: 826f921196548874485cab2f2cddc348, type: 3}
   enemigoVidaTotal: 0
   enemigoVelocidad: 0
   enemigoAtaque: 0
@@ -156,6 +157,7 @@ MonoBehaviour:
   enemigoVidaActual: 0
   estadisticas: {fileID: 0}
   textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
+  seguirJugador: 1
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0

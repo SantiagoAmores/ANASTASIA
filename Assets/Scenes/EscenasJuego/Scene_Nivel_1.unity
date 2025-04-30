@@ -12344,11 +12344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92e95cb2d3f8f84698909f0da33b012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigoPrefab:
-  - {fileID: 919132149155446097, guid: 8b375ff0aa6ca764388f8c51dcf988e8, type: 3}
-  spawnAreaRadius: 10
-  tiempoEntreSpawns: 1
-  spawnEfectoPrefab: {fileID: 0}
+  objetoAInstanciar: {fileID: 1663456486259750102, guid: 20743f5b261d34b409e7975cef35599d, type: 3}
 --- !u!114 &854819796
 MonoBehaviour:
   m_ObjectHideFlags: 0

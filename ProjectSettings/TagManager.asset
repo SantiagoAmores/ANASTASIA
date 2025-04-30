@@ -11,6 +11,7 @@ TagManager:
   - brillo
   - ProjectileDPS
   - PuntoMovimiento
+  - Corazon
   layers:
   - Default
   - TransparentFX

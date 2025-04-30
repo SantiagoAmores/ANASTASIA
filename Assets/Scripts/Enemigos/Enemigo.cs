@@ -11,6 +11,7 @@ public class Enemigo : MonoBehaviour
     public GameObject jugador;
     private MovimientoJugador moverJugador;
     public GameObject puntoExperienciaPrefab;
+    public GameObject corazonPrefab;
 
     private CanvasManager canvasManager;
 
@@ -163,6 +164,20 @@ public class Enemigo : MonoBehaviour
                     );
                 Instantiate(puntoExperienciaPrefab, dropPosicion, Quaternion.identity);
             }
+
+            // Dropeo de vida
+            int aleatorio = Random.Range(0, 9);
+            if (aleatorio == 0)
+            {
+                Vector2 offsetVida2D = Random.insideUnitCircle * radioDrop;
+                Vector3 dropVidaPosicion = new Vector3(
+                    transform.position.x + offsetVida2D.x,
+                    alturaFija,
+                    transform.position.z + offsetVida2D.y
+                    );
+                Instantiate(corazonPrefab, dropVidaPosicion, Quaternion.identity);
+            }
+            
 
             if (estadisticas.esUnJefe && estadisticas.faseDeJefe == 1)
             {

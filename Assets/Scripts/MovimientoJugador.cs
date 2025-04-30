@@ -74,15 +74,28 @@ public class MovimientoJugador : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-            if (other.CompareTag("Experiencia"))
-            {
-                 //Debug.Log (other.name + "-" + this.name);
-                 gameManager.SubirNivel();
-                Destroy(other.gameObject);
+        if (other.CompareTag("Experiencia"))
+        {
+
+            gameManager.SubirNivel();
+            Destroy(other.gameObject);
   
+        }
+
+        if (other.CompareTag("Corazon"))
+        {
+
+            vidaActual += 2;
+            if (vidaActual < vidaTotal)
+            {
+                vidaActual = vidaTotal; // Para evitar que tenga mas vida actual que total
             }
-        
+            Destroy(other.gameObject);
+
+        }
+
     }
+
 
     public void herirAnastasia(int cantidadHerida)
     {
