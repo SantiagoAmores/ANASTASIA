@@ -86,7 +86,7 @@ public class MovimientoJugador : MonoBehaviour
         {
 
             vidaActual += 2;
-            if (vidaActual < vidaTotal)
+            if (vidaActual > vidaTotal)
             {
                 vidaActual = vidaTotal; // Para evitar que tenga mas vida actual que total
             }

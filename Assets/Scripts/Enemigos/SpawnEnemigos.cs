@@ -1,31 +1,30 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class SpawnEnemigos : MonoBehaviour
 {
+    [Header("Prefabs")]
     public GameObject[] enemigoPrefab;
+
+    [Header("Spawn Configuración")]
+    private float spawnAreaRadius = 50f;
+    private float tiempoEntreSpawns = 5f;
     public bool seguir = true;
-    public float spawnAreaRadius = 10f;
-    public float tiempoEntreSpawns = 10f;
-
-    private bool primerSpawn = true;
-
-    public int ronda;
-
-    private int minimoSpawns;
-    private int maximoSpawns;
-
     public bool instanciar = true;
 
+    [Header("Rondas")]
+    public int ronda;
     private bool ronda2Empezada;
+
+    [Header("Spawn Adicionales")]
+    private bool primerSpawn = true;
+    private int minimoSpawns = 2;
+    private int maximoSpawns = 3;
 
     void Start()
     {
         ronda = GetComponent<RoundManager>().ronda;
-        minimoSpawns = 1;
-        maximoSpawns = 3;
         StartCoroutine(Spawns());
     }
 
@@ -36,8 +35,9 @@ public class SpawnEnemigos : MonoBehaviour
             ronda2Empezada = true;
             primerSpawn = true;
             instanciar = true;
-            minimoSpawns = 4;
-            maximoSpawns = 8;
+            tiempoEntreSpawns /= 2;
+            minimoSpawns = 3;
+            maximoSpawns = 5;
             StartCoroutine(Spawns());
         }
     }
@@ -51,10 +51,7 @@ public class SpawnEnemigos : MonoBehaviour
                 yield return new WaitForSeconds(tiempoEntreSpawns / 4);
                 primerSpawn = false;
             }
-            else
-            {
-                yield return new WaitForSeconds(tiempoEntreSpawns);
-            }
+            else {  yield return new WaitForSeconds(tiempoEntreSpawns); }
 
             int cantidadEnemigos = Random.Range(minimoSpawns,maximoSpawns);
 
@@ -64,31 +61,30 @@ public class SpawnEnemigos : MonoBehaviour
 
                 if (randomPosition == Vector3.zero) { continue; }
 
-                int aleatorio = 0;
-
-                switch (ronda)
-                {
-                    case 0:
-                        aleatorio = (Random.value < 0.975f) ? 0 : 1;
-                        break;
-                    case 1:
-                        instanciar = false;
-                        break;
-                    case 2:
-                        aleatorio = (Random.value < 0.2f) ? 0 : 1;
-                        break;
-                    case 3:
-                        instanciar = false;
-                        break;
-                    default:
-                        aleatorio = Random.Range(0,2);
-                        break;
-                }
+                int aleatorio = TipoDeEnemigo();
 
                 if (!instanciar) { continue; }
                 Instantiate(enemigoPrefab[aleatorio], randomPosition, Quaternion.identity);
             }
+        }
+    }
 
+    private int TipoDeEnemigo()
+    {
+        switch (ronda)
+        {
+            case 0:
+                return (Random.value < 0.975f) ? 0 : 1;
+            case 1:
+                instanciar = false;
+                return 0;
+            case 2:
+                return (Random.value < 0.2f) ? 0 : 1;
+            case 3:
+                instanciar = false;
+                return 0;
+            default:
+                return Random.Range(0, 2);
         }
     }
 

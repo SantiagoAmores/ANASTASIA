@@ -992,6 +992,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 60255810020451838, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 913102841305326103, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1030,6 +1038,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233730339502621928, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400856347996301974, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096415705295080951, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951365172276653742, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986659953479751430, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
@@ -2277,11 +2301,11 @@ MonoBehaviour:
   - {fileID: 374344966642074657, guid: 527c5352acb023b4a81ca44745d67f60, type: 3}
   - {fileID: 374344966642074657, guid: b9be6e5a3a6a9a8499afd246c7c685e1, type: 3}
   - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
-  seguir: 1
   spawnAreaRadius: 30
   tiempoEntreSpawns: 4
-  ronda: 0
+  seguir: 1
   instanciar: 1
+  ronda: 0
 --- !u!4 &1600122177
 Transform:
   m_ObjectHideFlags: 0
