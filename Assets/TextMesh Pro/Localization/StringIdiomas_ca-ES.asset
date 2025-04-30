@@ -82,6 +82,23 @@ MonoBehaviour:
     m_Localized: Nombre de dany
     m_Metadata:
       m_Items: []
+  - m_Id: 3821310663024640
+    m_Localized: Tria una eina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3821859747749888
+    m_Localized: "PINZELL\nDispara a l'enemic m\xE9s proper a Anastasia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3822473177292800
+    m_Localized: "PALETA\nDispara a un enemic aleatori i despr\xE9s torna a Anastasia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3822924866084864
+    m_Localized: "RODILLO\nDeixa un rastre despr\xE9s d'Anastasia que malmet els
+      enemics"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

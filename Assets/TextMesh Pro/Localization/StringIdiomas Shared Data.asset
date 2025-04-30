@@ -79,6 +79,26 @@ MonoBehaviour:
     m_Key: "Num.Da\xF1o"
     m_Metadata:
       m_Items: []
+  - m_Id: 3821310663024640
+    m_Key: 'Elegir arma '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3821859747749888
+    m_Key: Pincel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3822473177292800
+    m_Key: Paleta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3822924866084864
+    m_Key: Rodillo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3835549213614080
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

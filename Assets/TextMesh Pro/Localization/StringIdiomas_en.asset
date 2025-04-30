@@ -82,6 +82,31 @@ MonoBehaviour:
     m_Localized: Damage number
     m_Metadata:
       m_Items: []
+  - m_Id: 3821310663024640
+    m_Localized: Choose a tool
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3821859747749888
+    m_Localized: 'BRUSH
+
+      Shoot at the enemy closest to Anastasia'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3822473177292800
+    m_Localized: 'PALETTE
+
+      Shoot a random enemy and then return to Anastasia'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3822924866084864
+    m_Localized: 'ROLLER
+
+      Leaves a trail behind Anastasia
+
+      that damages
+      enemies'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

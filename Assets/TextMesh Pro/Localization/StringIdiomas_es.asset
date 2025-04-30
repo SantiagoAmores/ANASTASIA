@@ -82,6 +82,24 @@ MonoBehaviour:
     m_Localized: "N\xFAmero de da\xF1o"
     m_Metadata:
       m_Items: []
+  - m_Id: 3821310663024640
+    m_Localized: Elige una herramienta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3821859747749888
+    m_Localized: "PINCEL\nDispara al enemigo m\xE1s cercano a Anastasia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3822473177292800
+    m_Localized: 'PALETA
+
+      Dispara a un enemigo aleatorio y luego vuelve a Anastasia'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3822924866084864
+    m_Localized: "RODILLO\nDeja un rastro tras Anastasia que da\xF1a a los enemigos"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
