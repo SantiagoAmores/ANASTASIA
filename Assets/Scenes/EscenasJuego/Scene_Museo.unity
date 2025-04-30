@@ -2836,32 +2836,32 @@ MonoBehaviour:
     descripcion: "Camina como si estuviera en un desfile navide\xF1o, uno que solo
       ve \xE9l. Es el arbol de navidad que siempre te da pereza quitar del sal\xF3n
       y lo dejas hasta marzo."
-    desbloqueado: 0
+    desbloqueado: 1
   - imagen: {fileID: -106010384, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Tortuga Ajolote
     descripcion: 'Se mueve como si no tuviera prisa en la vida (spoiler: no la tiene).
       Le encanta observar charcos mientras llueve.'
-    desbloqueado: 0
+    desbloqueado: 1
   - imagen: {fileID: -698700476, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Tiburon Guiri
     descripcion: "Anda por la playa buscando el chiringuito m\xE1s barato, aunque
       no sabe que \xE9s. Se ha quemado con el sol... debajo del agua."
-    desbloqueado: 0
+    desbloqueado: 1
   - imagen: {fileID: 1361278222, guid: 9a31f7dc486d0f64bb634ae811e50c1f, type: 3}
     nombre: Cangrejo Bolos
     descripcion: 'Le cuesta entrar y salir de su bola, pero lo hace con dignidad.
       Cuando llueve, se resbala y rueda dando vueltas murmurando: "Ayyyy...."'
-    desbloqueado: 0
+    desbloqueado: 1
   - imagen: {fileID: -1062023364, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Mantis
     descripcion: "Es muy hiperactivo, como si se hubiera metido 8 tazas de caf\xE9s
       encima. Se asusta de su propia sombra pero luego intenta asustarla de vuelta."
-    desbloqueado: 0
+    desbloqueado: 1
   - imagen: {fileID: 1524009343, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Ballena Voladora
     descripcion: "Una enorme ballena a\xE9rea con cuerpo regordete y alas. Tiene
       cara de acabar de descubrir el helado por primera vez... todos los d\xEDas."
-    desbloqueado: 0
+    desbloqueado: 1
   armas:
   - imagen: {fileID: 21300000, guid: f501e669631ff864e970435d7da43e96, type: 3}
     nombre: Pincel
@@ -2900,17 +2900,17 @@ MonoBehaviour:
     nombre: Patata
     descripcion: 'Cree que es un robot sofisticado, pero esta lleno de grasa de freidora.
       Cuando lo ves piensas: "Es una patatilla"'
-    desbloqueado: 0
+    desbloqueado: 1
   - imagen: {fileID: -1461927097, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Tostadora
     descripcion: Saca tostadas sin previo aviso y se ofende si nadie las coge. Cada
       tanto te lanza las tostadas que te olvidaste dentro.
-    desbloqueado: 0
+    desbloqueado: 1
   - imagen: {fileID: 1544937732, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre: Robot
     descripcion: 'Cambia de direccion como si acabara de recordar algo importante,
       aunque nunca lo dice. '
-    desbloqueado: 0
+    desbloqueado: 1
   coleccionables:
   - imagen: {fileID: 0}
     nombre: Nemunai
