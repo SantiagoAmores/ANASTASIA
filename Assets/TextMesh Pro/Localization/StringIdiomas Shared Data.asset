@@ -63,6 +63,22 @@ MonoBehaviour:
     m_Key: IdiomasKey
     m_Metadata:
       m_Items: []
+  - m_Id: 3815912052711424
+    m_Key: Papelera
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3816530813214720
+    m_Key: Accesibilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3817490872623104
+    m_Key: hp/xp texto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3819198877097984
+    m_Key: "Num.Da\xF1o"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

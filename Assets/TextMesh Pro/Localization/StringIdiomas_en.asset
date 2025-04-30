@@ -66,6 +66,22 @@ MonoBehaviour:
     m_Localized: Languages
     m_Metadata:
       m_Items: []
+  - m_Id: 3815912052711424
+    m_Localized: Clear Prefs.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3816530813214720
+    m_Localized: Accessibility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3817490872623104
+    m_Localized: Hp/Xp in text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3819198877097984
+    m_Localized: Damage number
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
