@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instancia;
     public GameObject anastasia;
+    public Enemigo jefeActual;
 
     void Awake()
     {

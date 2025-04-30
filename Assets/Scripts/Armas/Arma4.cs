@@ -7,7 +7,7 @@ public class Arma4 : MonoBehaviour
 {
     public GameObject boomerangPrefab;
     //public float shootInterval = 2f;
-    public float boomerangSpeed = 15f;
+    public float boomerangSpeed = 25f;
 
     public StatsAnastasia stats;
 
