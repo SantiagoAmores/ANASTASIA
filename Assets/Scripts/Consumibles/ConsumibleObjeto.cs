@@ -1,32 +1,29 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConsumibleObjeto : MonoBehaviour
+public class ConsumibleSimple : MonoBehaviour
 {
-    public List<GameObject> posiblesObjetos;
-    public List<float> probabilidades;
-
-    // Start is called before the first frame update
-    void Start()
+    public List<int> objetoElegido; // Lista de posibles consumibles
+    void OnTriggerEnter(Collider other)
     {
-        InstanciarObjeto();
-    }
-
-    // Update is called once per frame
-    void InstanciarObjeto()
-    {
-        float valorRandom = Random.value;
-        float acumulador = 0f;
-
-        for (int i = 0; i < probabilidades.Count; i++)
+        if (other.CompareTag("Player"))
         {
-            acumulador += probabilidades[i];
-            if (valorRandom <= acumulador)
+            // Comprobar si el jugador ya tiene un objeto en su inventario
+            if (ObjetosActivables.instance.ObjetoActivo())
             {
-                Instantiate(posiblesObjetos[i], transform.position, Quaternion.identity);
-                break;
+                Debug.Log("Ya tienes un objeto. Úsalo antes de recoger otro.");
+                return;
             }
+
+            if (objetoElegido.Count == 0) return;
+
+            // Elegir aleatoriamente un objeto de la lista
+            int objetoAleatorio = Random.Range(0, objetoElegido.Count);
+            int Elegido = objetoElegido[objetoAleatorio];
+
+            // Activar el objeto elegido
+            ObjetosActivables.instance.ActivarObjeto(Elegido);
+            Destroy(gameObject);
         }
     }
 }

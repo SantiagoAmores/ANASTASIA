@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -7,95 +7,121 @@ using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
-    //GameManager
-    GameManager gameManager;
+    // GameManager
+    private GameManager gameManager;
 
-    //Paneles Niveles
+    [Header("Paneles UI")]
     public GameObject PanelVictoria;
     public GameObject PanelDerrota;
     public GameObject PanelOpciones;
 
-    //Estadisticas
-    //private TextMeshProUGUI textoExperiencia;
-    private TextMeshProUGUI textoNivel;
+    [Header("Textos")]
+    public TextMeshProUGUI cuentaAtras;
+    public TextMeshProUGUI textoNivel;
+    public TextMeshProUGUI textoRonda;
 
-    // Slider de Experiencia
+    [Header("Sliders")]
     public Slider sliderExp;
-    public int expMaxPorNivel = 5;
-
-    // Slider vida
     public Slider sliderVida;
-    public int vidaMax;
+    public GameObject sliderBossObject;
+    public Slider sliderBoss;
 
-    // Stats
+    [Header("Parámetros del jugador")]
     public MovimientoJugador statVida;
 
-    //Cuenta atras
-    public TextMeshProUGUI cuentaAtras;
+    [Header("Cuenta atrás")]
     public float startTime = 120f;
     private float timeLeft;
 
-    /*public TextMeshProUGUI tiempo;
-    public GameObject tiempoPanel;
-    public TextMeshProUGUI experiencia;
-    public GameObject experienciaPanel;
-    */
-
+    [Header("Objeto activable")]
     public GameObject objetoActivable;
 
-    // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        statVida = GameObject.FindWithTag("Player").GetComponent<MovimientoJugador>();
-
-        //textoExperiencia = GameObject.Find("TextoExperiencia").GetComponent<TextMeshProUGUI>();
-        textoNivel = GameObject.Find("TextoNivel").GetComponent<TextMeshProUGUI>();
-
-        sliderExp = GameObject.Find("SliderXP").GetComponent<Slider>();
-
-        // Slider vida
-        sliderVida = GameObject.Find("SliderVida").GetComponent<Slider>();
-
-        sliderVida.minValue = 0;
-        sliderVida.maxValue = vidaMax;
-        vidaMax = statVida.vidaTotal;
-        sliderVida.value = vidaMax; // Al principio tiene toda la vida
-
-        objetoActivable = GameObject.Find("Activable");
-
-        /*tiempo = GameObject.Find("TiempoDemo").GetComponent<TextMeshProUGUI>();
-        experiencia = GameObject.Find("ExperienciaDemo").GetComponent<TextMeshProUGUI>();*/
-
-        sliderExp.minValue = 0;
-        sliderExp.maxValue = gameManager.experienciaRequerida;
-        sliderExp.value = 0; // Inicia vac�o
-
-        timeLeft = startTime;
-        StartCoroutine(Countdown());
-
-        PanelDerrota.SetActive(false);
-        PanelVictoria.SetActive(false);
-        PanelOpciones.SetActive(false);
-        objetoActivable.SetActive(false);
-        /*tiempoPanel.SetActive(false);
-        experienciaPanel.SetActive(false);*/
+        InicializarReferencias();
+        ConfigurarSliders();
+        OcultarPanelesIniciales();
+        IniciarCuentaAtras();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //textoExperiencia.text = "Exp: " + gameManager.experienciaTotal.ToString();
-        textoNivel.text = "Nv: " + gameManager.nivel.ToString();
+        ActualizarInterfaz();
+    }
 
-        // Actualizar el Slider con la experiencia
-        sliderExp.maxValue = gameManager.experienciaRequerida;
-        sliderExp.value = gameManager.experienciaActual;
+    void InicializarReferencias()
+    {
+        gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
+        statVida = GameObject.FindWithTag("Player")?.GetComponent<MovimientoJugador>();
 
-        // Actualizar el slider de la vida que tiene
-        vidaMax = statVida.vidaTotal;
-        sliderVida.maxValue = vidaMax;
-        sliderVida.value = statVida.vidaActual;
+        if (!textoNivel) textoNivel = GameObject.Find("TextoNivel")?.GetComponent<TextMeshProUGUI>();
+        if (!textoRonda) textoRonda = GameObject.Find("TextoRonda")?.GetComponent<TextMeshProUGUI>();
+        if (!sliderExp) sliderExp = GameObject.Find("SliderXP")?.GetComponent<Slider>();
+        if (!sliderVida) sliderVida = GameObject.Find("SliderVida")?.GetComponent<Slider>();
+        if (!sliderBossObject) sliderBossObject = GameObject.Find("BarraBoss");
+        if (!sliderBoss) sliderBoss = GameObject.Find("SliderBoss")?.GetComponent<Slider>();
+
+        if (!objetoActivable) objetoActivable = GameObject.Find("Activable");
+    }
+
+    void ConfigurarSliders()
+    {
+        if (statVida != null)
+        {
+            sliderVida.minValue = 0;
+            sliderVida.maxValue = statVida.vidaTotal;
+            sliderVida.value = statVida.vidaTotal;
+        }
+
+        if (gameManager != null)
+        {
+            sliderExp.minValue = 0;
+            sliderExp.maxValue = gameManager.experienciaRequerida;
+            sliderExp.value = gameManager.experienciaActual;
+        }
+    }
+
+    void OcultarPanelesIniciales()
+    {
+        PanelDerrota?.SetActive(false);
+        PanelVictoria?.SetActive(false);
+        PanelOpciones?.SetActive(false);
+        objetoActivable?.SetActive(false);
+        sliderBossObject?.SetActive(false);
+        sliderBoss?.gameObject.SetActive(false);
+    }
+
+    void IniciarCuentaAtras()
+    {
+        timeLeft = startTime;
+        StartCoroutine(Countdown());
+    }
+
+    void ActualizarInterfaz()
+    {
+        if (gameManager != null)
+        {
+            //textoExperiencia.text = "Exp: " + gameManager.experienciaTotal.ToString();
+            textoNivel.text = "Nv: " + gameManager.nivel.ToString();
+
+            // Actualizar el Slider con la experiencia
+            sliderExp.maxValue = gameManager.experienciaRequerida;
+            sliderExp.value = gameManager.experienciaActual;
+        }
+
+        if (statVida != null)
+        {
+            // Actualizar el slider de la vida que tiene
+            sliderVida.maxValue = statVida.vidaTotal;
+            sliderVida.value = statVida.vidaActual;
+        }
+
+        if (sliderBossObject.activeSelf && gameManager.jefeActual != null)
+        {
+            sliderBoss.maxValue = gameManager.jefeActual.enemigoVidaTotal;
+            sliderBoss.value = gameManager.jefeActual.enemigoVidaActual;
+        }
+
     }
 
     IEnumerator Countdown()
@@ -106,13 +132,8 @@ public class CanvasManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timeLeft--;
         }
-
-        //Victoria();
-        //VictoriaDemo();
-        //cuentaAtras.text = "Te has quedado sin tiempo :(";
     }
 
-    
     public void Victoria()
     {
         PanelVictoria.SetActive(true);
@@ -125,7 +146,7 @@ public class CanvasManager : MonoBehaviour
         Time.timeScale = 0f; // Pausar el juego
     }
 
-    public void Men�Inicio()
+    public void MenúInicio()
     {
         // Reanudar el tiempo antes de reiniciar
         Time.timeScale = 1f;
@@ -158,24 +179,25 @@ public class CanvasManager : MonoBehaviour
         SceneManager.LoadScene("Scene_Museo");
     }
 
-    /*public void VictoriaDemo()
+    public void ActualizarTextoRonda(string texto)
     {
-        PanelVictoria.SetActive(true);
-        tiempo.text = "Tiempo: \n" + startTime + " segundos";
-        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
-        tiempoPanel.SetActive(true);
-        experienciaPanel.SetActive(true);
-
-        Time.timeScale = 0f; // Pausar el juego
+        if (textoRonda != null)
+        {
+            textoRonda.text = texto;
+        }
     }
 
-    public void DerrotaDemo()
+    public void InfinitoCuentaAtras()
     {
-        PanelDerrota.SetActive(true);
-        Time.timeScale = 0f;
-        tiempo.text = "Tiempo: \n" + (startTime - timeLeft) + " segundos";
-        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
-        tiempoPanel.SetActive(true);
-        experienciaPanel.SetActive(true);
-    }*/
+        StopAllCoroutines();
+        cuentaAtras.text = "∞";
+    }
+
+    public void ReiniciarCuentaAtras()
+    {
+        StopAllCoroutines();
+        timeLeft = startTime;
+        StartCoroutine(Countdown());
+    }
+
 }

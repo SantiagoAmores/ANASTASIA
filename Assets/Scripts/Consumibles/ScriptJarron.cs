@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class ScriptJarron : MonoBehaviour
 {
     public GameObject objetoAInstanciar;
-    private StatsEnemigos stats;
+    private StatsEnemigos stats; // se le puso uno de vida para que anastasia lo ataque y se destruya
 
     void Start()
     {
@@ -18,13 +18,13 @@ public class ScriptJarron : MonoBehaviour
     {
         if (stats.enemigoVida <= 0)
         {
-            InstanciarObjeto();
-            Destroy(gameObject); // Destruye el jarrón
+            Instantiate(objetoAInstanciar, transform.position, Quaternion.identity);
+            Destroy(gameObject); // Destruye el jarrón cuando su vida es cero
         }
     }
 
     void InstanciarObjeto()
     {
-        Instantiate(objetoAInstanciar, transform.position, Quaternion.identity);
+        Instantiate(objetoAInstanciar, transform.position, Quaternion.identity); // Se instancia el objeto consumible
     }
 }

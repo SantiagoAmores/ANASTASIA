@@ -20,7 +20,7 @@ public class StatsAnastasia : MonoBehaviour
     public static int arma2AtaqueBase = 3;
 
     // ARMA 3 BASE
-    public static float arma3CadenciaBase = 1f;
+    public static float arma3CadenciaBase = 3.75f;
     public static int arma3AtaqueBase = 1;
 
     // ARMA 4 BASE
@@ -161,8 +161,8 @@ public class StatsAnastasia : MonoBehaviour
         // Cadencia de disparos de las armas
         arma1Cadencia = Mathf.Max(0.5f, arma1Cadencia - 0.2f);
         arma2Cadencia = Mathf.Max(2.5f, arma2Cadencia - 0.3f);
-        arma3Cadencia = Mathf.Max(0.3f, arma3Cadencia - 0.1f);
-        arma4Cadencia = Mathf.Max(0.3f, arma4Cadencia - 0.1f);
+        arma3Cadencia = Mathf.Max(2.5f, arma3Cadencia - 0.25f);
+        arma4Cadencia = Mathf.Max(1.0f, arma4Cadencia - 0.3f);
         arma5Cadencia = Mathf.Max(0.3f, arma5Cadencia - 0.1f);
         arma6Cadencia = Mathf.Max(0.3f, arma6Cadencia - 0.1f);
     }

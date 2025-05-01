@@ -35,11 +35,12 @@ public class RoundManager : MonoBehaviour
         }
 
         IniciarSiguienteFase(); 
-
     }
 
     public void IniciarSiguienteFase()
     {
+        ActualizarIntefazRonda();
+
         if (spawner != null)
         {
             spawner.ronda = ronda;
@@ -102,9 +103,15 @@ public class RoundManager : MonoBehaviour
 
         GameObject jefeGameObject = spawner.SpawnBoss((ronda == 1) ? 1 : 2);
         jefeActual = jefeGameObject.GetComponent<Enemigo>();
+        GameManager.instancia.jefeActual = jefeActual;
 
         if (jefeActual != null)
         {
+            canvasManager.sliderBossObject.SetActive(true);
+            canvasManager.sliderBoss.gameObject.SetActive(true);
+            canvasManager.sliderBoss.maxValue = jefeActual.enemigoVidaTotal;
+            canvasManager.sliderBoss.value = jefeActual.enemigoVidaActual;
+
             StartCoroutine(EsperarMuerteJefe());
         }
     }
@@ -112,6 +119,9 @@ public class RoundManager : MonoBehaviour
     //esto lo llamaremos desde el script de cada boss cuando la vida llegue a 0
     public void BossDerrotado()
     {
+        canvasManager.sliderBossObject.SetActive(false);
+        canvasManager.sliderBoss.gameObject.SetActive(false);
+        GameManager.instancia.jefeActual = null;
         ronda++;
         IniciarSiguienteFase();
     }
@@ -148,5 +158,31 @@ public class RoundManager : MonoBehaviour
         }
 
         BossDerrotado();
+    }
+
+    void ActualizarIntefazRonda()
+    {
+        string texto = "";
+
+        switch (ronda)
+        {
+            case 0:
+                texto = "RONDA\n1";
+                canvasManager.ReiniciarCuentaAtras();
+                break;
+            case 1:
+                texto = "JEFE\n1";
+                canvasManager.InfinitoCuentaAtras();
+                break;
+            case 2:
+                texto = "RONDA\n2";
+                canvasManager.ReiniciarCuentaAtras();
+                break;
+            case 3:
+                texto = "JEFE\n2";
+                canvasManager.InfinitoCuentaAtras();
+                break;
+        }
+        canvasManager.ActualizarTextoRonda(texto);
     }
 }
