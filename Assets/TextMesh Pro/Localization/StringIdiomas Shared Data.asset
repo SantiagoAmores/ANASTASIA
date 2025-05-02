@@ -96,7 +96,139 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3835549213614080
-    m_Key: New Entry
+    m_Key: Enemigo 1_nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3844010202718208
+    m_Key: Enemigo 1_descripcion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3844865454858240
+    m_Key: Enemigo 2_nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3845795315277824
+    m_Key: Enemigo 2_descripcion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3846760005197824
+    m_Key: Enemigo 3_nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3847236763344896
+    m_Key: Enemigo 3_descripcion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3847760535445504
+    m_Key: Enemigo 4_nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3848384475914240
+    m_Key: Enemigo 4_descripcion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3849343679684608
+    m_Key: Enemigo 5_nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3849906978906112
+    m_Key: Enemigo 5_descripcion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3850166589546496
+    m_Key: Enemigo 6_nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3850202928996352
+    m_Key: Enemigo 6_descripcion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4661747779256320
+    m_Key: Boss1_nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4661791433572352
+    m_Key: Boss1_descripcion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4661873654513664
+    m_Key: Boss2_nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4661899772444672
+    m_Key: Boss2_descripcion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4661997277429760
+    m_Key: Boss3_nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4662035944718336
+    m_Key: Boss3_descripcion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4664779954864128
+    m_Key: Arma_1_Nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4665163834343424
+    m_Key: Arma_1_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4665536099794944
+    m_Key: Arma_2_Nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4665539321020416
+    m_Key: Arma_2_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4665586548883456
+    m_Key: Arma_3_Nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4665587219972096
+    m_Key: Arma_3_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4667059575865344
+    m_Key: Arma_4_Nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4667061941452800
+    m_Key: Arma_4_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4667117411123200
+    m_Key: Arma_5_Nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4667118627471360
+    m_Key: Arma_5_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4668430953889792
+    m_Key: Arma_6_Nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4668433000710144
+    m_Key: Arma_6_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4669463218241536
+    m_Key: Coleccionables_boton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4669543736295424
+    m_Key: Enemigos_boton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4669569569013760
+    m_Key: Bosses_boton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4669604339793920
+    m_Key: Armas_boton
     m_Metadata:
       m_Items: []
   m_Metadata:

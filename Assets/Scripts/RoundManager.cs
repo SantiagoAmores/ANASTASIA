@@ -167,19 +167,19 @@ public class RoundManager : MonoBehaviour
         switch (ronda)
         {
             case 0:
-                texto = "RONDA\n1";
+                texto = "ROUND\n1";
                 canvasManager.ReiniciarCuentaAtras();
                 break;
             case 1:
-                texto = "JEFE\n1";
+                texto = "BOSS\n1";
                 canvasManager.InfinitoCuentaAtras();
                 break;
             case 2:
-                texto = "RONDA\n2";
+                texto = "ROUND\n2";
                 canvasManager.ReiniciarCuentaAtras();
                 break;
             case 3:
-                texto = "JEFE\n2";
+                texto = "BOSS\n2";
                 canvasManager.InfinitoCuentaAtras();
                 break;
         }
