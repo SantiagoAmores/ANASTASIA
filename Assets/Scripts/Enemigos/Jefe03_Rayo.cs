@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jefe03_Rayo : MonoBehaviour
 {
-    public int daño = 15;
+    public int daño = 2;
     public float velocidadRotacion = 90f; // grados/segundo
     public float duracion = 2f;
     public float radio = 3f;

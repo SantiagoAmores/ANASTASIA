@@ -38,6 +38,7 @@ public class Jefe03 : MonoBehaviour
     public float velocidadRayoFase1 = 30f; // Velocidad de rotación del rayo en fase 1
     public float velocidadRayoFase2 = 15f; // Velocidad de rotación del rayo en fase 2
 
+    public bool mirando = false;
 
 
     void Start()
@@ -83,6 +84,10 @@ public class Jefe03 : MonoBehaviour
             animator.SetFloat("velocidadActual", targetSpeed, 0.1f, Time.deltaTime * 5f);
         }
 
+        if (mirando)
+        {
+            enemigoScript.MirarAnastasia();
+        }
 
         // Solo mirar al jugador si no está atacando puntos
         if (!isAttacking)
@@ -188,14 +193,38 @@ public class Jefe03 : MonoBehaviour
         enemigoScript.seguirJugador = false;
         navMeshAgent.speed = maxSpeedPhase2;
 
-        List<Transform> puntosDisponibles = new List<Transform>(puntosMovimiento);
+        // Obtener todos los puntos de movimiento por tag
+        GameObject[] puntosArray = GameObject.FindGameObjectsWithTag("PuntoMovimiento");
+        List<Transform> puntosDisponibles = new List<Transform>();
+
+        Transform puntoFinal = null;
+
+        // Separar el punto final (EnemigoPuntosMov (5)) del resto
+        foreach (GameObject punto in puntosArray)
+        {
+            if (punto.name == "EnemigoPuntosMov (5)")
+            {
+                puntoFinal = punto.transform;
+            }
+            else
+            {
+                puntosDisponibles.Add(punto.transform);
+            }
+        }
+
+        // Si no se encontró el punto final, lanzar un error
+        if (puntoFinal == null)
+        {
+            Debug.LogError("No se encontró el punto final 'EnemigoPuntosMov (5)'");
+            yield break;
+        }
+
         int puntosVisitados = 0;
 
-        while (puntosVisitados < 5)
+        // Mover a 4 puntos aleatorios (el 5º será el fijo)
+        while (puntosVisitados < 4 && puntosDisponibles.Count > 0)
         {
             animator.SetBool("atacando", true);
-
-            if (puntosDisponibles.Count == 0) break;
 
             int index = Random.Range(0, puntosDisponibles.Count);
             Transform destino = puntosDisponibles[index];
@@ -225,9 +254,32 @@ public class Jefe03 : MonoBehaviour
             puntosVisitados++;
         }
 
+        // Mover al punto final fijo (EnemigoPuntosMov (5))
+        animator.SetBool("atacando", true);
+        navMeshAgent.SetDestination(puntoFinal.position);
+        ultimaPosicionFuego = transform.position;
+
+        while (Vector3.Distance(transform.position, puntoFinal.position) > 0.5f)
+        {
+            float distanciaRecorrida = Vector3.Distance(transform.position, ultimaPosicionFuego);
+            if (distanciaRecorrida >= distanciaEntreLlamas)
+            {
+                Vector3 posicionFuego = transform.position;
+                posicionFuego.y = 0.5f;
+                Vector3 direccionMovimiento = (transform.position - ultimaPosicionFuego).normalized;
+                float angulo = Mathf.Atan2(direccionMovimiento.x, direccionMovimiento.z) * Mathf.Rad2Deg;
+                Quaternion rotacionFuego = Quaternion.Euler(0, angulo + 90f, 0);
+                Instantiate(llamaPrefab, posicionFuego, rotacionFuego);
+                ultimaPosicionFuego = transform.position;
+            }
+            yield return null;
+        }
+
         animator.SetBool("atacando", false);
+        yield return new WaitForSeconds(1f);
         isAttacking = false;
     }
+
 
     private IEnumerator AtaqueRayoFase1()
     {
@@ -268,6 +320,7 @@ public class Jefe03 : MonoBehaviour
     {
         isAttacking = true;
         animator.SetBool("atacando_fase2", true);
+        mirando = true;
         navMeshAgent.isStopped = true; // Detiene completamente el movimiento
 
         // Crear 4 rayos en direcciones cardinales con ángulos iniciales
@@ -318,6 +371,7 @@ public class Jefe03 : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("atacando_fase2", false);
+        mirando = false;
         navMeshAgent.isStopped = false; // Reactivar movimiento
         isAttacking = false;
     }

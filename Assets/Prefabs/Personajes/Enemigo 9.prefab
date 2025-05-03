@@ -223,7 +223,8 @@ MonoBehaviour:
   intervaloLlamas: 0.5
   rayoPrefab: {fileID: 283803290261768735, guid: 17bc75a2b7c5f7943be1daccaece8b4b, type: 3}
   velocidadRayoFase1: 30
-  velocidadRayoFase2: 15
+  velocidadRayoFase2: 30
+  mirando: 0
 --- !u!1001 &6126666807198651381
 PrefabInstance:
   m_ObjectHideFlags: 0
