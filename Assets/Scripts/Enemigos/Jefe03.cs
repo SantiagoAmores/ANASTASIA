@@ -72,8 +72,17 @@ public class Jefe03 : MonoBehaviour
 
     void Update()
     {
-        float targetSpeed = isAttacking ? 0.1f : navMeshAgent.velocity.magnitude;
-        animator.SetFloat("velocidadActual", targetSpeed, 0.1f, Time.deltaTime * 5f);
+        // Solo fija velocidad a 0.1f si está atacando y no usando NavMesh
+        if (isAttacking && navMeshAgent.isStopped)
+        {
+            animator.SetFloat("velocidadActual", 0.1f, 0.1f, Time.deltaTime * 5f);
+        }
+        else
+        {
+            float targetSpeed = navMeshAgent.velocity.magnitude;
+            animator.SetFloat("velocidadActual", targetSpeed, 0.1f, Time.deltaTime * 5f);
+        }
+
 
         // Solo mirar al jugador si no está atacando puntos
         if (!isAttacking)
@@ -165,6 +174,7 @@ public class Jefe03 : MonoBehaviour
 
         currentSpeed = 0f;
         isAttacking = false;
+        yield return new WaitForSeconds(0.5f);
         animator.SetBool("atacando", false);
         direccionCalculada = false;
     }
@@ -173,6 +183,8 @@ public class Jefe03 : MonoBehaviour
     private IEnumerator MovimientoPuntosAleatorios()
     {
         isAttacking = true;
+        animator.SetBool("atacando", true);
+
         enemigoScript.seguirJugador = false;
         navMeshAgent.speed = maxSpeedPhase2;
 
@@ -181,6 +193,8 @@ public class Jefe03 : MonoBehaviour
 
         while (puntosVisitados < 5)
         {
+            animator.SetBool("atacando", true);
+
             if (puntosDisponibles.Count == 0) break;
 
             int index = Random.Range(0, puntosDisponibles.Count);
@@ -189,7 +203,6 @@ public class Jefe03 : MonoBehaviour
 
             navMeshAgent.SetDestination(destino.position);
             ultimaPosicionFuego = transform.position;
-            animator.SetBool("atacando", true);
 
             while (Vector3.Distance(transform.position, destino.position) > 0.5f)
             {
@@ -212,6 +225,7 @@ public class Jefe03 : MonoBehaviour
             puntosVisitados++;
         }
 
+        animator.SetBool("atacando", false);
         isAttacking = false;
     }
 
@@ -244,7 +258,7 @@ public class Jefe03 : MonoBehaviour
             yield return null;
         }
 
-
+        yield return new WaitForSeconds(0.5f);
         animator.SetBool("atacando_fase1", false);
         navMeshAgent.isStopped = false; // Reactivar movimiento
         isAttacking = false;
@@ -302,6 +316,7 @@ public class Jefe03 : MonoBehaviour
             if (rayo != null) Destroy(rayo);
         }
 
+        yield return new WaitForSeconds(0.5f);
         animator.SetBool("atacando_fase2", false);
         navMeshAgent.isStopped = false; // Reactivar movimiento
         isAttacking = false;

@@ -86,5 +86,9 @@ public class Jefe03_Rayo : MonoBehaviour
 
         // Asegurar la escala final exacta
         transform.localScale = new Vector3(0.1f, escalaFinal, 0.1f);
+
+        // Después de escalar el rayo
+        transform.localPosition += transform.up * (transform.localScale.y / 2f);
+
     }
 }
