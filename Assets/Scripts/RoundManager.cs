@@ -22,6 +22,8 @@ public class RoundManager : MonoBehaviour
     public NivelManager nivelManager;
     public int numeroNivelActual = 1; // se mira a ver que nivel es
 
+    public MovimientoJugador movimientoJugador;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,8 @@ public class RoundManager : MonoBehaviour
             spawner.ronda = ronda;
             spawner.seguir = true;
         }
+
+        movimientoJugador = GameObject.FindWithTag("Player")?.GetComponent<MovimientoJugador>();
 
         IniciarSiguienteFase(); 
     }
@@ -60,6 +64,12 @@ public class RoundManager : MonoBehaviour
         else if (ronda >= 4)
         {
             PantallaVictoria();
+        }
+
+        if (movimientoJugador != null)
+        {
+            bool mostrarFlechaBool = (ronda == 1 || ronda == 3);
+            movimientoJugador.mostrarFlecha(mostrarFlechaBool, mostrarFlechaBool ? jefeActual?.transform : null);
         }
     }
 

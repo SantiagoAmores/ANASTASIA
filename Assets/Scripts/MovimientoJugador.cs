@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
+using TMPro;
 using UnityEngine;
 
 public class MovimientoJugador : MonoBehaviour
@@ -21,6 +22,11 @@ public class MovimientoJugador : MonoBehaviour
     public int vidaTotal;
     public int vidaActual;
 
+    public GameObject flechaDireccion;
+    public Transform flechaObjetivo;
+
+    public GameObject textoCuracionPrefab;
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -39,6 +45,13 @@ public class MovimientoJugador : MonoBehaviour
         // Declaramos la vida de Anastasia al comienzo del nivel
         vidaTotal = stats.vidaBase;
         vidaActual = vidaTotal;
+
+        flechaDireccion = transform.Find("FlechaDireccion")?.gameObject;
+        if (flechaDireccion != null)
+        {
+            flechaDireccion.SetActive(false);
+        }
+
     }
 
     void Update()
@@ -70,6 +83,11 @@ public class MovimientoJugador : MonoBehaviour
             characterController.Move(Vector3.zero);
         }
 
+        if (flechaDireccion != null && flechaObjetivo != null)
+        {
+            actualizarDireccionFlecha();
+        }
+
     }
 
     private void OnTriggerEnter (Collider other)
@@ -90,6 +108,7 @@ public class MovimientoJugador : MonoBehaviour
             {
                 vidaActual = vidaTotal; // Para evitar que tenga mas vida actual que total
             }
+            MostrarTextoCuracion(2);
             Destroy(other.gameObject);
 
         }
@@ -107,6 +126,62 @@ public class MovimientoJugador : MonoBehaviour
         {
             Time.timeScale = 0f;
             canvasManager.Derrota();
+        }
+    }
+
+    public void mostrarFlecha(bool mostrar, Transform objetivo = null)
+    {
+        if (flechaDireccion != null)
+        {
+            flechaDireccion.SetActive(mostrar);
+            flechaObjetivo = mostrar ? objetivo : null;
+        }
+    }
+
+    private void actualizarDireccionFlecha()
+    {
+        float radio = 2f;
+
+        Vector3 direccion = flechaObjetivo.position - transform.position;
+        direccion.y = 0f;
+
+        float angulo = Mathf.Atan2(direccion.z, direccion.x);
+
+        float x = transform.position.x + radio * Mathf.Cos(angulo);
+        float z = transform.position.z + radio * Mathf.Sin(angulo);
+
+        flechaDireccion.transform.position = new Vector3(x, transform.position.y - 1f, z);
+
+        float distancia = direccion.magnitude;
+
+        if (distancia < 4f)
+        {
+            flechaDireccion.SetActive(false);
+        }
+        else
+        {
+            flechaDireccion.SetActive(true);
+        }
+
+        if (direccion.sqrMagnitude > 0.01f)
+        {
+            Quaternion rotacion = Quaternion.LookRotation(direccion);
+            flechaDireccion.transform.rotation = Quaternion.Euler(-90f, rotacion.eulerAngles.y + 180f, 0f);
+        }
+    }
+
+    void MostrarTextoCuracion(int cantidad)
+    {
+        if (textoCuracionPrefab != null)
+        {
+            float alturaOffset = 0.2f + (transform.localScale.y * 0.5f);
+            Vector3 posicionTexto = transform.position + new Vector3(0, alturaOffset, 0);
+            GameObject textoInstancia = Instantiate(textoCuracionPrefab, posicionTexto, Quaternion.identity);
+            TextMeshProUGUI texto = textoInstancia.GetComponentInChildren<TextMeshProUGUI>();
+            if (texto != null)
+            {
+                texto.text = cantidad.ToString();
+            }
         }
     }
 }
