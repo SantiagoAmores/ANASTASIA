@@ -21,6 +21,9 @@ public class MovimientoJugador : MonoBehaviour
     public int vidaTotal;
     public int vidaActual;
 
+    public GameObject flechaDireccion;
+    public Transform flechaObjetivo;
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -39,6 +42,13 @@ public class MovimientoJugador : MonoBehaviour
         // Declaramos la vida de Anastasia al comienzo del nivel
         vidaTotal = stats.vidaBase;
         vidaActual = vidaTotal;
+
+        flechaDireccion = transform.Find("FlechaDireccion")?.gameObject;
+        if (flechaDireccion != null)
+        {
+            flechaDireccion.SetActive(false);
+        }
+
     }
 
     void Update()
@@ -68,6 +78,11 @@ public class MovimientoJugador : MonoBehaviour
         else
         {
             characterController.Move(Vector3.zero);
+        }
+
+        if (flechaDireccion != null && flechaObjetivo != null)
+        {
+            actualizarDireccionFlecha();
         }
 
     }
@@ -107,6 +122,47 @@ public class MovimientoJugador : MonoBehaviour
         {
             Time.timeScale = 0f;
             canvasManager.Derrota();
+        }
+    }
+
+    public void mostrarFlecha(bool mostrar, Transform objetivo = null)
+    {
+        if (flechaDireccion != null)
+        {
+            flechaDireccion.SetActive(mostrar);
+            flechaObjetivo = mostrar ? objetivo : null;
+        }
+    }
+
+    private void actualizarDireccionFlecha()
+    {
+        float radio = 2f;
+
+        Vector3 direccion = flechaObjetivo.position - transform.position;
+        direccion.y = 0f;
+
+        float angulo = Mathf.Atan2(direccion.z, direccion.x);
+
+        float x = transform.position.x + radio * Mathf.Cos(angulo);
+        float z = transform.position.z + radio * Mathf.Sin(angulo);
+
+        flechaDireccion.transform.position = new Vector3(x, transform.position.y - 1f, z);
+
+        float distancia = direccion.magnitude;
+
+        if (distancia < 4f)
+        {
+            flechaDireccion.SetActive(false);
+        }
+        else
+        {
+            flechaDireccion.SetActive(true);
+        }
+
+        if (direccion.sqrMagnitude > 0.01f)
+        {
+            Quaternion rotacion = Quaternion.LookRotation(direccion);
+            flechaDireccion.transform.rotation = Quaternion.Euler(-90f, rotacion.eulerAngles.y + 180f, 0f);
         }
     }
 }

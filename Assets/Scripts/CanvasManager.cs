@@ -190,7 +190,7 @@ public class CanvasManager : MonoBehaviour
     public void InfinitoCuentaAtras()
     {
         StopAllCoroutines();
-        cuentaAtras.text = "∞";
+        cuentaAtras.text = "";
     }
 
     public void ReiniciarCuentaAtras()
