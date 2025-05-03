@@ -19,6 +19,8 @@ public class CanvasManager : MonoBehaviour
     public TextMeshProUGUI cuentaAtras;
     public TextMeshProUGUI textoNivel;
     public TextMeshProUGUI textoRonda;
+    public TextMeshProUGUI textoVida;
+    public TextMeshProUGUI textoExperiencia;
 
     [Header("Sliders")]
     public Slider sliderExp;
@@ -56,6 +58,8 @@ public class CanvasManager : MonoBehaviour
 
         if (!textoNivel) textoNivel = GameObject.Find("TextoNivel")?.GetComponent<TextMeshProUGUI>();
         if (!textoRonda) textoRonda = GameObject.Find("TextoRonda")?.GetComponent<TextMeshProUGUI>();
+        if (!textoVida) textoVida = GameObject.Find("TextoVida")?.GetComponent<TextMeshProUGUI>();
+        if (!textoExperiencia) textoExperiencia = GameObject.Find("TextoExperiencia")?.GetComponent<TextMeshProUGUI>();
         if (!sliderExp) sliderExp = GameObject.Find("SliderXP")?.GetComponent<Slider>();
         if (!sliderVida) sliderVida = GameObject.Find("SliderVida")?.GetComponent<Slider>();
         if (!sliderBossObject) sliderBossObject = GameObject.Find("BarraBoss");
@@ -122,6 +126,15 @@ public class CanvasManager : MonoBehaviour
             sliderBoss.value = gameManager.jefeActual.enemigoVidaActual;
         }
 
+        if (textoVida != null)
+        {
+            textoVida.text = statVida.vidaActual.ToString() + " / " + statVida.vidaTotal.ToString();
+        }
+
+        if (textoExperiencia != null)
+        {
+            textoExperiencia.text = gameManager.experienciaActual.ToString() + " / " + gameManager.experienciaRequerida.ToString();
+        }
     }
 
     IEnumerator Countdown()

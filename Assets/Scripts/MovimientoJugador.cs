@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
+using TMPro;
 using UnityEngine;
 
 public class MovimientoJugador : MonoBehaviour
@@ -23,6 +24,8 @@ public class MovimientoJugador : MonoBehaviour
 
     public GameObject flechaDireccion;
     public Transform flechaObjetivo;
+
+    public GameObject textoCuracionPrefab;
 
     void Start()
     {
@@ -105,6 +108,7 @@ public class MovimientoJugador : MonoBehaviour
             {
                 vidaActual = vidaTotal; // Para evitar que tenga mas vida actual que total
             }
+            MostrarTextoCuracion(2);
             Destroy(other.gameObject);
 
         }
@@ -163,6 +167,21 @@ public class MovimientoJugador : MonoBehaviour
         {
             Quaternion rotacion = Quaternion.LookRotation(direccion);
             flechaDireccion.transform.rotation = Quaternion.Euler(-90f, rotacion.eulerAngles.y + 180f, 0f);
+        }
+    }
+
+    void MostrarTextoCuracion(int cantidad)
+    {
+        if (textoCuracionPrefab != null)
+        {
+            float alturaOffset = 0.2f + (transform.localScale.y * 0.5f);
+            Vector3 posicionTexto = transform.position + new Vector3(0, alturaOffset, 0);
+            GameObject textoInstancia = Instantiate(textoCuracionPrefab, posicionTexto, Quaternion.identity);
+            TextMeshProUGUI texto = textoInstancia.GetComponentInChildren<TextMeshProUGUI>();
+            if (texto != null)
+            {
+                texto.text = cantidad.ToString();
+            }
         }
     }
 }
