@@ -23,7 +23,7 @@ public class Objeto1 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-
+            Debug.Log("Objeto activado");
             UsarObjeto(); //Activamos el efecto pulsando E
         }
     }

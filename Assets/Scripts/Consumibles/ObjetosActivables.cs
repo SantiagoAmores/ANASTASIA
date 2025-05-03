@@ -19,10 +19,10 @@ public class ObjetosActivables : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     public bool ObjetoActivo()

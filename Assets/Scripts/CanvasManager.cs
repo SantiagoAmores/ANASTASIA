@@ -37,6 +37,11 @@ public class CanvasManager : MonoBehaviour
 
     [Header("Objeto activable")]
     public GameObject objetoActivable;
+    public GameObject objeto1;
+    public GameObject objeto2;
+    public GameObject objeto3;
+    public GameObject objeto4;
+    public GameObject objeto5;
 
     void Start()
     {
@@ -66,6 +71,11 @@ public class CanvasManager : MonoBehaviour
         if (!sliderBoss) sliderBoss = GameObject.Find("SliderBoss")?.GetComponent<Slider>();
 
         if (!objetoActivable) objetoActivable = GameObject.Find("Activable");
+        if (!objeto1) objeto1 = GameObject.Find("Objeto1");
+        if (!objeto2) objeto2 = GameObject.Find("Objeto2");
+        if (!objeto3) objeto3 = GameObject.Find("Objeto3");
+        if (!objeto4) objeto4 = GameObject.Find("Objeto4");
+        if (!objeto5) objeto5 = GameObject.Find("Objeto5");
     }
 
     void ConfigurarSliders()
@@ -93,6 +103,12 @@ public class CanvasManager : MonoBehaviour
         objetoActivable?.SetActive(false);
         sliderBossObject?.SetActive(false);
         sliderBoss?.gameObject.SetActive(false);
+        objeto1?.SetActive(false);
+        objeto2?.SetActive(false);
+        objeto3?.SetActive(false);
+        objeto4?.SetActive(false);
+        objeto5?.SetActive(false);
+
     }
 
     void IniciarCuentaAtras()

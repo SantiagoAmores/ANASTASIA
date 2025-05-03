@@ -87,6 +87,41 @@ public class MovimientoJugador : MonoBehaviour
         {
             actualizarDireccionFlecha();
         }
+        if (Input.GetKeyDown(KeyCode.E) && canvasManager.objetoActivable.activeSelf)
+        {
+            Debug.Log("Objeto activado");
+            
+                if (canvasManager.objeto1.activeSelf)
+                {
+                    Debug.Log("Objeto 1 activado");
+                    canvasManager.objeto1.SetActive(false);
+
+                }
+                if (canvasManager.objeto2.activeSelf)
+                {
+                    Debug.Log("Objeto 2 activado");
+                    canvasManager.objeto2.SetActive(false);
+                }
+                if (canvasManager.objeto3.activeSelf)
+                {
+                    Debug.Log("Objeto 3 activado");
+                    vidaActual = vidaTotal;
+                    canvasManager.objeto3.SetActive(false);
+                }
+                if (canvasManager.objeto4.activeSelf)
+                {
+                    Debug.Log("Objeto 4 activado");
+                    canvasManager.objeto4.SetActive(false);
+                }
+                if (canvasManager.objeto5.activeSelf)
+                {
+                    Debug.Log("Objeto 5 activado");
+                    canvasManager.objeto5.SetActive(false);
+                }
+
+            canvasManager.objetoActivable.SetActive(false);
+        }
+
 
     }
 
