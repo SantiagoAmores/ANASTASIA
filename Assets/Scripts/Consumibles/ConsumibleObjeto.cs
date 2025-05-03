@@ -21,6 +21,8 @@ public class ConsumibleSimple : MonoBehaviour
             int objetoAleatorio = Random.Range(0, objetoElegido.Count);
             int Elegido = objetoElegido[objetoAleatorio];
 
+            Debug.Log("Objeto elegido: " + Elegido);
+
             // Activar el objeto elegido
             ObjetosActivables.instance.ActivarObjeto(Elegido);
             Destroy(gameObject);

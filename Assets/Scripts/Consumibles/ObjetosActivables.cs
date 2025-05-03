@@ -7,8 +7,8 @@ public class ObjetosActivables : MonoBehaviour
 {
     public static ObjetosActivables instance; // Para que el script ConsumibleObjeto acceda
 
-    public List<Image> imagenesUI; // Lista de imágenes en el Canvas
-    public List<GameObject> efectos; // Lista de efectos de los objetos que se activan con "E"
+    public List<Image> imagenesObjetos; // Lista de imágenes en el Canvas
+    public List<GameObject> efectosObjetos; // Lista los objetos que se activan
 
     private int objetoActivo = -1;
 
@@ -32,41 +32,35 @@ public class ObjetosActivables : MonoBehaviour
 
     public void ActivarObjeto(int id)
     {
-        if (id < 0 || id >= imagenesUI.Count) return;
+        if (id < 0 || id >= imagenesObjetos.Count || id >= efectosObjetos.Count) return;
 
-        imagenesUI[id].enabled = true; // Activa la imagen correspondiente en el Canvas
-        objetoActivo = id;  // Marca el objeto como activo
-    }
+        // Activar imagen en el Canvas
+        imagenesObjetos[id].enabled = true;
 
-    void Update()
-    {
-        // Al pulsar la E con un objeto activo se usa
-        if (Input.GetKeyDown(KeyCode.E) && objetoActivo != -1)
+        // Instanciar el objeto correspondiente
+        if (efectosObjetos[id] != null)
         {
-            UsarObjeto(objetoActivo);
+            Instantiate(efectosObjetos[id]);
         }
+
+        objetoActivo = id;
     }
 
-    void UsarObjeto(int id)
+    public void UsarObjeto(int id)
     {
-        if (id < 0 || id >= efectos.Count) return;
+        if (objetoActivo < 0 || objetoActivo >= imagenesObjetos.Count) return;
 
-        // Activar efecto
-        efectos[id].SetActive(true);
+        // Desactiva la imagen del Canvas
+        imagenesObjetos[objetoActivo].enabled = false;
 
-        // Desactivar imagen del Canvas
-        imagenesUI[id].enabled = false;
-
-        // Desactivar el efecto
-        StartCoroutine(DesactivarEfecto(id, 0.5f));
-
-        // Limpiar el objeto activo
+        // Desactiva el gameobject de la lista
         objetoActivo = -1;
     }
 
-    System.Collections.IEnumerator DesactivarEfecto(int id, float tiempo)
+    // Corutina para desactivar el efecto después de un tiempo
+    IEnumerator DesactivarEfecto(int id, float tiempo)
     {
         yield return new WaitForSeconds(tiempo);
-        efectos[id].SetActive(false);
+        efectosObjetos[id].SetActive(false);  // Desactivar el GameObject del efecto
     }
 }
