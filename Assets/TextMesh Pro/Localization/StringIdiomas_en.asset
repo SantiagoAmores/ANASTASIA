@@ -263,6 +263,13 @@ MonoBehaviour:
     m_Localized: Weapons
     m_Metadata:
       m_Items: []
+  - m_Id: 4767429836816384
+    m_Localized: 'In honor of the little potatoes
+
+
+      -A little potato'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

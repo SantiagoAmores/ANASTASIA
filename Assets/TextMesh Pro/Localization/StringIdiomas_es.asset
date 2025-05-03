@@ -254,6 +254,13 @@ MonoBehaviour:
     m_Localized: Armas
     m_Metadata:
       m_Items: []
+  - m_Id: 4767429836816384
+    m_Localized: 'En honor a las patatillas
+
+
+      -Una patatilla'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

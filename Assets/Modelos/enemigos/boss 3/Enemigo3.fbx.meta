@@ -68,8 +68,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|RuedaAction (1)
-      takeName: Armature|RuedaAction
+      name: Armature|Walk_Robot (1)
+      takeName: Armature|Walk_Robot
       internalID: -4968658641044393821
       firstFrame: 0
       lastFrame: 12
@@ -80,7 +80,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

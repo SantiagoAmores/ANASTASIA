@@ -32,7 +32,12 @@ public class Jefe03 : MonoBehaviour
     public GameObject llamaPrefab; // Asigna el prefab desde el inspector
     public float intervaloLlamas = 0.5f; // Tiempo entre cada llama
     private Vector3 ultimaPosicionFuego;
-    private float distanciaEntreLlamas = 1f; 
+    private float distanciaEntreLlamas = 1f;
+
+    public GameObject rayoPrefab; 
+    public float velocidadRayoFase1 = 30f; // Velocidad de rotación del rayo en fase 1
+    public float velocidadRayoFase2 = 15f; // Velocidad de rotación del rayo en fase 2
+
 
 
     void Start()
@@ -67,7 +72,8 @@ public class Jefe03 : MonoBehaviour
 
     void Update()
     {
-        animator.SetFloat("velocidadActual", enemigoScript.enemigo.speed);
+        float targetSpeed = isAttacking ? 0.1f : navMeshAgent.velocity.magnitude;
+        animator.SetFloat("velocidadActual", targetSpeed, 0.1f, Time.deltaTime * 5f);
 
         // Solo mirar al jugador si no está atacando puntos
         if (!isAttacking)
@@ -100,15 +106,17 @@ public class Jefe03 : MonoBehaviour
 
             if (statsScript.faseDeJefe == 1)
             {
-                // Movimiento recto, tipo embestida
-                yield return StartCoroutine(MovimientoLineal());
-                yield return new WaitForSeconds(1.5f);
+                yield return StartCoroutine(MovimientoLineal()); // Embestida 1
+                yield return StartCoroutine(MovimientoLineal()); // Embestida 2
+                yield return StartCoroutine(AtaqueRayoFase1());  // Rayo hacia el jugador
             }
+
             else if (statsScript.faseDeJefe == 2)
             {
-                yield return StartCoroutine(MovimientoPuntosAleatorios());
-                yield return new WaitForSeconds(0.8f);
+                yield return StartCoroutine(MovimientoPuntosAleatorios()); // Se mueve a 5 puntos
+                yield return StartCoroutine(AtaqueRayosFase2());           // Lanza 4 rayos giratorios
             }
+
         }
     }
 
@@ -116,6 +124,18 @@ public class Jefe03 : MonoBehaviour
     {
         isAttacking = true;
         animator.SetBool("atacando", true);
+        navMeshAgent.isStopped = false;
+        enemigoScript.seguirJugador = false;
+        enemigoScript.MirarAnastasia();
+
+        Vector3 direccion = (jugador.transform.position - transform.position).normalized;
+        direccion.y = 0f; // evita inclinación en el eje Y
+
+        if (direccion.magnitude > 0.1f)
+        {
+            Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, Time.deltaTime * 5f);
+        }
 
         if (!direccionCalculada)
         {
@@ -123,7 +143,7 @@ public class Jefe03 : MonoBehaviour
             direccionCalculada = true;
         }
 
-        float attackDuration = 3f;
+        float attackDuration = 3.5f;
         float timer = 0f;
 
         while (timer < attackDuration)
@@ -141,6 +161,8 @@ public class Jefe03 : MonoBehaviour
             yield return null;
         }
 
+        yield return new WaitForSeconds(0.5f); // pausa tras embestida
+
         currentSpeed = 0f;
         isAttacking = false;
         animator.SetBool("atacando", false);
@@ -152,66 +174,136 @@ public class Jefe03 : MonoBehaviour
     {
         isAttacking = true;
         enemigoScript.seguirJugador = false;
-
         navMeshAgent.speed = maxSpeedPhase2;
 
-        while (true) // bucle para seguir los puntos aleatorios
+        List<Transform> puntosDisponibles = new List<Transform>(puntosMovimiento);
+        int puntosVisitados = 0;
+
+        while (puntosVisitados < 5)
         {
+            if (puntosDisponibles.Count == 0) break;
 
-            List<Transform> puntosDisponibles = new List<Transform>(puntosMovimiento);
-            int puntosVisitados = 0;
+            int index = Random.Range(0, puntosDisponibles.Count);
+            Transform destino = puntosDisponibles[index];
+            puntosDisponibles.RemoveAt(index);
 
-            while (puntosVisitados < 5)
+            navMeshAgent.SetDestination(destino.position);
+            ultimaPosicionFuego = transform.position;
+            animator.SetBool("atacando", true);
+
+            while (Vector3.Distance(transform.position, destino.position) > 0.5f)
             {
-                if (puntosDisponibles.Count == 0) break;
-
-                int index = Random.Range(0, puntosDisponibles.Count);
-                Transform destino = puntosDisponibles[index];
-                puntosDisponibles.RemoveAt(index);
-
-                navMeshAgent.SetDestination(destino.position);
-
-                ultimaPosicionFuego = transform.position;
-
-                animator.SetBool("atacando", true); // Activar animación de movimiento
-
-                // Esperar a que llegue al destino
-                while (Vector3.Distance(transform.position, destino.position) > 0.5f)
+                float distanciaRecorrida = Vector3.Distance(transform.position, ultimaPosicionFuego);
+                if (distanciaRecorrida >= distanciaEntreLlamas)
                 {
-                    float distanciaRecorrida = Vector3.Distance(transform.position, ultimaPosicionFuego);
-
-                    if (distanciaRecorrida >= distanciaEntreLlamas)
-                    {
-                        Vector3 posicionFuego = transform.position;
-                        posicionFuego.y = 0.5f; // Pegado al suelo
-
-                        // Calcular dirección de movimiento
-                        Vector3 direccionMovimiento = (transform.position - ultimaPosicionFuego).normalized;
-
-                        // Calcular ángulo en grados
-                        float angulo = Mathf.Atan2(direccionMovimiento.x, direccionMovimiento.z) * Mathf.Rad2Deg;
-
-                        // Crear la rotación
-                        Quaternion rotacionFuego = Quaternion.Euler(0, angulo + 90f, 0);
-
-                        // Instanciar con rotación
-                        Instantiate(llamaPrefab, posicionFuego, rotacionFuego);
-
-                        ultimaPosicionFuego = transform.position;
-                    }
-
-                    yield return null;
+                    Vector3 posicionFuego = transform.position;
+                    posicionFuego.y = 0.5f;
+                    Vector3 direccionMovimiento = (transform.position - ultimaPosicionFuego).normalized;
+                    float angulo = Mathf.Atan2(direccionMovimiento.x, direccionMovimiento.z) * Mathf.Rad2Deg;
+                    Quaternion rotacionFuego = Quaternion.Euler(0, angulo + 90f, 0);
+                    Instantiate(llamaPrefab, posicionFuego, rotacionFuego);
+                    ultimaPosicionFuego = transform.position;
                 }
-
-                // Llegó al destino
-                animator.SetBool("atacando", false); // Cambiar a animación idle
-
-                yield return new WaitForSeconds(2f); // Esperar 2 segundo
-
-                puntosVisitados++;
+                yield return null;
             }
 
-            yield return new WaitForSeconds(4f); // Espera 4 segundos tras 5 puntos
+            animator.SetBool("atacando", false);
+            yield return new WaitForSeconds(2f);
+            puntosVisitados++;
         }
+
+        isAttacking = false;
+    }
+
+    private IEnumerator AtaqueRayoFase1()
+    {
+        isAttacking = true;
+        enemigoScript.seguirJugador = false;
+        navMeshAgent.isStopped = true; // Detiene completamente el movimiento
+        animator.SetBool("atacando_fase1", true);
+
+        // Calcular dirección hacia el jugador
+        Vector3 direccion = (jugador.transform.position - transform.position).normalized;
+        float angulo = Mathf.Atan2(direccion.x, direccion.z) * Mathf.Rad2Deg;
+
+        // Instanciar el rayo
+        GameObject rayo = Instantiate(rayoPrefab, transform.position + Vector3.up * 1.5f, Quaternion.Euler(90f, angulo, 0f));
+        Transform rayoTransform = rayo.transform;
+        Jefe03_Rayo rayoScript = rayo.GetComponent<Jefe03_Rayo>();
+        rayoScript.velocidadRotacion = velocidadRayoFase1;
+        rayoScript.radio = 3f;
+        rayoScript.anguloInicial = angulo;
+        rayoScript.girar = true;
+
+        // Esperar hasta que el rayo sea destruido
+        while (rayo != null)
+        {
+            Vector3 rotacionRayo = rayoTransform.rotation.eulerAngles;
+            transform.rotation = Quaternion.Euler(0f, rotacionRayo.y, 0f); // Solo rota en Y
+
+            yield return null;
+        }
+
+
+        animator.SetBool("atacando_fase1", false);
+        navMeshAgent.isStopped = false; // Reactivar movimiento
+        isAttacking = false;
+    }
+
+    private IEnumerator AtaqueRayosFase2()
+    {
+        isAttacking = true;
+        animator.SetBool("atacando_fase2", true);
+        navMeshAgent.isStopped = true; // Detiene completamente el movimiento
+
+        // Crear 4 rayos en direcciones cardinales con ángulos iniciales
+        float distanciaDesdeCentro = 3f;
+
+        // Crear 4 rayos en las 4 direcciones cardinales
+        Vector3[] direcciones = {
+        Vector3.forward,    // Norte (Z+)
+        Vector3.right,     // Este (X+)
+        Vector3.back,      // Sur (Z-)
+        Vector3.left       // Oeste (X-)
+        };
+
+        float[] angulosIniciales = { 0f, 90f, 180f, 270f };
+        List<GameObject> rayos = new List<GameObject>();
+
+        for (int i = 0; i < 4; i++)
+        {
+            // Calcular posición del rayo (centro + dirección * distancia)
+            Vector3 posicionRayo = transform.position + (direcciones[i] * distanciaDesdeCentro);
+            posicionRayo.y = transform.position.y + 1.5f; // Altura del rayo
+
+            // Instanciar el rayo
+            GameObject rayo = Instantiate(
+                rayoPrefab,
+                posicionRayo,
+                Quaternion.Euler(90f, angulosIniciales[i], 0f)
+            );
+
+            // Configurar el rayo
+            Jefe03_Rayo rayoScript = rayo.GetComponent<Jefe03_Rayo>();
+            rayoScript.velocidadRotacion = velocidadRayoFase2;
+            rayoScript.radio = distanciaDesdeCentro;
+            rayoScript.anguloInicial = angulosIniciales[i];
+            rayoScript.girar = true;
+            rayoScript.duracion = 7f;
+            rayos.Add(rayo);
+        }
+
+        // Esperar mientras los rayos están activos
+        yield return new WaitForSeconds(7f);
+
+        // Limpieza
+        foreach (GameObject rayo in rayos)
+        {
+            if (rayo != null) Destroy(rayo);
+        }
+
+        animator.SetBool("atacando_fase2", false);
+        navMeshAgent.isStopped = false; // Reactivar movimiento
+        isAttacking = false;
     }
 }
