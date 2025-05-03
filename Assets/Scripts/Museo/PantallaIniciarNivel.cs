@@ -20,6 +20,14 @@ public class PantallaIniciarNivel : MonoBehaviour
     public CinemachineVirtualCamera museoCamara;
     private Coroutine zoomCoroutine; // Cambio de camara fluida
 
+    private bool botonDeEmpezarActivo = false;
+
+    public GameObject iconoArma1;
+    public GameObject iconoArma2;
+    public GameObject iconoArma3;
+
+    public int armaElegida = -1;
+
     void Start()
     {
        
@@ -38,6 +46,20 @@ public class PantallaIniciarNivel : MonoBehaviour
         empezarNivel.onClick.RemoveAllListeners();
     }
 
+    private void Update()
+    {
+        if (PantallaNivelCanvas.activeSelf && !botonDeEmpezarActivo)
+        {
+            if (WeaponManagerDDOL.instancia != null && WeaponManagerDDOL.instancia.armaSeleccionada != -1)
+            {
+                empezarNivel.gameObject.SetActive(true);
+                empezarNivel.onClick.RemoveAllListeners();
+                empezarNivel.onClick.AddListener(() => CambioDeNivel(nivel));
+                botonDeEmpezarActivo = true;
+            }
+        }
+    }
+
     // Cuando el jugador entra en el trigger, muestra el canvas, vuelve a eliminar los listeners por si aca, coge el texto escrito manualmente en el inspector,
     // que es el nombre de la escena a cargar, muestra el nombre del nivel en el canvas y añade el listener que llama a la funcion de cargar la escena
     // y carga la escena del texto que se muestra en el canvas
@@ -46,12 +68,8 @@ public class PantallaIniciarNivel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PantallaNivelCanvas.SetActive(true);
-            empezarNivel.onClick.RemoveAllListeners();
-
-            string nivelActual = nivel;
-            //textoNivel.text = nivelActual;
-
-            empezarNivel.onClick.AddListener(() => CambioDeNivel(nivelActual));
+            empezarNivel.gameObject.SetActive(false);
+            botonDeEmpezarActivo = false;
 
             // Camara apuntar cuadros antes de entrar al nivel
 

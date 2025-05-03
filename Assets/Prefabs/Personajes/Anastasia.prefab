@@ -306,6 +306,7 @@ MonoBehaviour:
   vidaActual: 0
   flechaDireccion: {fileID: 0}
   flechaObjetivo: {fileID: 0}
+  textoCuracionPrefab: {fileID: 6474264951493391942, guid: 99897a1b16b9eea4996018fb25b2fa2b, type: 3}
 --- !u!114 &-6341184225360161705
 MonoBehaviour:
   m_ObjectHideFlags: 0

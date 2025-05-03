@@ -33,7 +33,7 @@ public class StatsEnemigos : MonoBehaviour
         {
             { "Enemigo 3", ((50, 2, 3.25f, 10), (200, 3, 3.25f, 0), "drop") },
             { "Enemigo 6", ((55, 3, 3.25f, 10), (220, 4, 3.25f, 0), "drop") },
-            { "Enemigo 9", ((60, 4, 7f, 10), (240, 7, 20f, 0), "drop") },
+            { "Enemigo 9", ((60, 1, 7f, 10), (240, 2, 20f, 0), "drop") },
         };
     }
 

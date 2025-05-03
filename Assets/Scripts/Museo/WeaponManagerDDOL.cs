@@ -7,7 +7,6 @@ public class WeaponManagerDDOL : MonoBehaviour
     public static WeaponManagerDDOL instancia;
     public int armaSeleccionada = -1;
     public static bool cargarEscena = false;
-    public TextMeshProUGUI textoArma;
 
     // Este script se encarga de activar las armas entre escenas
     // Si no hay una instancia previa, se crea una instancia de este script que no se destruye entre escenas, asigna por defecto un arma vacia 
@@ -53,18 +52,6 @@ public class WeaponManagerDDOL : MonoBehaviour
     // Funcion para asignar el arma en si
     public void SeleccionarArma(int index)
     {
-        // Busca el texto del arma en la interfaz
-        if (textoArma == null)
-        {
-            textoArma = GameObject.Find("textoArma")?.GetComponent<TextMeshProUGUI>();
-        }
-
-        // Avisa por la interfaz el arma elegida
-        if (textoArma != null)
-        {
-            textoArma.text = "Arma numero " + index + " seleccionada.";
-        }
-
         // Asigna el arma
         armaSeleccionada = index;
     }
