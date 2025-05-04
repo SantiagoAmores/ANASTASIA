@@ -11,6 +11,7 @@ public class Enemigo : MonoBehaviour
     private MovimientoJugador moverJugador;
     private CanvasManager canvasManager;
     private Jefe01 jefeScript;
+    private StatsAnastasia statsAnastasia;
 
     [Header("Objetos y prefabs")]
     public GameObject jugador;
@@ -49,6 +50,7 @@ public class Enemigo : MonoBehaviour
         canvasManager = FindObjectOfType<CanvasManager>();
         estadisticas = GetComponent<StatsEnemigos>();
         jefeScript = GetComponent<Jefe01>();
+        statsAnastasia = jugador.GetComponent<StatsAnastasia>();
 
         // Busca al enemigo a partir del nombre de su prefab y le otorga sus respectivas estadisticas
         estadisticas.revisarEnemigo();
@@ -138,7 +140,7 @@ public class Enemigo : MonoBehaviour
     public IEnumerator HeridaPausa()
     {
         golpeable = false;
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(statsAnastasia.ticsPorSegundo);
         golpeable = true;
     }
     public IEnumerator AnimacionHerida()

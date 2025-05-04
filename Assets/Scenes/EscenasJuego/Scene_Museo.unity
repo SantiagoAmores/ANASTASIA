@@ -812,7 +812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 0}
+  m_AnchoredPosition: {x: 160, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &193700128
@@ -1630,6 +1630,9 @@ MonoBehaviour:
   armaSeleccionada: {fileID: 0}
   targetNivel: {fileID: 0}
   museoCamara: {fileID: 0}
+  iconoArma1: {fileID: 495697010}
+  iconoArma2: {fileID: 193700126}
+  iconoArma3: {fileID: 1398320375}
 --- !u!1 &348889643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,7 +1887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armaSeleccionada: 0
-  textoArma: {fileID: 0}
+  pantalla: {fileID: 0}
 --- !u!4 &426417702
 Transform:
   m_ObjectHideFlags: 0
@@ -2251,7 +2254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 0}
+  m_AnchoredPosition: {x: 160, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495697012
@@ -3708,6 +3711,9 @@ MonoBehaviour:
   armaSeleccionada: {fileID: 0}
   targetNivel: {fileID: 0}
   museoCamara: {fileID: 0}
+  iconoArma1: {fileID: 495697010}
+  iconoArma2: {fileID: 193700126}
+  iconoArma3: {fileID: 1398320375}
 --- !u!1 &741828937
 GameObject:
   m_ObjectHideFlags: 0
@@ -6650,7 +6656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 0}
+  m_AnchoredPosition: {x: 160, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398320377
@@ -8445,7 +8451,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -360}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 450, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1905451754
 MonoBehaviour:
@@ -9178,6 +9184,9 @@ MonoBehaviour:
   armaSeleccionada: {fileID: 0}
   targetNivel: {fileID: 0}
   museoCamara: {fileID: 0}
+  iconoArma1: {fileID: 495697010}
+  iconoArma2: {fileID: 193700126}
+  iconoArma3: {fileID: 1398320375}
 --- !u!1 &2015331228
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovimientoJugador : MonoBehaviour
 {
@@ -11,7 +9,6 @@ public class MovimientoJugador : MonoBehaviour
     private CanvasManager canvasManager;
 
     //Controles del jugador
-    //private float speed = 5f;
     public float rotationSpeed = 10f;
     private CharacterController characterController;
 
@@ -51,7 +48,6 @@ public class MovimientoJugador : MonoBehaviour
         {
             flechaDireccion.SetActive(false);
         }
-
     }
 
     void Update()
@@ -87,10 +83,12 @@ public class MovimientoJugador : MonoBehaviour
         {
             actualizarDireccionFlecha();
         }
-        if (Input.GetKeyDown(KeyCode.E) && canvasManager.objetoActivable.activeSelf)
+        if (SceneManager.GetActiveScene().name != "Scene_Museo")
         {
-            Debug.Log("Objeto activado");
-            
+            if (Input.GetKeyDown(KeyCode.E) && canvasManager.objetoActivable.activeSelf)
+            {
+                Debug.Log("Objeto activado");
+
                 if (canvasManager.objeto1.activeSelf)
                 {
                     Debug.Log("Objeto 1 activado");
@@ -105,7 +103,7 @@ public class MovimientoJugador : MonoBehaviour
                 if (canvasManager.objeto3.activeSelf)
                 {
                     Debug.Log("Objeto 3 activado");
-                    vidaActual = vidaTotal;
+                    Curar(vidaTotal);
                     canvasManager.objeto3.SetActive(false);
                 }
                 if (canvasManager.objeto4.activeSelf)
@@ -119,43 +117,30 @@ public class MovimientoJugador : MonoBehaviour
                     canvasManager.objeto5.SetActive(false);
                 }
 
-            canvasManager.objetoActivable.SetActive(false);
+                canvasManager.objetoActivable.SetActive(false);
+            }
         }
-
-
     }
 
     private void OnTriggerEnter (Collider other)
     {
         if (other.CompareTag("Experiencia"))
         {
-
             gameManager.SubirNivel();
             Destroy(other.gameObject);
-  
         }
 
         if (other.CompareTag("Corazon"))
         {
-
-            vidaActual += 2;
-            if (vidaActual > vidaTotal)
-            {
-                vidaActual = vidaTotal; // Para evitar que tenga mas vida actual que total
-            }
-            MostrarTextoCuracion(2);
+            int curacion = vidaTotal / 10;
+            Curar(curacion);
             Destroy(other.gameObject);
-
         }
-
     }
-
 
     public void herirAnastasia(int cantidadHerida)
     {
-        //Debug.Log("Daño recibido: " + cantidadHerida);
         vidaActual -= cantidadHerida;
-        //Debug.Log("Vida actual: " + vidaActual);
 
         if (vidaActual <= 0)
         {
@@ -203,6 +188,16 @@ public class MovimientoJugador : MonoBehaviour
             Quaternion rotacion = Quaternion.LookRotation(direccion);
             flechaDireccion.transform.rotation = Quaternion.Euler(-90f, rotacion.eulerAngles.y + 180f, 0f);
         }
+    }
+
+    public void Curar(int cantidad)
+    {
+        vidaActual += cantidad;
+        if (vidaActual > vidaTotal)
+        {
+            vidaActual = vidaTotal;
+        }
+        MostrarTextoCuracion(cantidad);
     }
 
     void MostrarTextoCuracion(int cantidad)

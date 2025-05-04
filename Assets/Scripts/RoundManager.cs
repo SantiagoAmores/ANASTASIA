@@ -32,7 +32,6 @@ public class RoundManager : MonoBehaviour
         spawner = GetComponent<SpawnEnemigos>();
         if (spawner != null)
         {
-            spawner.ronda = ronda;
             spawner.seguir = true;
         }
 
@@ -44,12 +43,6 @@ public class RoundManager : MonoBehaviour
     public void IniciarSiguienteFase()
     {
         ActualizarIntefazRonda();
-
-        if (spawner != null)
-        {
-            spawner.ronda = ronda;
-        }
-
 
         if (ronda == 0 || ronda == 2)
         {

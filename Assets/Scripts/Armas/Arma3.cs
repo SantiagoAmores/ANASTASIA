@@ -57,21 +57,27 @@ public class Arma3 : MonoBehaviour
 
             // Se calcula el dano del charco de pintura
             CharcoPintura charcoScript = instanciarPintura.GetComponent<CharcoPintura>();
-            if (charcoScript != null) { charcoScript.golpe = (int)stats.arma3Ataque; }
+            if (charcoScript != null) { charcoScript.golpe = 1; }
 
             // Escalado d ela pintura
             Vector3 escalaInicial = Vector3.zero;
             instanciarPintura.transform.localScale = escalaInicial;
 
-            float tiempo = 0f;
+            float alturaFija = escalaFinal.y;
+            Vector3 escalaTarget = new Vector3(
+                escalaFinal.x * (1 + stats.arma4Ataque / 5f),
+                alturaFija,
+                escalaFinal.z * (1 + stats.arma4Ataque / 5f)
+                );
 
+            float tiempo = 0f;
             while (tiempo < duracion)
             {
 
                 // Si no fue destruida antes la pintura
                 if (instanciarPintura != null)
                 {
-                    instanciarPintura.transform.localScale = Vector3.Lerp(Vector3.zero, escalaFinal * (1 + stats.arma4Ataque / 5f), tiempo / duracion);
+                    instanciarPintura.transform.localScale = Vector3.Lerp(Vector3.zero, escalaTarget, tiempo / duracion);
                 }
                 else
                 {
@@ -85,8 +91,8 @@ public class Arma3 : MonoBehaviour
             // Solo si aun existe, le damos la escala final y la destruimos después
             if (instanciarPintura != null)
             {
-                instanciarPintura.transform.localScale = escalaFinal * (1 + stats.arma4Ataque / 5f);
-                Destroy(instanciarPintura, 2f);
+                instanciarPintura.transform.localScale = escalaTarget;
+                Destroy(instanciarPintura, 2f + stats.arma3Ataque/5f);
             }
 
         }

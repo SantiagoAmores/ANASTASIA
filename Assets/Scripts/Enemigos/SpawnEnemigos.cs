@@ -14,30 +14,30 @@ public class SpawnEnemigos : MonoBehaviour
     public bool instanciar = true;
 
     [Header("Rondas")]
-    public int ronda;
+    private RoundManager roundManager;
     private bool ronda2Empezada;
 
     [Header("Spawn Adicionales")]
     private bool primerSpawn = true;
     private int minimoSpawns = 2;
-    private int maximoSpawns = 3;
+    private int maximoSpawns = 4;
 
     void Start()
     {
-        ronda = GetComponent<RoundManager>().ronda;
+        roundManager = GetComponent<RoundManager>();
         StartCoroutine(Spawns());
     }
 
     private void Update()
     {
-        if (ronda == 2 && !ronda2Empezada)
+        if (roundManager.ronda == 2 && !ronda2Empezada)
         {
             ronda2Empezada = true;
             primerSpawn = true;
             instanciar = true;
             tiempoEntreSpawns /= 2;
-            minimoSpawns = 3;
-            maximoSpawns = 5;
+            minimoSpawns = 4;
+            maximoSpawns = 7;
             StartCoroutine(Spawns());
         }
     }
@@ -64,14 +64,14 @@ public class SpawnEnemigos : MonoBehaviour
                 int aleatorio = TipoDeEnemigo();
 
                 if (!instanciar) { continue; }
-                Instantiate(enemigoPrefab[aleatorio], randomPosition, Quaternion.identity);
+                GameObject enemigo = Instantiate(enemigoPrefab[aleatorio], randomPosition, Quaternion.identity);
             }
         }
     }
 
     private int TipoDeEnemigo()
     {
-        switch (ronda)
+        switch (roundManager.ronda)
         {
             case 0:
                 return (Random.value < 0.975f) ? 0 : 1;
@@ -79,7 +79,7 @@ public class SpawnEnemigos : MonoBehaviour
                 instanciar = false;
                 return 0;
             case 2:
-                return (Random.value < 0.2f) ? 0 : 1;
+                return (Random.value < 0.3f) ? 0 : 1;
             case 3:
                 instanciar = false;
                 return 0;
