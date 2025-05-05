@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30.000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30.000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30.000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.063717
       objectReference: {fileID: 0}
@@ -48,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       propertyPath: m_Name
       value: Regalo
@@ -81,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetoElegido: 0100000002000000030000000400000005000000
+  canvasManager: {fileID: 0}
 --- !u!65 &6183633016165518048
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -152,6 +152,7 @@ MonoBehaviour:
   corazonPrefab: {fileID: 9170100802169879125, guid: 826f921196548874485cab2f2cddc348, type: 3}
   textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
   spawnEfectoPrefab: {fileID: 4649073419550656177, guid: bb34dc391e79f6a419a2e76fb72a39e4, type: 3}
+  regaloPrefab: {fileID: 8913403153319220097, guid: dd74c16aa6027fe498012d9c7cfbccea, type: 3}
   estadisticas: {fileID: 0}
   enemigoVidaTotal: 0
   enemigoVelocidad: 0

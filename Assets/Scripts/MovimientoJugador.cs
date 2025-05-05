@@ -1,6 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class MovimientoJugador : MonoBehaviour
 {
@@ -15,14 +18,23 @@ public class MovimientoJugador : MonoBehaviour
     private Animator animator;
 
     public StatsAnastasia stats;
+    public Enemigo statsEnemigo;
 
     public int vidaTotal;
     public int vidaActual;
+
+    public float buffVelocidad = 1f;
 
     public GameObject flechaDireccion;
     public Transform flechaObjetivo;
 
     public GameObject textoCuracionPrefab;
+
+    public List<GameObject> listaEnemigos = new List<GameObject>();
+    public GameObject enemigo;
+
+    public bool tieneObjetoActivo = false;
+    public int objetoActual = -1;
 
     void Start()
     {
@@ -48,6 +60,7 @@ public class MovimientoJugador : MonoBehaviour
         {
             flechaDireccion.SetActive(false);
         }
+
     }
 
     void Update()
@@ -68,7 +81,7 @@ public class MovimientoJugador : MonoBehaviour
         if (movement.magnitude > 0)
         {
             // Utiliza la estadistica de velocidad de StatsAnastasia
-            float velocidad = stats.velocidadMovimiento;
+            float velocidad = stats.velocidadMovimiento * buffVelocidad;
             characterController.Move(movement * velocidad * Time.deltaTime);
 
             Quaternion targetRotation = Quaternion.LookRotation(movement);
@@ -89,35 +102,40 @@ public class MovimientoJugador : MonoBehaviour
             {
                 Debug.Log("Objeto activado");
 
-                if (canvasManager.objeto1.activeSelf)
+                if (objetoActual == 0 && canvasManager.objeto1.activeSelf)
                 {
                     Debug.Log("Objeto 1 activado");
                     canvasManager.objeto1.SetActive(false);
 
                 }
-                if (canvasManager.objeto2.activeSelf)
+                if (objetoActual == 1 && canvasManager.objeto2.activeSelf)
                 {
                     Debug.Log("Objeto 2 activado");
+                    explosivo();
                     canvasManager.objeto2.SetActive(false);
                 }
-                if (canvasManager.objeto3.activeSelf)
+                if (objetoActual == 2 && canvasManager.objeto3.activeSelf)
                 {
                     Debug.Log("Objeto 3 activado");
                     Curar(vidaTotal);
                     canvasManager.objeto3.SetActive(false);
                 }
-                if (canvasManager.objeto4.activeSelf)
+                if (objetoActual == 3 && canvasManager.objeto4.activeSelf)
                 {
                     Debug.Log("Objeto 4 activado");
+                    StartCoroutine(stats.aumentoAtaque());
                     canvasManager.objeto4.SetActive(false);
                 }
-                if (canvasManager.objeto5.activeSelf)
+                if (objetoActual == 4 && canvasManager.objeto5.activeSelf)
                 {
                     Debug.Log("Objeto 5 activado");
+                    StartCoroutine(aumentoVelocidad());
                     canvasManager.objeto5.SetActive(false);
                 }
 
                 canvasManager.objetoActivable.SetActive(false);
+                tieneObjetoActivo = false;
+                objetoActual = -1;
             }
         }
     }
@@ -214,4 +232,29 @@ public class MovimientoJugador : MonoBehaviour
             }
         }
     }
+
+    void explosivo()
+    {
+        // Buscar todos los enemigos
+        GameObject[] enemigo = GameObject.FindGameObjectsWithTag("Enemy");
+
+        // Se guardan en la lista
+        //listaEnemigos = new List<GameObject>(enemigo);
+
+        foreach (GameObject enemigoEnLista in enemigo)
+        {
+            enemigoEnLista.GetComponent<Enemigo>().RecibirGolpe(20,this.gameObject);
+        }
+
+    }
+
+    IEnumerator aumentoVelocidad()
+    {
+        Debug.Log("¡A correr!");
+        buffVelocidad = 2f;
+        yield return new WaitForSeconds(4f);
+        buffVelocidad = 1f;
+        Debug.Log("¡A caminar!");
+    }
+
 }

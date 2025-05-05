@@ -19,6 +19,7 @@ public class Enemigo : MonoBehaviour
     public GameObject corazonPrefab;
     public GameObject textoDanoPrefab;
     public GameObject spawnEfectoPrefab;
+    public GameObject regaloPrefab;
 
     [Header("Estadisticas")]
     public StatsEnemigos estadisticas;
@@ -128,8 +129,16 @@ public class Enemigo : MonoBehaviour
         // Si la salud del enemigo es igual o baja de 0
         if (enemigoVidaActual <= 0)
         {
-            DropNormal();
-
+            string nombreEnemigo = gameObject.name.Replace("(Clone)", "").Trim();
+            if (nombreEnemigo == "Jarron")
+            {
+                DropDeJarron();
+            }
+            else
+            {
+                DropNormal();
+            }
+            
             if (estadisticas.esUnJefe && estadisticas.faseDeJefe == 1) { DropDeJefe(); }
             if (jefeScript != null) { jefeScript.EliminarTodosLosProyectiles(); }
 
@@ -193,6 +202,7 @@ public class Enemigo : MonoBehaviour
 
     public void DropNormal()
     {
+        Debug.Log("Experiencia instanciada");
         // Genera un area pequeña con una altura fija
         float radioDrop = 1f;
         float alturaFija = 0.5f;
@@ -243,6 +253,11 @@ public class Enemigo : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void DropDeJarron()
+    {
+        Instantiate(regaloPrefab, transform.position, Quaternion.identity);
     }
 
     void MostrarTextoDano(int cantidad)

@@ -211,4 +211,24 @@ public class StatsAnastasia : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator aumentoAtaque()
+    {
+        Debug.Log("¡A pegar!");
+        arma1Ataque += 3;
+        arma2Ataque += 3;
+        arma3Ataque += 3;
+        arma4Ataque += 3;
+        arma5Ataque += 3;
+        arma6Ataque += 3;
+        yield return new WaitForSeconds(5f);
+        Debug.Log("¡Vamos a calmarnos!");
+        arma1Ataque -= 3;
+        arma2Ataque -= 3;
+        arma3Ataque -= 3;
+        arma4Ataque -= 3;
+        arma5Ataque -= 3;
+        arma6Ataque -= 3;
+    }
+
 }

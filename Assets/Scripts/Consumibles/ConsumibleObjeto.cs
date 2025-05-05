@@ -16,8 +16,10 @@ public class ConsumibleSimple : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Comprobar si el jugador ya tiene un objeto en su inventario
-            if (ObjetosActivables.instance.ObjetoActivo())
+            MovimientoJugador jugador = other.GetComponent<MovimientoJugador>();
+
+            // Si ya tiene un objeto activo, no recoger otro
+            if (jugador.tieneObjetoActivo)
             {
                 Debug.Log("Ya tienes un objeto. Úsalo antes de recoger otro.");
                 return;
@@ -55,10 +57,11 @@ public class ConsumibleSimple : MonoBehaviour
                     break;
             }
 
+            jugador.tieneObjetoActivo = true;
+            jugador.objetoActual = elegido;
+
             Debug.Log("Objeto elegido: " + elegido);
 
-            // Activar el objeto elegido
-            ObjetosActivables.instance.ActivarObjeto(elegido);
             Destroy(gameObject);
         }
     }
