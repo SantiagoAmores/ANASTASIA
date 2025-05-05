@@ -30,9 +30,11 @@ public class MovimientoJugador : MonoBehaviour
 
     public GameObject textoCuracionPrefab;
 
+    // Enemigos
     public List<GameObject> listaEnemigos = new List<GameObject>();
     public GameObject enemigo;
 
+    // Objetos
     public bool tieneObjetoActivo = false;
     public int objetoActual = -1;
 
@@ -105,6 +107,7 @@ public class MovimientoJugador : MonoBehaviour
                 if (objetoActual == 0 && canvasManager.objeto1.activeSelf)
                 {
                     Debug.Log("Objeto 1 activado");
+                    StartCoroutine(recogerExperiencia());
                     canvasManager.objeto1.SetActive(false);
 
                 }
@@ -233,13 +236,18 @@ public class MovimientoJugador : MonoBehaviour
         }
     }
 
+    IEnumerator recogerExperiencia()
+    {
+        PuntoExp.imanActivo = true;
+        yield return new WaitForSeconds(2f);
+        PuntoExp.imanActivo = false;
+
+    }
+
     void explosivo()
     {
         // Buscar todos los enemigos
         GameObject[] enemigo = GameObject.FindGameObjectsWithTag("Enemy");
-
-        // Se guardan en la lista
-        //listaEnemigos = new List<GameObject>(enemigo);
 
         foreach (GameObject enemigoEnLista in enemigo)
         {

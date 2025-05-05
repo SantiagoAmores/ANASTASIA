@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd3bc27985203748a29455f1f930e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetoElegido: 0100000002000000030000000400000005000000
+  objetoElegido: 0000000001000000020000000300000004000000
   canvasManager: {fileID: 0}
 --- !u!65 &6183633016165518048
 BoxCollider:

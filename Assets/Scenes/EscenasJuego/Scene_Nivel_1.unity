@@ -12802,7 +12802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ronda: 0
-  duracionRonda: 10
+  duracionRonda: 120
   spawner: {fileID: 0}
   nivelManager: {fileID: 854819796}
   numeroNivelActual: 1
@@ -12843,8 +12843,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemigoPrefab:
   - {fileID: 374344966642074657, guid: b4d1911828c5d1e49b73135b00b10a99, type: 3}
-  spawnAreaRadius: 50
-  tiempoEntreSpawns: 1
+  spawnAreaRadius: 30
+  tiempoEntreSpawns: 40
 --- !u!1001 &858070236
 PrefabInstance:
   m_ObjectHideFlags: 0
