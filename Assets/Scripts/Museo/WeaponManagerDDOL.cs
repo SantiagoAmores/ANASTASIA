@@ -41,6 +41,8 @@ public class WeaponManagerDDOL : MonoBehaviour
     // En caso de que no haya un arma seleccionada y la escena no sea la de museo, se pone por defecto el arma 0
     void activarArmaPorSiAcaso(Scene scene, LoadSceneMode mode)
     {
+        pantalla = FindObjectOfType<PantallaIniciarNivel>();
+
         if (scene.name != "Scene_Museo" && armaSeleccionada == -1)
         {
             SeleccionarArma(0);
@@ -58,6 +60,12 @@ public class WeaponManagerDDOL : MonoBehaviour
     // Funcion para asignar el arma en si
     public void SeleccionarArma(int index)
     {
+        if (pantalla == null)
+        {
+            pantalla = FindObjectOfType<PantallaIniciarNivel>();
+            if (pantalla == null) return;
+        }
+
         pantalla.empezarNivel.gameObject.SetActive(true);
 
         // Asigna el arma

@@ -48,7 +48,7 @@ public class CanvasManager : MonoBehaviour
         InicializarReferencias();
         ConfigurarSliders();
         OcultarPanelesIniciales();
-        IniciarCuentaAtras();
+        //IniciarCuentaAtras();
     }
 
     void Update()
