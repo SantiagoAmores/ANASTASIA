@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armaSeleccionada: 0
-  textoArma: {fileID: 0}
+  pantalla: {fileID: 0}
 --- !u!4 &693604215
 Transform:
   m_ObjectHideFlags: 0
@@ -2279,7 +2279,6 @@ MonoBehaviour:
   - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
   seguir: 1
   instanciar: 1
-  ronda: 0
 --- !u!4 &1600122177
 Transform:
   m_ObjectHideFlags: 0
@@ -2332,6 +2331,9 @@ MonoBehaviour:
   - numeroNivel: 2
     categoria: jefes
     indicesEntradas: 01000000
+  - numeroNivel: 2
+    categoria: armas
+    indicesEntradas: 04000000
 --- !u!114 &1600122180
 MonoBehaviour:
   m_ObjectHideFlags: 0
