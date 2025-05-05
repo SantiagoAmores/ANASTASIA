@@ -1652,7 +1652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armaSeleccionada: 0
-  textoArma: {fileID: 0}
+  pantalla: {fileID: 0}
 --- !u!4 &562554520
 Transform:
   m_ObjectHideFlags: 0
@@ -4309,7 +4309,6 @@ MonoBehaviour:
   - {fileID: 374344966642074657, guid: cb8a37d35fa27064a8479dae889ac317, type: 3}
   seguir: 1
   instanciar: 1
-  ronda: 3
 --- !u!4 &1539868387
 Transform:
   m_ObjectHideFlags: 0
@@ -4337,7 +4336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408834838765a43498a0eb338e3127d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ronda: 3
+  ronda: 0
   duracionRonda: 120
   spawner: {fileID: 0}
   nivelManager: {fileID: 1539868389}
@@ -4362,6 +4361,9 @@ MonoBehaviour:
   - numeroNivel: 3
     categoria: jefes
     indicesEntradas: 02000000
+  - numeroNivel: 3
+    categoria: armas
+    indicesEntradas: 03000000
 --- !u!114 &1539868390
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2957,46 +2957,6 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 1
-  - imagen: {fileID: 0}
-    nombre:
-      m_TableReference:
-        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
-      m_TableEntryReference:
-        m_KeyId: 4665536099794944
-        m_Key: 
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    descripcion:
-      m_TableReference:
-        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
-      m_TableEntryReference:
-        m_KeyId: 4665539321020416
-        m_Key: 
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    desbloqueado: 1
-  - imagen: {fileID: 0}
-    nombre:
-      m_TableReference:
-        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
-      m_TableEntryReference:
-        m_KeyId: 4665586548883456
-        m_Key: 
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    descripcion:
-      m_TableReference:
-        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
-      m_TableEntryReference:
-        m_KeyId: 4665587219972096
-        m_Key: 
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    desbloqueado: 1
   - imagen: {fileID: 21300000, guid: 8ca7589db156dfb4ab7fe137ede1764e, type: 3}
     nombre:
       m_TableReference:
@@ -3037,6 +2997,46 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 1
+  - imagen: {fileID: 0}
+    nombre:
+      m_TableReference:
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+      m_TableEntryReference:
+        m_KeyId: 4665586548883456
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    descripcion:
+      m_TableReference:
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+      m_TableEntryReference:
+        m_KeyId: 4665587219972096
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    desbloqueado: 0
+  - imagen: {fileID: 0}
+    nombre:
+      m_TableReference:
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+      m_TableEntryReference:
+        m_KeyId: 4665536099794944
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    descripcion:
+      m_TableReference:
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+      m_TableEntryReference:
+        m_KeyId: 4665539321020416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    desbloqueado: 0
   - imagen: {fileID: -1754417610, guid: 9a31f7dc486d0f64bb634ae811e50c1f, type: 3}
     nombre:
       m_TableReference:
@@ -3056,7 +3056,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    desbloqueado: 1
+    desbloqueado: 0
   jefes:
   - imagen: {fileID: -2071735253, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre:
