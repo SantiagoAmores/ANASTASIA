@@ -4999,8 +4999,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 901.7, y: -99.2}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 901.7, y: -95.4}
+  m_SizeDelta: {x: 200, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6588379378208224443
 CanvasRenderer:
@@ -5034,8 +5034,8 @@ MonoBehaviour:
 
     1'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
-  m_sharedMaterial: {fileID: 395646844236519771, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5044,12 +5044,12 @@ MonoBehaviour:
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
-  m_colorMode: 3
+  m_colorMode: 0
   m_fontColorGradient:
-    topLeft: {r: 0.94716984, g: 0.8846209, b: 0.8846209, a: 1}
-    topRight: {r: 0.34996784, g: 0.93207544, b: 0.9061534, a: 1}
-    bottomLeft: {r: 0.11641861, g: 0.7433963, b: 0.7269802, a: 1}
-    bottomRight: {r: 0.019971518, g: 0.18580018, b: 0.20754719, a: 1}
+    topLeft: {r: 0, g: 0, b: 0, a: 1}
+    topRight: {r: 0, g: 0, b: 0, a: 1}
+    bottomLeft: {r: 0, g: 0, b: 0, a: 1}
+    bottomRight: {r: 0, g: 0, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -5059,7 +5059,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.45
+  m_fontSize: 26.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5641,13 +5641,20 @@ MonoBehaviour:
   cuentaAtras: {fileID: 8004330444976600622}
   textoNivel: {fileID: 0}
   textoRonda: {fileID: 0}
+  textoVida: {fileID: 0}
+  textoExperiencia: {fileID: 0}
   sliderExp: {fileID: 0}
   sliderVida: {fileID: 0}
   sliderBossObject: {fileID: 0}
   sliderBoss: {fileID: 0}
   statVida: {fileID: 0}
   startTime: 120
-  objetoActivable: {fileID: 0}
+  objetoActivable: {fileID: 7187004541129627565}
+  objeto1: {fileID: 5960443239760982141}
+  objeto2: {fileID: 8768598524342097336}
+  objeto3: {fileID: 8345442007080936727}
+  objeto4: {fileID: 2586562095743413120}
+  objeto5: {fileID: 234296663938377425}
 --- !u!1 &8050476139804051771
 GameObject:
   m_ObjectHideFlags: 0
@@ -5836,8 +5843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -63.2, y: -92.01}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -61.2, y: -87.9}
+  m_SizeDelta: {x: 90, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2165972970689915688
 CanvasRenderer:
@@ -5867,7 +5874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0:00
+  m_text: 120
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -5879,12 +5886,12 @@ MonoBehaviour:
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
-  m_colorMode: 3
+  m_colorMode: 0
   m_fontColorGradient:
-    topLeft: {r: 0.94716984, g: 0.8846209, b: 0.8846209, a: 1}
-    topRight: {r: 0.34996784, g: 0.93207544, b: 0.9061534, a: 1}
-    bottomLeft: {r: 0.11641861, g: 0.7433963, b: 0.7269802, a: 1}
-    bottomRight: {r: 0.019971518, g: 0.18580018, b: 0.20754719, a: 1}
+    topLeft: {r: 0, g: 0, b: 0, a: 1}
+    topRight: {r: 0, g: 0, b: 0, a: 1}
+    bottomLeft: {r: 0, g: 0, b: 0, a: 1}
+    bottomRight: {r: 0, g: 0, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0

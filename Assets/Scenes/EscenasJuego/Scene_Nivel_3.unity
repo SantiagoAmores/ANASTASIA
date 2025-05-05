@@ -4371,14 +4371,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539868385}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 131a04d31558c3349b64229086af5ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigoPrefab: []
-  spawnAreaRadius: 10
-  tiempoEntreSpawns: 30
+  enemigoPrefab:
+  - {fileID: 374344966642074657, guid: b4d1911828c5d1e49b73135b00b10a99, type: 3}
+  spawnAreaRadius: 40
+  tiempoEntreSpawns: 40
 --- !u!1 &1544232410
 GameObject:
   m_ObjectHideFlags: 0
