@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemigo07_animaciones : MonoBehaviour
+public class Enemigo_animaciones : MonoBehaviour
 {
     Enemigo enemigoScript;
     Animator animator;
