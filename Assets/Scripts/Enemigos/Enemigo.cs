@@ -202,7 +202,7 @@ public class Enemigo : MonoBehaviour
 
     public void DropNormal()
     {
-        Debug.Log("Experiencia instanciada");
+        //Debug.Log("Experiencia instanciada");
         // Genera un area pequeña con una altura fija
         float radioDrop = 1f;
         float alturaFija = 0.5f;
