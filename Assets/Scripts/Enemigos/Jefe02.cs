@@ -15,7 +15,6 @@ public class Jefe02 : MonoBehaviour
     Animator animator;
     public GameObject jugador;
 
-    public GameObject jefeProyectil;
     public List<GameObject> listaProyectiles = new List<GameObject>();
     private CanvasPintura canvasPintura;
 
@@ -31,26 +30,6 @@ public class Jefe02 : MonoBehaviour
         statsScript.revisarEnemigo();
 
         StartCoroutine(CicloAtaque());
-    }
-    private IEnumerator CicloAtaque()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(tiempoEntreAtaques);
-
-            // Guardamos velocidad original y se detiene el movimiento
-            float velocidadOriginal = enemigoScript.enemigo.speed;
-            enemigoScript.enemigo.speed = 0f;
-
-            // Ataca
-            Atacar();
-
-            // Espera unos segundos
-            yield return new WaitForSeconds(1.5f);
-
-            // Vuelve a perseguir a Anastasia
-            enemigoScript.enemigo.speed = velocidadOriginal;
-        }
     }
 
     public void Atacar()
@@ -74,8 +53,9 @@ public class Jefe02 : MonoBehaviour
             Vector3 offset = Random.insideUnitCircle * 3f;
             Vector3 destino = transform.position + new Vector3(offset.x, 0, offset.y);
 
-            GameObject proyectil = Instantiate(jefeProyectil, transform.position + Vector3.up * 1f, Quaternion.identity);
-            listaProyectiles.Add(proyectil);
+            int indice = Random.Range(0, listaProyectiles.Count);
+            GameObject prefabElegido = listaProyectiles[indice];
+            GameObject proyectil = Instantiate(prefabElegido, transform.position + Vector3.up * 1f, Quaternion.identity);
             StartCoroutine(lanzarProyectil(proyectil, destino));
         }
 
@@ -90,9 +70,31 @@ public class Jefe02 : MonoBehaviour
             canvasPintura.SegundaFase();
         }
     }
+
+    private IEnumerator CicloAtaque()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(tiempoEntreAtaques);
+
+            // Guardamos velocidad original y se detiene el movimiento
+            float velocidadOriginal = enemigoScript.enemigo.speed;
+            enemigoScript.enemigo.speed = 0f;
+
+            // Ataca
+            Atacar();
+
+            // Espera unos segundos
+            yield return new WaitForSeconds(1.5f);
+
+            // Vuelve a perseguir a Anastasia
+            enemigoScript.enemigo.speed = velocidadOriginal;
+        }
+    }
+
     private IEnumerator lanzarProyectil(GameObject proyectil, Vector3 destino)
     {
-        float duracion = 0.5f;
+        float duracion = 5f;
         float tiempo = 0;
         Vector3 inicio = proyectil.transform.position;
 
@@ -104,6 +106,6 @@ public class Jefe02 : MonoBehaviour
         }
 
         proyectil.transform.position = destino;
-        Destroy(proyectil, 1f);
+        Destroy(proyectil, 5f);
     }
 }
