@@ -49,6 +49,10 @@ public class StatsAnastasia : MonoBehaviour
     private int ultimoStatMejorado = -1;
     private MovimientoJugador movimientoJugador;
 
+    // SONIDOS
+    public AudioSource fuenteAudio;
+    public AudioClip subidaNivelAudio;
+
     // Los getters y setters hacen que solo este script pueda modificar los stats con AumentarEstadisticas()
     public int vida { get; private set; }
     public float velocidadMovimiento { get; private set; }
@@ -97,6 +101,9 @@ public class StatsAnastasia : MonoBehaviour
 
     public void SubidaDeNivelAleatoria()
     {
+        // Sonido subida nivel
+        fuenteAudio.PlayOneShot(subidaNivelAudio);
+
         List<int> subidasDeNivelIncompletas = new List<int>();
 
         if (mejorasVida < mejorasMaximas && ultimoStatMejorado != 0)

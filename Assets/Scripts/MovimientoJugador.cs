@@ -38,6 +38,10 @@ public class MovimientoJugador : MonoBehaviour
     public bool tieneObjetoActivo = false;
     public int objetoActual = -1;
 
+    // Sonidos
+    public AudioSource fuenteAudio;
+    public AudioClip objetoAudio;
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -102,7 +106,8 @@ public class MovimientoJugador : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && canvasManager.objetoActivable.activeSelf)
             {
-                Debug.Log("Objeto activado");
+                // Sonido objeto usado
+                fuenteAudio.PlayOneShot(objetoAudio);
 
                 if (objetoActual == 0 && canvasManager.objeto1.activeSelf)
                 {
