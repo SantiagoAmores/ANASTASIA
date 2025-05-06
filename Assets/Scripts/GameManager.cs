@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instancia;
     public GameObject anastasia;
+    public Enemigo jefeActual;
 
     void Awake()
     {
@@ -59,11 +60,7 @@ public class GameManager : MonoBehaviour
         {
             nivel++;
             experienciaActual = 0;
-
-            if (nivel % 5 == 0)
-            {
-                experienciaRequerida += 4;
-            }
+            experienciaRequerida++;
 
             if (anastasia != null)
             {

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2127145669773595877}
   - component: {fileID: 5542411390633432245}
   - component: {fileID: 4325138693522714354}
+  - component: {fileID: 6825024233624657239}
   m_Layer: 8
   m_Name: Enemigo 6
   m_TagString: Enemy
@@ -150,15 +151,17 @@ MonoBehaviour:
   jugador: {fileID: 0}
   puntoExperienciaPrefab: {fileID: 4945588894475210533, guid: 87862d5f6903b034c9db1cc0eb324180, type: 3}
   corazonPrefab: {fileID: 9170100802169879125, guid: 826f921196548874485cab2f2cddc348, type: 3}
+  textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
+  spawnEfectoPrefab: {fileID: 4649073419550656177, guid: bb34dc391e79f6a419a2e76fb72a39e4, type: 3}
+  regaloPrefab: {fileID: 8913403153319220097, guid: dd74c16aa6027fe498012d9c7cfbccea, type: 3}
+  estadisticas: {fileID: 0}
   enemigoVidaTotal: 0
   enemigoVelocidad: 0
   enemigoAtaque: 0
   enemigoExperiencia: 0
   enemigoVidaActual: 0
-  estadisticas: {fileID: 0}
-  textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
+  golpeable: 1
   seguirJugador: 1
-  spawnEfectoPrefab: {fileID: 4649073419550656177, guid: bb34dc391e79f6a419a2e76fb72a39e4, type: 3}
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -225,6 +228,23 @@ MonoBehaviour:
   enemigoExperiencia: 0
   esUnJefe: 0
   faseDeJefe: 0
+--- !u!114 &6825024233624657239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374344966642074657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326af4177d653f94aa4b6225c1fd39b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
+  jefeProyectil: {fileID: 0}
+  listaProyectiles:
+  - {fileID: 8805574158633445166, guid: d1c0a53814c2e1f4a985f06819cf51d5, type: 3}
+  - {fileID: 494616078544843607, guid: 8af2683187fbf0f41b4e4fe4013aae70, type: 3}
 --- !u!1001 &4174213676979328886
 PrefabInstance:
   m_ObjectHideFlags: 0

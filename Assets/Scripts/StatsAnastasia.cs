@@ -12,19 +12,19 @@ public class StatsAnastasia : MonoBehaviour
     public static float velocidadMovimientoBase = 4.25f;
 
     // ARMA 1 BASE
-    public static float arma1CadenciaBase = 1.7f;
+    public static float arma1CadenciaBase = 1.6f;
     public static int arma1AtaqueBase = 2;
 
     // ARMA 2 BASE
-    public static float arma2CadenciaBase = 4.3f;
+    public static float arma2CadenciaBase = 4.5f;
     public static int arma2AtaqueBase = 3;
 
     // ARMA 3 BASE
-    public static float arma3CadenciaBase = 1f;
+    public static float arma3CadenciaBase = 6f;
     public static int arma3AtaqueBase = 1;
 
     // ARMA 4 BASE
-    public static float arma4CadenciaBase = 2.5f;
+    public static float arma4CadenciaBase = 1.8f;
     public static int arma4AtaqueBase = 1;
 
     // ARMA 5 BASE
@@ -35,15 +35,19 @@ public class StatsAnastasia : MonoBehaviour
     public static float arma6CadenciaBase = 3f;
     public static int arma6AtaqueBase = 1;
 
+    // ARMAS DPS
+    public static float ticsPorSegundoBase = 1f;
 
     // LIMITAR SUBIDAS DE NIVEL
     public int mejorasVida = 0;
     public int mejorasVelocidad = 0;
     public int mejorasCadencia = 0;
     public int mejorasAtaque = 0;
-    private const int mejorasMaximas = 6;
+    private const int mejorasMaximas = 8;
 
     public GameObject textoSubirNivelPrefab;
+    private int ultimoStatMejorado = -1;
+    private MovimientoJugador movimientoJugador;
 
     // Los getters y setters hacen que solo este script pueda modificar los stats con AumentarEstadisticas()
     public int vida { get; private set; }
@@ -54,6 +58,7 @@ public class StatsAnastasia : MonoBehaviour
     public float arma4Cadencia { get; private set; }
     public float arma5Cadencia { get; private set; }
     public float arma6Cadencia { get; private set; }
+    public float ticsPorSegundo { get; private set; }
     public float arma1Ataque { get; private set; }
     public float arma2Ataque { get; private set; }
     public float arma3Ataque { get; private set; }
@@ -84,26 +89,30 @@ public class StatsAnastasia : MonoBehaviour
 
         arma6Cadencia = arma6CadenciaBase;
         arma6Ataque = arma6AtaqueBase;
+
+        ticsPorSegundo = ticsPorSegundoBase;
+
+        movimientoJugador = GameObject.FindWithTag("Player").GetComponent<MovimientoJugador>() ;
     }
 
     public void SubidaDeNivelAleatoria()
     {
         List<int> subidasDeNivelIncompletas = new List<int>();
 
-        if (mejorasVida < mejorasMaximas)
+        if (mejorasVida < mejorasMaximas && ultimoStatMejorado != 0)
         {
             subidasDeNivelIncompletas.Add(0);
         }
-        if (mejorasVelocidad < mejorasMaximas)
+        if (mejorasVelocidad < mejorasMaximas && ultimoStatMejorado != 1)
         { 
             subidasDeNivelIncompletas.Add(1);
         }
-        if (mejorasCadencia < mejorasMaximas)
+        if (mejorasCadencia < mejorasMaximas && ultimoStatMejorado != 2)
         { 
             subidasDeNivelIncompletas.Add(2);
             subidasDeNivelIncompletas.Add(2);
         }
-        if (mejorasAtaque < mejorasMaximas)
+        if (mejorasAtaque < mejorasMaximas && ultimoStatMejorado != 3)
         {
             subidasDeNivelIncompletas.Add(3);
             subidasDeNivelIncompletas.Add(3);
@@ -112,8 +121,15 @@ public class StatsAnastasia : MonoBehaviour
 
         if (subidasDeNivelIncompletas.Count == 0)
         {
-            AumentarVida();
-            MostrarSubidaDeNivel("+ VIDA");
+            if (mejorasVida < mejorasMaximas) subidasDeNivelIncompletas.Add(0);
+            if (mejorasVelocidad < mejorasMaximas) subidasDeNivelIncompletas.Add(1);
+            if (mejorasCadencia < mejorasMaximas) subidasDeNivelIncompletas.Add(2);
+            if (mejorasAtaque < mejorasMaximas) subidasDeNivelIncompletas.Add(3);
+        }
+
+        if (subidasDeNivelIncompletas.Count == 0)
+        {
+            movimientoJugador.Curar(10);
             return;
         }
 
@@ -142,29 +158,32 @@ public class StatsAnastasia : MonoBehaviour
                 MostrarSubidaDeNivel("+ ATAQUE");
                 break;
         }
+
+        ultimoStatMejorado = subidaDeNivel;
     }
 
     void AumentarVida()
     {
         // Vida
-        vida += 3;
+        vida += 5;
     }
 
     void AumentarVelocidadMovimiento()
     {
         // Velocidad de movimiento
-        velocidadMovimiento += 0.25f;
+        velocidadMovimiento += 0.33f;
     }
 
     void AumentarCadencia()
     {
         // Cadencia de disparos de las armas
-        arma1Cadencia = Mathf.Max(0.5f, arma1Cadencia - 0.2f);
-        arma2Cadencia = Mathf.Max(2.5f, arma2Cadencia - 0.3f);
-        arma3Cadencia = Mathf.Max(0.3f, arma3Cadencia - 0.1f);
-        arma4Cadencia = Mathf.Max(0.3f, arma4Cadencia - 0.1f);
+        arma1Cadencia = Mathf.Max(0.7f, arma1Cadencia - 0.15f);
+        arma2Cadencia = Mathf.Max(2.1f, arma2Cadencia - 0.3f);
+        arma3Cadencia = Mathf.Max(2f, arma3Cadencia - 0.5f);
+        arma1Cadencia = Mathf.Max(1f, arma4Cadencia - 0.1f);
         arma5Cadencia = Mathf.Max(0.3f, arma5Cadencia - 0.1f);
         arma6Cadencia = Mathf.Max(0.3f, arma6Cadencia - 0.1f);
+        ticsPorSegundo = Mathf.Max(0.05f, ticsPorSegundo - 0.11875f);
     }
 
     void AumentarAtaque()
@@ -192,4 +211,24 @@ public class StatsAnastasia : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator aumentoAtaque()
+    {
+        Debug.Log("¡A pegar!");
+        arma1Ataque += 3;
+        arma2Ataque += 3;
+        arma3Ataque += 3;
+        arma4Ataque += 3;
+        arma5Ataque += 3;
+        arma6Ataque += 3;
+        yield return new WaitForSeconds(5f);
+        Debug.Log("¡Vamos a calmarnos!");
+        arma1Ataque -= 3;
+        arma2Ataque -= 3;
+        arma3Ataque -= 3;
+        arma4Ataque -= 3;
+        arma5Ataque -= 3;
+        arma6Ataque -= 3;
+    }
+
 }

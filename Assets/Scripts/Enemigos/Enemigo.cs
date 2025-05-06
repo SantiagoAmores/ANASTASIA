@@ -1,43 +1,40 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemigo : MonoBehaviour
 {
+    [Header("Componentes principales")]
     public NavMeshAgent enemigo;
-
-    public GameObject jugador;
+    private Collider enemigoCollider;
     private MovimientoJugador moverJugador;
+    private CanvasManager canvasManager;
+    private Jefe01 jefeScript;
+    private StatsAnastasia statsAnastasia;
+
+    [Header("Objetos y prefabs")]
+    public GameObject jugador;
     public GameObject puntoExperienciaPrefab;
     public GameObject corazonPrefab;
+    public GameObject textoDanoPrefab;
+    public GameObject spawnEfectoPrefab;
+    public GameObject regaloPrefab;
 
-    private CanvasManager canvasManager;
-
-    private bool golpeable = true;
-
-    //private Animator animator;
-
-    private Collider enemigoCollider;
-
-    // ESTADISTICAS
-    public int      enemigoVidaTotal;
-    public float    enemigoVelocidad;
-    public int      enemigoAtaque;
-    public int      enemigoExperiencia;
-
+    [Header("Estadisticas")]
+    public StatsEnemigos estadisticas;
+    public int enemigoVidaTotal;
+    public float enemigoVelocidad;
+    public int enemigoAtaque;
+    public int enemigoExperiencia;
     public int enemigoVidaActual;
 
-    public StatsEnemigos estadisticas;
-
-    public GameObject textoDanoPrefab;
-
-    private Jefe01 jefeScript;
-
+    [Header("Bools")]
+    public bool golpeable = true;
     public bool seguirJugador = true;
 
-    public GameObject spawnEfectoPrefab;
+    // Animaciones
+    //private Animator animator;
 
     private void Awake()
     {
@@ -48,12 +45,14 @@ public class Enemigo : MonoBehaviour
     void Start()
     {
         InstanciarEfectoDeSpawn();
+
         jugador = GameObject.FindGameObjectWithTag("Player");
         moverJugador = jugador.GetComponent<MovimientoJugador>();
         canvasManager = FindObjectOfType<CanvasManager>();
-
-        // Estadisticas del enemigo
         estadisticas = GetComponent<StatsEnemigos>();
+        jefeScript = GetComponent<Jefe01>();
+        statsAnastasia = jugador.GetComponent<StatsAnastasia>();
+
         // Busca al enemigo a partir del nombre de su prefab y le otorga sus respectivas estadisticas
         estadisticas.revisarEnemigo();
 
@@ -64,8 +63,6 @@ public class Enemigo : MonoBehaviour
             // Asigna los stats del jefe dependiendo de su fase
             if (estadisticas.faseDeJefe == 1 || estadisticas.faseDeJefe == 2) { estadisticas.revisarEnemigo(); }
         }
-
-        jefeScript = GetComponent<Jefe01>();
 
         enemigoVidaTotal = estadisticas.enemigoVida;
         enemigoAtaque = estadisticas.enemigoAtaque;
@@ -103,7 +100,6 @@ public class Enemigo : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -111,25 +107,6 @@ public class Enemigo : MonoBehaviour
             moverJugador.herirAnastasia(enemigoAtaque);
             AnimacionHerida();
         }
-    }
-
-    IEnumerator AnimacionHerida()
-    {
-        //SkinnedMeshRenderer [] anastasiaPiezas;
-
-        //anastasiaPiezas = jugador.GetComponentsInChildren<SkinnedMeshRenderer>();
-
-        //foreach (var pieza in anastasiaPiezas)
-        //{
-        //    pieza.material.color = Color.red;
-        //}
-
-        yield return new WaitForSeconds(0.5f);
-
-        //foreach (var pieza in anastasiaPiezas)
-        //{
-        //    pieza.material.color = Color.white;
-        //}
     }
 
     public void RecibirGolpe(int cantidadDeGolpe, GameObject atacante)
@@ -152,48 +129,49 @@ public class Enemigo : MonoBehaviour
         // Si la salud del enemigo es igual o baja de 0
         if (enemigoVidaActual <= 0)
         {
-            // Genera un area pequeña con una altura fija
-            float radioDrop = 1f;
-            float alturaFija = 0.5f;
-            // Y dependiendo del int enemigoExperiencia
-            for (int i = 0; i < enemigoExperiencia; i++)
+            string nombreEnemigo = gameObject.name.Replace("(Clone)", "").Trim();
+            if (nombreEnemigo == "Jarron")
             {
-                // Instanciara en lugares aleatorios del area su respectiva cantidad de puntos de experiencia
-                Vector2 offset2D = Random.insideUnitCircle * radioDrop;
-                Vector3 dropPosicion = new Vector3(
-                    transform.position.x + offset2D.x,
-                    alturaFija,
-                    transform.position.z + offset2D.y
-                    );
-                Instantiate(puntoExperienciaPrefab, dropPosicion, Quaternion.identity);
+                DropDeJarron();
             }
-
-            // Dropeo de vida
-            int aleatorio = Random.Range(0, 9);
-            if (aleatorio == 0)
+            else
             {
-                Vector2 offsetVida2D = Random.insideUnitCircle * radioDrop;
-                Vector3 dropVidaPosicion = new Vector3(
-                    transform.position.x + offsetVida2D.x,
-                    alturaFija,
-                    transform.position.z + offsetVida2D.y
-                    );
-                Instantiate(corazonPrefab, dropVidaPosicion, Quaternion.identity);
+                DropNormal();
             }
             
-
-            if (estadisticas.esUnJefe && estadisticas.faseDeJefe == 1)
-            {
-                DropDeJefe();
-            }
-
+            if (estadisticas.esUnJefe && estadisticas.faseDeJefe == 1) { DropDeJefe(); }
             if (jefeScript != null) { jefeScript.EliminarTodosLosProyectiles(); }
 
             // Y despues destruye al enemigo
             Destroy(this.gameObject);
         }
     }
+    public IEnumerator HeridaPausa()
+    {
+        golpeable = false;
+        yield return new WaitForSeconds(statsAnastasia.ticsPorSegundo);
+        golpeable = true;
+    }
+    public IEnumerator AnimacionHerida()
+    {
+        //SkinnedMeshRenderer [] anastasiaPiezas;
 
+        //anastasiaPiezas = jugador.GetComponentsInChildren<SkinnedMeshRenderer>();
+
+        //foreach (var pieza in anastasiaPiezas)
+        //{
+        //    pieza.material.color = Color.red;
+        //}
+
+        yield return new WaitForSeconds(0.5f);
+
+        //foreach (var pieza in anastasiaPiezas)
+        //{
+        //    pieza.material.color = Color.white;
+        //}
+    }
+
+    // SPAWN
     public IEnumerator AlSpawnear()
     {
         // Inhabilita temporalmente el collider y el movimiento del enemigo para que no le hagan daño a Anastasia
@@ -206,35 +184,53 @@ public class Enemigo : MonoBehaviour
         enemigoCollider.enabled = true;
         enemigo.speed = enemigoVelocidad;
     }
-
-    public IEnumerator HeridaPausa()
+    void InstanciarEfectoDeSpawn()
     {
-        golpeable = false;
-        yield return new WaitForSeconds(1.1f);
-        golpeable = true;
-    }
-
-    void MostrarTextoDano(int cantidad)
-    {
-        if (textoDanoPrefab != null)
+        if (spawnEfectoPrefab != null)
         {
-            float alturaOffset = 0.2f + (transform.localScale.y * 0.5f);
-            Vector3 posicionTexto = transform.position + new Vector3(0, alturaOffset, 0);
-            GameObject textoInstancia = Instantiate(textoDanoPrefab, posicionTexto, Quaternion.identity);
-            TextMeshProUGUI texto = textoInstancia.GetComponentInChildren<TextMeshProUGUI>();
-            if (texto != null)
-            {
-                texto.text = cantidad.ToString();
-            }
+            GameObject efecto = Instantiate(spawnEfectoPrefab, transform.position, Quaternion.identity);
+            Destroy(efecto, 1f);
         }
     }
-
     public void MirarAnastasia()
     {
         // Hace que el enemigo mire hacia Anastasia al ser instanciado
         Vector3 miraAnastasia = jugador.transform.position - transform.position;
         miraAnastasia.y = 0f;
         if (miraAnastasia != Vector3.zero) { transform.rotation = Quaternion.LookRotation(miraAnastasia); }
+    }
+
+    public void DropNormal()
+    {
+        Debug.Log("Experiencia instanciada");
+        // Genera un area pequeña con una altura fija
+        float radioDrop = 1f;
+        float alturaFija = 0.5f;
+        // Y dependiendo del int enemigoExperiencia
+        for (int i = 0; i < enemigoExperiencia; i++)
+        {
+            // Instanciara en lugares aleatorios del area su respectiva cantidad de puntos de experiencia
+            Vector2 offset2D = Random.insideUnitCircle * radioDrop;
+            Vector3 dropPosicion = new Vector3(
+                transform.position.x + offset2D.x,
+                alturaFija,
+                transform.position.z + offset2D.y
+                );
+            Instantiate(puntoExperienciaPrefab, dropPosicion, Quaternion.identity);
+        }
+
+        // Dropeo de vida
+        int aleatorio = Random.Range(0, 9);
+        if (aleatorio == 0)
+        {
+            Vector2 offsetVida2D = Random.insideUnitCircle * radioDrop;
+            Vector3 dropVidaPosicion = new Vector3(
+                transform.position.x + offsetVida2D.x,
+                alturaFija,
+                transform.position.z + offsetVida2D.y
+                );
+            Instantiate(corazonPrefab, dropVidaPosicion, Quaternion.identity);
+        }
     }
 
     public void DropDeJefe()
@@ -259,12 +255,23 @@ public class Enemigo : MonoBehaviour
         }
     }
 
-    void InstanciarEfectoDeSpawn()
+    public void DropDeJarron()
     {
-        if (spawnEfectoPrefab != null)
+        Instantiate(regaloPrefab, transform.position, Quaternion.identity);
+    }
+
+    void MostrarTextoDano(int cantidad)
+    {
+        if (textoDanoPrefab != null)
         {
-            GameObject efecto = Instantiate(spawnEfectoPrefab, transform.position, Quaternion.identity);
-            Destroy(efecto, 1f);
+            float alturaOffset = 0.2f + (transform.localScale.y * 0.5f);
+            Vector3 posicionTexto = transform.position + new Vector3(0, alturaOffset, 0);
+            GameObject textoInstancia = Instantiate(textoDanoPrefab, posicionTexto, Quaternion.identity);
+            TextMeshProUGUI texto = textoInstancia.GetComponentInChildren<TextMeshProUGUI>();
+            if (texto != null)
+            {
+                texto.text = cantidad.ToString();
+            }
         }
     }
 }

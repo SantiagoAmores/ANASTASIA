@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2005404813555779975
+--- !u!1001 &8607413668763496144
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 35
+      value: 30.000002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 35
+      value: 30.000002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 35
+      value: 30.000002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.230523
+      value: 2.063717
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.23401642
+      value: 10.510413
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -74,23 +74,37 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8416722809630837520}
+      addedObject: {fileID: 6768620746618682831}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7275173929801186019}
+      addedObject: {fileID: 6183633016165518048}
   m_SourcePrefab: {fileID: 100100000, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
---- !u!1 &1663456486259750102 stripped
+--- !u!1 &8913403153319220097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e57f08840d5b564988de48e3e2475b7, type: 3}
-  m_PrefabInstance: {fileID: 2005404813555779975}
+  m_PrefabInstance: {fileID: 8607413668763496144}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &8416722809630837520
+--- !u!114 &6768620746618682831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913403153319220097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd3bc27985203748a29455f1f930e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetoElegido: 0000000001000000020000000300000004000000
+  canvasManager: {fileID: 0}
+--- !u!65 &6183633016165518048
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663456486259750102}
+  m_GameObject: {fileID: 8913403153319220097}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -99,21 +113,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.025, y: 0.023519658, z: 0.02751838}
-  m_Center: {x: 0.00000005960465, y: 4.6566126e-10, z: 0.0033558975}
---- !u!114 &7275173929801186019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663456486259750102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd3bc27985203748a29455f1f930e09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 0.03, y: 0.023519658, z: 0.027518379}
+  m_Center: {x: 0.000000059604645, y: 4.656612e-10, z: 0.0033558973}

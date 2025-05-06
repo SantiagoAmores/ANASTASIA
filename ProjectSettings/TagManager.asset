@@ -12,6 +12,8 @@ TagManager:
   - ProjectileDPS
   - PuntoMovimiento
   - Corazon
+  - AdditionalLight
+  - PuntoFinal
   layers:
   - Default
   - TransparentFX

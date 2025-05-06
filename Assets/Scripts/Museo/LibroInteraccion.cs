@@ -34,10 +34,12 @@ public class LibroInteraccion : MonoBehaviour
             if (bestiarioManager.bestiarioCanvas.activeSelf)
             {
                 bestiarioManager.CerrarBestiario();
+                Time.timeScale = 1f;
             }
             else
             {
                 bestiarioManager.AbrirBestiario();
+                Time.timeScale = 0f;
             }
         }
     }

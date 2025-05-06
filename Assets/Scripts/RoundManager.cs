@@ -22,6 +22,8 @@ public class RoundManager : MonoBehaviour
     public NivelManager nivelManager;
     public int numeroNivelActual = 1; // se mira a ver que nivel es
 
+    public MovimientoJugador movimientoJugador;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,21 +32,17 @@ public class RoundManager : MonoBehaviour
         spawner = GetComponent<SpawnEnemigos>();
         if (spawner != null)
         {
-            spawner.ronda = ronda;
             spawner.seguir = true;
         }
 
-        IniciarSiguienteFase(); 
+        movimientoJugador = GameObject.FindWithTag("Player")?.GetComponent<MovimientoJugador>();
 
+        IniciarSiguienteFase(); 
     }
 
     public void IniciarSiguienteFase()
     {
-        if (spawner != null)
-        {
-            spawner.ronda = ronda;
-        }
-
+        ActualizarIntefazRonda();
 
         if (ronda == 0 || ronda == 2)
         {
@@ -59,6 +57,12 @@ public class RoundManager : MonoBehaviour
         else if (ronda >= 4)
         {
             PantallaVictoria();
+        }
+
+        if (movimientoJugador != null)
+        {
+            bool mostrarFlechaBool = (ronda == 1 || ronda == 3);
+            movimientoJugador.mostrarFlecha(mostrarFlechaBool, mostrarFlechaBool ? jefeActual?.transform : null);
         }
     }
 
@@ -102,9 +106,15 @@ public class RoundManager : MonoBehaviour
 
         GameObject jefeGameObject = spawner.SpawnBoss((ronda == 1) ? 1 : 2);
         jefeActual = jefeGameObject.GetComponent<Enemigo>();
+        GameManager.instancia.jefeActual = jefeActual;
 
         if (jefeActual != null)
         {
+            canvasManager.sliderBossObject.SetActive(true);
+            canvasManager.sliderBoss.gameObject.SetActive(true);
+            canvasManager.sliderBoss.maxValue = jefeActual.enemigoVidaTotal;
+            canvasManager.sliderBoss.value = jefeActual.enemigoVidaActual;
+
             StartCoroutine(EsperarMuerteJefe());
         }
     }
@@ -112,6 +122,9 @@ public class RoundManager : MonoBehaviour
     //esto lo llamaremos desde el script de cada boss cuando la vida llegue a 0
     public void BossDerrotado()
     {
+        canvasManager.sliderBossObject.SetActive(false);
+        canvasManager.sliderBoss.gameObject.SetActive(false);
+        GameManager.instancia.jefeActual = null;
         ronda++;
         IniciarSiguienteFase();
     }
@@ -148,5 +161,31 @@ public class RoundManager : MonoBehaviour
         }
 
         BossDerrotado();
+    }
+
+    void ActualizarIntefazRonda()
+    {
+        string texto = "";
+
+        switch (ronda)
+        {
+            case 0:
+                texto = "ROUND\n1";
+                canvasManager.ReiniciarCuentaAtras();
+                break;
+            case 1:
+                texto = "BOSS\n1";
+                canvasManager.InfinitoCuentaAtras();
+                break;
+            case 2:
+                texto = "ROUND\n2";
+                canvasManager.ReiniciarCuentaAtras();
+                break;
+            case 3:
+                texto = "BOSS\n2";
+                canvasManager.InfinitoCuentaAtras();
+                break;
+        }
+        canvasManager.ActualizarTextoRonda(texto);
     }
 }
