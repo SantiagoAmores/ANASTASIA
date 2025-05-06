@@ -45,7 +45,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501023126614973725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 920e8ecf183c7404aa2544d1741bb6f8, type: 3}
   m_Name: 
@@ -302,11 +302,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 10
   stats: {fileID: 0}
+  statsEnemigo: {fileID: 0}
   vidaTotal: 0
   vidaActual: 0
+  buffVelocidad: 1
   flechaDireccion: {fileID: 0}
   flechaObjetivo: {fileID: 0}
   textoCuracionPrefab: {fileID: 6474264951493391942, guid: 99897a1b16b9eea4996018fb25b2fa2b, type: 3}
+  listaEnemigos: []
+  enemigo: {fileID: 0}
+  tieneObjetoActivo: 0
+  objetoActual: -1
+  fuenteAudio: {fileID: 0}
+  objetoAudio: {fileID: 8300000, guid: 4f37368c4c17caa4a8bb5a8264ba7603, type: 3}
 --- !u!114 &-6341184225360161705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +333,8 @@ MonoBehaviour:
   mejorasCadencia: 0
   mejorasAtaque: 0
   textoSubirNivelPrefab: {fileID: 6474264951493391942, guid: 9e4797d3dc1786f479cc96c0c94e45a3, type: 3}
+  fuenteAudio: {fileID: 0}
+  subidaNivelAudio: {fileID: 8300000, guid: adf53b0dd03a53c41bef408c6d5e8369, type: 3}
 --- !u!1001 &4164006835846812560
 PrefabInstance:
   m_ObjectHideFlags: 0

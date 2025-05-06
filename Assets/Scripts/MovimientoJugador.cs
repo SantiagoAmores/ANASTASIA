@@ -263,11 +263,10 @@ public class MovimientoJugador : MonoBehaviour
 
     IEnumerator aumentoVelocidad()
     {
-        Debug.Log("¡A correr!");
+        //Debug.Log("¡A correr!");
         buffVelocidad = 2f;
         yield return new WaitForSeconds(4f);
         buffVelocidad = 1f;
-        Debug.Log("¡A caminar!");
+        //Debug.Log("¡A caminar!");
     }
-
 }

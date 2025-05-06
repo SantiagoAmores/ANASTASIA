@@ -21,19 +21,19 @@ public class StatsEnemigos : MonoBehaviour
         diccionarioEnemigos = new Dictionary<string, (int, int, float, int)>
         {
             { "Enemigo 1", (3, 1, 2.75f, 2) },
-            { "Enemigo 2", (15, 4, 3.25f, 4) },
+            { "Enemigo 2", (12, 3, 3f, 3) },
             { "Enemigo 4", (3, 1, 2.75f, 2) },
-            { "Enemigo 5", (15, 4, 3.25f, 4) },
+            { "Enemigo 5", (12, 3, 3f, 3) },
             { "Enemigo 7", (3, 1, 2.75f, 2) },
-            { "Enemigo 8", (15, 4, 3.25f, 4) },
+            { "Enemigo 8", (12, 3, 3f, 3) },
             { "Jarron", (1, 0, 0.1f, 0) }
         };
 
         diccionarioBosses = new Dictionary<string, ((int, int, float, int) fase1, (int, int, float, int) fase2, string drop)>
         {
-            { "Enemigo 3", ((70, 2, 3.25f, 10), (700, 3, 4f, 0), "drop") },
-            { "Enemigo 6", ((75, 5, 3.25f, 10), (320, 10, 4f, 0), "drop") },
-            { "Enemigo 9", ((80, 1, 7f, 10), (340, 2, 20f, 0), "drop") },
+            { "Enemigo 3", ((70, 2, 3.25f, 10), (350, 3, 4f, 0), "drop") },
+            { "Enemigo 6", ((75, 2, 3.25f, 10), (360, 6, 4f, 0), "drop") },
+            { "Enemigo 9", ((80, 1, 7f, 10), (370, 2, 20f, 0), "drop") },
         };
     }
 

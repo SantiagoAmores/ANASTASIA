@@ -26,7 +26,7 @@ public class GatoRebota : MonoBehaviour
 
         if (childCollider == null)
         {
-            Debug.Log("no tiene collider");
+            //Debug.Log("no tiene collider");
         }
 
         StartCoroutine(ExplotarDespuesDeTiempo());

@@ -1059,6 +1059,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3233730339502621928, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7986659953479751430, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Name
       value: Anastasia
@@ -8463,7 +8467,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.5, y: 5, z: 20}
-  m_LocalScale: {x: 25, y: 10, z: 42.5}
+  m_LocalScale: {x: 25, y: 10, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1891592162}
