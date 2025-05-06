@@ -4,27 +4,22 @@ using UnityEngine;
 
 public class Jefe02_Proyectil : MonoBehaviour
 {
-    public MovimientoJugador jugador;
 
-    private void Start()
-    {
-        jugador = FindObjectOfType<MovimientoJugador>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-        string nombreTostada = gameObject.name.Replace("(Clone)", "").Trim();
-        if (nombreTostada == "TostadaBuena")
+        if (other.CompareTag("Enemy"))
         {
-            jugador.Curar(1);
+            
+           
         }
 
         else
         {
-            jugador.herirAnastasia(1);
-        }
 
-        Destroy(gameObject);
+
+
+        }
     }
 }
 

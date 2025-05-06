@@ -20,18 +20,14 @@ public class PantallaIniciarNivel : MonoBehaviour
     public CinemachineVirtualCamera museoCamara;
     private Coroutine zoomCoroutine; // Cambio de camara fluida
 
-    public GameObject iconoArma1;
-    public GameObject iconoArma2;
-    public GameObject iconoArma3;
-
     void Start()
     {
-
+       
         museoCamara = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
-
+        
         // Oculta la ventana de la interfaz
         PantallaNivelCanvas.SetActive(false);
-
+        
         // Por si acaso busca el boton
         if (empezarNivel == null)
         {
@@ -56,11 +52,6 @@ public class PantallaIniciarNivel : MonoBehaviour
             //textoNivel.text = nivelActual;
 
             empezarNivel.onClick.AddListener(() => CambioDeNivel(nivelActual));
-
-            empezarNivel.gameObject.SetActive(false);
-            iconoArma1.gameObject.SetActive(false);
-            iconoArma2.gameObject.SetActive(false);
-            iconoArma3.gameObject.SetActive(false);
 
             // Camara apuntar cuadros antes de entrar al nivel
 

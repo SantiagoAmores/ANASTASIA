@@ -7,7 +7,7 @@ public class Arma4 : MonoBehaviour
 {
     public GameObject boomerangPrefab;
     //public float shootInterval = 2f;
-    public float boomerangSpeed = 30f;
+    public float boomerangSpeed = 15f;
 
     public StatsAnastasia stats;
 
@@ -81,7 +81,7 @@ public class Arma4 : MonoBehaviour
         if (enemies.Length == 0) return null;
 
         GameObject[] enemiesInRange = enemies
-            .Where(e => Vector3.Distance(e.transform.position, transform.position) <= 12f)
+            .Where(e => Vector3.Distance(e.transform.position, transform.position) <= 9f)
             .ToArray();
 
         if(enemiesInRange.Length == 0) return null;

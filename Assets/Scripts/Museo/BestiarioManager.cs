@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Localization;
 
 // Clase que contiene toda la información de cada entrada del bestiario
 [System.Serializable]
 public class EntradaBestiario
 {
     public Sprite imagen;       // Imagen del elemento
-    public LocalizedString nombre;       // Nombre a mostrar
-    public LocalizedString descripcion;  // Descripción detallada
+    public string nombre;       // Nombre a mostrar
+    public string descripcion;  // Descripción detallada
     public bool desbloqueado;   // Si está disponible para ver
 }
 
@@ -129,9 +128,8 @@ public class BestiarioManager : MonoBehaviour
         if (entrada.desbloqueado)
         {
             imagenDisplay.sprite = entrada.imagen;
-
-            entrada.nombre.StringChanged += (localizedName) => textoNombre.text = localizedName;
-            entrada.descripcion.StringChanged += (localizedDesc) => textoDescripcion.text = localizedDesc;
+            textoNombre.text = entrada.nombre;
+            textoDescripcion.text = entrada.descripcion;
         
             // Actualizar página
             textoPagina.text = $"{indiceActual + 1}/{entradasActuales.Length}";
@@ -146,7 +144,7 @@ public class BestiarioManager : MonoBehaviour
     {
         imagenDisplay.sprite = imagenBloqueado; // Necesitarás una imagen "bloqueado"
         textoNombre.text = "???";
-        textoDescripcion.text = "???";
+        textoDescripcion.text = "Aún no has descubierto este elemento";
     }
 
     // Método para desbloquear entradas desde otros scripts

@@ -7,7 +7,7 @@ public class WeaponManagerDDOL : MonoBehaviour
     public static WeaponManagerDDOL instancia;
     public int armaSeleccionada = -1;
     public static bool cargarEscena = false;
-    public PantallaIniciarNivel pantalla;
+    public TextMeshProUGUI textoArma;
 
     // Este script se encarga de activar las armas entre escenas
     // Si no hay una instancia previa, se crea una instancia de este script que no se destruye entre escenas, asigna por defecto un arma vacia 
@@ -27,11 +27,6 @@ public class WeaponManagerDDOL : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        pantalla = FindObjectOfType<PantallaIniciarNivel>();
-    }
-
     // Al destruirse el objeto elimina la llamada al activar el arma por si acaso
     void OnDestroy()
     {
@@ -41,8 +36,6 @@ public class WeaponManagerDDOL : MonoBehaviour
     // En caso de que no haya un arma seleccionada y la escena no sea la de museo, se pone por defecto el arma 0
     void activarArmaPorSiAcaso(Scene scene, LoadSceneMode mode)
     {
-        pantalla = FindObjectOfType<PantallaIniciarNivel>();
-
         if (scene.name != "Scene_Museo" && armaSeleccionada == -1)
         {
             SeleccionarArma(0);
@@ -60,49 +53,19 @@ public class WeaponManagerDDOL : MonoBehaviour
     // Funcion para asignar el arma en si
     public void SeleccionarArma(int index)
     {
-        if (pantalla == null)
+        // Busca el texto del arma en la interfaz
+        if (textoArma == null)
         {
-            pantalla = FindObjectOfType<PantallaIniciarNivel>();
-            if (pantalla == null) return;
+            textoArma = GameObject.Find("textoArma")?.GetComponent<TextMeshProUGUI>();
         }
 
-        pantalla.empezarNivel.gameObject.SetActive(true);
+        // Avisa por la interfaz el arma elegida
+        if (textoArma != null)
+        {
+            textoArma.text = "Arma numero " + index + " seleccionada.";
+        }
 
         // Asigna el arma
         armaSeleccionada = index;
-
-        switch (index)
-        {
-            case 0:
-                pantalla.iconoArma1.gameObject.SetActive(true);
-                pantalla.iconoArma2.gameObject.SetActive(false);
-                pantalla.iconoArma3.gameObject.SetActive(false);
-                break;
-            case 1:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(false);
-                pantalla.iconoArma3.gameObject.SetActive(false);
-                break;
-            case 2:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(false);
-                pantalla.iconoArma3.gameObject.SetActive(false);
-                break;
-            case 3:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(true);
-                pantalla.iconoArma3.gameObject.SetActive(false);
-                break;
-            case 4:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(false);
-                pantalla.iconoArma3.gameObject.SetActive(true);
-                break;
-            case 5:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(false);
-                pantalla.iconoArma3.gameObject.SetActive(false);
-                break;
-        }
     }
 }

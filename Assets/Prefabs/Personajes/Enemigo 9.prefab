@@ -150,17 +150,15 @@ MonoBehaviour:
   jugador: {fileID: 0}
   puntoExperienciaPrefab: {fileID: 4945588894475210533, guid: 87862d5f6903b034c9db1cc0eb324180, type: 3}
   corazonPrefab: {fileID: 9170100802169879125, guid: 826f921196548874485cab2f2cddc348, type: 3}
-  textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
-  spawnEfectoPrefab: {fileID: 4649073419550656177, guid: bb34dc391e79f6a419a2e76fb72a39e4, type: 3}
-  regaloPrefab: {fileID: 8913403153319220097, guid: dd74c16aa6027fe498012d9c7cfbccea, type: 3}
-  estadisticas: {fileID: 0}
   enemigoVidaTotal: 0
   enemigoVelocidad: 0
   enemigoAtaque: 0
   enemigoExperiencia: 0
   enemigoVidaActual: 0
-  golpeable: 1
+  estadisticas: {fileID: 0}
+  textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
   seguirJugador: 1
+  spawnEfectoPrefab: {fileID: 4649073419550656177, guid: bb34dc391e79f6a419a2e76fb72a39e4, type: 3}
 --- !u!54 &2127145669773595877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -222,10 +220,6 @@ MonoBehaviour:
   puntosMovimiento: []
   llamaPrefab: {fileID: 3509816606227039377, guid: 3ed3d7a59080db445bbdc614c60fc600, type: 3}
   intervaloLlamas: 0.5
-  rayoPrefab: {fileID: 283803290261768735, guid: 17bc75a2b7c5f7943be1daccaece8b4b, type: 3}
-  velocidadRayoFase1: 30
-  velocidadRayoFase2: 30
-  mirando: 0
 --- !u!1001 &6126666807198651381
 PrefabInstance:
   m_ObjectHideFlags: 0

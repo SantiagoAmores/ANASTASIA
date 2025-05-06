@@ -42,7 +42,7 @@ public class Arma2 : MonoBehaviour
             instanciaLapiz.transform.parent = contenedor.transform;
 
             // Calcula el tiempo de rotacion total, para que escale con el daño del arma
-            float tiempoRotacionTotal = 1f /* + ((stats.arma2Ataque / 10) - 0.2f)*/;
+             float tiempoRotacionTotal = 0.5f + ((stats.arma2Ataque / 10) - 0.2f);
             float tiempoTranscurrido = 0f;
 
             // Gira alrededor del contenedor

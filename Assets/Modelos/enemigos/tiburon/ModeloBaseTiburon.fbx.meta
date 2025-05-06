@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material
     second: {fileID: 2100000, guid: 828a96bbe48aaaf48ac6ebf2eaf57fdf, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: tiburontexturas
+    second: {fileID: 2800000, guid: a400edacf44ec2f4b86abf79e363a6a5, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -38,38 +43,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Enemigo04_Idle
-      takeName: Armature|Enemigo04_Idle
-      internalID: -3482994091444878559
-      firstFrame: 0
-      lastFrame: 12
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Enemigo04_Walk
-      takeName: Armature|Enemigo04_Walk
-      internalID: -7044436587027349315
+      name: Tiburon_Walk
+      takeName: Armature|ArmatureAction
+      internalID: 4781951162920444690
       firstFrame: 0
       lastFrame: 12
       wrapMode: 0

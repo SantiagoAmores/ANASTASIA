@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -7,150 +7,95 @@ using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
-    // GameManager
-    private GameManager gameManager;
+    //GameManager
+    GameManager gameManager;
 
-    [Header("Paneles UI")]
+    //Paneles Niveles
     public GameObject PanelVictoria;
     public GameObject PanelDerrota;
     public GameObject PanelOpciones;
 
-    [Header("Textos")]
-    public TextMeshProUGUI cuentaAtras;
-    public TextMeshProUGUI textoNivel;
-    public TextMeshProUGUI textoRonda;
-    public TextMeshProUGUI textoVida;
-    public TextMeshProUGUI textoExperiencia;
+    //Estadisticas
+    //private TextMeshProUGUI textoExperiencia;
+    private TextMeshProUGUI textoNivel;
 
-    [Header("Sliders")]
+    // Slider de Experiencia
     public Slider sliderExp;
-    public Slider sliderVida;
-    public GameObject sliderBossObject;
-    public Slider sliderBoss;
+    public int expMaxPorNivel = 5;
 
-    [Header("Parámetros del jugador")]
+    // Slider vida
+    public Slider sliderVida;
+    public int vidaMax;
+
+    // Stats
     public MovimientoJugador statVida;
 
-    [Header("Cuenta atrás")]
+    //Cuenta atras
+    public TextMeshProUGUI cuentaAtras;
     public float startTime = 120f;
     private float timeLeft;
 
-    [Header("Objeto activable")]
-    public GameObject objetoActivable;
-    public GameObject objeto1;
-    public GameObject objeto2;
-    public GameObject objeto3;
-    public GameObject objeto4;
-    public GameObject objeto5;
+    /*public TextMeshProUGUI tiempo;
+    public GameObject tiempoPanel;
+    public TextMeshProUGUI experiencia;
+    public GameObject experienciaPanel;
+    */
 
+    public GameObject objetoActivable;
+
+    // Start is called before the first frame update
     void Start()
     {
-        InicializarReferencias();
-        ConfigurarSliders();
-        OcultarPanelesIniciales();
-        //IniciarCuentaAtras();
-    }
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        statVida = GameObject.FindWithTag("Player").GetComponent<MovimientoJugador>();
 
-    void Update()
-    {
-        ActualizarInterfaz();
-    }
+        //textoExperiencia = GameObject.Find("TextoExperiencia").GetComponent<TextMeshProUGUI>();
+        textoNivel = GameObject.Find("TextoNivel").GetComponent<TextMeshProUGUI>();
 
-    void InicializarReferencias()
-    {
-        gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
-        statVida = GameObject.FindWithTag("Player")?.GetComponent<MovimientoJugador>();
+        sliderExp = GameObject.Find("SliderXP").GetComponent<Slider>();
 
-        if (!textoNivel) textoNivel = GameObject.Find("TextoNivel")?.GetComponent<TextMeshProUGUI>();
-        if (!textoRonda) textoRonda = GameObject.Find("TextoRonda")?.GetComponent<TextMeshProUGUI>();
-        if (!textoVida) textoVida = GameObject.Find("TextoVida")?.GetComponent<TextMeshProUGUI>();
-        if (!textoExperiencia) textoExperiencia = GameObject.Find("TextoExperiencia")?.GetComponent<TextMeshProUGUI>();
-        if (!sliderExp) sliderExp = GameObject.Find("SliderXP")?.GetComponent<Slider>();
-        if (!sliderVida) sliderVida = GameObject.Find("SliderVida")?.GetComponent<Slider>();
-        if (!sliderBossObject) sliderBossObject = GameObject.Find("BarraBoss");
-        if (!sliderBoss) sliderBoss = GameObject.Find("SliderBoss")?.GetComponent<Slider>();
+        // Slider vida
+        sliderVida = GameObject.Find("SliderVida").GetComponent<Slider>();
 
-        if (!objetoActivable) objetoActivable = GameObject.Find("Activable");
-        if (!objeto1) objeto1 = GameObject.Find("Objeto1");
-        if (!objeto2) objeto2 = GameObject.Find("Objeto2");
-        if (!objeto3) objeto3 = GameObject.Find("Objeto3");
-        if (!objeto4) objeto4 = GameObject.Find("Objeto4");
-        if (!objeto5) objeto5 = GameObject.Find("Objeto5");
-    }
+        sliderVida.minValue = 0;
+        sliderVida.maxValue = vidaMax;
+        vidaMax = statVida.vidaTotal;
+        sliderVida.value = vidaMax; // Al principio tiene toda la vida
 
-    void ConfigurarSliders()
-    {
-        if (statVida != null)
-        {
-            sliderVida.minValue = 0;
-            sliderVida.maxValue = statVida.vidaTotal;
-            sliderVida.value = statVida.vidaTotal;
-        }
+        objetoActivable = GameObject.Find("Activable");
 
-        if (gameManager != null)
-        {
-            sliderExp.minValue = 0;
-            sliderExp.maxValue = gameManager.experienciaRequerida;
-            sliderExp.value = gameManager.experienciaActual;
-        }
-    }
+        /*tiempo = GameObject.Find("TiempoDemo").GetComponent<TextMeshProUGUI>();
+        experiencia = GameObject.Find("ExperienciaDemo").GetComponent<TextMeshProUGUI>();*/
 
-    void OcultarPanelesIniciales()
-    {
-        PanelDerrota?.SetActive(false);
-        PanelVictoria?.SetActive(false);
-        PanelOpciones?.SetActive(false);
-        objetoActivable?.SetActive(false);
-        sliderBossObject?.SetActive(false);
-        sliderBoss?.gameObject.SetActive(false);
-        objeto1?.SetActive(false);
-        objeto2?.SetActive(false);
-        objeto3?.SetActive(false);
-        objeto4?.SetActive(false);
-        objeto5?.SetActive(false);
+        sliderExp.minValue = 0;
+        sliderExp.maxValue = gameManager.experienciaRequerida;
+        sliderExp.value = 0; // Inicia vac�o
 
-    }
-
-    void IniciarCuentaAtras()
-    {
         timeLeft = startTime;
         StartCoroutine(Countdown());
+
+        PanelDerrota.SetActive(false);
+        PanelVictoria.SetActive(false);
+        PanelOpciones.SetActive(false);
+        objetoActivable.SetActive(false);
+        /*tiempoPanel.SetActive(false);
+        experienciaPanel.SetActive(false);*/
     }
 
-    void ActualizarInterfaz()
+    // Update is called once per frame
+    void Update()
     {
-        if (gameManager != null)
-        {
-            //textoExperiencia.text = "Exp: " + gameManager.experienciaTotal.ToString();
-            textoNivel.text = "Nv: " + gameManager.nivel.ToString();
+        //textoExperiencia.text = "Exp: " + gameManager.experienciaTotal.ToString();
+        textoNivel.text = "Nv: " + gameManager.nivel.ToString();
 
-            // Actualizar el Slider con la experiencia
-            sliderExp.maxValue = gameManager.experienciaRequerida;
-            sliderExp.value = gameManager.experienciaActual;
-        }
+        // Actualizar el Slider con la experiencia
+        sliderExp.maxValue = gameManager.experienciaRequerida;
+        sliderExp.value = gameManager.experienciaActual;
 
-        if (statVida != null)
-        {
-            // Actualizar el slider de la vida que tiene
-            sliderVida.maxValue = statVida.vidaTotal;
-            sliderVida.value = statVida.vidaActual;
-        }
-
-        if (sliderBossObject.activeSelf && gameManager.jefeActual != null)
-        {
-            sliderBoss.maxValue = gameManager.jefeActual.enemigoVidaTotal;
-            sliderBoss.value = gameManager.jefeActual.enemigoVidaActual;
-        }
-
-        if (textoVida != null)
-        {
-            textoVida.text = statVida.vidaActual.ToString() + " / " + statVida.vidaTotal.ToString();
-        }
-
-        if (textoExperiencia != null)
-        {
-            textoExperiencia.text = gameManager.experienciaActual.ToString() + " / " + gameManager.experienciaRequerida.ToString();
-        }
+        // Actualizar el slider de la vida que tiene
+        vidaMax = statVida.vidaTotal;
+        sliderVida.maxValue = vidaMax;
+        sliderVida.value = statVida.vidaActual;
     }
 
     IEnumerator Countdown()
@@ -161,8 +106,13 @@ public class CanvasManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timeLeft--;
         }
+
+        //Victoria();
+        //VictoriaDemo();
+        //cuentaAtras.text = "Te has quedado sin tiempo :(";
     }
 
+    
     public void Victoria()
     {
         PanelVictoria.SetActive(true);
@@ -175,7 +125,7 @@ public class CanvasManager : MonoBehaviour
         Time.timeScale = 0f; // Pausar el juego
     }
 
-    public void MenúInicio()
+    public void Men�Inicio()
     {
         // Reanudar el tiempo antes de reiniciar
         Time.timeScale = 1f;
@@ -208,25 +158,24 @@ public class CanvasManager : MonoBehaviour
         SceneManager.LoadScene("Scene_Museo");
     }
 
-    public void ActualizarTextoRonda(string texto)
+    /*public void VictoriaDemo()
     {
-        if (textoRonda != null)
-        {
-            textoRonda.text = texto;
-        }
+        PanelVictoria.SetActive(true);
+        tiempo.text = "Tiempo: \n" + startTime + " segundos";
+        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
+        tiempoPanel.SetActive(true);
+        experienciaPanel.SetActive(true);
+
+        Time.timeScale = 0f; // Pausar el juego
     }
 
-    public void InfinitoCuentaAtras()
+    public void DerrotaDemo()
     {
-        StopAllCoroutines();
-        cuentaAtras.text = "";
-    }
-
-    public void ReiniciarCuentaAtras()
-    {
-        StopAllCoroutines();
-        timeLeft = startTime;
-        StartCoroutine(Countdown());
-    }
-
+        PanelDerrota.SetActive(true);
+        Time.timeScale = 0f;
+        tiempo.text = "Tiempo: \n" + (startTime - timeLeft) + " segundos";
+        experiencia.text = "XP: \n" + gameManager.experienciaTotal.ToString();
+        tiempoPanel.SetActive(true);
+        experienciaPanel.SetActive(true);
+    }*/
 }

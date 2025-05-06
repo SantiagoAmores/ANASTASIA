@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jefe03_Llamas : MonoBehaviour
 {
-    public int daño = 1; // Puedes cambiarlo desde el inspector
+    public int daño = 10; // Puedes cambiarlo desde el inspector
     public float duracion = 5f;
 
     private void Start()
