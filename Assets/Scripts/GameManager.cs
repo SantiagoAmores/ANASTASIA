@@ -41,14 +41,9 @@ public class GameManager : MonoBehaviour
     {
         ReiniciarNiveles();
         anastasia = GameObject.FindWithTag("Player");
-        if (anastasia != null)
-        {
-
-        }
-        else
-        {
-            Debug.Log("En esta escena no esta Anastasia.");
-        }
+        if (anastasia != null) { }
+        else { //Debug.Log("En esta escena no esta Anastasia.");
+             }
     }
 
     public void SubirNivel()

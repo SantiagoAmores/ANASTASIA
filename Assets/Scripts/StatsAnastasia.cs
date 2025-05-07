@@ -147,22 +147,22 @@ public class StatsAnastasia : MonoBehaviour
             case 0:
                 AumentarVida();
                 mejorasVida++;
-                MostrarSubidaDeNivel("+ VIDA");
+                if (PlayerPrefs.GetInt("textoPantalla") == 1) { MostrarSubidaDeNivel("+ VIDA"); }
                 break;
             case 1:
                 AumentarVelocidadMovimiento();
                 mejorasVelocidad++;
-                MostrarSubidaDeNivel("+ VELOCIDAD");
+                if (PlayerPrefs.GetInt("textoPantalla") == 1) { MostrarSubidaDeNivel("+ VELOCIDAD"); }
                 break;
             case 2:
                 AumentarCadencia();
                 mejorasCadencia++;
-                MostrarSubidaDeNivel("+ CADENCIA");
+                if (PlayerPrefs.GetInt("textoPantalla") == 1) { MostrarSubidaDeNivel("+ CADENCIA"); }
                 break;
             case 3:
                 AumentarAtaque();
                 mejorasAtaque++;
-                MostrarSubidaDeNivel("+ ATAQUE");
+                if (PlayerPrefs.GetInt("textoPantalla") == 1) { MostrarSubidaDeNivel("+ ATAQUE"); }
                 break;
         }
 

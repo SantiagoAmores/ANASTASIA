@@ -223,7 +223,11 @@ public class MovimientoJugador : MonoBehaviour
         {
             vidaActual = vidaTotal;
         }
-        MostrarTextoCuracion(cantidad);
+
+        if (PlayerPrefs.GetInt("textoPantalla") == 1)
+        {
+            MostrarTextoCuracion(cantidad);
+        }
     }
 
     void MostrarTextoCuracion(int cantidad)
@@ -246,7 +250,6 @@ public class MovimientoJugador : MonoBehaviour
         PuntoExp.imanActivo = true;
         yield return new WaitForSeconds(2f);
         PuntoExp.imanActivo = false;
-
     }
 
     void explosivo()

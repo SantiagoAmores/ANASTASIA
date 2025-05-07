@@ -15852,7 +15852,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1680378613}
+        m_TargetAssemblyTypeName: Opciones, Assembly-CSharp
+        m_MethodName: CambiarTextoVidaExp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1287845082
 GameObject:
@@ -19144,6 +19156,8 @@ MonoBehaviour:
   - {fileID: 740497240}
   - {fileID: 46102828}
   - {fileID: 1725025515}
+  textoVidaExpToggle: {fileID: 2023464528}
+  textoPantallaToggle: {fileID: 1272606687}
 --- !u!114 &1680378614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20898,7 +20912,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1680378613}
+        m_TargetAssemblyTypeName: Opciones, Assembly-CSharp
+        m_MethodName: CambiarTextoVidaExp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &2037896109
 GameObject:

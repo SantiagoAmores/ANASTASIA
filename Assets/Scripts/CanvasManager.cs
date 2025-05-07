@@ -48,7 +48,6 @@ public class CanvasManager : MonoBehaviour
         InicializarReferencias();
         ConfigurarSliders();
         OcultarPanelesIniciales();
-        //IniciarCuentaAtras();
     }
 
     void Update()
@@ -76,6 +75,12 @@ public class CanvasManager : MonoBehaviour
         if (!objeto3) objeto3 = GameObject.Find("Objeto3");
         if (!objeto4) objeto4 = GameObject.Find("Objeto4");
         if (!objeto5) objeto5 = GameObject.Find("Objeto5");
+
+        if (PlayerPrefs.GetInt("textoVidaExp") == 0)
+        {
+            textoVida.gameObject.SetActive(false);
+            textoExperiencia.gameObject.SetActive(false);
+        }
     }
 
     void ConfigurarSliders()
@@ -111,12 +116,6 @@ public class CanvasManager : MonoBehaviour
 
     }
 
-    void IniciarCuentaAtras()
-    {
-        timeLeft = startTime;
-        StartCoroutine(Countdown());
-    }
-
     void ActualizarInterfaz()
     {
         if (gameManager != null)
@@ -142,12 +141,12 @@ public class CanvasManager : MonoBehaviour
             sliderBoss.value = gameManager.jefeActual.enemigoVidaActual;
         }
 
-        if (textoVida != null)
+        if (textoVida != null && textoVida.isActiveAndEnabled)
         {
             textoVida.text = statVida.vidaActual.ToString() + " / " + statVida.vidaTotal.ToString();
         }
 
-        if (textoExperiencia != null)
+        if (textoExperiencia != null && textoExperiencia.isActiveAndEnabled)
         {
             textoExperiencia.text = gameManager.experienciaActual.ToString() + " / " + gameManager.experienciaRequerida.ToString();
         }
@@ -228,5 +227,4 @@ public class CanvasManager : MonoBehaviour
         timeLeft = startTime;
         StartCoroutine(Countdown());
     }
-
 }

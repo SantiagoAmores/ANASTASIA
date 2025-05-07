@@ -24,6 +24,9 @@ public class PantallaIniciarNivel : MonoBehaviour
     public GameObject iconoArma2;
     public GameObject iconoArma3;
 
+    public string categoriaDesbloqueo;
+    public int indiceDesbloqueo;
+
     void Start()
     {
 
@@ -49,6 +52,12 @@ public class PantallaIniciarNivel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (!NivelManager.EstaDesbloqueado(categoriaDesbloqueo, indiceDesbloqueo))
+            {
+                Debug.Log($"Nivel bloqueado: {categoriaDesbloqueo} {indiceDesbloqueo}");
+                return;
+            }
+
             PantallaNivelCanvas.SetActive(true);
             empezarNivel.onClick.RemoveAllListeners();
 
@@ -82,6 +91,12 @@ public class PantallaIniciarNivel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (!NivelManager.EstaDesbloqueado(categoriaDesbloqueo, indiceDesbloqueo))
+            {
+                Debug.Log($"Nivel bloqueado: {categoriaDesbloqueo} {indiceDesbloqueo}");
+                return;
+            }
+
             PantallaNivelCanvas.SetActive(false);
 
             // La camara vuelve a su posicion

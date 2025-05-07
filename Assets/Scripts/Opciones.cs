@@ -22,6 +22,10 @@ public class Opciones : MonoBehaviour
     public AudioMixer mixer;
     public GameObject[] notas;
 
+    [Header("Textos")]
+    public Toggle textoVidaExpToggle;
+    public Toggle textoPantallaToggle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,22 @@ public class Opciones : MonoBehaviour
         //Resoluciones
         resoluciones = Screen.resolutions;
         dropdownResolucion.ClearOptions();
+
+        //Textos
+        if (!PlayerPrefs.HasKey("textoVidaExp"))
+        {
+            PlayerPrefs.SetInt("textoVidaExp", 1);
+        }
+        if (!PlayerPrefs.HasKey("textoPantalla"))
+        {
+            PlayerPrefs.SetInt("textoPantalla", 1);
+        }
+
+        textoVidaExpToggle.isOn = PlayerPrefs.GetInt("textoVidaExp") == 1;
+        textoPantallaToggle.isOn = PlayerPrefs.GetInt("textoPantalla") == 1;
+
+        textoVidaExpToggle.onValueChanged.AddListener(CambiarTextoVidaExp);
+        textoPantallaToggle.onValueChanged.AddListener(CambiarTextoPantalla);
 
         List<string> opciones = new List<string>();
         resolucionActualIndex = 0;
@@ -123,5 +143,15 @@ public class Opciones : MonoBehaviour
                 notas[i].SetActive(i < cantidadNotas);
             }
         }
+    }
+
+    public void CambiarTextoVidaExp(bool estaActivadoVidaExp)
+    {
+        PlayerPrefs.SetInt("textoVidaExp", estaActivadoVidaExp ? 1 : 0);
+    }
+
+    public void CambiarTextoPantalla(bool estaActivadoPantalla)
+    {
+        PlayerPrefs.SetInt("textoPantalla", estaActivadoPantalla ? 1 : 0);
     }
 }

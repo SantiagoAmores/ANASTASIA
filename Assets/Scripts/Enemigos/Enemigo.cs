@@ -121,7 +121,10 @@ public class Enemigo : MonoBehaviour
             StartCoroutine(HeridaPausa());
         }
 
-        MostrarTextoDano(cantidadDeGolpe);
+        if (PlayerPrefs.GetInt("textoPantalla") == 1)
+        {
+            MostrarTextoDano(cantidadDeGolpe);
+        }
 
         // Le resta al enemigo de su salud el daño que hace el golpe recibido
         enemigoVidaActual -= cantidadDeGolpe;
