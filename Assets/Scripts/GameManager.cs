@@ -5,16 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //Estadisticas
+    [Header("Instancia")]
+    public static GameManager instancia;
+
+    [Header("Referencias")]
+    public GameObject anastasia;
+    public Enemigo jefeActual;
+
+    [Header("Estadisticas")]
     public int experienciaTotal = 0;
     public int experienciaActual = 0;
     public int nivel = 1;
     public int experienciaRequerida = 5;
 
-    public static GameManager instancia;
-    public GameObject anastasia;
-    public Enemigo jefeActual;
-
+    private const string desbloqueo_base = "desbloqueo_niveles_1";
     void Awake()
     {
         if (instancia == null)
@@ -39,18 +43,9 @@ public class GameManager : MonoBehaviour
 
     void AlCargarEscena(Scene scene, LoadSceneMode mode)
     {
-        string clave = "desbloqueo_niveles_1";
-        if (!PlayerPrefs.HasKey(clave))
-        {
-            PlayerPrefs.SetInt(clave, 1);
-            PlayerPrefs.Save();
-        }
-
+        DesbloqueoInicialCheck();
         ReiniciarNiveles();
-        anastasia = GameObject.FindWithTag("Player");
-        if (anastasia != null) { }
-        else { //Debug.Log("En esta escena no esta Anastasia.");
-             }
+        BuscarAnastasia();
     }
 
     public void SubirNivel()
@@ -66,7 +61,8 @@ public class GameManager : MonoBehaviour
 
             if (anastasia != null)
             {
-                anastasia.GetComponent<StatsAnastasia>().SubidaDeNivelAleatoria();
+                var stats = anastasia.GetComponent<StatsAnastasia>();
+                stats?.SubidaDeNivelAleatoria();
             }
         }
     }
@@ -77,6 +73,20 @@ public class GameManager : MonoBehaviour
         experienciaActual = 0;
         nivel = 1;
         experienciaRequerida = 5;
+    }
+
+    void DesbloqueoInicialCheck()
+    {
+        if (!PlayerPrefs.HasKey(desbloqueo_base))
+        {
+            PlayerPrefs.SetInt(desbloqueo_base, 1);
+            PlayerPrefs.Save();
+        }
+    }
+
+    void BuscarAnastasia()
+    {
+        anastasia = GameObject.FindWithTag("Player");
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
