@@ -1633,6 +1633,8 @@ MonoBehaviour:
   iconoArma1: {fileID: 495697010}
   iconoArma2: {fileID: 193700126}
   iconoArma3: {fileID: 1398320375}
+  categoriaDesbloqueo: niveles
+  indiceDesbloqueo: 1
 --- !u!1 &348889643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3714,6 +3716,8 @@ MonoBehaviour:
   iconoArma1: {fileID: 495697010}
   iconoArma2: {fileID: 193700126}
   iconoArma3: {fileID: 1398320375}
+  categoriaDesbloqueo: niveles
+  indiceDesbloqueo: 3
 --- !u!1 &741828937
 GameObject:
   m_ObjectHideFlags: 0
@@ -9191,6 +9195,8 @@ MonoBehaviour:
   iconoArma1: {fileID: 495697010}
   iconoArma2: {fileID: 193700126}
   iconoArma3: {fileID: 1398320375}
+  categoriaDesbloqueo: niveles
+  indiceDesbloqueo: 2
 --- !u!1 &2015331228
 GameObject:
   m_ObjectHideFlags: 0

@@ -7202,7 +7202,7 @@ MonoBehaviour:
     indicesEntradas: 04000000
   - numeroNivel: 2
     categoria: niveles
-    indicesEntradas: 
+    indicesEntradas: 03000000
 --- !u!114 &1600122180
 MonoBehaviour:
   m_ObjectHideFlags: 0

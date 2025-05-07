@@ -39,6 +39,13 @@ public class GameManager : MonoBehaviour
 
     void AlCargarEscena(Scene scene, LoadSceneMode mode)
     {
+        string clave = "desbloqueo_niveles_1";
+        if (!PlayerPrefs.HasKey(clave))
+        {
+            PlayerPrefs.SetInt(clave, 1);
+            PlayerPrefs.Save();
+        }
+
         ReiniciarNiveles();
         anastasia = GameObject.FindWithTag("Player");
         if (anastasia != null) { }

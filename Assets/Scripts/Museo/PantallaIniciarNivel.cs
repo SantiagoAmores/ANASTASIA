@@ -29,7 +29,6 @@ public class PantallaIniciarNivel : MonoBehaviour
 
     void Start()
     {
-
         museoCamara = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
 
         // Oculta la ventana de la interfaz

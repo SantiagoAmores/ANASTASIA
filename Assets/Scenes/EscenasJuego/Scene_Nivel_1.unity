@@ -12869,6 +12869,9 @@ MonoBehaviour:
   - numeroNivel: 1
     categoria: armas
     indicesEntradas: 03000000
+  - numeroNivel: 1
+    categoria: niveles
+    indicesEntradas: 02000000
 --- !u!114 &854819797
 MonoBehaviour:
   m_ObjectHideFlags: 0

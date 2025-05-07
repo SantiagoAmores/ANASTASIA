@@ -91,7 +91,14 @@ public class Opciones : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!PlayerPrefs.HasKey("textoVidaExp"))
+        {
+            PlayerPrefs.SetInt("textoVidaExp", 1);
+        }
+        if (!PlayerPrefs.HasKey("textoPantalla"))
+        {
+            PlayerPrefs.SetInt("textoPantalla", 1);
+        }
     }
 
     public void CambiarBrillo(float valor)
