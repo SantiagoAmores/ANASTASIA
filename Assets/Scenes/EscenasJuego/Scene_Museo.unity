@@ -1635,6 +1635,9 @@ MonoBehaviour:
   iconoArma3: {fileID: 1398320375}
   categoriaDesbloqueo: niveles
   indiceDesbloqueo: 1
+  arma1: {fileID: 1771212464}
+  arma2: {fileID: 44898030}
+  arma3: {fileID: 478274050}
 --- !u!1 &348889643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,7 +3445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &704046711
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3718,6 +3721,9 @@ MonoBehaviour:
   iconoArma3: {fileID: 1398320375}
   categoriaDesbloqueo: niveles
   indiceDesbloqueo: 3
+  arma1: {fileID: 1771212464}
+  arma2: {fileID: 44898030}
+  arma3: {fileID: 478274050}
 --- !u!1 &741828937
 GameObject:
   m_ObjectHideFlags: 0
@@ -5271,12 +5277,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1665c3ee67472f2489970f27db6f3ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anastasia: {fileID: 0}
+  jefeActual: {fileID: 0}
   experienciaTotal: 0
   experienciaActual: 0
   nivel: 1
   experienciaRequerida: 5
-  anastasia: {fileID: 0}
-  jefeActual: {fileID: 0}
 --- !u!4 &1165580566
 Transform:
   m_ObjectHideFlags: 0
@@ -9197,6 +9203,9 @@ MonoBehaviour:
   iconoArma3: {fileID: 1398320375}
   categoriaDesbloqueo: niveles
   indiceDesbloqueo: 2
+  arma1: {fileID: 1771212464}
+  arma2: {fileID: 44898030}
+  arma3: {fileID: 478274050}
 --- !u!1 &2015331228
 GameObject:
   m_ObjectHideFlags: 0

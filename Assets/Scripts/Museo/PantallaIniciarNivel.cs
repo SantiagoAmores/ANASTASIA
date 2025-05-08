@@ -27,6 +27,10 @@ public class PantallaIniciarNivel : MonoBehaviour
     public string categoriaDesbloqueo;
     public int indiceDesbloqueo;
 
+    public GameObject arma1;
+    public GameObject arma2;
+    public GameObject arma3;
+
     void Start()
     {
         museoCamara = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
@@ -69,6 +73,24 @@ public class PantallaIniciarNivel : MonoBehaviour
             iconoArma1.gameObject.SetActive(false);
             iconoArma2.gameObject.SetActive(false);
             iconoArma3.gameObject.SetActive(false);
+
+            if (NivelManager.EstaDesbloqueado("niveles", 2))
+            {
+                arma2.SetActive(true);
+            }
+            else
+            {
+                arma2.SetActive(false);
+            }
+
+            if (NivelManager.EstaDesbloqueado("niveles", 3))
+            {
+                arma3.SetActive(true);
+            }
+            else
+            {
+                arma3.SetActive(false);
+            }
 
             // Camara apuntar cuadros antes de entrar al nivel
 

@@ -14,7 +14,7 @@ public class StatsEnemigos : MonoBehaviour
 
     // Guarda las estadisticas de los enemigos en un dicciconario accesible
     public Dictionary<string, (int, int, float, int)> diccionarioEnemigos;
-    public Dictionary<string, ((int, int, float, int) fase1, (int, int, float, int) fase2, string drop)> diccionarioBosses;
+    public Dictionary<string, ((int, int, float, int) fase1, (int, int, float, int) fase2)> diccionarioBosses;
 
     private void Awake()
     {
@@ -29,11 +29,11 @@ public class StatsEnemigos : MonoBehaviour
             { "Jarron", (1, 0, 0.1f, 0) }
         };
 
-        diccionarioBosses = new Dictionary<string, ((int, int, float, int) fase1, (int, int, float, int) fase2, string drop)>
+        diccionarioBosses = new Dictionary<string, ((int, int, float, int) fase1, (int, int, float, int) fase2)>
         {
-            { "Enemigo 3", ((70, 2, 3.25f, 10), (350, 3, 4f, 0), "drop") },
-            { "Enemigo 6", ((75, 2, 3.25f, 10), (360, 6, 4f, 0), "drop") },
-            { "Enemigo 9", ((80, 1, 7f, 10), (370, 2, 20f, 0), "drop") },
+            { "Enemigo 3", ((70, 2, 3.25f, 10), (350, 3, 4f, 0)) },
+            { "Enemigo 6", ((75, 2, 3.25f, 10), (360, 6, 4f, 0)) },
+            { "Enemigo 9", ((80, 1, 7f, 10), (370, 2, 20f, 0)) },
         };
     }
 

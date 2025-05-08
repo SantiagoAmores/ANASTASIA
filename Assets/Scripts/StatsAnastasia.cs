@@ -173,6 +173,7 @@ public class StatsAnastasia : MonoBehaviour
     {
         // Vida
         vida += 5;
+        movimientoJugador.vidaActual += 5;
     }
 
     void AumentarVelocidadMovimiento()

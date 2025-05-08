@@ -219,7 +219,7 @@ public class Enemigo : MonoBehaviour
                 alturaFija,
                 transform.position.z + offset2D.y
                 );
-            Instantiate(puntoExperienciaPrefab, dropPosicion, Quaternion.identity);
+            Instantiate(puntoExperienciaPrefab, dropPosicion, Quaternion.Euler(-90, 0, 0));
         }
 
         // Dropeo de vida
@@ -232,7 +232,7 @@ public class Enemigo : MonoBehaviour
                 alturaFija,
                 transform.position.z + offsetVida2D.y
                 );
-            Instantiate(corazonPrefab, dropVidaPosicion, Quaternion.identity);
+            Instantiate(corazonPrefab, dropVidaPosicion, Quaternion.Euler(-90, 0, 0));
         }
     }
 
@@ -251,7 +251,7 @@ public class Enemigo : MonoBehaviour
                 inventarioDeAnastasia.GetComponent<Arma3>().enabled = true;
                 break;
             case "Enemigo 9":
-                inventarioDeAnastasia.GetComponent<Arma5>().enabled = true;
+                inventarioDeAnastasia.GetComponent<Arma6>().enabled = true;
                 break;
             default:
                 break;
@@ -260,7 +260,7 @@ public class Enemigo : MonoBehaviour
 
     public void DropDeJarron()
     {
-        Instantiate(regaloPrefab, transform.position, Quaternion.identity);
+        Instantiate(regaloPrefab, transform.position, Quaternion.Euler(-90,0,0));
     }
 
     void MostrarTextoDano(int cantidad)
