@@ -13,18 +13,25 @@ public class Jefe02_Proyectil : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        string nombreTostada = gameObject.name.Replace("(Clone)", "").Trim();
-        if (nombreTostada == "TostadaBuena")
-        {
-            jugador.Curar(1);
-        }
 
-        else
+        if (other.CompareTag("Player"))
         {
-            jugador.herirAnastasia(1);
-        }
 
-        Destroy(gameObject);
+            string nombreTostada = gameObject.name.Replace("(Clone)", "").Trim();
+            if (nombreTostada == "TostadaBuena")
+            {
+                jugador.Curar(1);
+            }
+
+            else
+            {
+                jugador.herirAnastasia(1);
+            }
+
+            Destroy(gameObject);
+
+        }
+        
     }
 }
 

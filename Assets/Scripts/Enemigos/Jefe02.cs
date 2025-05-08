@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Jefe02 : MonoBehaviour
 {
@@ -9,17 +10,24 @@ public class Jefe02 : MonoBehaviour
     // Caminar por al escena
     // Pararse para disparar tostadas y pintura
 
-
     Enemigo enemigoScript;
     StatsEnemigos statsScript;
     Animator animator;
     public GameObject jugador;
 
-    public List<GameObject> listaProyectiles = new List<GameObject>();
+    // Proyectiles
+    public GameObject tostadaBuena;
+    public GameObject tostadaMala;
     private CanvasPintura canvasPintura;
 
     private float cadenciaAtaque = 8f;
-    private float tiempoEspera = 1f;
+    private float tiempoEspera = 3f;
+
+    // Puntos para lanzar proyectil
+    public GameObject tostadaProyectil;
+    public GameObject agujeroDerecha;
+    public GameObject agujeroIzquierda;
+    public GameObject particulas;
 
     // Start is called before the first frame update
     void Start()
@@ -28,10 +36,16 @@ public class Jefe02 : MonoBehaviour
         statsScript = GetComponent<StatsEnemigos>();
         animator = GetComponentInChildren<Animator>();
         canvasPintura = FindObjectOfType<CanvasPintura>();
-        statsScript.revisarEnemigo();
 
         jugador = GameObject.FindGameObjectWithTag("Player");
+
+        if (statsScript.faseDeJefe == 2)
+        {
+            transform.localScale *= 2f;
+        }
+
         StartCoroutine(CicloAtaque());
+
     }
 
     void Update()
@@ -39,104 +53,123 @@ public class Jefe02 : MonoBehaviour
         animator.SetFloat("velocidadActual", enemigoScript.enemigo.speed);
         enemigoScript.MirarAnastasia(); // Hacer que el jefe mire al jugador
 
-        // Se mueve hacia el jugador mientras no este atacando
-        if (enemigoScript.enemigo.speed > 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, jugador.transform.position, enemigoScript.enemigo.speed * Time.deltaTime);
-        }
     }
 
-    public void Atacar()
+    public IEnumerator Atacar()
     {
-        // Detener movimiento
-        statsScript.enemigoVelocidad = 0f;
+
+        if (particulas != null)
+        {
+            GameObject particulasDerecha = Instantiate(particulas, agujeroDerecha.transform.position, Quaternion.LookRotation(Vector3.up));
+            GameObject particulasIzquierda = Instantiate(particulas, agujeroIzquierda.transform.position, Quaternion.LookRotation(Vector3.up));
+
+            Destroy(particulasDerecha, 5f);
+            Destroy(particulasIzquierda, 5f);
+        }
+
+        // Animacion tostadas arriba
+        GameObject instanciaTostadaDerecha = Instantiate(tostadaProyectil, agujeroDerecha.transform.position, Quaternion.LookRotation(Vector3.up));
+        GameObject instanciaTostadaIzquierda = Instantiate(tostadaProyectil, agujeroIzquierda.transform.position, Quaternion.LookRotation(Vector3.up));
+
+        Rigidbody rbDerecha = instanciaTostadaDerecha.GetComponent<Rigidbody>();
+        //rbDerecha.constraints = RigidbodyConstraints.FreezePositionY;
+        rbDerecha.AddForce(Vector3.up * 1500f);
+
+        Rigidbody rbIzquierda = instanciaTostadaIzquierda.GetComponent<Rigidbody>();
+        //rbIzquierda.constraints = RigidbodyConstraints.FreezePositionY;
+        rbIzquierda.AddForce(Vector3.up * 1500f);
+
+        StartCoroutine(DespawnProyectilRutina(instanciaTostadaDerecha));
+        StartCoroutine(DespawnProyectilRutina(instanciaTostadaIzquierda));
+
+        yield return new WaitForSeconds(1f);
 
         int cantidadProyectiles = 0;
 
         if (statsScript.faseDeJefe == 1)
         {
-            cantidadProyectiles = 4;
+            cantidadProyectiles = 2;
+            //canvasPintura.PrimeraFase();
         }
         else if (statsScript.faseDeJefe == 2)
         {
-            cantidadProyectiles = 6;
+            cantidadProyectiles = 3;
+            //canvasPintura.SegundaFase();
         }
 
         for (int i = 0; i < cantidadProyectiles; i++)
         {
-            Vector3 offset = Random.insideUnitCircle * 3f;
-            Vector3 destino = transform.position + new Vector3(offset.x, 0, offset.y);
+            Vector3 randomPosition = GetRandomPositionOnNavMesh(transform.position, 15f);
 
-            int indice = Random.Range(0, listaProyectiles.Count);
-            GameObject prefabElegido = listaProyectiles[indice];
-            GameObject proyectil = Instantiate(prefabElegido, transform.position + Vector3.up * 1f, Quaternion.identity);
-            StartCoroutine(lanzarProyectil(proyectil, destino));
+            if (randomPosition == Vector3.zero) { continue; }
+
+            GameObject tostadaBuenaInstanciada = Instantiate(tostadaBuena, randomPosition, Quaternion.identity);
+
+            StartCoroutine(DespawnTostadaInstanciada(tostadaBuenaInstanciada));
+
         }
 
-        // Llamar a función del CanvasPintura para manchar la pantalla de pintura
-        //if (statsScript.faseDeJefe == 1)
-        //{
-        //    canvasPintura.PrimeraFase();
+        for (int i = 0; i < cantidadProyectiles; i++)
+        {
+            Vector3 randomPosition = GetRandomPositionOnNavMesh(transform.position, 15f);
 
-        //}
-        //else if (statsScript.faseDeJefe == 2)
-        //{
-        //    canvasPintura.SegundaFase();
-        //}
+            if (randomPosition == Vector3.zero) { continue; }
+
+            GameObject tostadaMalaInstanciada = Instantiate(tostadaMala, randomPosition, Quaternion.identity);
+
+            StartCoroutine(DespawnTostadaInstanciada(tostadaMalaInstanciada));
+        }
+
+    }
+
+    private Vector3 GetRandomPositionOnNavMesh(Vector3 center, float radius)
+    {
+        Vector2 randomCircle = Random.insideUnitCircle * radius;
+        Vector3 randomPosition = center + new Vector3(randomCircle.x, 0f, randomCircle.y);
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomPosition, out hit, radius, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+
+        return Vector3.zero;
     }
 
     private IEnumerator CicloAtaque()
     {
         while (true)
         {
+            statsScript.revisarEnemigo();
+
             // Persigue al jugador
             enemigoScript.enemigo.speed = statsScript.enemigoVelocidad;
 
-            // Guardamos velocidad original y se detiene el movimiento
+            // Se detiene el movimiento
             yield return new WaitForSeconds(cadenciaAtaque);
-            float velocidadOriginal = enemigoScript.enemigo.speed;
             enemigoScript.enemigo.speed = 0f;
 
             // Ataca
-            Atacar();
+            StartCoroutine(Atacar());
 
             // Espera unos segundos
             yield return new WaitForSeconds(tiempoEspera);
 
-            // Vuelve a perseguir a Anastasia
-            enemigoScript.enemigo.speed = velocidadOriginal;
         }
     }
 
-    private IEnumerator lanzarProyectil(GameObject proyectil, Vector3 destino)
+    private IEnumerator DespawnProyectilRutina(GameObject proyectilADespawnear)
     {
-        float duracionSubida = 0.5f;  // Tiempo que tarda en subir
-        float duracionCaida = 2f;  // Tiempo que tarda en caer
-
-        // Posicion inicial del proyectil
-        Vector3 inicio = proyectil.transform.position;
-        Vector3 destinoFinal = new Vector3(destino.x, inicio.y, destino.z); // Solo movemos en X y Z
-
-        // Subida del proyectil
-        float tiempoTranscurrido = 0;
-        while (tiempoTranscurrido < duracionSubida)
-        {
-            tiempoTranscurrido += Time.deltaTime;
-            proyectil.transform.position = Vector3.Lerp(inicio, new Vector3(inicio.x, inicio.y + 2f, inicio.z), tiempoTranscurrido / duracionSubida);
-            yield return null;
-        }
-
-        // Caida hacia el destino final
-        tiempoTranscurrido = 0;
-        while (tiempoTranscurrido < duracionCaida)
-        {
-            tiempoTranscurrido += Time.deltaTime;
-            proyectil.transform.position = Vector3.Lerp(new Vector3(inicio.x, inicio.y + 2f, inicio.z), destinoFinal, tiempoTranscurrido / duracionCaida);
-            yield return null;
-        }
-
-        // Asegurar que el proyectil llegue exactamente al destino
-        proyectil.transform.position = destinoFinal;
-  
+        yield return new WaitForSeconds(1f);
+   
+       Destroy(proyectilADespawnear);
     }
+
+    private IEnumerator DespawnTostadaInstanciada(GameObject proyectilADespawnear)
+    {
+        yield return new WaitForSeconds(10f);
+
+        Destroy(proyectilADespawnear);
+    }
+
 }

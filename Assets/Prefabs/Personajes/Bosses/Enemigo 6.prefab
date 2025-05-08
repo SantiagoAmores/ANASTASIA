@@ -39,6 +39,8 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4496686191761125533}
+  - {fileID: 9073418125501621325}
+  - {fileID: 7380502983182234732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5576057108067200740
@@ -241,10 +243,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
-  jefeProyectil: {fileID: 0}
-  listaProyectiles:
-  - {fileID: 8805574158633445166, guid: d1c0a53814c2e1f4a985f06819cf51d5, type: 3}
-  - {fileID: 494616078544843607, guid: 8af2683187fbf0f41b4e4fe4013aae70, type: 3}
+  tostadaBuena: {fileID: 8805574158633445166, guid: d1c0a53814c2e1f4a985f06819cf51d5, type: 3}
+  tostadaMala: {fileID: 494616078544843607, guid: 8af2683187fbf0f41b4e4fe4013aae70, type: 3}
+  tostadaProyectil: {fileID: 8805574158633445166, guid: 4f2efc67c3443b0419943fdecb2bc09e, type: 3}
+  agujeroDerecha: {fileID: 2637939046973005873}
+  agujeroIzquierda: {fileID: 5447736524435475243}
+  particulas: {fileID: 3238455142961331409, guid: efb33598e81b66b4f86f9795a0bd8b35, type: 3}
+--- !u!1 &2637939046973005873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9073418125501621325}
+  m_Layer: 0
+  m_Name: AgujeroDerecha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9073418125501621325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637939046973005873}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.165, y: -0.303, z: -0.014}
+  m_LocalScale: {x: 0.7692308, y: 0.7692308, z: 0.7692308}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5678816029243831733}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5447736524435475243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7380502983182234732}
+  m_Layer: 0
+  m_Name: AgujeroIzquierda
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7380502983182234732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447736524435475243}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.111, y: -0.303, z: -0.014}
+  m_LocalScale: {x: 0.7692308, y: 0.7692308, z: 0.7692308}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5678816029243831733}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4174213676979328886
 PrefabInstance:
   m_ObjectHideFlags: 0
