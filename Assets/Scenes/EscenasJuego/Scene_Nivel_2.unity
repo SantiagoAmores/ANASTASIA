@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17937294, g: 0.22459817, b: 0.306275, a: 1}
+  m_IndirectSpecularColor: {r: 0.17757899, g: 0.2223225, b: 0.30451906, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1023,6 +1023,14 @@ PrefabInstance:
       propertyPath: fuenteAudio
       value: 
       objectReference: {fileID: 359083954}
+    - target: {fileID: 60255810020451838, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 913102841305326103, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1062,6 +1070,22 @@ PrefabInstance:
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233730339502621928, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400856347996301974, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096415705295080951, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951365172276653742, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7986659953479751430, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Name
@@ -1605,7 +1629,7 @@ Transform:
   m_GameObject: {fileID: 1082301095}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 923.5, y: 540, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7682,13 +7706,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732150008}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.8933714, y: 0, z: 0, w: 0.44931898}
-  m_LocalPosition: {x: 0, y: 2.2, z: 21.03}
+  m_LocalRotation: {x: 0.86602545, y: 0, z: 0, w: 0.49999994}
+  m_LocalPosition: {x: 0, y: 10, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 126.6, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 120, y: 0, z: 0}
 --- !u!114 &1732150011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7893,12 +7917,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1665c3ee67472f2489970f27db6f3ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anastasia: {fileID: 0}
+  jefeActual: {fileID: 0}
   experienciaTotal: 0
   experienciaActual: 0
   nivel: 1
   experienciaRequerida: 5
-  anastasia: {fileID: 0}
-  jefeActual: {fileID: 0}
 --- !u!4 &1883988963
 Transform:
   m_ObjectHideFlags: 0
@@ -7908,7 +7932,7 @@ Transform:
   m_GameObject: {fileID: 1883988961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.2, y: 1.03, z: 8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

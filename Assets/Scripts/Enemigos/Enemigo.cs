@@ -260,7 +260,8 @@ public class Enemigo : MonoBehaviour
 
     public void DropDeJarron()
     {
-        Instantiate(regaloPrefab, transform.position, Quaternion.Euler(-90,0,0));
+        Vector3 dropPosition = transform.position + new Vector3(0, -0.5f, 0);
+        Instantiate(regaloPrefab, dropPosition, Quaternion.Euler(-90,0,0));
     }
 
     void MostrarTextoDano(int cantidad)

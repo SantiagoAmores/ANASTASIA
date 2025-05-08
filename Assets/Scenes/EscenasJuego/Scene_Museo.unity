@@ -2362,8 +2362,8 @@ MonoBehaviour:
 
     Dispara a un enemigo aleatorio y luego vuelve a Anastasia'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
-  m_sharedMaterial: {fileID: 395646844236519771, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2387,10 +2387,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.6
+  m_fontSize: 28
   m_fontSizeBase: 28
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -3445,7 +3445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &704046711
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6206,8 +6206,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "RODILLO\nDeja un rastro tras Anastasia que da\xF1a a los enemigos"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
-  m_sharedMaterial: {fileID: 395646844236519771, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6231,10 +6231,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.8
+  m_fontSize: 28
   m_fontSizeBase: 28
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -9409,8 +9409,8 @@ MonoBehaviour:
 
     Dispara al enemigo mas cercano a Anastasia'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
-  m_sharedMaterial: {fileID: 395646844236519771, guid: e3654647e7e1e1848ae959c540c30f77, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9434,10 +9434,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.25
+  m_fontSize: 30
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

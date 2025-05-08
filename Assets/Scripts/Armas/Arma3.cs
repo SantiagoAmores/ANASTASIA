@@ -15,7 +15,7 @@ public class Arma3 : MonoBehaviour
     //Parametros
     private float duracion = 1f;
     private float radio = 5f; // Área alrededor del jugador
-    private Vector3 escalaFinal = new Vector3(5f, 0.1f, 5f);
+    private Vector3 escalaFinal = new Vector3(5f, 0.01f, 5f);
 
     // Stats
     public StatsAnastasia stats;
@@ -65,9 +65,9 @@ public class Arma3 : MonoBehaviour
 
             float alturaFija = escalaFinal.y;
             Vector3 escalaTarget = new Vector3(
-                escalaFinal.x * (1 + stats.arma4Ataque / 5f),
+                escalaFinal.x * (1 + stats.arma4Ataque / 7f),
                 alturaFija,
-                escalaFinal.z * (1 + stats.arma4Ataque / 5f)
+                escalaFinal.z * (1 + stats.arma4Ataque / 7f)
                 );
 
             float tiempo = 0f;

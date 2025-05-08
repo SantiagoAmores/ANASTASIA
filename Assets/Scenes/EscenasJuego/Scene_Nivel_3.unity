@@ -243,6 +243,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851d490a18407e4499039073eedb394e, type: 3}
+--- !u!1 &23173406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6570034299598371088, guid: 851d490a18407e4499039073eedb394e, type: 3}
+  m_PrefabInstance: {fileID: 23173405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &23173407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8134240253239502406, guid: 851d490a18407e4499039073eedb394e, type: 3}
+  m_PrefabInstance: {fileID: 23173405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &23173408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5243260888949168918, guid: 851d490a18407e4499039073eedb394e, type: 3}
+  m_PrefabInstance: {fileID: 23173405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &56533758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2833,9 +2848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f600532307b1b4dbbbd1b9d54423e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPausa: {fileID: 0}
-  panelVictoria: {fileID: 0}
-  panelDerrota: {fileID: 0}
+  menuPausa: {fileID: 23173408}
+  panelVictoria: {fileID: 23173407}
+  panelDerrota: {fileID: 23173406}
 --- !u!114 &965244180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3631,12 +3646,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1665c3ee67472f2489970f27db6f3ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anastasia: {fileID: 0}
+  jefeActual: {fileID: 0}
   experienciaTotal: 0
   experienciaActual: 0
   nivel: 1
   experienciaRequerida: 5
-  anastasia: {fileID: 0}
-  jefeActual: {fileID: 0}
 --- !u!4 &1303907954
 Transform:
   m_ObjectHideFlags: 0
