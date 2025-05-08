@@ -18,7 +18,8 @@ public class Jefe02 : MonoBehaviour
     public List<GameObject> listaProyectiles = new List<GameObject>();
     private CanvasPintura canvasPintura;
 
-    private float tiempoEntreAtaques = 5f;
+    private float cadenciaAtaque = 8f;
+    private float tiempoEspera = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,23 +30,36 @@ public class Jefe02 : MonoBehaviour
         canvasPintura = FindObjectOfType<CanvasPintura>();
         statsScript.revisarEnemigo();
 
+        jugador = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(CicloAtaque());
+    }
+
+    void Update()
+    {
+        animator.SetFloat("velocidadActual", enemigoScript.enemigo.speed);
+        enemigoScript.MirarAnastasia(); // Hacer que el jefe mire al jugador
+
+        // Se mueve hacia el jugador mientras no este atacando
+        if (enemigoScript.enemigo.speed > 0)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, jugador.transform.position, enemigoScript.enemigo.speed * Time.deltaTime);
+        }
     }
 
     public void Atacar()
     {
         // Detener movimiento
-        statsScript.enemigoVelocidad = 0;
+        statsScript.enemigoVelocidad = 0f;
 
         int cantidadProyectiles = 0;
 
         if (statsScript.faseDeJefe == 1)
         {
-            cantidadProyectiles = 2;
+            cantidadProyectiles = 4;
         }
         else if (statsScript.faseDeJefe == 2)
         {
-            cantidadProyectiles = 4;
+            cantidadProyectiles = 6;
         }
 
         for (int i = 0; i < cantidadProyectiles; i++)
@@ -60,24 +74,26 @@ public class Jefe02 : MonoBehaviour
         }
 
         // Llamar a función del CanvasPintura para manchar la pantalla de pintura
-        if (statsScript.faseDeJefe == 1)
-        {
-            canvasPintura.PrimeraFase();
+        //if (statsScript.faseDeJefe == 1)
+        //{
+        //    canvasPintura.PrimeraFase();
 
-        }
-        else if (statsScript.faseDeJefe == 2)
-        {
-            canvasPintura.SegundaFase();
-        }
+        //}
+        //else if (statsScript.faseDeJefe == 2)
+        //{
+        //    canvasPintura.SegundaFase();
+        //}
     }
 
     private IEnumerator CicloAtaque()
     {
         while (true)
         {
-            yield return new WaitForSeconds(tiempoEntreAtaques);
+            // Persigue al jugador
+            enemigoScript.enemigo.speed = statsScript.enemigoVelocidad;
 
             // Guardamos velocidad original y se detiene el movimiento
+            yield return new WaitForSeconds(cadenciaAtaque);
             float velocidadOriginal = enemigoScript.enemigo.speed;
             enemigoScript.enemigo.speed = 0f;
 
@@ -85,7 +101,7 @@ public class Jefe02 : MonoBehaviour
             Atacar();
 
             // Espera unos segundos
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(tiempoEspera);
 
             // Vuelve a perseguir a Anastasia
             enemigoScript.enemigo.speed = velocidadOriginal;
@@ -94,18 +110,33 @@ public class Jefe02 : MonoBehaviour
 
     private IEnumerator lanzarProyectil(GameObject proyectil, Vector3 destino)
     {
-        float duracion = 5f;
-        float tiempo = 0;
-        Vector3 inicio = proyectil.transform.position;
+        float duracionSubida = 0.5f;  // Tiempo que tarda en subir
+        float duracionCaida = 2f;  // Tiempo que tarda en caer
 
-        while (tiempo < duracion)
+        // Posicion inicial del proyectil
+        Vector3 inicio = proyectil.transform.position;
+        Vector3 destinoFinal = new Vector3(destino.x, inicio.y, destino.z); // Solo movemos en X y Z
+
+        // Subida del proyectil
+        float tiempoTranscurrido = 0;
+        while (tiempoTranscurrido < duracionSubida)
         {
-            proyectil.transform.position = Vector3.Lerp(inicio, destino, tiempo / duracion);
-            tiempo += Time.deltaTime;
+            tiempoTranscurrido += Time.deltaTime;
+            proyectil.transform.position = Vector3.Lerp(inicio, new Vector3(inicio.x, inicio.y + 2f, inicio.z), tiempoTranscurrido / duracionSubida);
             yield return null;
         }
 
-        proyectil.transform.position = destino;
-        Destroy(proyectil, 5f);
+        // Caida hacia el destino final
+        tiempoTranscurrido = 0;
+        while (tiempoTranscurrido < duracionCaida)
+        {
+            tiempoTranscurrido += Time.deltaTime;
+            proyectil.transform.position = Vector3.Lerp(new Vector3(inicio.x, inicio.y + 2f, inicio.z), destinoFinal, tiempoTranscurrido / duracionCaida);
+            yield return null;
+        }
+
+        // Asegurar que el proyectil llegue exactamente al destino
+        proyectil.transform.position = destinoFinal;
+  
     }
 }
