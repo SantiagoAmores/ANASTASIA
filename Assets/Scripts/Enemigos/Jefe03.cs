@@ -350,6 +350,7 @@ public class Jefe03 : MonoBehaviour
                 posicionRayo,
                 Quaternion.Euler(90f, angulosIniciales[i], 0f)
             );
+            rayo.GetComponent<Jefe03_Rayo>().AsignarJefe(transform);
 
             // Configurar el rayo
             Jefe03_Rayo rayoScript = rayo.GetComponent<Jefe03_Rayo>();
