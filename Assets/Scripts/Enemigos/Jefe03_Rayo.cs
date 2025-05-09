@@ -23,8 +23,6 @@ public class Jefe03_Rayo : MonoBehaviour
 
     private void Start()
     {
-        jefe = GameObject.FindGameObjectWithTag("Enemy").transform;
-
         // Posicionar en el centro del jefe
         transform.position = jefe.position;
 
@@ -36,6 +34,11 @@ public class Jefe03_Rayo : MonoBehaviour
         StartCoroutine(CrecerRayo());
 
     }
+    public void AsignarJefe(Transform jefeTransform)
+    {
+        jefe = jefeTransform;
+    }
+
 
     void Update()
     {

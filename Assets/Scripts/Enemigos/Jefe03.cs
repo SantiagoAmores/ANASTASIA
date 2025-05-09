@@ -294,6 +294,7 @@ public class Jefe03 : MonoBehaviour
 
         // Instanciar el rayo
         GameObject rayo = Instantiate(rayoPrefab, transform.position + Vector3.up * 1.5f, Quaternion.Euler(90f, angulo, 0f));
+        rayo.GetComponent<Jefe03_Rayo>().AsignarJefe(transform);
         Transform rayoTransform = rayo.transform;
         Jefe03_Rayo rayoScript = rayo.GetComponent<Jefe03_Rayo>();
         rayoScript.velocidadRotacion = velocidadRayoFase1;
