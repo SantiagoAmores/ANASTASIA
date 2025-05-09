@@ -42,7 +42,6 @@ public class Arma5 : MonoBehaviour
             Quaternion rotacionRodillo = Quaternion.Euler(-90f, rotacionJugador.eulerAngles.y, 0f); // Rotacion del rodillo
             GameObject rodillo = Instantiate(rodilloPrefab, ObtenerPosicionDetras(), rotacionRodillo); // Instanciamos el rodillo
             rodillo.transform.parent = player.transform; // Hacemos que el rodillo se mueva con el jugador
-            rodillo.transform.parent = player.transform;
 
             StartCoroutine(GenerarRastro());
 
@@ -62,8 +61,11 @@ public class Arma5 : MonoBehaviour
                 // Posicion rastro detras de Anastasia
                 Vector3 posicionRastro = ObtenerPosicionDetras();
 
-               // Instaciar rastro
-                GameObject nuevoCharco = Instantiate(rastroPintura, posicionRastro, Quaternion.identity);
+                // Obtener la rotación del jugador en el eje Y (vertical)
+                Quaternion rotacionRastro = Quaternion.Euler(0f, player.transform.eulerAngles.y, 0f);
+
+                // Instaciar rastro
+                GameObject nuevoCharco = Instantiate(rastroPintura, posicionRastro, rotacionRastro);
 
                 // Asignar dano del rastro
                 CharcoPintura charcoScript = nuevoCharco.GetComponent<CharcoPintura>();

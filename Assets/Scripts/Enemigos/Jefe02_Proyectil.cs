@@ -5,10 +5,12 @@ using UnityEngine;
 public class Jefe02_Proyectil : MonoBehaviour
 {
     public MovimientoJugador jugador;
+    public GameObject posicionEfecto;
 
     private void Start()
     {
         jugador = FindObjectOfType<MovimientoJugador>();
+
     }
 
     private void OnTriggerEnter(Collider other)

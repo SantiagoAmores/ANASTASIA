@@ -6,21 +6,19 @@ using UnityEngine.UI;
 
 public class CanvasPintura : MonoBehaviour
 {
-    public float tiempoTotal = 200f;
-    public float intervalo = 50f;
     public Image[] imagenes;
     public RectTransform canvasRectTransform; //Transform pero para elementos del canvas
-
-    private float temporizador = 0f;
-    private int indiceActual = 0;
+    Vector3 escalaFinal = new Vector3(3f, 3f, 3f);
 
     void Start()
-    {  // Desactivar todas las imágenes al inicio
+    {  
+        // Desactivar todas las imágenes al inicio
         foreach (Image img in imagenes)
         {
             if (img != null)
             {
                 img.gameObject.SetActive(false);
+                img.rectTransform.localScale = Vector3.zero;
 
                 // Añadir componente de interacción para clicks
                 if (img.GetComponent<Button>() == null)
@@ -31,38 +29,43 @@ public class CanvasPintura : MonoBehaviour
             }
         }
     }
-
-    void Update()
+    public void PrimeraFase()
     {
-        temporizador += Time.deltaTime;
+        ActivarImagenesAleatorias(2);
+    }
 
-        if (indiceActual < imagenes.Length && temporizador >= (indiceActual + 1) * intervalo)
-        {
-            MostrarImagen(indiceActual);
-            indiceActual++;
-        }
+    public void SegundaFase()
+    {
+        ActivarImagenesAleatorias(4);
+    }
 
-        if (temporizador >= tiempoTotal)
+    private void ActivarImagenesAleatorias(int cantidad)
+    {
+        List<int> indicesDisponibles = new List<int>();
+        for (int i = 0; i < imagenes.Length; i++) indicesDisponibles.Add(i);
+
+        for (int i = 0; i < cantidad; i++)
         {
-            enabled = false;
+            if (indicesDisponibles.Count == 0) break;
+
+            int randomIndex = Random.Range(0, indicesDisponibles.Count);
+            int imagenIndex = indicesDisponibles[randomIndex];
+            indicesDisponibles.RemoveAt(randomIndex);
+
+            Image img = imagenes[imagenIndex];
+            MostrarImagen(img);
         }
     }
 
-    void MostrarImagen(int indice)
+    void MostrarImagen(Image img)
     {
-        if (imagenes[indice] != null)
-        {
-            RectTransform imgRect = imagenes[indice].rectTransform;
+         RectTransform imgRect = img.rectTransform;
+         imgRect.anchoredPosition = GenerarPosicionAleatoria(imgRect);
 
-            // Posición aleatoria
-            Vector2 nuevaPos = GenerarPosicionAleatoria(imgRect);
-            imgRect.anchoredPosition = nuevaPos;
-
-            // Activar y escalar desde 0 a 1
-            imagenes[indice].gameObject.SetActive(true);
-            imgRect.localScale = Vector3.zero;
-            StartCoroutine(AnimarEscala(imgRect));
-        }
+         img.gameObject.SetActive(true);
+         StartCoroutine(AnimarEscala(imgRect));
+         StartCoroutine(DesaparecerAut(img));
+        
     }
 
     IEnumerator AnimarEscala(RectTransform obj)
@@ -78,7 +81,12 @@ public class CanvasPintura : MonoBehaviour
             yield return null;
         }
 
-        obj.localScale = Vector3.one;
+        obj.localScale = escalaFinal;
+    }
+    private IEnumerator DesaparecerAut(Image img)
+    {
+        yield return new WaitForSeconds(8f);
+        OcultarImagen(img);
     }
 
     void OcultarImagen(Image img)
@@ -100,6 +108,4 @@ public class CanvasPintura : MonoBehaviour
         return new Vector2(x, y);
     }
 
-   public void PrimeraFase() { }
-   public void SegundaFase() { }
 }

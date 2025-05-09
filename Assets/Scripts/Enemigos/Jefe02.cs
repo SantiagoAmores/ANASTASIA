@@ -29,6 +29,9 @@ public class Jefe02 : MonoBehaviour
     public GameObject agujeroIzquierda;
     public GameObject particulas;
 
+    // Lista para almacenar las tostadas instanciadas
+    private List<GameObject> tostadasInstanciadas = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,8 +82,8 @@ public class Jefe02 : MonoBehaviour
         //rbIzquierda.constraints = RigidbodyConstraints.FreezePositionY;
         rbIzquierda.AddForce(Vector3.up * 1500f);
 
-        StartCoroutine(DespawnProyectilRutina(instanciaTostadaDerecha));
-        StartCoroutine(DespawnProyectilRutina(instanciaTostadaIzquierda));
+        StartCoroutine(DespawnProyectil(instanciaTostadaDerecha));
+        StartCoroutine(DespawnProyectil(instanciaTostadaIzquierda));
 
         yield return new WaitForSeconds(1f);
 
@@ -89,12 +92,10 @@ public class Jefe02 : MonoBehaviour
         if (statsScript.faseDeJefe == 1)
         {
             cantidadProyectiles = 2;
-            //canvasPintura.PrimeraFase();
         }
         else if (statsScript.faseDeJefe == 2)
         {
             cantidadProyectiles = 3;
-            //canvasPintura.SegundaFase();
         }
 
         for (int i = 0; i < cantidadProyectiles; i++)
@@ -105,7 +106,11 @@ public class Jefe02 : MonoBehaviour
 
             GameObject tostadaBuenaInstanciada = Instantiate(tostadaBuena, randomPosition, Quaternion.identity);
 
+            tostadasInstanciadas.Add(tostadaBuenaInstanciada);
+
             StartCoroutine(DespawnTostadaInstanciada(tostadaBuenaInstanciada));
+
+            canvasPintura.PrimeraFase();
 
         }
 
@@ -117,7 +122,11 @@ public class Jefe02 : MonoBehaviour
 
             GameObject tostadaMalaInstanciada = Instantiate(tostadaMala, randomPosition, Quaternion.identity);
 
+            tostadasInstanciadas.Add(tostadaMalaInstanciada);
+
             StartCoroutine(DespawnTostadaInstanciada(tostadaMalaInstanciada));
+
+            canvasPintura.SegundaFase();
         }
 
     }
@@ -158,7 +167,7 @@ public class Jefe02 : MonoBehaviour
         }
     }
 
-    private IEnumerator DespawnProyectilRutina(GameObject proyectilADespawnear)
+    private IEnumerator DespawnProyectil(GameObject proyectilADespawnear)
     {
         yield return new WaitForSeconds(1f);
    
@@ -170,6 +179,16 @@ public class Jefe02 : MonoBehaviour
         yield return new WaitForSeconds(10f);
 
         Destroy(proyectilADespawnear);
+    }
+
+    public void EliminarTodosLosProyectiles()
+    {
+        foreach (GameObject tostada in tostadasInstanciadas)
+        {
+            if (tostada != null)
+                Destroy(tostada);
+        }
+        tostadasInstanciadas.Clear();
     }
 
 }
