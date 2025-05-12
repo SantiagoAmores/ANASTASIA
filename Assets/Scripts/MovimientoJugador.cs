@@ -11,6 +11,8 @@ public class MovimientoJugador : MonoBehaviour
 
     private CanvasManager canvasManager;
 
+    public GameObject jugador;
+
     //Controles del jugador
     public float rotationSpeed = 10f;
     private CharacterController characterController;
@@ -29,6 +31,7 @@ public class MovimientoJugador : MonoBehaviour
     public Transform flechaObjetivo;
 
     public GameObject textoCuracionPrefab;
+    public GameObject particulasObjeto;
 
     // Enemigos
     public List<GameObject> listaEnemigos = new List<GameObject>();
@@ -108,6 +111,12 @@ public class MovimientoJugador : MonoBehaviour
             {
                 // Sonido objeto usado
                 fuenteAudio.PlayOneShot(objetoAudio);
+
+                // Particulas
+                jugador = GameObject.FindGameObjectWithTag("Player");
+                GameObject particulas = Instantiate(particulasObjeto, jugador.transform.position, Quaternion.LookRotation(Vector3.up));
+                particulas.transform.SetParent(jugador.transform);
+                Destroy(particulas, 1f);
 
                 if (objetoActual == 0 && canvasManager.objeto1.activeSelf)
                 {
@@ -271,5 +280,15 @@ public class MovimientoJugador : MonoBehaviour
         yield return new WaitForSeconds(4f);
         buffVelocidad = 1f;
         //Debug.Log("¡A caminar!");
+    }
+
+    void InstanciarParticulas()
+    {
+        if (particulasObjeto != null)
+        {
+            Vector3 posicionParticulas = transform.position + new Vector3(0, 0.1f, 0); // Ligeramente por encima del suelo
+            GameObject particulas = Instantiate(particulasObjeto, posicionParticulas, Quaternion.LookRotation(Vector3.up));
+            Destroy(particulas, 2f);
+        }
     }
 }

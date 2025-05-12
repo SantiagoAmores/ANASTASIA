@@ -4088,6 +4088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anastasia
       objectReference: {fileID: 0}
+    - target: {fileID: 8920793231583791727, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: particulasObjeto
+      value: 
+      objectReference: {fileID: 642177746704128885, guid: 82a4706977190314da283de4e7a16016, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
