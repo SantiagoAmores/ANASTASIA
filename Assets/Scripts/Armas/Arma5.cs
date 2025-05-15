@@ -45,7 +45,7 @@ public class Arma5 : MonoBehaviour
 
             StartCoroutine(GenerarRastro());
 
-            yield return new WaitForSeconds(2f); // Tiempo en el que se genera el rastro
+            yield return new WaitForSeconds(2f + stats.arma5Ataque / 5f); // Tiempo en el que se genera el rastro
             activado = false; // Se desactiva el arma
 
             // Destruimos el rodillo después de un tiempo (igual que el rastro)
@@ -69,10 +69,22 @@ public class Arma5 : MonoBehaviour
 
                 // Asignar dano del rastro
                 CharcoPintura charcoScript = nuevoCharco.GetComponent<CharcoPintura>();
-                if (charcoScript != null)
+
+                int cantidadGolpe = 1;
+                if (stats.mejorasAtaque < 3)
                 {
-                    charcoScript.golpe = (int)stats.arma5Ataque;
+                    cantidadGolpe = 1;
                 }
+                else if (stats.mejorasAtaque >= 3 && stats.mejorasAtaque < 6)
+                {
+                    cantidadGolpe = 2;
+                }
+                else if (stats.mejorasAtaque >= 6)
+                {
+                    cantidadGolpe = 3;
+                }
+
+                if (charcoScript != null) { charcoScript.golpe = cantidadGolpe; }
 
                 Destroy(nuevoCharco, duracion);
             }

@@ -57,7 +57,19 @@ public class Arma3 : MonoBehaviour
 
             // Se calcula el dano del charco de pintura
             CharcoPintura charcoScript = instanciarPintura.GetComponent<CharcoPintura>();
-            if (charcoScript != null) { charcoScript.golpe = 1; }
+
+            int cantidadGolpe = 1;
+            if (stats.mejorasAtaque < 3)
+            {
+                cantidadGolpe = 1;
+            } else if (stats.mejorasAtaque >= 3 && stats.mejorasAtaque < 6) {
+                cantidadGolpe = 2;
+            } else if (stats.mejorasAtaque >= 6)
+            {
+                cantidadGolpe = 3;
+            }
+
+            if (charcoScript != null) { charcoScript.golpe = cantidadGolpe; }
 
             // Escalado d ela pintura
             Vector3 escalaInicial = Vector3.zero;

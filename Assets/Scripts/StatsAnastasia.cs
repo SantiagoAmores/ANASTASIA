@@ -13,7 +13,7 @@ public class StatsAnastasia : MonoBehaviour
 
     // ARMA 1 BASE
     public static float arma1CadenciaBase = 1.6f;
-    public static int arma1AtaqueBase = 2;
+    public static int arma1AtaqueBase = 1;
 
     // ARMA 2 BASE
     public static float arma2CadenciaBase = 4.5f;
@@ -191,7 +191,7 @@ public class StatsAnastasia : MonoBehaviour
         arma1Cadencia = Mathf.Max(1f, arma4Cadencia - 0.1f);
         arma5Cadencia = Mathf.Max(0.3f, arma5Cadencia - 0.1f);
         arma6Cadencia = Mathf.Max(0.3f, arma6Cadencia - 0.1f);
-        ticsPorSegundo = Mathf.Max(0.05f, ticsPorSegundo - 0.11875f);
+        ticsPorSegundo = Mathf.Max(0.2f, ticsPorSegundo - 0.1f);
     }
 
     void AumentarAtaque()
@@ -222,7 +222,6 @@ public class StatsAnastasia : MonoBehaviour
 
     public IEnumerator aumentoAtaque()
     {
-        Debug.Log("¡A pegar!");
         arma1Ataque += 3;
         arma2Ataque += 3;
         arma3Ataque += 3;
@@ -230,7 +229,6 @@ public class StatsAnastasia : MonoBehaviour
         arma5Ataque += 3;
         arma6Ataque += 3;
         yield return new WaitForSeconds(5f);
-        Debug.Log("¡Vamos a calmarnos!");
         arma1Ataque -= 3;
         arma2Ataque -= 3;
         arma3Ataque -= 3;
@@ -238,5 +236,4 @@ public class StatsAnastasia : MonoBehaviour
         arma5Ataque -= 3;
         arma6Ataque -= 3;
     }
-
 }

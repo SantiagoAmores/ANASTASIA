@@ -167,7 +167,7 @@ GameObject:
   m_Layer: 7
   m_Name: Anastasia
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d052a42014e3c0342b4592a91d99a73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
   rotationSpeed: 10
   stats: {fileID: 0}
   statsEnemigo: {fileID: 0}
@@ -309,6 +310,7 @@ MonoBehaviour:
   flechaDireccion: {fileID: 0}
   flechaObjetivo: {fileID: 0}
   textoCuracionPrefab: {fileID: 6474264951493391942, guid: 99897a1b16b9eea4996018fb25b2fa2b, type: 3}
+  particulasObjeto: {fileID: 642177746704128885, guid: 82a4706977190314da283de4e7a16016, type: 3}
   listaEnemigos: []
   enemigo: {fileID: 0}
   tieneObjetoActivo: 0

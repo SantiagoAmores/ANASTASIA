@@ -258,6 +258,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5243260888949168918, guid: 851d490a18407e4499039073eedb394e, type: 3}
   m_PrefabInstance: {fileID: 23173405}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &23173409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4405196801305162699, guid: 851d490a18407e4499039073eedb394e, type: 3}
+  m_PrefabInstance: {fileID: 23173405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &56533758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2851,6 +2862,9 @@ MonoBehaviour:
   menuPausa: {fileID: 23173408}
   panelVictoria: {fileID: 23173407}
   panelDerrota: {fileID: 23173406}
+  tieneEstadisticas: {fileID: 0}
+  estadisticasTexto: {fileID: 23173409}
+  estadisticasScript: {fileID: 0}
 --- !u!114 &965244180
 MonoBehaviour:
   m_ObjectHideFlags: 0

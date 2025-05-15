@@ -13,12 +13,8 @@ public class CharcoPintura : MonoBehaviour
             Enemigo enemigo = other.GetComponent<Enemigo>();
             if (enemigo != null)
             {
-
                 enemigo.RecibirGolpe(golpe, this.gameObject);
-
             }
-
         }
     }
-
 }
