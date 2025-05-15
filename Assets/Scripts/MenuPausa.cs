@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MenuPausa : MonoBehaviour
@@ -10,10 +11,14 @@ public class MenuPausa : MonoBehaviour
     public GameObject panelVictoria;
     public GameObject panelDerrota;
 
+    public GameObject tieneEstadisticas;
+    public TextMeshProUGUI estadisticasTexto;
+    public StatsAnastasia estadisticasScript;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        estadisticasScript = FindAnyObjectByType<StatsAnastasia>();
     }
 
     // Update is called once per frame
@@ -38,6 +43,10 @@ public class MenuPausa : MonoBehaviour
     public void Pause()
     {
         menuPausa.SetActive(true);
+        estadisticasTexto.text = "ESTADÍSTICAS ACTUALES\nVIDA: " + estadisticasScript.mejorasVida +
+                                    "\nATAQUE: " + estadisticasScript.mejorasAtaque +
+                                    "\nCADENCIA: " + estadisticasScript.mejorasCadencia +
+                                    "\nVELOCIDAD: " + estadisticasScript.mejorasVelocidad;
         Time.timeScale = 0f;
     }
 
