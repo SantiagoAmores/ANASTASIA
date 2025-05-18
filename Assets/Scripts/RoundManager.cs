@@ -134,6 +134,8 @@ public class RoundManager : MonoBehaviour
         Debug.Log("Has Ganado");
         ActivarSpawner(false);
 
+        GuardarEstadisticasEnemigos();
+
         //Aqui pondremos las animaciones y demas cosas
         canvasManager.Victoria();
         // Desbloquear entradas del bestiario correspondientes a este nivel
@@ -187,5 +189,18 @@ public class RoundManager : MonoBehaviour
                 break;
         }
         canvasManager.ActualizarTextoRonda(texto);
+    }
+
+    void GuardarEstadisticasEnemigos()
+    {
+        var contador = GameManager.instancia.enemigosDerrotados;
+        foreach (var kvp in contador)
+        {
+            string clave = $"derrotados_{kvp.Key}";
+            int cantidadAnterior = PlayerPrefs.GetInt(clave, 0);
+            PlayerPrefs.SetInt(clave, cantidadAnterior + kvp.Value);
+        }
+
+        PlayerPrefs.Save();
     }
 }

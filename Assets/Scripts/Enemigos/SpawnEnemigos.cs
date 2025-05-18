@@ -37,7 +37,7 @@ public class SpawnEnemigos : MonoBehaviour
             instanciar = true;
             tiempoEntreSpawns /= 2;
             minimoSpawns = 4;
-            maximoSpawns = 9;
+            maximoSpawns = 7;
             StartCoroutine(Spawns());
         }
     }

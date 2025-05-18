@@ -145,6 +145,16 @@ public class Enemigo : MonoBehaviour
             if (estadisticas.esUnJefe && estadisticas.faseDeJefe == 1) { DropDeJefe(); }
             if (jefeScript != null) { jefeScript.EliminarTodosLosProyectiles(); }
 
+            if (GameManager.instancia != null)
+            {
+                if (!GameManager.instancia.enemigosDerrotados.ContainsKey(nombreEnemigo))
+                {
+                    GameManager.instancia.enemigosDerrotados[nombreEnemigo] = 0;
+                }
+                GameManager.instancia.enemigosDerrotados[nombreEnemigo]++;
+            }
+
+
             // Y despues destruye al enemigo
             Destroy(this.gameObject);
         }
@@ -219,7 +229,7 @@ public class Enemigo : MonoBehaviour
                 alturaFija,
                 transform.position.z + offset2D.y
                 );
-            Instantiate(puntoExperienciaPrefab, dropPosicion, Quaternion.Euler(-90, 0, 0));
+            Instantiate(puntoExperienciaPrefab, dropPosicion, Quaternion.Euler(-90, 180, 0));
         }
 
         // Dropeo de vida
@@ -232,7 +242,7 @@ public class Enemigo : MonoBehaviour
                 alturaFija,
                 transform.position.z + offsetVida2D.y
                 );
-            Instantiate(corazonPrefab, dropVidaPosicion, Quaternion.Euler(-90, 0, 0));
+            Instantiate(corazonPrefab, dropVidaPosicion, Quaternion.Euler(-90, 180, 0));
         }
     }
 
@@ -261,7 +271,7 @@ public class Enemigo : MonoBehaviour
     public void DropDeJarron()
     {
         Vector3 dropPosition = transform.position + new Vector3(0, -0.5f, 0);
-        Instantiate(regaloPrefab, dropPosition, Quaternion.Euler(-90,0,0));
+        Instantiate(regaloPrefab, dropPosition, Quaternion.Euler(-90,180,0));
     }
 
     void MostrarTextoDano(int cantidad)

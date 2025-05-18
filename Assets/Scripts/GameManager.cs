@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class GameManager : MonoBehaviour
     public int experienciaActual = 0;
     public int nivel = 1;
     public int experienciaRequerida = 5;
+
+    [Header("Contador de enemigos")]
+    public Dictionary<string, int> enemigosDerrotados = new Dictionary<string, int>();
+
 
     private const string desbloqueo_base = "desbloqueo_niveles_1";
     void Awake()
