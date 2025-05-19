@@ -1927,6 +1927,7 @@ MonoBehaviour:
   tieneEstadisticas: {fileID: 0}
   estadisticasTexto: {fileID: 1742890082}
   estadisticasScript: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1082301097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8329,6 +8330,7 @@ MonoBehaviour:
   experienciaActual: 0
   nivel: 1
   experienciaRequerida: 5
+  contadorEnemigosDerrotados: 0
 --- !u!4 &1883988963
 Transform:
   m_ObjectHideFlags: 0

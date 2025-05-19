@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -43,11 +44,20 @@ public class CanvasManager : MonoBehaviour
     public GameObject objeto4;
     public GameObject objeto5;
 
+    [Header("Cámara cinemática final")]
+    public CinemachineVirtualCamera camaraFinal;
+
+    //[Header("Animaciones")]
+    //public Animator animJugador;
+    //public string animVictoria = "Victoria";
+    //public string animDerrota = "Derrota";
+
     void Start()
     {
         InicializarReferencias();
         ConfigurarSliders();
         OcultarPanelesIniciales();
+        camaraFinal.gameObject.SetActive(false);
     }
 
     void Update()
@@ -164,14 +174,55 @@ public class CanvasManager : MonoBehaviour
 
     public void Victoria()
     {
-        PanelVictoria.SetActive(true);
-        Time.timeScale = 0f; // Pausar el juego
+        StartCoroutine(SecuenciaFinal(true));
     }
 
     public void Derrota()
     {
-        PanelDerrota.SetActive(true);
-        Time.timeScale = 0f; // Pausar el juego
+        StartCoroutine(SecuenciaFinal(false));
+    }
+
+    IEnumerator SecuenciaFinal(bool esVictoria)
+    {
+        if (camaraFinal != null)
+        {
+            camaraFinal.gameObject.SetActive(true);
+        }
+
+        // Esperar un frame para asegurar que la cámara se active correctamente
+        yield return null;
+
+        //if (animJugador != null)
+        //{
+        //    if (esVictoria)
+        //    {
+        //        animJugador.Play(animVictoria);
+        //    }
+        //    else
+        //    {
+        //        animJugador.Play(animDerrota);
+        //    }
+        //}
+
+        // Espera 2 segundos o el tiempo que dure la animación
+        yield return new WaitForSeconds(2f);
+
+        if (esVictoria)
+        {
+            if (PanelVictoria != null)
+            {
+                PanelVictoria.SetActive(true);
+            }
+        }
+        else
+        {
+            if (PanelDerrota != null)
+            {
+                PanelDerrota.SetActive(true);
+            }
+        }
+
+        Time.timeScale = 0f;
     }
 
     public void MenúInicio()
