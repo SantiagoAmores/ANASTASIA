@@ -3818,18 +3818,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4405196801305162699, guid: 851d490a18407e4499039073eedb394e, type: 3}
-      propertyPath: m_margin.w
-      value: -120.32443
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405196801305162699, guid: 851d490a18407e4499039073eedb394e, type: 3}
-      propertyPath: m_margin.z
-      value: -76.57855
-      objectReference: {fileID: 0}
-    - target: {fileID: 5243260888949168918, guid: 851d490a18407e4499039073eedb394e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6064480657686895319, guid: 851d490a18407e4499039073eedb394e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
