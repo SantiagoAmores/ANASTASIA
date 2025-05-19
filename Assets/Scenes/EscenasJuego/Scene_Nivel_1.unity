@@ -3818,6 +3818,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4405196801305162699, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: m_margin.w
+      value: -120.32443
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405196801305162699, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: m_margin.z
+      value: -76.57855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243260888949168918, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6064480657686895319, guid: 851d490a18407e4499039073eedb394e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -10959,6 +10971,7 @@ MonoBehaviour:
   experienciaActual: 0
   nivel: 1
   experienciaRequerida: 5
+  contadorEnemigosDerrotados: 0
 --- !u!4 &640954498
 Transform:
   m_ObjectHideFlags: 0
@@ -16435,6 +16448,7 @@ MonoBehaviour:
   tieneEstadisticas: {fileID: 0}
   estadisticasTexto: {fileID: 446122986}
   estadisticasScript: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1355397435
 MonoBehaviour:
   m_ObjectHideFlags: 0

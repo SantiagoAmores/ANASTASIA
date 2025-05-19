@@ -151,9 +151,12 @@ public class Enemigo : MonoBehaviour
                 {
                     GameManager.instancia.enemigosDerrotados[nombreEnemigo] = 0;
                 }
-                GameManager.instancia.enemigosDerrotados[nombreEnemigo]++;
-            }
 
+                GameManager.instancia.enemigosDerrotados[nombreEnemigo]++;
+
+                // Suma 1 al contador en el game manager
+                GameManager.instancia.contadorEnemigosDerrotados++;
+            }
 
             // Y despues destruye al enemigo
             Destroy(this.gameObject);

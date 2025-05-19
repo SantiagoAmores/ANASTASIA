@@ -14,11 +14,13 @@ public class MenuPausa : MonoBehaviour
     public GameObject tieneEstadisticas;
     public TextMeshProUGUI estadisticasTexto;
     public StatsAnastasia estadisticasScript;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         estadisticasScript = FindAnyObjectByType<StatsAnastasia>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -46,7 +48,9 @@ public class MenuPausa : MonoBehaviour
         estadisticasTexto.text = "ESTADÍSTICAS ACTUALES\nVIDA: " + estadisticasScript.mejorasVida +
                                     "\nATAQUE: " + estadisticasScript.mejorasAtaque +
                                     "\nCADENCIA: " + estadisticasScript.mejorasCadencia +
-                                    "\nVELOCIDAD: " + estadisticasScript.mejorasVelocidad;
+                                    "\nVELOCIDAD: " + estadisticasScript.mejorasVelocidad +
+                                    "\nENEMIGOS DERROTADOS: " + gameManager.contadorEnemigosDerrotados;
+
         Time.timeScale = 0f;
     }
 

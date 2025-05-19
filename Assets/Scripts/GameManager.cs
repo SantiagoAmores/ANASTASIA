@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public int experienciaActual = 0;
     public int nivel = 1;
     public int experienciaRequerida = 5;
+    public int contadorEnemigosDerrotados = 0;
 
     [Header("Contador de enemigos")]
     public Dictionary<string, int> enemigosDerrotados = new Dictionary<string, int>();
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
         experienciaActual = 0;
         nivel = 1;
         experienciaRequerida = 5;
+        contadorEnemigosDerrotados = 0;
     }
 
     void DesbloqueoInicialCheck()
