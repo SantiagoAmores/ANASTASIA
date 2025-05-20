@@ -45,6 +45,9 @@ public class MovimientoJugador : MonoBehaviour
     public AudioSource fuenteAudio;
     public AudioClip objetoAudio;
 
+    public bool invencible = false;
+    public float duracionInvencibilidad = 0.75f;
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -175,11 +178,17 @@ public class MovimientoJugador : MonoBehaviour
 
     public void herirAnastasia(int cantidadHerida)
     {
+        if (invencible) return;
+
         vidaActual -= cantidadHerida;
 
         if (vidaActual <= 0)
         {
             canvasManager.Derrota();
+        }
+        else
+        {
+            StartCoroutine(ActivarInvencibilidad());
         }
     }
 
@@ -289,5 +298,12 @@ public class MovimientoJugador : MonoBehaviour
             GameObject particulas = Instantiate(particulasObjeto, posicionParticulas, Quaternion.LookRotation(Vector3.up));
             Destroy(particulas, 2f);
         }
+    }
+
+    IEnumerator ActivarInvencibilidad()
+    {
+        invencible = true;
+        yield return new WaitForSeconds(duracionInvencibilidad);
+        invencible = false;
     }
 }
