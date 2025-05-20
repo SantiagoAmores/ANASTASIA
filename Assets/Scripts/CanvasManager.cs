@@ -31,6 +31,8 @@ public class CanvasManager : MonoBehaviour
 
     [Header("Parámetros del jugador")]
     public MovimientoJugador statVida;
+    public StatsAnastasia estadisticasScript;
+    public TextMeshProUGUI estadisticasTexto;
 
     [Header("Cuenta atrás")]
     public float startTime = 120f;
@@ -58,6 +60,7 @@ public class CanvasManager : MonoBehaviour
         ConfigurarSliders();
         OcultarPanelesIniciales();
         camaraFinal.gameObject.SetActive(false);
+        estadisticasScript = FindAnyObjectByType<StatsAnastasia>();
     }
 
     void Update()
@@ -184,10 +187,25 @@ public class CanvasManager : MonoBehaviour
 
     IEnumerator SecuenciaFinal(bool esVictoria)
     {
+
+        // Buscar y destruir a todos los enemigos
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemigo in enemigos)
+        {
+            Destroy(enemigo);
+        }
+
         if (camaraFinal != null)
         {
             camaraFinal.gameObject.SetActive(true);
+
         }
+
+        estadisticasTexto.text = "ESTADÍSTICAS ACTUALES\nVIDA: " + estadisticasScript.mejorasVida +
+                                    "\nATAQUE: " + estadisticasScript.mejorasAtaque +
+                                    "\nCADENCIA: " + estadisticasScript.mejorasCadencia +
+                                    "\nVELOCIDAD: " + estadisticasScript.mejorasVelocidad +
+                                    "\nENEMIGOS DERROTADOS: " + gameManager.contadorEnemigosDerrotados;
 
         // Esperar un frame para asegurar que la cámara se active correctamente
         yield return null;
@@ -204,7 +222,6 @@ public class CanvasManager : MonoBehaviour
         //    }
         //}
 
-        // Espera 2 segundos o el tiempo que dure la animación
         yield return new WaitForSeconds(2f);
 
         if (esVictoria)

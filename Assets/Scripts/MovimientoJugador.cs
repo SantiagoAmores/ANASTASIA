@@ -179,7 +179,6 @@ public class MovimientoJugador : MonoBehaviour
 
         if (vidaActual <= 0)
         {
-            Time.timeScale = 0f;
             canvasManager.Derrota();
         }
     }
