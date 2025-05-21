@@ -15,6 +15,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject PanelVictoria;
     public GameObject PanelDerrota;
     public GameObject PanelOpciones;
+    public GameObject PanelReinicio;
+    public GameObject PanelPausa;
 
     [Header("Textos")]
     public TextMeshProUGUI cuentaAtras;
@@ -269,6 +271,18 @@ public class CanvasManager : MonoBehaviour
 
         //Volver al menu de inicio
         SceneManager.LoadScene("MenuInicio");
+    }
+
+    public void MenuReinicio()
+    {
+        PanelPausa.SetActive(false);
+        PanelReinicio.SetActive(true);
+    }
+
+    public void VolverAlNivel()
+    {
+        PanelReinicio.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void ReinicioNivel()
