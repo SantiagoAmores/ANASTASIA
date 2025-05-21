@@ -61,6 +61,7 @@ public class CanvasManager : MonoBehaviour
         OcultarPanelesIniciales();
         camaraFinal.gameObject.SetActive(false);
         estadisticasScript = FindAnyObjectByType<StatsAnastasia>();
+        estadisticasTexto.gameObject.SetActive(false);
     }
 
     void Update()
@@ -224,6 +225,9 @@ public class CanvasManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        // Desactivamos todo el Canvas antes de mostrar los paneles
+        DesactivarElementosCanvas();
+
         if (esVictoria)
         {
             if (PanelVictoria != null)
@@ -239,7 +243,23 @@ public class CanvasManager : MonoBehaviour
             }
         }
 
+        estadisticasTexto.gameObject.SetActive(true);
+
         Time.timeScale = 0f;
+    }
+
+    void DesactivarElementosCanvas()
+    {
+        // Desactiva todos los hijos activos del Canvas, excepto los paneles de victoria/derrota
+        foreach (Transform hijo in transform)
+        {
+            if (hijo.gameObject.activeSelf &&
+                hijo.gameObject != PanelVictoria &&
+                hijo.gameObject != PanelDerrota)
+            {
+                hijo.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void MenúInicio()
@@ -258,16 +278,6 @@ public class CanvasManager : MonoBehaviour
 
         // Cargar la escena desde el principio
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void Opciones()
-    {
-        PanelOpciones.SetActive(true);
-    }
-
-    public void Atras()
-    {
-        PanelOpciones.SetActive(false);
     }
 
     public void Museo()
