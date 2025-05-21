@@ -46,7 +46,6 @@ public class MovimientoJugador : MonoBehaviour
     public AudioClip objetoAudio;
 
     public bool invencible = false;
-    public float duracionInvencibilidad = 0.75f;
 
     void Start()
     {
@@ -188,7 +187,7 @@ public class MovimientoJugador : MonoBehaviour
         }
         else
         {
-            StartCoroutine(ActivarInvencibilidad());
+            StartCoroutine(ActivarInvencibilidad(0.5f));
         }
     }
 
@@ -285,6 +284,7 @@ public class MovimientoJugador : MonoBehaviour
     {
         //Debug.Log("¡A correr!");
         buffVelocidad = 2f;
+        ActivarInvencibilidad(4f);
         yield return new WaitForSeconds(4f);
         buffVelocidad = 1f;
         //Debug.Log("¡A caminar!");
@@ -300,10 +300,10 @@ public class MovimientoJugador : MonoBehaviour
         }
     }
 
-    IEnumerator ActivarInvencibilidad()
+    IEnumerator ActivarInvencibilidad(float duracion)
     {
         invencible = true;
-        yield return new WaitForSeconds(duracionInvencibilidad);
+        yield return new WaitForSeconds(duracion);
         invencible = false;
     }
 }
