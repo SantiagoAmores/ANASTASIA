@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MenuInicio : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class MenuInicio : MonoBehaviour
 
     public CinemachineVirtualCamera mainMenuCam;
     public CinemachineVirtualCamera optionsCam;
+    public CinemachineVirtualCamera creditosCam;
+
+    public GameObject panelCreditos;
+
+    public CreditosLoop creditosLoop;
+
+    public float normalSpeed = 40f;
+    public float fastSpeed = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +29,9 @@ public class MenuInicio : MonoBehaviour
         /*menuPrincipal.SetActive(true);
         opciones.SetActive(false);
         botonAtras.SetActive(false);*/
+
+        panelCreditos.SetActive(false);
+        creditosLoop.SetSpeed(normalSpeed); // Velocidad inicial
     }
 
     // Update is called once per frame
@@ -38,6 +50,9 @@ public class MenuInicio : MonoBehaviour
     {
         mainMenuCam.Priority = 0;
         optionsCam.Priority = 10;
+        creditosCam.Priority = 0;
+
+        panelCreditos.SetActive(false);
 
         /*
         menuPrincipal.SetActive(false);
@@ -45,10 +60,22 @@ public class MenuInicio : MonoBehaviour
         botonAtras.SetActive(true);*/
     }
 
+    public void MostrarCreditos()
+    {
+        mainMenuCam.Priority = 0;
+        optionsCam.Priority = 0;
+        creditosCam.Priority = 10;
+
+        panelCreditos.SetActive(true);
+        creditosLoop.SetSpeed(normalSpeed); // Reiniciar a velocidad normal por si acaso
+    }
+
     public void VolverMenu()
     {
         mainMenuCam.Priority = 10;
         optionsCam.Priority = 0;
+        creditosCam.Priority = 0;
+
         /*
         menuPrincipal.SetActive(true);
         botonAtras.SetActive(false);
@@ -58,5 +85,17 @@ public class MenuInicio : MonoBehaviour
     public void SalirJuego()
     {
         Application.Quit();
+    }
+
+
+    // Métodos para acelerar/desacelerar los créditos con el botón UI
+    public void AcelerarCreditos()
+    {
+        creditosLoop.SetSpeed(fastSpeed);
+    }
+
+    public void FrenarCreditos()
+    {
+        creditosLoop.SetSpeed(normalSpeed);
     }
 }

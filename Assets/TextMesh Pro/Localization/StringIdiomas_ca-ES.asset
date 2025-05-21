@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3815912052711424
-    m_Localized: Esborrar Prefs.
+    m_Localized: Esborrar Partida
     m_Metadata:
       m_Items: []
   - m_Id: 3816530813214720
@@ -255,6 +255,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4767429836816384
     m_Localized: "En honor a les cre\xEFlletes\n\r\n-Una cre\xEFlleta"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11652579484909568
+    m_Localized: "Cr\xE8dits"
     m_Metadata:
       m_Items: []
   references:

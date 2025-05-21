@@ -235,6 +235,10 @@ MonoBehaviour:
     m_Key: textonivel3
     m_Metadata:
       m_Items: []
+  - m_Id: 11652579484909568
+    m_Key: CreditosKey
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
