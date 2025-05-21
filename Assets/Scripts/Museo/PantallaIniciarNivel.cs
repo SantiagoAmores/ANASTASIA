@@ -19,6 +19,7 @@ public class PantallaIniciarNivel : MonoBehaviour
     public Transform targetNivel;
     public CinemachineVirtualCamera museoCamara;
     private Coroutine zoomCoroutine; // Cambio de camara fluida
+    private Quaternion rotacionInicial;
 
     public GameObject iconoArma1;
     public GameObject iconoArma2;
@@ -34,6 +35,7 @@ public class PantallaIniciarNivel : MonoBehaviour
     void Start()
     {
         museoCamara = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+        rotacionInicial = museoCamara.transform.rotation;
 
         // Oculta la ventana de la interfaz
         PantallaNivelCanvas.SetActive(false);
@@ -103,7 +105,9 @@ public class PantallaIniciarNivel : MonoBehaviour
 
             // Inicia el zoom suave
             if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
-            zoomCoroutine = StartCoroutine(zoomCuadro(40f, 1f)); // Zoom a 30 en medio segundo
+
+            Quaternion rotacionFinal = Quaternion.Euler(20f, museoCamara.transform.eulerAngles.y, museoCamara.transform.eulerAngles.z);
+            zoomCoroutine = StartCoroutine(zoomCuadro(40f, 1f, rotacionFinal)); // Zoom a 30 en medio segundo
         }
     }
 
@@ -126,23 +130,26 @@ public class PantallaIniciarNivel : MonoBehaviour
 
             // Zoom suave de regreso
             if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
-            zoomCoroutine = StartCoroutine(zoomCuadro(60f, 0.5f));
+            zoomCoroutine = StartCoroutine(zoomCuadro(60f, 0.5f, rotacionInicial));
         }
     }
 
-    public IEnumerator zoomCuadro(float nuevoZoom, float duracion)
+    public IEnumerator zoomCuadro(float nuevoZoom, float duracion, Quaternion nuevaRotacion)
     {
         float tiempo = 0f;
         float zoomInicial = museoCamara.m_Lens.FieldOfView;
+        Quaternion rotacionInicialCamara = museoCamara.transform.rotation;
 
         while (tiempo < duracion)
         {
             museoCamara.m_Lens.FieldOfView = Mathf.Lerp(zoomInicial, nuevoZoom, tiempo / duracion);
+            museoCamara.transform.rotation = Quaternion.Lerp(rotacionInicialCamara, nuevaRotacion, tiempo / duracion);
             tiempo += Time.deltaTime;
             yield return null;
         }
 
         museoCamara.m_Lens.FieldOfView = nuevoZoom;
+        museoCamara.transform.rotation = nuevaRotacion;
     }
 
     // Funcion para cargar la escena

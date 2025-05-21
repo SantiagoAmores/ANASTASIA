@@ -44,6 +44,9 @@ public class MovimientoJugador : MonoBehaviour
     // Sonidos
     public AudioSource fuenteAudio;
     public AudioClip objetoAudio;
+    public AudioClip heridaAudio;
+
+    public bool invencible = false;
 
     void Start()
     {
@@ -175,13 +178,20 @@ public class MovimientoJugador : MonoBehaviour
 
     public void herirAnastasia(int cantidadHerida)
     {
+        if (invencible) return;
+
+        fuenteAudio.PlayOneShot(heridaAudio);
         vidaActual -= cantidadHerida;
 
         if (vidaActual <= 0)
         {
-            Time.timeScale = 0f;
             canvasManager.Derrota();
         }
+        else
+        {
+            StartCoroutine(ActivarInvencibilidad(0.5f));
+        }
+
     }
 
     public void mostrarFlecha(bool mostrar, Transform objetivo = null)
@@ -277,6 +287,7 @@ public class MovimientoJugador : MonoBehaviour
     {
         //Debug.Log("¡A correr!");
         buffVelocidad = 2f;
+        ActivarInvencibilidad(4f);
         yield return new WaitForSeconds(4f);
         buffVelocidad = 1f;
         //Debug.Log("¡A caminar!");
@@ -290,5 +301,12 @@ public class MovimientoJugador : MonoBehaviour
             GameObject particulas = Instantiate(particulasObjeto, posicionParticulas, Quaternion.LookRotation(Vector3.up));
             Destroy(particulas, 2f);
         }
+    }
+
+    IEnumerator ActivarInvencibilidad(float duracion)
+    {
+        invencible = true;
+        yield return new WaitForSeconds(duracion);
+        invencible = false;
     }
 }

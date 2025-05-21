@@ -559,7 +559,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.4575472, g: 1, b: 0.8872799, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -642,13 +642,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359083948}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 9.660254, z: 4.9999995}
+  m_LocalRotation: {x: 0.36552674, y: 0, z: 0, w: 0.9308009}
+  m_LocalPosition: {x: -1.7, y: 3.73, z: 6.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0.03, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.82, y: 0, z: 0}
 --- !u!114 &359083953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,10 +1222,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3400856347996301974, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7986659953479751430, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_Name
       value: Anastasia
@@ -1239,6 +1235,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+--- !u!114 &621085214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4933712414540365009, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+  m_PrefabInstance: {fileID: 621085213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &638706823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 15c25284e2c1bde4cbbc52a2004ebac7, type: 3}
@@ -1927,6 +1934,7 @@ MonoBehaviour:
   tieneEstadisticas: {fileID: 0}
   estadisticasTexto: {fileID: 1742890082}
   estadisticasScript: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1082301097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8329,6 +8337,7 @@ MonoBehaviour:
   experienciaActual: 0
   nivel: 1
   experienciaRequerida: 5
+  contadorEnemigosDerrotados: 0
 --- !u!4 &1883988963
 Transform:
   m_ObjectHideFlags: 0
@@ -9157,6 +9166,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7613908472306378927, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: camaraFinal
+      value: 
+      objectReference: {fileID: 621085214}
     - target: {fileID: 7884038846478430412, guid: 851d490a18407e4499039073eedb394e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

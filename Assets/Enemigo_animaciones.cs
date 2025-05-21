@@ -15,6 +15,13 @@ public class Enemigo_animaciones : MonoBehaviour
 
     void Update()
     {
-        animator.SetFloat("velocidadActual", enemigoScript.enemigo.speed);
+        if (enemigoScript != null)
+        {
+            animator.SetFloat("velocidadActual", enemigoScript.enemigo.speed);
+        }
+        else
+        {
+            animator.SetFloat("velocidadActual", 0f);
+        }
     }
 }

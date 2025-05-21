@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7613908472306378927, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: camaraFinal
+      value: 
+      objectReference: {fileID: 1806281356}
     - target: {fileID: 7884038846478430412, guid: 851d490a18407e4499039073eedb394e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2865,6 +2869,7 @@ MonoBehaviour:
   tieneEstadisticas: {fileID: 0}
   estadisticasTexto: {fileID: 23173409}
   estadisticasScript: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &965244180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3666,6 +3671,7 @@ MonoBehaviour:
   experienciaActual: 0
   nivel: 1
   experienciaRequerida: 5
+  contadorEnemigosDerrotados: 0
 --- !u!4 &1303907954
 Transform:
   m_ObjectHideFlags: 0
@@ -4311,9 +4317,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 467372ac1db08374a9e0b00e8177d7a3, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2323d08934033274db85be83764e0793, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.185
+  m_Volume: 0.44
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5221,6 +5227,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
   m_PrefabInstance: {fileID: 1806281354}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1806281356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4933712414540365009, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+  m_PrefabInstance: {fileID: 1806281354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1816753157
 GameObject:
   m_ObjectHideFlags: 0

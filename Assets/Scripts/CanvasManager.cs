@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject PanelVictoria;
     public GameObject PanelDerrota;
     public GameObject PanelOpciones;
+    public GameObject PanelReinicio;
+    public GameObject PanelPausa;
 
     [Header("Textos")]
     public TextMeshProUGUI cuentaAtras;
@@ -30,6 +33,8 @@ public class CanvasManager : MonoBehaviour
 
     [Header("Parámetros del jugador")]
     public MovimientoJugador statVida;
+    public StatsAnastasia estadisticasScript;
+    public TextMeshProUGUI estadisticasTexto;
 
     [Header("Cuenta atrás")]
     public float startTime = 120f;
@@ -43,11 +48,22 @@ public class CanvasManager : MonoBehaviour
     public GameObject objeto4;
     public GameObject objeto5;
 
+    [Header("Cámara cinemática final")]
+    public CinemachineVirtualCamera camaraFinal;
+
+    //[Header("Animaciones")]
+    //public Animator animJugador;
+    //public string animVictoria = "Victoria";
+    //public string animDerrota = "Derrota";
+
     void Start()
     {
         InicializarReferencias();
         ConfigurarSliders();
         OcultarPanelesIniciales();
+        camaraFinal.gameObject.SetActive(false);
+        estadisticasScript = FindAnyObjectByType<StatsAnastasia>();
+        estadisticasTexto.gameObject.SetActive(false);
     }
 
     void Update()
@@ -164,14 +180,88 @@ public class CanvasManager : MonoBehaviour
 
     public void Victoria()
     {
-        PanelVictoria.SetActive(true);
-        Time.timeScale = 0f; // Pausar el juego
+        StartCoroutine(SecuenciaFinal(true));
     }
 
     public void Derrota()
     {
-        PanelDerrota.SetActive(true);
-        Time.timeScale = 0f; // Pausar el juego
+        StartCoroutine(SecuenciaFinal(false));
+    }
+
+    IEnumerator SecuenciaFinal(bool esVictoria)
+    {
+
+        // Buscar y destruir a todos los enemigos
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemigo in enemigos)
+        {
+            Destroy(enemigo);
+        }
+
+        if (camaraFinal != null)
+        {
+            camaraFinal.gameObject.SetActive(true);
+
+        }
+
+        estadisticasTexto.text = "ESTADÍSTICAS ACTUALES\nVIDA: " + estadisticasScript.mejorasVida +
+                                    "\nATAQUE: " + estadisticasScript.mejorasAtaque +
+                                    "\nCADENCIA: " + estadisticasScript.mejorasCadencia +
+                                    "\nVELOCIDAD: " + estadisticasScript.mejorasVelocidad +
+                                    "\nENEMIGOS DERROTADOS: " + gameManager.contadorEnemigosDerrotados;
+
+        // Esperar un frame para asegurar que la cámara se active correctamente
+        yield return null;
+
+        //if (animJugador != null)
+        //{
+        //    if (esVictoria)
+        //    {
+        //        animJugador.Play(animVictoria);
+        //    }
+        //    else
+        //    {
+        //        animJugador.Play(animDerrota);
+        //    }
+        //}
+
+        yield return new WaitForSeconds(2f);
+
+        // Desactivamos todo el Canvas antes de mostrar los paneles
+        DesactivarElementosCanvas();
+
+        if (esVictoria)
+        {
+            if (PanelVictoria != null)
+            {
+                PanelVictoria.SetActive(true);
+            }
+        }
+        else
+        {
+            if (PanelDerrota != null)
+            {
+                PanelDerrota.SetActive(true);
+            }
+        }
+
+        estadisticasTexto.gameObject.SetActive(true);
+
+        Time.timeScale = 0f;
+    }
+
+    void DesactivarElementosCanvas()
+    {
+        // Desactiva todos los hijos activos del Canvas, excepto los paneles de victoria/derrota
+        foreach (Transform hijo in transform)
+        {
+            if (hijo.gameObject.activeSelf &&
+                hijo.gameObject != PanelVictoria &&
+                hijo.gameObject != PanelDerrota)
+            {
+                hijo.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void MenúInicio()
@@ -183,6 +273,18 @@ public class CanvasManager : MonoBehaviour
         SceneManager.LoadScene("MenuInicio");
     }
 
+    public void MenuReinicio()
+    {
+        PanelPausa.SetActive(false);
+        PanelReinicio.SetActive(true);
+    }
+
+    public void VolverAlNivel()
+    {
+        PanelReinicio.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
     public void ReinicioNivel()
     {
         // Reanudar el tiempo antes de reiniciar
@@ -190,16 +292,6 @@ public class CanvasManager : MonoBehaviour
 
         // Cargar la escena desde el principio
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void Opciones()
-    {
-        PanelOpciones.SetActive(true);
-    }
-
-    public void Atras()
-    {
-        PanelOpciones.SetActive(false);
     }
 
     public void Museo()
