@@ -44,6 +44,7 @@ public class MovimientoJugador : MonoBehaviour
     // Sonidos
     public AudioSource fuenteAudio;
     public AudioClip objetoAudio;
+    public AudioClip heridaAudio;
 
     public bool invencible = false;
 
@@ -179,6 +180,7 @@ public class MovimientoJugador : MonoBehaviour
     {
         if (invencible) return;
 
+        fuenteAudio.PlayOneShot(heridaAudio);
         vidaActual -= cantidadHerida;
 
         if (vidaActual <= 0)
@@ -189,6 +191,7 @@ public class MovimientoJugador : MonoBehaviour
         {
             StartCoroutine(ActivarInvencibilidad(0.5f));
         }
+
     }
 
     public void mostrarFlecha(bool mostrar, Transform objetivo = null)
