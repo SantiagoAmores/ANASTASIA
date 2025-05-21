@@ -9,14 +9,14 @@ public class StatsAnastasia : MonoBehaviour
     public int vidaBase = 10;
 
     // VELOCIDAD BASE DE ANASTASIA
-    public static float velocidadMovimientoBase = 4.25f;
+    public static float velocidadMovimientoBase = 4.8f;
 
     // ARMA 1 BASE
-    public static float arma1CadenciaBase = 1.6f;
+    public static float arma1CadenciaBase = 1.2f;
     public static int arma1AtaqueBase = 1;
 
     // ARMA 2 BASE
-    public static float arma2CadenciaBase = 4.5f;
+    public static float arma2CadenciaBase = 3.1f;
     public static int arma2AtaqueBase = 3;
 
     // ARMA 3 BASE
@@ -28,12 +28,12 @@ public class StatsAnastasia : MonoBehaviour
     public static int arma4AtaqueBase = 1;
 
     // ARMA 5 BASE
-    public static float arma5CadenciaBase = 2f;
-    public static int arma5AtaqueBase = 1;
+    public static float arma5CadenciaBase = 2.4f;
+    public static int arma5AtaqueBase = 4;
 
     // ARMA 6 BASE
-    public static float arma6CadenciaBase = 3f;
-    public static int arma6AtaqueBase = 1;
+    public static float arma6CadenciaBase = 2f;
+    public static int arma6AtaqueBase = 4;
 
     // ARMAS DPS
     public static float ticsPorSegundoBase = 1f;
@@ -179,18 +179,18 @@ public class StatsAnastasia : MonoBehaviour
     void AumentarVelocidadMovimiento()
     {
         // Velocidad de movimiento
-        velocidadMovimiento += 0.33f;
+        velocidadMovimiento += 0.4f;
     }
 
     void AumentarCadencia()
     {
         // Cadencia de disparos de las armas
-        arma1Cadencia = Mathf.Max(0.7f, arma1Cadencia - 0.15f);
-        arma2Cadencia = Mathf.Max(2.1f, arma2Cadencia - 0.3f);
+        arma1Cadencia = Mathf.Max(0.4f, arma1Cadencia - 0.1f);
+        arma2Cadencia = Mathf.Max(1.5f, arma2Cadencia - 0.3f);
         arma3Cadencia = Mathf.Max(2f, arma3Cadencia - 0.5f);
-        arma1Cadencia = Mathf.Max(1f, arma4Cadencia - 0.1f);
-        arma5Cadencia = Mathf.Max(0.3f, arma5Cadencia - 0.1f);
-        arma6Cadencia = Mathf.Max(0.3f, arma6Cadencia - 0.1f);
+        arma4Cadencia = Mathf.Max(1f, arma4Cadencia - 0.1f);
+        arma5Cadencia = Mathf.Max(0f, arma5Cadencia - 0.3f);
+        arma6Cadencia = Mathf.Max(1.2f, arma6Cadencia - 0.1f);
         ticsPorSegundo = Mathf.Max(0.2f, ticsPorSegundo - 0.1f);
     }
 

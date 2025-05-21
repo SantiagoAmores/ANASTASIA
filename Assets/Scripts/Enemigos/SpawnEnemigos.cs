@@ -20,7 +20,7 @@ public class SpawnEnemigos : MonoBehaviour
     [Header("Spawn Adicionales")]
     private bool primerSpawn = true;
     private int minimoSpawns = 2;
-    private int maximoSpawns = 4;
+    private int maximoSpawns = 6;
 
     void Start()
     {
@@ -37,7 +37,7 @@ public class SpawnEnemigos : MonoBehaviour
             instanciar = true;
             tiempoEntreSpawns /= 2;
             minimoSpawns = 4;
-            maximoSpawns = 7;
+            maximoSpawns = 10;
             StartCoroutine(Spawns());
         }
     }

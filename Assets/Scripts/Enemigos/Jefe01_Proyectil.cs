@@ -26,7 +26,14 @@ public class Jefe01_Proyectil : MonoBehaviour
                 particulas.transform.localScale *= 2;
             }
 
-            movimientoScript.herirAnastasia(1);
+            if (statsScript.faseDeJefe == 1)
+            {
+                movimientoScript.herirAnastasia(2);
+            }
+            else
+            {
+                movimientoScript.herirAnastasia(6);
+            }
             Destroy(particulas, 2f);
 
             Destroy(gameObject);
