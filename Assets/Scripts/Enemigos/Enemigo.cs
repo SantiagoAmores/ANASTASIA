@@ -20,6 +20,7 @@ public class Enemigo : MonoBehaviour
     public GameObject textoDanoPrefab;
     public GameObject spawnEfectoPrefab;
     public GameObject regaloPrefab;
+    public GameObject regaloArmaPrefab;
 
     [Header("Estadisticas")]
     public StatsEnemigos estadisticas;
@@ -251,24 +252,8 @@ public class Enemigo : MonoBehaviour
 
     public void DropDeJefe()
     {
-        GameObject inventarioDeAnastasia = GameObject.Find("Inventario");
-
-        string nombreJefe = gameObject.name.Replace("(Clone)", "").Trim();
-
-        switch (nombreJefe)
-        {
-            case "Enemigo 3":
-                inventarioDeAnastasia.GetComponent<Arma2>().enabled = true;
-                break;
-            case "Enemigo 6":
-                inventarioDeAnastasia.GetComponent<Arma3>().enabled = true;
-                break;
-            case "Enemigo 9":
-                inventarioDeAnastasia.GetComponent<Arma6>().enabled = true;
-                break;
-            default:
-                break;
-        }
+        Vector3 dropPropArma = transform.position + new Vector3(0, -0.5f, 0);
+        Instantiate(regaloArmaPrefab, dropPropArma, Quaternion.Euler(-90, 180, 0));
     }
 
     public void DropDeJarron()
