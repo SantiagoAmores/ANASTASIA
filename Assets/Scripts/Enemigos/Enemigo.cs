@@ -252,8 +252,8 @@ public class Enemigo : MonoBehaviour
 
     public void DropDeJefe()
     {
-        Vector3 dropPosition = transform.position + new Vector3(0, -0.5f, 0);
-        Instantiate(regaloArmaPrefab, dropPosition, Quaternion.Euler(-90, 180, 0));
+        Vector3 dropPropArma = transform.position + new Vector3(0, -0.5f, 0);
+        Instantiate(regaloArmaPrefab, dropPropArma, Quaternion.Euler(-90, 180, 0));
     }
 
     public void DropDeJarron()

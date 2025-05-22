@@ -1,28 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DropArma : MonoBehaviour
 {
-    public void DropDelArma()
+    public void OnTriggerEnter (Collider other)
     {
-        GameObject inventarioDeAnastasia = GameObject.Find("Inventario");
-
-        string nombreJefe = gameObject.name.Replace("(Clone)", "").Trim();
-
-        switch (nombreJefe)
+        if (other.gameObject.CompareTag("Player"))
         {
-            case "Enemigo 3":
-                inventarioDeAnastasia.GetComponent<Arma2>().enabled = true;
-                break;
-            case "Enemigo 6":
-                inventarioDeAnastasia.GetComponent<Arma3>().enabled = true;
-                break;
-            case "Enemigo 9":
-                inventarioDeAnastasia.GetComponent<Arma6>().enabled = true;
-                break;
-            default:
-                break;
+            GameObject inventarioDeAnastasia = GameObject.Find("Inventario");
+
+            // Obtener el nombre de la escena actual
+            string nombreEscena = SceneManager.GetActiveScene().name;
+
+            switch (nombreEscena)
+            {
+                case "Scene_Nivel_1":
+                    inventarioDeAnastasia.GetComponent<Arma2>().enabled = true;
+                    break;
+                case "Scene_Nivel_2":
+                    inventarioDeAnastasia.GetComponent<Arma3>().enabled = true;
+                    break;
+                case "Scene_Nivel_3":
+                    inventarioDeAnastasia.GetComponent<Arma6>().enabled = true;
+                    break;
+                default:
+                    break;
+            }
+
+            Destroy(gameObject);
+
         }
+        
     }
 }
