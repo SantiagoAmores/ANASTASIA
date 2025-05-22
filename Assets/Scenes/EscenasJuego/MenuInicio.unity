@@ -7820,8 +7820,8 @@ MonoBehaviour:
   creditosCam: {fileID: 2035726347}
   panelCreditos: {fileID: 448050747}
   creditosLoop: {fileID: 1373521260}
-  normalSpeed: 100
-  fastSpeed: 500
+  normalSpeed: 200
+  fastSpeed: 700
 --- !u!4 &396380304
 Transform:
   m_ObjectHideFlags: 0
@@ -12503,7 +12503,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 36, y: 24}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13915,7 +13915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3199.5}
+  m_AnchoredPosition: {x: 0, y: 4058}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &964503574
@@ -15300,7 +15300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5294}
+  m_AnchoredPosition: {x: 0, y: -4001}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1179307367
@@ -15820,17 +15820,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Programaci\xF3n\n--------------------------\n\nMec\xE1nicas\n------\nManuel
+  m_text: "Direcci\xF3n\r\n--------------------------\r\n\nDirector de Programaci\xF3n:
+    Manuel De La Rosa\r\nDirectora de Arte: Heidi Sanchis\r\nDirector Narrativo:
+    Santiago Amores\r\n\n\n\nProgramaci\xF3n\n--------------------------\n\nMec\xE1nicas\n------\nManuel
     De la Rosa\nHeidi Sanchis\nSantiago Amores\n\n\nIA Enemigos\n------\nManuel De
     la Rosa\nHeidi Sanchis\nSantiago Amores\n\n\nFuncionalidad\n------\nManuel De
     la Rosa\nHeidi Sanchis\nSantiago Amores\n\n\n\n\nArte\n--------------------------\n\nDise\xF1o\n------\nConcept
     Arts: Heidi Sanchis\nUI/UX Niveles: Manuel De La Rosa\nEleccion de Sonidos: Santiago
     Amores\n\n\nModelado y Animaciones\n------\nHeidi Sanchis\nSantiago Amores\nManuel
-    De La Rosa\n\n\nCinematica\n------\nHeidi Sanchis\n\n\n\n\nSonidos\n--------------------------\n\n\n\n\n\nMarketing\n--------------------------\nSantiago
-    Amores\n\n\n\n\nHerramientas\n--------------------------\nMotor: Unity\nArte:
-    Blender, Photoshop y Krita\n\n\n\n\nTesting\n--------------------------\nTesters:\nQA
-    Lead: \n\n\n\n\nAgradecimientos Especiales\n--------------------------\n... \n...\n...\nA
-    ti, por jugar <3"
+    De La Rosa\n\n\nCinematica\n------\nHeidi Sanchis\n\n\n\n\nBanda Sonora\n--------------------------\nMusica
+    aportada por Pixabay\n\n\n\n\nMarketing\n--------------------------\nSantiago
+    Amores\n\n\n\n\nHerramientas\n--------------------------\nMotor: Unity\nModelado:
+    Blender\r\nTexturizado y Dise\xF1o: Photoshop y Krita\r\n\n\n\nTesting\n--------------------------\nTesters:
+    Jornada de puertas abiertas\nQA Lead: Alejandro Soriano\n\n\n\n\nAgradecimientos
+    Especiales\n--------------------------\n\nGracias a nuestros amigos, compa\xF1eros
+    y profesores que nos han acompa\xF1ado\r\n\r\nGracias a los peque\xF1os mlems
+    por estar por ah\xED siendo patatillas\r\n\r\nGracias a Nico por confiar en el
+    delegado cuando \xE9l no era capaz\r\n\r\nGracias a Dabi por aguantar los dramas
+    de una mlem\r\n\n\n\nA ti, por jugar <3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16431,7 +16438,7 @@ RectTransform:
   m_GameObject: {fileID: 1293253883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 154.7}
-  m_LocalScale: {x: 0.96, y: 4.67, z: 0.8}
+  m_LocalScale: {x: 1.42, y: 4.67, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1858310493}
@@ -17026,8 +17033,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditsText: {fileID: 1158424145}
-  resetY: -3229
-  endY: 5500
+  resetY: -4700
+  endY: 7040
 --- !u!114 &1373521261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22267,7 +22274,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 36, y: 24}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
