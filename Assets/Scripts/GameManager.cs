@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
 
     private const string desbloqueo_base = "desbloqueo_niveles_1";
+
+
     void Awake()
     {
         if (instancia == null)
@@ -104,5 +106,13 @@ public class GameManager : MonoBehaviour
             GameObject gm = new GameObject("GameManager");
             gm.AddComponent<GameManager>();
         }
+    }
+
+    public void RegistrarEnemigoDerrotado(string nivel)
+    {
+        if (!enemigosDerrotados.ContainsKey(nivel))
+            enemigosDerrotados[nivel] = 0;
+
+        enemigosDerrotados[nivel]++;
     }
 }

@@ -39,4 +39,40 @@ public class NivelManager : MonoBehaviour
         string clave = $"desbloqueo_{categoria}_{indice}";
         return PlayerPrefs.GetInt(clave, 0) == 1;
     }
+
+    [Header("Nivel Actual")]
+    public int idNivel = 1;
+
+
+    void Start()
+    {
+        RevisarColeccionableEnNivel(idNivel);
+    }
+
+
+    [Header("Coleccionables")]
+    public GameObject prefabColeccionable; // Prefab del coleccionable
+    public Transform[] puntosSpawnColeccionables; // Posiciones por nivel
+
+    public void RevisarColeccionableEnNivel(int nivelActual)
+    {
+        int enemigosDerrotados = 0;
+
+        if (GameManager.instancia.enemigosDerrotados.TryGetValue($"nivel_{nivelActual}", out enemigosDerrotados))
+        {
+            if (enemigosDerrotados >= 100)
+            {
+                string clave = $"desbloqueo_coleccionables_{nivelActual - 1}";
+                if (PlayerPrefs.GetInt(clave, 0) == 0) // No recogido aún
+                {
+                    if (prefabColeccionable != null && puntosSpawnColeccionables.Length >= nivelActual)
+                    {
+                        var spawnPoint = puntosSpawnColeccionables[nivelActual - 1];
+                        GameObject obj = Instantiate(prefabColeccionable, spawnPoint.position, Quaternion.identity);
+                        obj.GetComponent<Coleccionable>().idColeccionable = nivelActual - 1;
+                    }
+                }
+            }
+        }
+    }
 }

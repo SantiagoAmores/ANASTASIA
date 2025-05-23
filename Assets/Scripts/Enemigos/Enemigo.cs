@@ -157,6 +157,17 @@ public class Enemigo : MonoBehaviour
 
                 // Suma 1 al contador en el game manager
                 GameManager.instancia.contadorEnemigosDerrotados++;
+
+                // Agrega también el conteo por nivel (requerido para los coleccionables)
+                int nivelActual = FindObjectOfType<NivelManager>().idNivel;
+                string claveNivel = $"nivel_{nivelActual}";
+
+                if (!GameManager.instancia.enemigosDerrotados.ContainsKey(claveNivel))
+                {
+                    GameManager.instancia.enemigosDerrotados[claveNivel] = 0;
+                }
+                GameManager.instancia.enemigosDerrotados[claveNivel]++;
+
             }
 
             // Y despues destruye al enemigo
