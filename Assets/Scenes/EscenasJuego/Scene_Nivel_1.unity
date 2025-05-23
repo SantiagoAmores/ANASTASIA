@@ -3906,6 +3906,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7884038846478430412, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884038846478430412, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884038846478430412, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884038846478430412, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -785.42017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884038846478430412, guid: 851d490a18407e4499039073eedb394e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -400.55304
+      objectReference: {fileID: 0}
     - target: {fileID: 8021301039234968929, guid: 851d490a18407e4499039073eedb394e, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -23981,7 +24001,7 @@ SceneRoots:
   - {fileID: 775215568}
   - {fileID: 1237517726}
   - {fileID: 1312999720}
-  - {fileID: 446122985}
   - {fileID: 58639652}
   - {fileID: 1368669302}
   - {fileID: 2089415091}
+  - {fileID: 446122985}
