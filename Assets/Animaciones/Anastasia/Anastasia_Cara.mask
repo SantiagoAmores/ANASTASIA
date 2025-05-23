@@ -7,5 +7,91 @@ AvatarMask:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Anastasia_Cara
-  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  m_Elements: []
+  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature.001
+    m_Weight: 0
+  - m_Path: Armature.001/Cintura
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Bone.001.R
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Bone.001.R/Brazo.R
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Bone.001.R/Brazo.R/Brazo.005.R
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Bone.001.R/Brazo.R/Brazo.005.R/Brazo.006.R
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Bone.001.R/Brazo.R/Brazo.005.R/Brazo.006.R/Brazo.007.R
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Bone.001.R/Brazo.R/Brazo.005.R/Brazo.006.R/Brazo.007.R/Brazo.007.R_end
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Cuello
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Cuello/Cabeza.L
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Cuello/Cabeza.L/Gorro.L
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Cuello/Cabeza.L/Gorro.L/Gorro.L_end
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Cuello/Cabeza.L/Pelo.R
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Cuello/Cabeza.L/Pelo.R/Pelo.001.R
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Cuello/Cabeza.L/Pelo.R/Pelo.001.R/Pelo.002.R
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Cuello/Cabeza.L/Pelo.R/Pelo.001.R/Pelo.002.R/Pelo.002.R_end
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Hombro.L
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Hombro.L/Brazo.001.L
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Hombro.L/Brazo.001.L/Brazo.002.L
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Hombro.L/Brazo.001.L/Brazo.002.L/Brazo.003.L
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Hombro.L/Brazo.001.L/Brazo.002.L/Brazo.003.L/Brazo.004.L
+    m_Weight: 1
+  - m_Path: Armature.001/Cintura/torso.L/Hombro.L/Brazo.001.L/Brazo.002.L/Brazo.003.L/Brazo.004.L/Brazo.004.L_end
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.003.R
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.003.R/Pierna.004.R
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.003.R/Pierna.004.R/Pierna.005.R
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.003.R/Pierna.004.R/Pierna.005.R/Pie.002.R
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.003.R/Pierna.004.R/Pierna.005.R/Pie.002.R/Pie.003.R
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.003.R/Pierna.004.R/Pierna.005.R/Pie.002.R/Pie.003.R/Pie.003.R_end
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.L
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.L/Pierna.001.L
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.L/Pierna.001.L/Pierna.002.L
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.L/Pierna.001.L/Pierna.002.L/Pie.L
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.L/Pierna.001.L/Pierna.002.L/Pie.L/Pie.001.L
+    m_Weight: 1
+  - m_Path: Armature.001/Pierna.L/Pierna.001.L/Pierna.002.L/Pie.L/Pie.001.L/Pie.001.L_end
+    m_Weight: 1
+  - m_Path: Cejas.001
+    m_Weight: 0
+  - m_Path: Cinturon.001
+    m_Weight: 0
+  - m_Path: Circle.001
+    m_Weight: 0
+  - m_Path: Cuerpo.002
+    m_Weight: 1
+  - m_Path: Gorro.001
+    m_Weight: 0
+  - m_Path: Ojos.001
+    m_Weight: 0
+  - m_Path: Pelo.001
+    m_Weight: 0

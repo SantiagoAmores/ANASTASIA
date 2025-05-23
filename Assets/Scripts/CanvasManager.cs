@@ -53,6 +53,8 @@ public class CanvasManager : MonoBehaviour
 
     [Header("Animaciones")]
     public Animator animJugador;
+    public string animIdle = "Idle";
+    public string animWalk = "Walk";
     public string animVictoria = "Victoria";
     public string animDerrota = "Derrota";
 
@@ -69,7 +71,9 @@ public class CanvasManager : MonoBehaviour
         {
             GameObject jugador = GameObject.FindWithTag("Player");
             if (jugador != null)
-                animJugador = jugador.GetComponent<Animator>();
+            {
+                animJugador = jugador.GetComponentInChildren<Animator>();
+            }
         }
     }
 
@@ -217,17 +221,26 @@ public class CanvasManager : MonoBehaviour
                                     "\nVELOCIDAD: " + estadisticasScript.mejorasVelocidad +
                                     "\nENEMIGOS DERROTADOS: " + gameManager.contadorEnemigosDerrotados;
 
+        yield return new WaitForSeconds(0.5f);
+
         // Esperar un frame para asegurar que la cámara se active correctamente
         yield return null;
 
         if (animJugador != null)
         {
-            animJugador.SetBool(animVictoria, esVictoria);
-            animJugador.SetBool(animDerrota, !esVictoria);
+            if (esVictoria)
+            {
+                animJugador.Play(animVictoria);
+                animJugador.Play("Expresion_Victoria", layer: 1); // Layer 1 si es tu capa facial
+            }
+            else
+            {
+                animJugador.Play(animDerrota);
+                animJugador.Play("Expresion_Derrota", layer: 1);
+            }
         }
 
-
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         // Desactivamos todo el Canvas antes de mostrar los paneles
         DesactivarElementosCanvas();
