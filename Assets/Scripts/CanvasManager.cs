@@ -51,10 +51,10 @@ public class CanvasManager : MonoBehaviour
     [Header("Cámara cinemática final")]
     public CinemachineVirtualCamera camaraFinal;
 
-    //[Header("Animaciones")]
-    //public Animator animJugador;
-    //public string animVictoria = "Victoria";
-    //public string animDerrota = "Derrota";
+    [Header("Animaciones")]
+    public Animator animJugador;
+    public string animVictoria = "Victoria";
+    public string animDerrota = "Derrota";
 
     void Start()
     {
@@ -64,6 +64,13 @@ public class CanvasManager : MonoBehaviour
         camaraFinal.gameObject.SetActive(false);
         estadisticasScript = FindAnyObjectByType<StatsAnastasia>();
         estadisticasTexto.gameObject.SetActive(false);
+
+        if (animJugador == null)
+        {
+            GameObject jugador = GameObject.FindWithTag("Player");
+            if (jugador != null)
+                animJugador = jugador.GetComponent<Animator>();
+        }
     }
 
     void Update()
@@ -213,17 +220,12 @@ public class CanvasManager : MonoBehaviour
         // Esperar un frame para asegurar que la cámara se active correctamente
         yield return null;
 
-        //if (animJugador != null)
-        //{
-        //    if (esVictoria)
-        //    {
-        //        animJugador.Play(animVictoria);
-        //    }
-        //    else
-        //    {
-        //        animJugador.Play(animDerrota);
-        //    }
-        //}
+        if (animJugador != null)
+        {
+            animJugador.SetBool(animVictoria, esVictoria);
+            animJugador.SetBool(animDerrota, !esVictoria);
+        }
+
 
         yield return new WaitForSeconds(2f);
 
