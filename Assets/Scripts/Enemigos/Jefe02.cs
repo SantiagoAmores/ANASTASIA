@@ -191,4 +191,10 @@ public class Jefe02 : MonoBehaviour
         tostadasInstanciadas.Clear();
     }
 
+    void OnDestroy()
+    {
+        EliminarTodosLosProyectiles();
+        canvasPintura.gameObject.SetActive(false);
+    }
+
 }
