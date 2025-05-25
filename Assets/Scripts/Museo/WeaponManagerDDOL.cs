@@ -71,37 +71,32 @@ public class WeaponManagerDDOL : MonoBehaviour
         // Asigna el arma
         armaSeleccionada = index;
 
+        pantalla.iconoArma1.SetActive(false);
+        pantalla.iconoArma2.SetActive(false);
+        pantalla.iconoArma3.SetActive(false);
+        pantalla.iconoArma4.SetActive(false);
+        pantalla.iconoArma5.SetActive(false);
+        pantalla.iconoArma6.SetActive(false);
+
         switch (index)
         {
             case 0:
                 pantalla.iconoArma1.gameObject.SetActive(true);
-                pantalla.iconoArma2.gameObject.SetActive(false);
-                pantalla.iconoArma3.gameObject.SetActive(false);
                 break;
             case 1:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(false);
-                pantalla.iconoArma3.gameObject.SetActive(false);
+                pantalla.iconoArma2.gameObject.SetActive(true);
                 break;
             case 2:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(false);
-                pantalla.iconoArma3.gameObject.SetActive(false);
-                break;
-            case 3:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(true);
-                pantalla.iconoArma3.gameObject.SetActive(false);
-                break;
-            case 4:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(false);
                 pantalla.iconoArma3.gameObject.SetActive(true);
                 break;
+            case 3:
+                pantalla.iconoArma4.gameObject.SetActive(true);
+                break;
+            case 4:
+                pantalla.iconoArma5.gameObject.SetActive(true);
+                break;
             case 5:
-                pantalla.iconoArma1.gameObject.SetActive(false);
-                pantalla.iconoArma2.gameObject.SetActive(false);
-                pantalla.iconoArma3.gameObject.SetActive(false);
+                pantalla.iconoArma6.gameObject.SetActive(true);
                 break;
         }
     }

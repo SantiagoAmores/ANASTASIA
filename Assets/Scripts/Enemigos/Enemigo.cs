@@ -110,10 +110,10 @@ public class Enemigo : MonoBehaviour
         }
     }
 
-    public void RecibirGolpe(int cantidadDeGolpe, GameObject atacante)
+    public void RecibirGolpe(int cantidadDeGolpe, GameObject atacante, bool ignorarInvulnerabilidad = false)
     {
         
-        if (!golpeable)
+        if (!golpeable && !ignorarInvulnerabilidad)
         {
             return;
         }

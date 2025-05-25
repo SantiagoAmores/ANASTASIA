@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Enemigo_animaciones : MonoBehaviour
 {
-    public Enemigo enemigoScript;
-    public Animator animator;
-    public float velocidadActual;
+    Enemigo enemigoScript;
+    Animator animator;
 
     void Start()
     {
@@ -16,7 +15,6 @@ public class Enemigo_animaciones : MonoBehaviour
 
     void Update()
     {
-        velocidadActual = enemigoScript.enemigo.speed;
         if (enemigoScript != null)
         {
             animator.SetFloat("velocidadActual", enemigoScript.enemigo.speed);

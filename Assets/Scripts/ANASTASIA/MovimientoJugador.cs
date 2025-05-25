@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class MovimientoJugador : MonoBehaviour
 {
@@ -48,6 +47,8 @@ public class MovimientoJugador : MonoBehaviour
 
     public bool invencible = false;
 
+    public bool anastasiaQuieta = false;
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -80,27 +81,35 @@ public class MovimientoJugador : MonoBehaviour
         // Actualizar vida Anastasia
         vidaTotal = stats.vida;
 
-        // Para el movimiento del personaje usaremos el Input Manager de Unity que nos va a permitir exportarlo a diferentes dispositivos sin modificar el script,
-        // personalizar los controles y mantener ordenado el script trabajando desde los Axes
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveX, 0, moveZ).normalized;
-
-        // Activamos o desactivamos el bool según haya movimiento o no
-        animator.SetBool("isWalking", movement.magnitude > 0.05f);
-
-        if (movement.magnitude > 0)
+        if (!anastasiaQuieta)
         {
-            // Utiliza la estadistica de velocidad de StatsAnastasia
-            float velocidad = stats.velocidadMovimiento * buffVelocidad;
-            characterController.Move(movement * velocidad * Time.deltaTime);
+            // Para el movimiento del personaje usaremos el Input Manager de Unity que nos va a permitir exportarlo a diferentes dispositivos sin modificar el script,
+            // personalizar los controles y mantener ordenado el script trabajando desde los Axes
+            float moveX = Input.GetAxis("Horizontal");
+            float moveZ = Input.GetAxis("Vertical");
 
-            Quaternion targetRotation = Quaternion.LookRotation(movement);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            Vector3 movement = new Vector3(moveX, 0, moveZ).normalized;
+
+            // Activamos o desactivamos el bool según haya movimiento o no
+            animator.SetBool("isWalking", movement.magnitude > 0.05f);
+
+            if (movement.magnitude > 0)
+            {
+                // Utiliza la estadistica de velocidad de StatsAnastasia
+                float velocidad = stats.velocidadMovimiento * buffVelocidad;
+                characterController.Move(movement * velocidad * Time.deltaTime);
+
+                Quaternion targetRotation = Quaternion.LookRotation(movement);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
+            else
+            {
+                characterController.Move(Vector3.zero);
+            }
         }
         else
         {
+            animator.SetBool("isWalking", false);
             characterController.Move(Vector3.zero);
         }
 
@@ -278,7 +287,7 @@ public class MovimientoJugador : MonoBehaviour
 
         foreach (GameObject enemigoEnLista in enemigo)
         {
-            enemigoEnLista.GetComponent<Enemigo>().RecibirGolpe(20,this.gameObject);
+            enemigoEnLista.GetComponent<Enemigo>().RecibirGolpe(20,this.gameObject, true);
         }
 
     }

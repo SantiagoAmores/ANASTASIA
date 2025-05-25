@@ -58,6 +58,12 @@ public class CanvasManager : MonoBehaviour
     public string animVictoria = "Victoria";
     public string animDerrota = "Derrota";
 
+    [Header("Inventario")]
+    public List<Image> huecoArmas;
+    public List<Sprite> spritesArmas;
+
+    private List<int> armasObtenidas = new List<int>();
+
     void Start()
     {
         InicializarReferencias();
@@ -177,6 +183,8 @@ public class CanvasManager : MonoBehaviour
         {
             textoExperiencia.text = gameManager.experienciaActual.ToString() + " / " + gameManager.experienciaRequerida.ToString();
         }
+
+
     }
 
     IEnumerator Countdown()
@@ -333,5 +341,17 @@ public class CanvasManager : MonoBehaviour
         StopAllCoroutines();
         timeLeft = startTime;
         StartCoroutine(Countdown());
+    }
+
+    public void ActivarArmaEnInterfaz(int idArma)
+    {
+        armasObtenidas.Add(idArma);
+        int index = armasObtenidas.Count - 1;
+
+        if (idArma >= 0 && idArma < spritesArmas.Count)
+        {
+            huecoArmas[index].sprite = spritesArmas[idArma];
+            huecoArmas[index].enabled = true;
+        }
     }
 }

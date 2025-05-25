@@ -24,6 +24,9 @@ public class PantallaIniciarNivel : MonoBehaviour
     public GameObject iconoArma1;
     public GameObject iconoArma2;
     public GameObject iconoArma3;
+    public GameObject iconoArma4;
+    public GameObject iconoArma5;
+    public GameObject iconoArma6;
 
     public string categoriaDesbloqueo;
     public int indiceDesbloqueo;
@@ -31,6 +34,9 @@ public class PantallaIniciarNivel : MonoBehaviour
     public GameObject arma1;
     public GameObject arma2;
     public GameObject arma3;
+    public GameObject arma4;
+    public GameObject arma5;
+    public GameObject arma6;
 
     void Start()
     {
@@ -75,6 +81,9 @@ public class PantallaIniciarNivel : MonoBehaviour
             iconoArma1.gameObject.SetActive(false);
             iconoArma2.gameObject.SetActive(false);
             iconoArma3.gameObject.SetActive(false);
+            iconoArma4.gameObject.SetActive(false);
+            iconoArma5.gameObject.SetActive(false);
+            iconoArma6.gameObject.SetActive(false);
 
             if (NivelManager.EstaDesbloqueado("niveles", 2))
             {
@@ -94,9 +103,22 @@ public class PantallaIniciarNivel : MonoBehaviour
                 arma3.SetActive(false);
             }
 
-            // Camara apuntar cuadros antes de entrar al nivel
+            if (NivelManager.EstaDesbloqueado("niveles", 4))
+            {
+                arma4.SetActive(true);
+                arma5.SetActive(true);
+                arma6.SetActive(true);
+            }
+            else
+            {
+                arma4.SetActive(false);
+                arma5.SetActive(false);
+                arma6.SetActive(false);
+            }
 
-            jugadorTransform = other.transform; // Guarda al jugador
+                // Camara apuntar cuadros antes de entrar al nivel
+
+                jugadorTransform = other.transform; // Guarda al jugador
 
             targetNivel = transform.Find("target");
 
