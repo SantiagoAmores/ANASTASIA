@@ -8,6 +8,7 @@ using UnityEngine.Localization;
 public class EntradaBestiario
 {
     public Sprite imagen;       // Imagen del elemento
+    public float escalaImagen = 1f; // Valor por defecto
     public LocalizedString nombre;       // Nombre a mostrar
     public LocalizedString descripcion;  // Descripción detallada
     public bool desbloqueado;   // Si está disponible para ver
@@ -144,6 +145,11 @@ public class BestiarioManager : MonoBehaviour
         if (entrada.desbloqueado)
         {
             imagenDisplay.sprite = entrada.imagen;
+
+            // Aplicar escala diferente para coleccionables
+            float escala = entrada.escalaImagen;
+            imagenDisplay.transform.localScale = new Vector3(escala, escala, escala);
+
             textoNombre.text = entrada.nombre.GetLocalizedString();
             textoDescripcion.text = entrada.descripcion.GetLocalizedString();
             textoPagina.text = $"{indiceActual + 1}/{entradasActuales.Length}";
@@ -156,6 +162,7 @@ public class BestiarioManager : MonoBehaviour
         }
         else
         {
+            imagenDisplay.transform.localScale = Vector3.one;
             MostrarBloqueado();
         }
     }
