@@ -11,6 +11,9 @@ public class EntradaBestiario
     public LocalizedString nombre;       // Nombre a mostrar
     public LocalizedString descripcion;  // Descripción detallada
     public bool desbloqueado;   // Si está disponible para ver
+
+    [Header("Enlace a itch.io")]
+    public string urlItchIO; // Añade este campo para guardar la URL
 }
 
 public class BestiarioManager : MonoBehaviour
@@ -42,6 +45,10 @@ public class BestiarioManager : MonoBehaviour
     [Header("Configuración de Bloqueado")]
     public Sprite imagenBloqueado; // Arrastra tu imagen de "bloqueado" desde el Inspector
 
+    [Header("Botón Itch.io")]
+    public Button botonItchIO;
+    private string urlActual; // Para guardar la URL del coleccionable actual
+
     // Variables de control
     private EntradaBestiario[] entradasActuales;
     private int indiceActual = 0;
@@ -52,6 +59,10 @@ public class BestiarioManager : MonoBehaviour
         ConfigurarBotones();
         CerrarBestiario();
         CargarDesbloqueos(); // Nueva línea añadida
+
+        // Configura el botón existente
+        botonItchIO.onClick.AddListener(AbrirEnlaceItch);
+        botonItchIO.gameObject.SetActive(false); // Ocultar inicialmente
     }
 
     void ConfigurarBotones()
@@ -126,15 +137,22 @@ public class BestiarioManager : MonoBehaviour
 
         EntradaBestiario entrada = entradasActuales[indiceActual];
 
+        // Mostrar/ocultar botón solo para coleccionables
+        bool esColeccionable = categoriaActual.Equals("COLECCIONABLES", System.StringComparison.OrdinalIgnoreCase);
+        botonItchIO.gameObject.SetActive(entrada.desbloqueado && esColeccionable && !string.IsNullOrEmpty(entrada.urlItchIO));
+
         if (entrada.desbloqueado)
         {
             imagenDisplay.sprite = entrada.imagen;
-
-            entrada.nombre.StringChanged += (localizedName) => textoNombre.text = localizedName;
-            entrada.descripcion.StringChanged += (localizedDesc) => textoDescripcion.text = localizedDesc;
-        
-            // Actualizar página
+            textoNombre.text = entrada.nombre.GetLocalizedString();
+            textoDescripcion.text = entrada.descripcion.GetLocalizedString();
             textoPagina.text = $"{indiceActual + 1}/{entradasActuales.Length}";
+
+            // Guardar URL si es coleccionable
+            if (esColeccionable)
+            {
+                urlActual = entrada.urlItchIO;
+            }
         }
         else
         {
@@ -197,6 +215,19 @@ public class BestiarioManager : MonoBehaviour
             {
                 entradas[i].desbloqueado = true;
             }
+        }
+    }
+
+    void AbrirEnlaceItch()
+    {
+        if (!string.IsNullOrEmpty(urlActual))
+        {
+            // Abre el enlace en el navegador
+            Application.OpenURL(urlActual);
+        }
+        else
+        {
+            Debug.LogWarning("No hay URL configurada para este coleccionable");
         }
     }
 }

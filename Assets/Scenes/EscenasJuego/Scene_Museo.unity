@@ -916,6 +916,126 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2128683261}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &75185946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75185947}
+  - component: {fileID: 75185950}
+  - component: {fileID: 75185949}
+  - component: {fileID: 75185948}
+  m_Layer: 5
+  m_Name: itch.io
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &75185947
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75185946}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.85, y: 3.5416665, z: 2.7057202}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 704046711}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 445.2, y: -390.1}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &75185948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75185946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 75185949}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &75185949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75185946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -535258456, guid: b6c21b3297f5dd744b6db05b53626a52, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &75185950
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75185946}
+  m_CullTransparentMesh: 1
 --- !u!1 &78658055
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,6 +5326,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: -106010384, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre:
       m_TableReference:
@@ -5226,6 +5347,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: -698700476, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre:
       m_TableReference:
@@ -5246,6 +5368,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: 1361278222, guid: 9a31f7dc486d0f64bb634ae811e50c1f, type: 3}
     nombre:
       m_TableReference:
@@ -5266,6 +5389,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: -1062023364, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre:
       m_TableReference:
@@ -5286,6 +5410,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: 1524009343, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre:
       m_TableReference:
@@ -5306,6 +5431,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   armas:
   - imagen: {fileID: 21300000, guid: f501e669631ff864e970435d7da43e96, type: 3}
     nombre:
@@ -5327,6 +5453,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 1
+    urlItchIO: 
   - imagen: {fileID: 21300000, guid: 8ca7589db156dfb4ab7fe137ede1764e, type: 3}
     nombre:
       m_TableReference:
@@ -5347,6 +5474,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 1
+    urlItchIO: 
   - imagen: {fileID: 21300000, guid: bfdcec40c1fd8b847a93e78587c767a4, type: 3}
     nombre:
       m_TableReference:
@@ -5367,6 +5495,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 1
+    urlItchIO: 
   - imagen: {fileID: 0}
     nombre:
       m_TableReference:
@@ -5387,6 +5516,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: 0}
     nombre:
       m_TableReference:
@@ -5407,6 +5537,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: -1754417610, guid: 9a31f7dc486d0f64bb634ae811e50c1f, type: 3}
     nombre:
       m_TableReference:
@@ -5427,6 +5558,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   jefes:
   - imagen: {fileID: -2071735253, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre:
@@ -5448,6 +5580,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: -1461927097, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre:
       m_TableReference:
@@ -5468,6 +5601,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: 1544937732, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     nombre:
       m_TableReference:
@@ -5488,67 +5622,71 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   coleccionables:
-  - imagen: {fileID: 0}
+  - imagen: {fileID: 1440906521, guid: 7dc7a7290b3d51048b64eb7f758cb517, type: 3}
     nombre:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 12950941295329280
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     descripcion:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 12951080613330944
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    desbloqueado: 0
+    desbloqueado: 1
+    urlItchIO: 
   - imagen: {fileID: 0}
     nombre:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 12954200072404992
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     descripcion:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 12951080613330944
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: 0}
     nombre:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 12954314677567488
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     descripcion:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 12954423364567040
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
+    urlItchIO: 
   botonEnemigos: {fileID: 1804151553}
   botonArmas: {fileID: 584249204}
   botonJefes: {fileID: 1314533070}
@@ -5558,6 +5696,7 @@ MonoBehaviour:
   textoPagina: {fileID: 176328250}
   textoCategoria: {fileID: 1918092558}
   imagenBloqueado: {fileID: 21300000, guid: 93862be7f5bd02446930a0b84db82334, type: 3}
+  botonItchIO: {fileID: 75185948}
   references:
     version: 2
     RefIds: []
@@ -6293,6 +6432,7 @@ RectTransform:
   - {fileID: 381314287}
   - {fileID: 1289432857}
   - {fileID: 326491325}
+  - {fileID: 75185947}
   m_Father: {fileID: 579921597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11405,7 +11545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1307245075
 RectTransform:
   m_ObjectHideFlags: 0

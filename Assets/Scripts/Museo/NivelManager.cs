@@ -43,35 +43,41 @@ public class NivelManager : MonoBehaviour
     [Header("Nivel Actual")]
     public int idNivel = 1;
 
+    [Header("Coleccionables")]
+    public GameObject prefabColeccionable; // Prefab del coleccionable
+    public Transform[] puntosSpawnColeccionables; // Posiciones por nivel
+    public float intervaloVerificacion = 10f; // Cada 10 segundos
+
 
     void Start()
     {
         RevisarColeccionableEnNivel(idNivel);
+        InvokeRepeating("VerificarColeccionablePeriodicamente", intervaloVerificacion, intervaloVerificacion);
     }
 
-
-    [Header("Coleccionables")]
-    public GameObject prefabColeccionable; // Prefab del coleccionable
-    public Transform[] puntosSpawnColeccionables; // Posiciones por nivel
+    void VerificarColeccionablePeriodicamente()
+    {
+        RevisarColeccionableEnNivel(idNivel);
+    }
 
     public void RevisarColeccionableEnNivel(int nivelActual)
     {
-        int enemigosDerrotados = 0;
+        int idColeccionable = nivelActual - 1;
+        string clave = $"desbloqueo_coleccionables_{idColeccionable}";
 
-        if (GameManager.instancia.enemigosDerrotados.TryGetValue($"nivel_{nivelActual}", out enemigosDerrotados))
+        // Si ya está desbloqueado, no hacer nada
+        if (PlayerPrefs.GetInt(clave, 0) == 1) return;
+
+        // Verificar contador
+        string claveNivel = $"nivel_{nivelActual}";
+        if (GameManager.instancia.enemigosDerrotados.TryGetValue(claveNivel, out int cantidad) && cantidad >= 100)
         {
-            if (enemigosDerrotados >= 100)
+            if (puntosSpawnColeccionables.Length > idColeccionable)
             {
-                string clave = $"desbloqueo_coleccionables_{nivelActual - 1}";
-                if (PlayerPrefs.GetInt(clave, 0) == 0) // No recogido aún
-                {
-                    if (prefabColeccionable != null && puntosSpawnColeccionables.Length >= nivelActual)
-                    {
-                        var spawnPoint = puntosSpawnColeccionables[nivelActual - 1];
-                        GameObject obj = Instantiate(prefabColeccionable, spawnPoint.position, Quaternion.identity);
-                        obj.GetComponent<Coleccionable>().idColeccionable = nivelActual - 1;
-                    }
-                }
+                Vector3 posicionSpawn = puntosSpawnColeccionables[idColeccionable].position;
+                GameObject coleccionable = Instantiate(prefabColeccionable, posicionSpawn, Quaternion.identity);
+                coleccionable.GetComponent<Coleccionable>().idColeccionable = idColeccionable;
+                Debug.Log($"¡Coleccionable {idColeccionable} aparecido en nivel {nivelActual}!");
             }
         }
     }

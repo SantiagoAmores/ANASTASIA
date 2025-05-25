@@ -239,6 +239,30 @@ MonoBehaviour:
     m_Key: CreditosKey
     m_Metadata:
       m_Items: []
+  - m_Id: 12950941295329280
+    m_Key: Nemunai
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12951080613330944
+    m_Key: Nemunai_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12954200072404992
+    m_Key: Renasci
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12954263456727040
+    m_Key: Renasci_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12954314677567488
+    m_Key: MyDearRobot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12954423364567040
+    m_Key: MyDearRobot_Desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
