@@ -1,9 +1,44 @@
 fileFormatVersion: 2
-guid: f1e7db74c7573e64d85a43744c5426c1
+guid: 6a3e8432b4a7fb0498473793da6a29ac
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color1
+    second: {fileID: 2100000, guid: 0a1987f3badec4e41ad2a217c604ecd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color2
+    second: {fileID: 2100000, guid: 1b9486c8557ac734885cd40bd8e57daa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color3
+    second: {fileID: 2100000, guid: 85e6292abb2f6e4499b13d8f2a59d10f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EYES_1
+    second: {fileID: 2100000, guid: 00d552507ae9e6447b747bb20d6889a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOUTH_1
+    second: {fileID: 2100000, guid: 4f4023914fdeffb419b09d58042b0e1f, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TADPOLE_1_1
+    second: {fileID: 2800000, guid: 1ebd4f1dae9b86246871467476ced46a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TADPOLE_1_2
+    second: {fileID: 2800000, guid: 8b3dd580241b7d849880dec8ac87c9b2, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

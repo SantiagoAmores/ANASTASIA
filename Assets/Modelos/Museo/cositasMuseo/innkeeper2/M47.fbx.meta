@@ -1,9 +1,69 @@
 fileFormatVersion: 2
-guid: f1e7db74c7573e64d85a43744c5426c1
+guid: a7b44f824913d3c44896f1db5a6197df
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boca
+    second: {fileID: 2100000, guid: 50b59d8ad3f0d0d4ea56f1ed45fd0730, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color 7
+    second: {fileID: 2100000, guid: 8c7924c917a72194da54f705f827ec0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color 7.001
+    second: {fileID: 2100000, guid: da0e28fe0bf923e4bad918d9b71f666a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color1
+    second: {fileID: 2100000, guid: 7fdf058044b34dd418b21d2c16936ee7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color2
+    second: {fileID: 2100000, guid: 7bc36c72433250a458a9472cfa7e4dc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color3
+    second: {fileID: 2100000, guid: 180bdba6360545841a7e0e514cc85458, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color4
+    second: {fileID: 2100000, guid: 5b06677741ac2bb45a8b210b9a148dc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color5
+    second: {fileID: 2100000, guid: 7d53acb2f3b8c8c4aa1c26e6aac7f8bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color6
+    second: {fileID: 2100000, guid: 46688b45326cf0e4f95c4b13391f2fd0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color8
+    second: {fileID: 2100000, guid: 0b1fc9d06206f11458142b73e647d487, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corazon
+    second: {fileID: 2100000, guid: 225211fcb15fedd4488864653dd7912a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ojo
+    second: {fileID: 2100000, guid: 694ee66b0bc16c042abdff8aab961c74, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

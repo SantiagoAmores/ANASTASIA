@@ -1,9 +1,44 @@
 fileFormatVersion: 2
-guid: f1e7db74c7573e64d85a43744c5426c1
+guid: 74fde02fd058f564891822015c1a5a3e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boca
+    second: {fileID: 2100000, guid: d26ba3edf625bc545bd1644a810814e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color1
+    second: {fileID: 2100000, guid: 1217fb40028b7b742be7b964642a2eeb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color3
+    second: {fileID: 2100000, guid: 786396b7c2de0b44aa3307abfb32a672, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color4
+    second: {fileID: 2100000, guid: 94878af654edae74e8a38d2ab8c34887, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 7b22785c8c03026488a982251afd3f80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: e4d69fc0a31fc8d49a5a184c837dd865, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ojo
+    second: {fileID: 2100000, guid: 637ee90f75d3ccb45b949d30b5dffab6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
