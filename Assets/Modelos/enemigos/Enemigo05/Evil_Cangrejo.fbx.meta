@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c8b0597d10796f3408722e177fb5c3e7
+guid: e265a03885fb49647aa010b8d2186001
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,28 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Caparazon
-    second: {fileID: 2100000, guid: d216f76bd550ec444bf27822280accc8, type: 2}
+      name: Marble procedural
+    second: {fileID: 2100000, guid: 118c0e7a8387b104d980247675e9798b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Cristal
-    second: {fileID: 2100000, guid: 1859b76ffdb1a6547b4023069d0763fb, type: 2}
+      name: Material.005
+    second: {fileID: 2100000, guid: b6349d7d48b7a8c439f8957ec635aacc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Detalles
-    second: {fileID: 2100000, guid: bf71c7f54072d7246b910c19c993773b, type: 2}
+      name: Material.006
+    second: {fileID: 2100000, guid: 6eb95b789d734404ea83bc246ed83a73, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Piel
-    second: {fileID: 2100000, guid: 7a2c0de9f409bd2459cfb698a83d14de, type: 2}
+      name: Material.007
+    second: {fileID: 2100000, guid: 3c05e7501be08d44090e08dcca12a59b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Relieve
-    second: {fileID: 2100000, guid: 833ae7fd6ef401843906d532cdda131d, type: 2}
+      name: Material.008
+    second: {fileID: 2100000, guid: 870252fe6c326c848873497c6ca5a17b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -58,11 +58,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ArmatureAction
-      takeName: ArmatureAction
-      internalID: -3880581976594992817
+      name: Idle
+      takeName: Idle
+      internalID: -3100369314251171874
       firstFrame: 0
-      lastFrame: 11
+      lastFrame: 12
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -87,11 +87,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ArmatureAction.001
-      takeName: ArmatureAction.001
-      internalID: 7001736878801954451
+      name: Enemigo05_Idle
+      takeName: Armature|Idle
+      internalID: -8945691123924629249
       firstFrame: 0
-      lastFrame: 11
+      lastFrame: 12
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -116,40 +116,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|ArmatureAction
-      takeName: Armature|ArmatureAction
-      internalID: 4781951162920444690
+      name: Enemigo05_Walk
+      takeName: Armature|Walk
+      internalID: 8349542763059015795
       firstFrame: 0
-      lastFrame: 11
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|ArmatureAction.001
-      takeName: Armature|ArmatureAction.001
-      internalID: -1422011007694221501
-      firstFrame: 0
-      lastFrame: 11
+      lastFrame: 12
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

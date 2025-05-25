@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7b26a1374e4b88f4e9c4fe0c212f57a7
+guid: c8b0597d10796f3408722e177fb5c3e7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,48 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 88c1b715eb0d40e4a801e11c4df1404e, type: 2}
+      name: Caparazon
+    second: {fileID: 2100000, guid: cd450aead089987409ba264e8237bc5b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 246297fd380fc2e4c81cba713274bf71, type: 2}
+      name: Cristal
+    second: {fileID: 2100000, guid: 1859b76ffdb1a6547b4023069d0763fb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: c90d8ca03241c734ca37e673bda6a916, type: 2}
+      name: Detalles
+    second: {fileID: 2100000, guid: bf71c7f54072d7246b910c19c993773b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.004
-    second: {fileID: 2100000, guid: d6604854f47821b45ad50a57a7881f24, type: 2}
+      name: Piel
+    second: {fileID: 2100000, guid: 7a2c0de9f409bd2459cfb698a83d14de, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.005
-    second: {fileID: 2100000, guid: 86df91a831a09844d9a0f4e1502ce6a0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.006
-    second: {fileID: 2100000, guid: 61f9f55f0cac23c4c98baa1e35898a7f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.007
-    second: {fileID: 2100000, guid: 20779a7175b9d574f8d83b5dc0838c56, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.008
-    second: {fileID: 2100000, guid: 053e70f95af3c674caec967ae6906c1b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.009
-    second: {fileID: 2100000, guid: e79b22ca8e2f9af4e845439fdfd93910, type: 2}
+      name: Relieve
+    second: {fileID: 2100000, guid: 833ae7fd6ef401843906d532cdda131d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -78,9 +58,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Action
-      takeName: Armature|Action
-      internalID: 885944232402757753
+      name: Enemigo02_Walk
+      takeName: ArmatureAction
+      internalID: -3880581976594992817
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -107,9 +87,67 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|ArmatureAction
+      name: Enemigo02_Idle
+      takeName: ArmatureAction.001
+      internalID: 7001736878801954451
+      firstFrame: 0
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Enemigo02_Walk2
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
+      firstFrame: 0
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Enemigo02_Idle2
+      takeName: Armature|ArmatureAction.001
+      internalID: -1422011007694221501
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0

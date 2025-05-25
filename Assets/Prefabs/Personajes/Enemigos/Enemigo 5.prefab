@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6191976480151542571}
   - component: {fileID: 2127145669773595877}
   - component: {fileID: 846112092515110521}
+  - component: {fileID: 4009105219287535225}
   m_Layer: 8
   m_Name: Enemigo 5
   m_TagString: Enemy
@@ -152,6 +153,7 @@ MonoBehaviour:
   textoDanoPrefab: {fileID: 6474264951493391942, guid: a439b04164a20b94b835870240f8d68f, type: 3}
   spawnEfectoPrefab: {fileID: 4649073419550656177, guid: 3c9dfa71e26739a4a992ca1c9402db9e, type: 3}
   regaloPrefab: {fileID: 8913403153319220097, guid: dd74c16aa6027fe498012d9c7cfbccea, type: 3}
+  regaloArmaPrefab: {fileID: 0}
   estadisticas: {fileID: 0}
   enemigoVidaTotal: 0
   enemigoVelocidad: 0
@@ -205,6 +207,21 @@ MonoBehaviour:
   enemigoExperiencia: 0
   esUnJefe: 0
   faseDeJefe: 0
+--- !u!114 &4009105219287535225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374344966642074657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2b34915c096954d8d844aa2d83b2d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigoScript: {fileID: 0}
+  animator: {fileID: 0}
+  velocidadActual: 0
 --- !u!1001 &971412479079734279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,14 +481,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e265a03885fb49647aa010b8d2186001, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6950180725066310458}
+      addedObject: {fileID: 1396036886855636209}
   m_SourcePrefab: {fileID: 100100000, guid: e265a03885fb49647aa010b8d2186001, type: 3}
 --- !u!1 &124499149652549974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e265a03885fb49647aa010b8d2186001, type: 3}
   m_PrefabInstance: {fileID: 971412479079734279}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6950180725066310458
+--- !u!95 &1396036886855636209
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -484,7 +501,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3ca5be2057818dd42b4f7755853b6b67, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
