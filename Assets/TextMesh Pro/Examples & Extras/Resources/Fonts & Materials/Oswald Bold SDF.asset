@@ -1021,6 +1021,7 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+<<<<<<< Updated upstream
   - m_Index: 52
     m_Metrics:
       m_Width: 46.59375
@@ -1036,6 +1037,8 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+=======
+>>>>>>> Stashed changes
   - m_Index: 57
     m_Metrics:
       m_Width: 44.828125
@@ -1051,6 +1054,24 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+<<<<<<< Updated upstream
+=======
+  - m_Index: 52
+    m_Metrics:
+      m_Width: 46.59375
+      m_Height: 90.921875
+      m_HorizontalBearingX: 3.6875
+      m_HorizontalBearingY: 80.640625
+      m_HorizontalAdvance: 53.96875
+    m_GlyphRect:
+      m_X: 263
+      m_Y: 719
+      m_Width: 48
+      m_Height: 92
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+>>>>>>> Stashed changes
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 8230
@@ -1285,6 +1306,7 @@ MonoBehaviour:
     m_GlyphIndex: 14
     m_Scale: 1
   - m_ElementType: 1
+<<<<<<< Updated upstream
     m_Unicode: 81
     m_GlyphIndex: 52
     m_Scale: 1
@@ -1292,6 +1314,15 @@ MonoBehaviour:
     m_Unicode: 86
     m_GlyphIndex: 57
     m_Scale: 1
+=======
+    m_Unicode: 86
+    m_GlyphIndex: 57
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 81
+    m_GlyphIndex: 52
+    m_Scale: 1
+>>>>>>> Stashed changes
   m_AtlasTextures:
   - {fileID: 28256370963634744}
   m_AtlasTextureIndex: 0
@@ -1526,14 +1557,24 @@ MonoBehaviour:
     m_Y: 302
     m_Width: 46
     m_Height: 46
+<<<<<<< Updated upstream
   - m_X: 253
     m_Y: 709
     m_Width: 67
     m_Height: 111
+=======
+>>>>>>> Stashed changes
   - m_X: 368
     m_Y: 0
     m_Width: 65
     m_Height: 99
+<<<<<<< Updated upstream
+=======
+  - m_X: 253
+    m_Y: 709
+    m_Width: 67
+    m_Height: 111
+>>>>>>> Stashed changes
   m_FreeGlyphRects:
   - m_X: 80
     m_Y: 29
@@ -1715,6 +1756,7 @@ MonoBehaviour:
     m_Y: 302
     m_Width: 1
     m_Height: 50
+<<<<<<< Updated upstream
   - m_X: 253
     m_Y: 820
     m_Width: 770
@@ -1735,6 +1777,8 @@ MonoBehaviour:
     m_Y: 402
     m_Width: 703
     m_Height: 621
+=======
+>>>>>>> Stashed changes
   - m_X: 368
     m_Y: 99
     m_Width: 655
@@ -1747,6 +1791,26 @@ MonoBehaviour:
     m_Y: 0
     m_Width: 590
     m_Height: 1023
+  - m_X: 253
+    m_Y: 820
+    m_Width: 770
+    m_Height: 15
+  - m_X: 236
+    m_Y: 709
+    m_Width: 17
+    m_Height: 24
+  - m_X: 296
+    m_Y: 820
+    m_Width: 727
+    m_Height: 203
+  - m_X: 299
+    m_Y: 402
+    m_Width: 724
+    m_Height: 307
+  - m_X: 320
+    m_Y: 402
+    m_Width: 703
+    m_Height: 621
   m_fontInfo:
     Name: Oswald
     PointSize: 71
