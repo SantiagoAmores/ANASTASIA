@@ -3,67 +3,7 @@ guid: f1e7db74c7573e64d85a43744c5426c1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 37048070277b0414f9f3b9234b6213c2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: c7b3ceec5e09886478ee85ec6129535e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: c14fd09648611514ca541679a4867aec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: 15e1a6e5997bde940aee23038d49df26, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: maderaBlanca
-    second: {fileID: 2100000, guid: f989e9c4d1d4476428acc41f4a245707, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: maderaClara
-    second: {fileID: 2100000, guid: e835c1f33ba0ac7498cd86e3129fbeb1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: maderaMedia
-    second: {fileID: 2100000, guid: 1e03779c885382a4e8bdd8715640fad3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: maderaOscura
-    second: {fileID: 2100000, guid: 1c9cc7d0125d0af4385005f25c2eee9e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: metal
-    second: {fileID: 2100000, guid: 2e170358a1e3af84dae46b903656e298, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: oro
-    second: {fileID: 2100000, guid: 932fa9347cc69f948a3c6a3a7333b314, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sueloMuseo
-    second: {fileID: 2100000, guid: 116abde776a92bd4db11fbecbce097d5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sueloMuseo2
-    second: {fileID: 2100000, guid: b839cf745800edf45830efebcc219e0f, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
