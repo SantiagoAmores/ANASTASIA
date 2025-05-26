@@ -289,6 +289,99 @@ MonoBehaviour:
     m_Localized: mlem
     m_Metadata:
       m_Items: []
+  - m_Id: 13362626480979968
+    m_Localized: "\xA1Gracias por jugar!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13362942156881920
+    m_Localized: "Hemos salido del cuadro... \xA1como mola!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13363758049673216
+    m_Localized: "\xA1Rompe todos los jarrones!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13363934764089344
+    m_Localized: Por favor, traeme aloe vera...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13364185319227392
+    m_Localized: Mmmm... ojala llegar a ver lo que hay en la vitrina...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13365861899976704
+    m_Localized: "Guau... \xA1que bonito!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366156939902976
+    m_Localized: Me pregunto como puede volar...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366456836833280
+    m_Localized: Es... sorprendentemente aerodinamico.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366481818107904
+    m_Localized: "\xA1No me ducho desde el a\xF1o pasado!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366549979742208
+    m_Localized: Debo... consumir... la planta...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366568552120320
+    m_Localized: Me preocupa mi hermano...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366587850113024
+    m_Localized: Ay... si tan solo supiese nadar...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366603184488448
+    m_Localized: "Y entonces... \xA1nos arrollo a todos con su l\xE1piz!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366619080900608
+    m_Localized: "Pero... \xBF\xA1pero que dices!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366633127624704
+    m_Localized: "\xBFDe que estar\xE1n hablando esos dos...?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13366648986288128
+    m_Localized: Y un mlem.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13368071488684032
+    m_Localized: Soy una patatilla...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13374740373323776
+    m_Localized: "\xBFVolver al inicio?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13375447004495872
+    m_Localized: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13376120563580928
+    m_Localized: "L\xC1PIZ\nEl l\xE1piz de Anastasia gira a su alrededor y da\xF1a
+      a sus enemigos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13376248775065600
+    m_Localized: "CUBO DE PINTURA\nAnastasia deja charcos de pintura que da\xF1an
+      a los enemigos que lo pisan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13376423727874048
+    m_Localized: 'ARTISTOGATO
+
+      Gato que embiste contra un enemigo al azar y
+      explota tras un corto periodo de tiempo'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
