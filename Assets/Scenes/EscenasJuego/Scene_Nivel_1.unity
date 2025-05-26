@@ -3930,14 +3930,6 @@ PrefabInstance:
       propertyPath: camaraFinal
       value: 
       objectReference: {fileID: 690743735}
-    - target: {fileID: 7613908472306378927, guid: 851d490a18407e4499039073eedb394e, type: 3}
-      propertyPath: spritesArmas.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8e54cb699d99b5f4ab3759d9b03750b6, type: 3}
-    - target: {fileID: 7613908472306378927, guid: 851d490a18407e4499039073eedb394e, type: 3}
-      propertyPath: spritesArmas.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: b9911227e470f154192adb51a5a7fd77, type: 3}
     - target: {fileID: 7884038846478430412, guid: 851d490a18407e4499039073eedb394e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
