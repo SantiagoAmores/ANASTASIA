@@ -260,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6326541887322968932
 Transform:
   m_ObjectHideFlags: 0
@@ -269,14 +269,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6792580702400041426}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36552674, y: 0, z: 0, w: 0.9308009}
-  m_LocalPosition: {x: -1.7, y: 2.73, z: -3.08}
+  m_LocalRotation: {x: 0, y: 0.9311832, z: -0.3645517, w: 0}
+  m_LocalPosition: {x: 1.41, y: 2.59, z: 3.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 39574558592046701}
   m_Father: {fileID: 3069437968838670628}
-  m_LocalEulerAnglesHint: {x: 42.88, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 42.76, y: 180, z: 0}
 --- !u!114 &4933712414540365009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,8 +485,9 @@ MonoBehaviour:
   objetoActual: -1
   fuenteAudio: {fileID: 0}
   objetoAudio: {fileID: 8300000, guid: 4f37368c4c17caa4a8bb5a8264ba7603, type: 3}
-  heridaAudio: {fileID: 0}
+  heridaAudio: {fileID: 8300000, guid: 2ff4e7cf3e8dfb348989326501048b6f, type: 3}
   invencible: 0
+  anastasiaQuieta: 0
 --- !u!114 &-6341184225360161705
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,7 +18,8 @@ public class Jefe02 : MonoBehaviour
     // Proyectiles
     public GameObject tostadaBuena;
     public GameObject tostadaMala;
-    private CanvasPintura canvasPintura;
+    public CanvasPintura canvasPintura;
+    public GameObject pinturaBoss;
 
     private float cadenciaAtaque = 8f;
     private float tiempoEspera = 3f;
@@ -194,7 +195,6 @@ public class Jefe02 : MonoBehaviour
     void OnDestroy()
     {
         EliminarTodosLosProyectiles();
-        canvasPintura.gameObject.SetActive(false);
     }
 
 }
