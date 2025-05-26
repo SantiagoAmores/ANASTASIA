@@ -23,10 +23,10 @@ public class StatsEnemigos : MonoBehaviour
             { "Enemigo 1", (1, 1, 2.75f, 2) },
             { "Enemigo 2", (8, 4, 3f, 3) },
             { "Enemigo 4", (3, 2, 3f, 2) },
-            { "Enemigo 5", (9, 6, 3.25f, 3) },
+            { "Enemigo 5", (9, 5, 3.25f, 3) },
             { "Enemigo 7", (3, 2, 3.25f, 2) },
-            { "Enemigo 8", (10, 8, 3.5f, 3) },
-            { "Jarron", (1, 0, 0.2f, 0) }
+            { "Enemigo 8", (10, 6, 3.5f, 3) },
+            { "Jarron", (1, 0, 0, 0) }
         };
 
         diccionarioBosses = new Dictionary<string, ((int, int, float, int) fase1, (int, int, float, int) fase2)>

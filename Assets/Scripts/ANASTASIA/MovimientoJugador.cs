@@ -195,6 +195,7 @@ public class MovimientoJugador : MonoBehaviour
         if (vidaActual <= 0)
         {
             canvasManager.Derrota();
+            anastasiaQuieta = true;
         }
         else
         {
