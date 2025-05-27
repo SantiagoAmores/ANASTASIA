@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 199199834}
   - component: {fileID: 199199836}
   m_Layer: 0
-  m_Name: "Cinematica_Espa\xF1ol"
+  m_Name: Cinematica_Inicial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

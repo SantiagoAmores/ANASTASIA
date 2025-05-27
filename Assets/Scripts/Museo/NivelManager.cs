@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NivelManager : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class NivelManager : MonoBehaviour
 
     [Header("Configuración de Niveles")]
     public DesbloqueosNivel[] desbloqueosPorNivel;
+
+    [Header("Cinemática Final")]
+    public GameObject cinematicaFinal;
+    private const string CINEMATICA_FINAL_VISTA = "CinematicaFinalVista";
 
     public void NivelCompletado(int nivelCompletado)
     {
@@ -31,6 +36,29 @@ public class NivelManager : MonoBehaviour
             }
         }
         PlayerPrefs.Save();
+
+        // Verificar si es el nivel 3
+        if (nivelCompletado == 3)
+        {
+            MostrarCinematicaFinal();
+            PlayerPrefs.SetInt(CINEMATICA_FINAL_VISTA, 1);
+            PlayerPrefs.Save();
+        }
+        else if (nivelCompletado == 3)
+        {
+            // Si ya se vio la cinemática, volver directamente al museo
+            SceneManager.LoadScene("Scene_Museo");
+        }
+    }
+
+    public void MostrarCinematicaFinal()
+    {
+        if (cinematicaFinal != null)
+        {
+            cinematicaFinal.SetActive(true);
+            // Desactivar otros elementos del juego si es necesario
+            Time.timeScale = 0f; // Pausar el juego durante la cinemática
+        }
     }
 
     // Método para verificar si una entrada está desbloqueada
@@ -76,8 +104,18 @@ public class NivelManager : MonoBehaviour
             {
                 Vector3 posicionSpawn = puntosSpawnColeccionables[idColeccionable].position;
                 GameObject coleccionable = Instantiate(prefabColeccionable, posicionSpawn, Quaternion.identity);
-                coleccionable.GetComponent<Coleccionable>().idColeccionable = idColeccionable;
-                Debug.Log($"¡Coleccionable {idColeccionable} aparecido en nivel {nivelActual}!");
+                Coleccionable componente = coleccionable.GetComponentInChildren<Coleccionable>();  
+                if (componente != null)
+                {
+                    componente.idColeccionable = idColeccionable;
+                    Debug.Log($"¡Coleccionable {idColeccionable} aparecido en nivel {nivelActual}!");
+
+                }
+                else
+                {
+                    Debug.LogWarning("no se ha encontrado");
+                }
+                /*coleccionable.GetComponent<Coleccionable>().idColeccionable = idColeccionable;*/
             }
         }
     }
