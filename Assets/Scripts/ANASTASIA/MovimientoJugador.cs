@@ -201,6 +201,8 @@ public class MovimientoJugador : MonoBehaviour
             anastasiaViva = false;
             partidaTerminada = true;
 
+            roundManager.DestruirArmasAlTerminar();
+
             if (canvasManager != null)
             {
                 canvasManager.Derrota();

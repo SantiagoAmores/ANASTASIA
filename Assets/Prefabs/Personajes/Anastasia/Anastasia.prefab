@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   pintura: {fileID: 209788572413664971, guid: a7d309836f42644468a2094b97339087, type: 3}
-  cuboPintura: {fileID: 919132149155446097, guid: 4b7b8e878d7e86648b9a58e9208f0e00, type: 3}
+  cuboPintura: {fileID: 674507824089105130, guid: 437b31b7c5198e44b953ea9d15923645, type: 3}
   stats: {fileID: 0}
 --- !u!114 &913102841305326103
 MonoBehaviour:
@@ -469,25 +469,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
-  rotationSpeed: 10
+  roundManager: {fileID: 0}
   stats: {fileID: 0}
   statsEnemigo: {fileID: 0}
   vidaTotal: 0
   vidaActual: 0
+  rotationSpeed: 10
   buffVelocidad: 1
-  flechaDireccion: {fileID: 0}
-  flechaObjetivo: {fileID: 0}
+  invencible: 0
+  anastasiaQuieta: 0
+  anastasiaViva: 1
+  partidaTerminada: 0
   textoCuracionPrefab: {fileID: 6474264951493391942, guid: 99897a1b16b9eea4996018fb25b2fa2b, type: 3}
   particulasObjeto: {fileID: 642177746704128885, guid: 82a4706977190314da283de4e7a16016, type: 3}
-  listaEnemigos: []
-  enemigo: {fileID: 0}
   tieneObjetoActivo: 0
   objetoActual: -1
   fuenteAudio: {fileID: 0}
   objetoAudio: {fileID: 8300000, guid: 4f37368c4c17caa4a8bb5a8264ba7603, type: 3}
   heridaAudio: {fileID: 8300000, guid: 2ff4e7cf3e8dfb348989326501048b6f, type: 3}
-  invencible: 0
-  anastasiaQuieta: 0
+  listaEnemigos: []
+  enemigo: {fileID: 0}
+  flechaDireccion: {fileID: 0}
+  flechaObjetivo: {fileID: 0}
 --- !u!114 &-6341184225360161705
 MonoBehaviour:
   m_ObjectHideFlags: 0

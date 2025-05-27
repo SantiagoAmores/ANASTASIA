@@ -13,9 +13,12 @@ public class Arma1 : MonoBehaviour
 
     public StatsAnastasia stats;
 
+    private MovimientoJugador movimientoJugador;
+
     void Start()
     {
         stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
+        movimientoJugador = GameObject.FindWithTag("Player").GetComponent<MovimientoJugador>();
         StartCoroutine("RutinaProyectil");
     }
 
@@ -23,6 +26,10 @@ public class Arma1 : MonoBehaviour
     void Update()
     {
         enemigosLista = GameObject.FindGameObjectsWithTag("Enemy");
+        if (movimientoJugador.partidaTerminada)
+        {
+            StopAllCoroutines();
+        }
     }
 
 
@@ -32,6 +39,8 @@ public class Arma1 : MonoBehaviour
     {
         while (true)
         {
+            if (movimientoJugador.partidaTerminada) yield break;
+
             yield return new WaitForSeconds(stats.arma1Cadencia);
 
             if (enemigosLista.Length == 0) continue;

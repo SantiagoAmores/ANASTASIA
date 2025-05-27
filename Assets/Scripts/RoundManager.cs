@@ -141,9 +141,13 @@ public class RoundManager : MonoBehaviour
 
     void PantallaVictoria()
     {
+        movimientoJugador.anastasiaQuieta = true;
+        movimientoJugador.partidaTerminada = true;
         ActivarSpawner(false);
 
         GuardarEstadisticasEnemigos();
+
+        DestruirArmasAlTerminar();
 
         //Aqui pondremos las animaciones y demas cosas
         canvasManager.Victoria();
@@ -218,5 +222,18 @@ public class RoundManager : MonoBehaviour
         }
 
         PlayerPrefs.Save();
+    }
+
+    public void DestruirArmasAlTerminar()
+    {
+        string[] tags = { "Projectile", "ProjectileDPS", "ArmaModelo" };
+        foreach (string tag in tags)
+        {
+            GameObject[] objetos = GameObject.FindGameObjectsWithTag(tag);
+            foreach(GameObject obj in objetos)
+            {
+                Destroy(obj);
+            }
+        }
     }
 }

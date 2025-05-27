@@ -6,10 +6,12 @@ public class Arma6 : MonoBehaviour
 {
     public GameObject gatoPrefab;
     public StatsAnastasia stats;
+    private MovimientoJugador movimientoJugador;
 
     private void Start()
     {
         stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
+        movimientoJugador = GameObject.FindWithTag("Player").GetComponent<MovimientoJugador>();
         StartCoroutine(RutinaDisparo());
     }
 
@@ -17,6 +19,8 @@ public class Arma6 : MonoBehaviour
     {
         while (true)
         {
+            if (movimientoJugador.partidaTerminada) yield break;
+
             yield return new WaitForSeconds(stats.arma6Cadencia);
 
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0) continue;
@@ -38,6 +42,14 @@ public class Arma6 : MonoBehaviour
         {
             gatoScript.golpe = (int)StatsAnastasia.arma6Ataque;
             gatoScript.direccion = (objetivo.transform.position - transform.position).normalized;
+        }
+    }
+
+    private void Update()
+    {
+        if (movimientoJugador.partidaTerminada)
+        {
+            StopAllCoroutines();
         }
     }
 }

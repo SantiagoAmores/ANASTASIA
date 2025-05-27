@@ -11,10 +11,11 @@ public class Arma4 : MonoBehaviour
 
     public StatsAnastasia stats;
 
-
+    private MovimientoJugador movimientoJugador;
     private void Start()
     {
         stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
+        movimientoJugador = GameObject.FindWithTag("Player").GetComponent<MovimientoJugador>();
         StartCoroutine(RutinaBumerang());
     }
 
@@ -22,6 +23,8 @@ public class Arma4 : MonoBehaviour
     {
         while (true)
         {
+            if (movimientoJugador.partidaTerminada) yield break;
+
             yield return new WaitForSeconds(stats.arma4Cadencia);
 
             GameObject boomerang = Instantiate(boomerangPrefab, transform.position, Quaternion.identity);
@@ -92,5 +95,13 @@ public class Arma4 : MonoBehaviour
         /*return enemies
             .OrderByDescending(e => Vector3.Distance(e.transform.position, transform.position)) //Al mas lejano
             .First().transform;*/
+    }
+
+    private void Update()
+    {
+        if (movimientoJugador.partidaTerminada)
+        {
+            StopAllCoroutines();
+        }
     }
 }

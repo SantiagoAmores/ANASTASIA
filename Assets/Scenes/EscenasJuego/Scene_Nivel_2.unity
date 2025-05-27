@@ -8504,7 +8504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemigoPrefab:
   - {fileID: 374344966642074657, guid: b4d1911828c5d1e49b73135b00b10a99, type: 3}
-  spawnAreaRadius: 25
+  spawnAreaRadius: 15
   tiempoEntreSpawns: 40
 --- !u!1 &1651334335
 GameObject:

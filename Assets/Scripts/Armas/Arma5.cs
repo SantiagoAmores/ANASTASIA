@@ -22,10 +22,13 @@ public class Arma5 : MonoBehaviour
     // Stats
     public StatsAnastasia stats;
 
+    private MovimientoJugador movimientoJugador;
+
     void Start()
     {
         player = GameObject.Find("Anastasia");
         stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
+        movimientoJugador = GameObject.FindWithTag("Player").GetComponent<MovimientoJugador>();
         ultimaPosicion = player.transform.position; // Se guarda la posicion inicial
         cadencia = StatsAnastasia.arma5CadenciaBase; // Usamos la cadencia asignada al Arma 5
         StartCoroutine(ActivarRastro());
@@ -35,6 +38,8 @@ public class Arma5 : MonoBehaviour
     {
         while (true)
         {
+            if (movimientoJugador.partidaTerminada) yield break;
+
             yield return new WaitForSeconds(cadencia); // Espera el tiempo especificado por la cadencia
 
             activado = true;
@@ -56,6 +61,8 @@ public class Arma5 : MonoBehaviour
     {
         while (true)
         {
+            if (movimientoJugador.partidaTerminada) yield break;
+
             if (activado && SeEstaMoviendo())
             {
                 // Posicion rastro detras de Anastasia
@@ -108,5 +115,13 @@ public class Arma5 : MonoBehaviour
         // Direccion detras de Anastasia
         Vector3 direccionDetras = -player.transform.forward; // Direccion en la que esta mirando el jugador
         return player.transform.position + direccionDetras * 1f + new Vector3(0, -1f, 0); // Posicion detras y en el suelo
+    }
+
+    private void Update()
+    {
+        if (movimientoJugador.partidaTerminada)
+        {
+            StopAllCoroutines();
+        }
     }
 }

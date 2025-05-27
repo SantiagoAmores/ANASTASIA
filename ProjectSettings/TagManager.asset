@@ -16,6 +16,7 @@ TagManager:
   - PuntoFinal
   - Salida
   - RayoJefe
+  - ArmaModelo
   layers:
   - Default
   - TransparentFX

@@ -10,10 +10,13 @@ public class Arma2 : MonoBehaviour
 
     private bool firstShot = true;
 
+    private MovimientoJugador movimientoJugador;
+
     void Start()
     {
         player = GameObject.Find("Anastasia");
         stats = player.GetComponent<StatsAnastasia>();
+        movimientoJugador = GameObject.FindWithTag("Player").GetComponent<MovimientoJugador>();
         StartCoroutine(InstanciarProyectil());
     }
 
@@ -21,6 +24,8 @@ public class Arma2 : MonoBehaviour
     {
         while (true)
         {
+            if (movimientoJugador.partidaTerminada) yield break;
+
             // Espera antes de instanciar el arma por primera vez al cargar el nivel
             if (firstShot) { yield return new WaitForSeconds(stats.arma2Cadencia); firstShot = false; };
 
@@ -67,6 +72,14 @@ public class Arma2 : MonoBehaviour
         if (CompareTag("Enemy"))
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (movimientoJugador.partidaTerminada)
+        {
+            StopAllCoroutines();
         }
     }
 }

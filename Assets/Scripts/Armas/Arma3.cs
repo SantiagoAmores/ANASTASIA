@@ -20,10 +20,13 @@ public class Arma3 : MonoBehaviour
     // Stats
     public StatsAnastasia stats;
 
+    private MovimientoJugador movimientoJugador;
+
     void Start()
     {
         player = GameObject.Find("Anastasia");
         stats = GameObject.FindWithTag("Player").GetComponent<StatsAnastasia>();
+        movimientoJugador = GameObject.FindWithTag("Player").GetComponent<MovimientoJugador>();
         StartCoroutine(InstanciarPintura());
     }
 
@@ -31,6 +34,7 @@ public class Arma3 : MonoBehaviour
     {
         while (true)
         {
+            if (movimientoJugador.partidaTerminada) yield break;
 
             // Comprobamos que funciona el bucle
             //Debug.Log("Instanciando pintura...");
@@ -136,6 +140,14 @@ public class Arma3 : MonoBehaviour
         if (cubo != null)
         {
             cubo.transform.rotation = rotacionFinal;
+        }
+    }
+
+    private void Update()
+    {
+        if (movimientoJugador.partidaTerminada)
+        {
+            StopAllCoroutines();
         }
     }
 }
