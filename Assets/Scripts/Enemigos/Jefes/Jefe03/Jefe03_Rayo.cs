@@ -10,8 +10,11 @@ public class Jefe03_Rayo : MonoBehaviour
     public float radio = 3f;
     public float anguloInicial = 0f;
 
+    //private MovimientoJugador moverJugador;
     private Transform jugador;
     private GameObject contenedor;
+
+    public bool seguirJugador = false;
 
     public bool girar = false;
     public Vector3 direccionInicial;
@@ -32,11 +35,15 @@ public class Jefe03_Rayo : MonoBehaviour
         // Escalar el rayo para que se extienda hacia afuera (eje Y es la longitud)
         transform.localScale = new Vector3(0.1f, 0f, 0.1f); // Y (longitud) en 0 para crecer luego
         StartCoroutine(CrecerRayo());
-
     }
+
     public void AsignarJefe(Transform jefeTransform)
     {
         jefe = jefeTransform;
+    }
+    public void AsignarJugador(Transform jugadorTransform)
+    {
+        jugador = jugadorTransform;
     }
 
 
@@ -59,6 +66,17 @@ public class Jefe03_Rayo : MonoBehaviour
             );
             transform.position = jefe.position + offset;
             transform.rotation = Quaternion.Euler(90f, anguloActual, 0f);
+
+            /*if (seguirJugador && jugador != null && jefe != null)
+            {
+                Vector3 direccion = (jugador.position - jefe.position).normalized;
+                float angulo = Mathf.Atan2(direccion.x, direccion.z) * Mathf.Rad2Deg;
+
+                // Interpolación suave hacia el nuevo ángulo
+                Quaternion rotacionActual = transform.rotation;
+                Quaternion rotacionObjetivo = Quaternion.Euler(90f, angulo, 0f); // Rayo apunta con eje local Y hacia adelante
+                transform.rotation = Quaternion.RotateTowards(rotacionActual, rotacionObjetivo, velocidadRotacion * Time.deltaTime);
+            }*/
         }
     }
 

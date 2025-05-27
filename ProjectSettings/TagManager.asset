@@ -15,6 +15,7 @@ TagManager:
   - AdditionalLight
   - PuntoFinal
   - Salida
+  - RayoJefe
   layers:
   - Default
   - TransparentFX

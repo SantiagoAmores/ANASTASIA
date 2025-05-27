@@ -290,24 +290,35 @@ public class Jefe03 : MonoBehaviour
 
         // Calcular dirección hacia el jugador
         Vector3 direccion = (jugador.transform.position - transform.position).normalized;
+
+        // Calcular ángulo hacia el jugador en el plano XZ
         float angulo = Mathf.Atan2(direccion.x, direccion.z) * Mathf.Rad2Deg;
 
-        // Instanciar el rayo
+        // Agregar una desviación aleatoria opcional
+        float desviacion = Random.value > 0.5f ? 30f : -30f;
+        angulo += desviacion;
+
+
+        // Instanciar el rayo apuntando hacia el jugador con desviación
         GameObject rayo = Instantiate(rayoPrefab, transform.position + Vector3.up * 1.5f, Quaternion.Euler(90f, angulo, 0f));
         rayo.GetComponent<Jefe03_Rayo>().AsignarJefe(transform);
         Transform rayoTransform = rayo.transform;
         Jefe03_Rayo rayoScript = rayo.GetComponent<Jefe03_Rayo>();
+
+        rayoScript.AsignarJefe(transform);
+        rayoScript.AsignarJugador(jugador.transform); // NUEVA LÍNEA
+        rayoScript.seguirJugador = true;
+
         rayoScript.velocidadRotacion = velocidadRayoFase1;
         rayoScript.radio = 3f;
         rayoScript.anguloInicial = angulo;
         rayoScript.girar = true;
 
-        // Esperar hasta que el rayo sea destruido
+        // Esperar a que el rayo sea destruido
         while (rayo != null)
         {
             Vector3 rotacionRayo = rayoTransform.rotation.eulerAngles;
-            transform.rotation = Quaternion.Euler(0f, rotacionRayo.y, 0f); // Solo rota en Y
-
+            transform.rotation = Quaternion.Euler(0f, rotacionRayo.y, 0f);
             yield return null;
         }
 

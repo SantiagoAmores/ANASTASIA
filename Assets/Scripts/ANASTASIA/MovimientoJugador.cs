@@ -192,10 +192,21 @@ public class MovimientoJugador : MonoBehaviour
         fuenteAudio.PlayOneShot(heridaAudio);
         vidaActual -= cantidadHerida;
 
+        // Verificar si la vida llegó a 0 o menos
         if (vidaActual <= 0)
         {
-            canvasManager.Derrota();
+            vidaActual = 0; // Asegurar que no sea negativo
             anastasiaQuieta = true;
+
+            //manue, si hago esto se quita el problema de los bosses, pero si lo hago de otras maneras nop, ns que pasa
+            //StopAllCoroutines();
+
+
+
+            if (canvasManager != null)
+            {
+                canvasManager.Derrota();
+            }
         }
         else
         {

@@ -209,7 +209,6 @@ public class CanvasManager : MonoBehaviour
 
     IEnumerator SecuenciaFinal(bool esVictoria)
     {
-
         // Buscar y destruir a todos los enemigos
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemigo in enemigos)
