@@ -15,29 +15,29 @@ public class MenuPausa : MonoBehaviour
     public TextMeshProUGUI estadisticasTexto;
     public StatsAnastasia estadisticasScript;
     public GameManager gameManager;
+    public MovimientoJugador movimientoJugador;
 
-    // Start is called before the first frame update
     void Start()
     {
         estadisticasScript = FindAnyObjectByType<StatsAnastasia>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        movimientoJugador = GameObject.Find("Anastasia").GetComponent<MovimientoJugador>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) 
+            && !panelVictoria.activeSelf 
+            && !panelDerrota.activeSelf
+            && movimientoJugador.anastasiaViva)
         {
-            if (!panelVictoria.activeSelf && !panelDerrota.activeSelf)
+            if (menuPausa.activeSelf)
             {
-                if (menuPausa.activeSelf)
-                {
-                    Resume();
-                }
-                else
-                {
-                    Pause();
-                }
+                Resume();
+            }
+            else
+            {
+                Pause();
             }
         }
     }

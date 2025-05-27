@@ -8,8 +8,8 @@ public class SpawnEnemigos : MonoBehaviour
     public GameObject[] enemigoPrefab;
 
     [Header("Spawn Configuración")]
-    private float spawnAreaRadius = 50f;
-    private float tiempoEntreSpawns = 5f;
+    public float spawnAreaRadius = 50f;
+    public float tiempoEntreSpawns = 5f;
     public bool seguir = true;
     public bool instanciar = true;
 
@@ -115,5 +115,11 @@ public class SpawnEnemigos : MonoBehaviour
             stats.revisarEnemigo();
         }
         return boss;
+    }
+
+    public void DetenerSpawner()
+    {
+        seguir = false;
+        StopAllCoroutines();
     }
 }

@@ -34,9 +34,6 @@ public class Enemigo : MonoBehaviour
     public bool golpeable = true;
     public bool seguirJugador = true;
 
-    // Animaciones
-    //private Animator animator;
-
     private void Awake()
     {
         enemigo = GetComponent<NavMeshAgent>();
@@ -79,18 +76,6 @@ public class Enemigo : MonoBehaviour
         MirarAnastasia();
 
         StartCoroutine(AlSpawnear());
-
-        /*
-        animator = GetComponent<Animator>();  // Obtener el Animator del enemigo
-
-        animator.Play("Walking"); //Animacion
-
-        // Iniciar la animación de caminar
-        if (animator != null)
-        {
-            animator.SetBool("Walking", true);
-        }
-        */
     }
 
     void Update()
@@ -101,12 +86,11 @@ public class Enemigo : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             moverJugador.herirAnastasia(enemigoAtaque);
-            AnimacionHerida();
         }
     }
 
@@ -179,24 +163,6 @@ public class Enemigo : MonoBehaviour
         golpeable = false;
         yield return new WaitForSeconds(statsAnastasia.ticsPorSegundo);
         golpeable = true;
-    }
-    public IEnumerator AnimacionHerida()
-    {
-        //SkinnedMeshRenderer [] anastasiaPiezas;
-
-        //anastasiaPiezas = jugador.GetComponentsInChildren<SkinnedMeshRenderer>();
-
-        //foreach (var pieza in anastasiaPiezas)
-        //{
-        //    pieza.material.color = Color.red;
-        //}
-
-        yield return new WaitForSeconds(0.5f);
-
-        //foreach (var pieza in anastasiaPiezas)
-        //{
-        //    pieza.material.color = Color.white;
-        //}
     }
 
     // SPAWN

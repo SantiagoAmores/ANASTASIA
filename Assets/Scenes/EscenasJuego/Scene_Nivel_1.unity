@@ -1137,6 +1137,14 @@ PrefabInstance:
       propertyPath: fuenteAudio
       value: 
       objectReference: {fileID: 503473006}
+    - target: {fileID: 60255810020451838, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 913102841305326103, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1175,6 +1183,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233730339502621928, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400856347996301974, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096415705295080951, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951365172276653742, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986659953479751430, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
@@ -12603,6 +12627,8 @@ MonoBehaviour:
   - {fileID: 374344966642074657, guid: ee3eb84a7f973134f94c23bb4e36dba2, type: 3}
   - {fileID: 374344966642074657, guid: f6e55a60d9a7c564497e51c2399c15a4, type: 3}
   - {fileID: 374344966642074657, guid: a2087ca6dcb1cd94b8faff448b336012, type: 3}
+  spawnAreaRadius: 40
+  tiempoEntreSpawns: 5
   seguir: 1
   instanciar: 1
 --- !u!4 &854819793
@@ -12685,7 +12711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemigoPrefab:
   - {fileID: 374344966642074657, guid: b4d1911828c5d1e49b73135b00b10a99, type: 3}
-  spawnAreaRadius: 30
+  spawnAreaRadius: 25
   tiempoEntreSpawns: 40
 --- !u!1001 &858070236
 PrefabInstance:
@@ -16561,6 +16587,7 @@ MonoBehaviour:
   estadisticasTexto: {fileID: 446122986}
   estadisticasScript: {fileID: 0}
   gameManager: {fileID: 0}
+  movimientoJugador: {fileID: 0}
 --- !u!114 &1355397435
 MonoBehaviour:
   m_ObjectHideFlags: 0

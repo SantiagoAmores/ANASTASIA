@@ -7,47 +7,50 @@ using UnityEngine.SceneManagement;
 public class MovimientoJugador : MonoBehaviour
 {
     GameManager gameManager;
-
     private CanvasManager canvasManager;
 
+    [Header("Referencias")]
     public GameObject jugador;
-
-    //Controles del jugador
-    public float rotationSpeed = 10f;
     private CharacterController characterController;
-
     private Animator animator;
+    public RoundManager roundManager;
 
+    [Header("Stats y vida")]
     public StatsAnastasia stats;
     public Enemigo statsEnemigo;
-
     public int vidaTotal;
     public int vidaActual;
 
+    [Header("Movimiento")]
+    public float rotationSpeed = 10f;
     public float buffVelocidad = 1f;
 
-    public GameObject flechaDireccion;
-    public Transform flechaObjetivo;
+    [Header("Estados del jugador")]
+    public bool invencible = false;
+    public bool anastasiaQuieta = false;
+    public bool anastasiaViva = true;
+    public bool partidaTerminada = false;
 
+    [Header("Objetos y efectos")]
     public GameObject textoCuracionPrefab;
     public GameObject particulasObjeto;
 
-    // Enemigos
-    public List<GameObject> listaEnemigos = new List<GameObject>();
-    public GameObject enemigo;
-
-    // Objetos
+    [Header("Estado de objetos")]
     public bool tieneObjetoActivo = false;
     public int objetoActual = -1;
 
-    // Sonidos
+    [Header("Sonidos")]
     public AudioSource fuenteAudio;
     public AudioClip objetoAudio;
     public AudioClip heridaAudio;
 
-    public bool invencible = false;
+    [Header("Enemigos")]
+    public List<GameObject> listaEnemigos = new List<GameObject>();
+    public GameObject enemigo;
 
-    public bool anastasiaQuieta = false;
+    [Header("Flecha de direccion")]
+    public GameObject flechaDireccion;
+    public Transform flechaObjetivo;
 
     void Start()
     {
@@ -56,6 +59,8 @@ public class MovimientoJugador : MonoBehaviour
         canvasManager = FindObjectOfType<CanvasManager>();
 
         characterController = GetComponent<CharacterController>();
+
+        roundManager = FindObjectOfType<RoundManager>();
 
         animator = GetComponentInChildren<Animator>();
 
@@ -119,7 +124,7 @@ public class MovimientoJugador : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name != "Scene_Museo")
         {
-            if (Input.GetKeyDown(KeyCode.E) && canvasManager.objetoActivable.activeSelf)
+            if (Input.GetKeyDown(KeyCode.E) && canvasManager.objetoActivable.activeSelf && Time.timeScale != 0)
             {
                 // Sonido objeto usado
                 fuenteAudio.PlayOneShot(objetoAudio);
@@ -132,32 +137,27 @@ public class MovimientoJugador : MonoBehaviour
 
                 if (objetoActual == 0 && canvasManager.objeto1.activeSelf)
                 {
-                    Debug.Log("Objeto 1 activado");
                     StartCoroutine(recogerExperiencia());
                     canvasManager.objeto1.SetActive(false);
 
                 }
                 if (objetoActual == 1 && canvasManager.objeto2.activeSelf)
                 {
-                    Debug.Log("Objeto 2 activado");
                     explosivo();
                     canvasManager.objeto2.SetActive(false);
                 }
                 if (objetoActual == 2 && canvasManager.objeto3.activeSelf)
                 {
-                    Debug.Log("Objeto 3 activado");
                     Curar(vidaTotal);
                     canvasManager.objeto3.SetActive(false);
                 }
                 if (objetoActual == 3 && canvasManager.objeto4.activeSelf)
                 {
-                    Debug.Log("Objeto 4 activado");
                     StartCoroutine(stats.aumentoAtaque());
                     canvasManager.objeto4.SetActive(false);
                 }
                 if (objetoActual == 4 && canvasManager.objeto5.activeSelf)
                 {
-                    Debug.Log("Objeto 5 activado");
                     StartCoroutine(aumentoVelocidad());
                     canvasManager.objeto5.SetActive(false);
                 }
@@ -196,12 +196,10 @@ public class MovimientoJugador : MonoBehaviour
         if (vidaActual <= 0)
         {
             vidaActual = 0; // Asegurar que no sea negativo
+            roundManager.ActivarSpawner(false);
             anastasiaQuieta = true;
-
-            //manue, si hago esto se quita el problema de los bosses, pero si lo hago de otras maneras nop, ns que pasa
-            //StopAllCoroutines();
-
-
+            anastasiaViva = false;
+            partidaTerminada = true;
 
             if (canvasManager != null)
             {
@@ -306,15 +304,13 @@ public class MovimientoJugador : MonoBehaviour
 
     IEnumerator aumentoVelocidad()
     {
-        //Debug.Log("¡A correr!");
         buffVelocidad = 2f;
-        ActivarInvencibilidad(4f);
+        StartCoroutine(ActivarInvencibilidad(4f));
         yield return new WaitForSeconds(4f);
         buffVelocidad = 1f;
-        //Debug.Log("¡A caminar!");
     }
 
-    void InstanciarParticulas()
+    /*void InstanciarParticulas()
     {
         if (particulasObjeto != null)
         {
@@ -322,7 +318,7 @@ public class MovimientoJugador : MonoBehaviour
             GameObject particulas = Instantiate(particulasObjeto, posicionParticulas, Quaternion.LookRotation(Vector3.up));
             Destroy(particulas, 2f);
         }
-    }
+    }*/
 
     IEnumerator ActivarInvencibilidad(float duracion)
     {

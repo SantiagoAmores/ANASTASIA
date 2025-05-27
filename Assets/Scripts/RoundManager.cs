@@ -42,6 +42,11 @@ public class RoundManager : MonoBehaviour
 
     public void IniciarSiguienteFase()
     {
+        if (movimientoJugador != null && !movimientoJugador.anastasiaViva)
+        {
+            return;
+        }
+
         ActualizarIntefazRonda();
 
         if (ronda == 0 || ronda == 2)
@@ -122,6 +127,11 @@ public class RoundManager : MonoBehaviour
     //esto lo llamaremos desde el script de cada boss cuando la vida llegue a 0
     public void BossDerrotado()
     {
+        if (movimientoJugador != null && !movimientoJugador.anastasiaViva)
+        {
+            return;
+        }
+
         canvasManager.sliderBossObject.SetActive(false);
         canvasManager.sliderBoss.gameObject.SetActive(false);
         GameManager.instancia.jefeActual = null;
@@ -131,7 +141,6 @@ public class RoundManager : MonoBehaviour
 
     void PantallaVictoria()
     {
-        Debug.Log("Has Ganado");
         ActivarSpawner(false);
 
         GuardarEstadisticasEnemigos();
@@ -142,11 +151,18 @@ public class RoundManager : MonoBehaviour
         nivelManager.NivelCompletado(numeroNivelActual);
     }
 
-    void ActivarSpawner(bool activo)
+    public void ActivarSpawner(bool activo)
     {
         if (spawner != null)
         {
-            spawner.seguir = activo;
+            if (!activo)
+            {
+                spawner.DetenerSpawner();
+            }
+            else
+            {
+                spawner.seguir = activo;
+            }
         }
     }
 
