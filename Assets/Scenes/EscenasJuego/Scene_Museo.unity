@@ -6965,8 +6965,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
-    urlItchIO: 
-  - imagen: {fileID: 0}
+    urlItchIO: https://jozaru.itch.io/renasci
+  - imagen: {fileID: 21300000, guid: 00f93db3e5404b645b5b5bcd05dd6e6d, type: 3}
     escalaImagen: 1.5
     nombre:
       m_TableReference:
@@ -17968,7 +17968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1307245075
 RectTransform:
   m_ObjectHideFlags: 0
