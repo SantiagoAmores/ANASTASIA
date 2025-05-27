@@ -130,7 +130,7 @@ public class Opciones : MonoBehaviour
     {
         valor = Mathf.Clamp(valor, 0.1f, 1f);
 
-        if (valor < 0.1f)
+        if (valor < 0.2f)
         {
             mixer.SetFloat("Volumen general", -80f);
         }

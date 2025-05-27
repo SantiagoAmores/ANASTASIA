@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Video;
 
 public class MenuInicio : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class MenuInicio : MonoBehaviour
     public GameObject panelCreditos;
 
     public CreditosLoop creditosLoop;
+
+    public CinematicaControler cinematicController;
 
     public float normalSpeed = 40f;
     public float fastSpeed = 100f;
@@ -42,9 +45,12 @@ public class MenuInicio : MonoBehaviour
 
     public void IniciarJuego()
     {
-        SceneManager.LoadScene("Scene_Museo");
-        //SceneManager.LoadScene("Scene_Demo");
+        if (PlayerPrefs.HasKey("PrimeraVez"))
+            SceneManager.LoadScene("Scene_Museo");
+        else
+            SceneManager.LoadScene("Scene_Cinematica");
     }
+
 
     public void MostrarOpciones()
     {
