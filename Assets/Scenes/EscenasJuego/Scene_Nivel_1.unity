@@ -4858,8 +4858,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503473000}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9311832, z: -0.3645517, w: 0}
-  m_LocalPosition: {x: 1.41, y: 3.59, z: 3.03}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 9.660254, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12664,7 +12664,7 @@ MonoBehaviour:
     categoria: niveles
     indicesEntradas: 02000000
   idNivel: 1
-  prefabColeccionable: {fileID: 762078921841914039, guid: 7acf531635eec0b4ba4ba052df2493c4, type: 3}
+  prefabColeccionable: {fileID: 7277630344207902738, guid: 706782f5ac1d21341aeebba2f5f84eed, type: 3}
   puntosSpawnColeccionables:
   - {fileID: 989999071}
   - {fileID: 1337420272}
