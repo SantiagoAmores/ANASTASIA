@@ -21,7 +21,7 @@ public class ConsumibleSimple : MonoBehaviour
             // Si ya tiene un objeto activo, no recoger otro
             if (jugador.tieneObjetoActivo)
             {
-                Debug.Log("Ya tienes un objeto. Úsalo antes de recoger otro.");
+                //Debug.Log("Ya tienes un objeto. Úsalo antes de recoger otro.");
                 return;
             }
 
@@ -36,23 +36,18 @@ public class ConsumibleSimple : MonoBehaviour
             switch (elegido)
             {
                 case 0:
-                 
                     canvasManager.objeto1.SetActive(true);
                     break;
                 case 1:
-
                     canvasManager.objeto2.SetActive(true);
                     break;
                 case 2:
-
                     canvasManager.objeto3.SetActive(true);
                     break;
                 case 3:
-
                     canvasManager.objeto4.SetActive(true);
                     break;
                 case 4:
-
                     canvasManager.objeto5.SetActive(true);
                     break;
             }
@@ -60,7 +55,7 @@ public class ConsumibleSimple : MonoBehaviour
             jugador.tieneObjetoActivo = true;
             jugador.objetoActual = elegido;
 
-            Debug.Log("Objeto elegido: " + elegido);
+            //Debug.Log("Objeto elegido: " + elegido);
 
             Destroy(gameObject);
         }

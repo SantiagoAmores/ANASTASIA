@@ -147,22 +147,30 @@ public class StatsAnastasia : MonoBehaviour
             case 0:
                 AumentarVida();
                 mejorasVida++;
-                if (PlayerPrefs.GetInt("textoPantalla") == 1) { MostrarSubidaDeNivel("+ VIDA"); }
+                if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 0) { MostrarSubidaDeNivel("+ SALUT"); }
+                else if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 1) { MostrarSubidaDeNivel("+ HEALTH"); }
+                else if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 2) { MostrarSubidaDeNivel("+ VIDA"); }
                 break;
             case 1:
                 AumentarVelocidadMovimiento();
                 mejorasVelocidad++;
-                if (PlayerPrefs.GetInt("textoPantalla") == 1) { MostrarSubidaDeNivel("+ VELOCIDAD"); }
+                if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 0) { MostrarSubidaDeNivel("+ VELOCITAT"); }
+                else if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 1) { MostrarSubidaDeNivel("+ SPEED"); }
+                else if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 2) { MostrarSubidaDeNivel("+ VELOCIDAD"); }
                 break;
             case 2:
                 AumentarCadencia();
                 mejorasCadencia++;
-                if (PlayerPrefs.GetInt("textoPantalla") == 1) { MostrarSubidaDeNivel("+ CADENCIA"); }
+                if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 0) { MostrarSubidaDeNivel("+ CADÈNCIA"); }
+                else if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 1) { MostrarSubidaDeNivel("+ CADENCE"); }
+                else if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 2) { MostrarSubidaDeNivel("+ CADENCIA"); }
                 break;
             case 3:
                 AumentarAtaque();
                 mejorasAtaque++;
-                if (PlayerPrefs.GetInt("textoPantalla") == 1) { MostrarSubidaDeNivel("+ ATAQUE"); }
+                if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 0) { MostrarSubidaDeNivel("+ ATAC"); }
+                else if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 1) { MostrarSubidaDeNivel("+ ATTACK"); }
+                else if (PlayerPrefs.GetInt("textoPantalla") == 1 && PlayerPrefs.GetInt("LocaleKey") == 2) { MostrarSubidaDeNivel("+ ATAQUE"); }
                 break;
         }
 

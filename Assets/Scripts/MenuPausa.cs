@@ -45,11 +45,30 @@ public class MenuPausa : MonoBehaviour
     public void Pause()
     {
         menuPausa.SetActive(true);
-        estadisticasTexto.text = "ESTADÍSTICAS ACTUALES\nVIDA: " + estadisticasScript.mejorasVida +
-                                    "\nATAQUE: " + estadisticasScript.mejorasAtaque +
-                                    "\nCADENCIA: " + estadisticasScript.mejorasCadencia +
-                                    "\nVELOCIDAD: " + estadisticasScript.mejorasVelocidad +
-                                    "\nENEMIGOS DERROTADOS: " + gameManager.contadorEnemigosDerrotados;
+        if (PlayerPrefs.GetInt("LocaleKey") == 0)
+        {
+            estadisticasTexto.text =    "ESTADÍSTIQUES ACTUALS\nSALUT: " + estadisticasScript.mejorasVida +
+                                        "\nATAC: " + estadisticasScript.mejorasAtaque +
+                                        "\nCADÈNCIA: " + estadisticasScript.mejorasCadencia +
+                                        "\nVELOCITAT: " + estadisticasScript.mejorasVelocidad +
+                                        "\nENEMICS DERROTATS: " + gameManager.contadorEnemigosDerrotados;
+        }
+        else if (PlayerPrefs.GetInt("LocaleKey") == 1)
+        {
+            estadisticasTexto.text =    "CURRENT STATS\nHEALTH: " + estadisticasScript.mejorasVida +
+                                        "\nATTACK: " + estadisticasScript.mejorasAtaque +
+                                        "\nCADENCE: " + estadisticasScript.mejorasCadencia +
+                                        "\nSPEED: " + estadisticasScript.mejorasVelocidad +
+                                        "\nDEFEATED ENEMIES: " + gameManager.contadorEnemigosDerrotados;
+        }
+        else if (PlayerPrefs.GetInt("LocaleKey") == 2)
+        {
+            estadisticasTexto.text =    "ESTADÍSTICAS ACTUALES\nVIDA: " + estadisticasScript.mejorasVida +
+                                        "\nATAQUE: " + estadisticasScript.mejorasAtaque +
+                                        "\nCADENCIA: " + estadisticasScript.mejorasCadencia +
+                                        "\nVELOCIDAD: " + estadisticasScript.mejorasVelocidad +
+                                        "\nENEMIGOS DERROTADOS: " + gameManager.contadorEnemigosDerrotados;
+        }
 
         Time.timeScale = 0f;
     }
