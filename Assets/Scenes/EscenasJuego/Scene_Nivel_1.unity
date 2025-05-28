@@ -12689,6 +12689,7 @@ MonoBehaviour:
   - numeroNivel: 1
     categoria: niveles
     indicesEntradas: 02000000
+  cinematicaFinal: {fileID: 0}
   idNivel: 1
   prefabColeccionable: {fileID: 7277630344207902738, guid: 706782f5ac1d21341aeebba2f5f84eed, type: 3}
   puntosSpawnColeccionables:

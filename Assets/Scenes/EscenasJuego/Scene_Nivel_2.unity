@@ -8482,6 +8482,7 @@ MonoBehaviour:
   - numeroNivel: 2
     categoria: niveles
     indicesEntradas: 03000000
+  cinematicaFinal: {fileID: 0}
   idNivel: 2
   prefabColeccionable: {fileID: 7277630344207902738, guid: 706782f5ac1d21341aeebba2f5f84eed, type: 3}
   puntosSpawnColeccionables:
@@ -10407,18 +10408,6 @@ PrefabInstance:
       propertyPath: camaraFinal
       value: 
       objectReference: {fileID: 621085214}
-    - target: {fileID: 7613908472306378927, guid: 851d490a18407e4499039073eedb394e, type: 3}
-      propertyPath: spritesArmas.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 47d14d3a5ec289646a90e232c29f0d25, type: 3}
-    - target: {fileID: 7613908472306378927, guid: 851d490a18407e4499039073eedb394e, type: 3}
-      propertyPath: spritesArmas.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: b9911227e470f154192adb51a5a7fd77, type: 3}
-    - target: {fileID: 7613908472306378927, guid: 851d490a18407e4499039073eedb394e, type: 3}
-      propertyPath: spritesArmas.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8e54cb699d99b5f4ab3759d9b03750b6, type: 3}
     - target: {fileID: 7884038846478430412, guid: 851d490a18407e4499039073eedb394e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
