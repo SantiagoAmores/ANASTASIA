@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e54cb699d99b5f4ab3759d9b03750b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9911227e470f154192adb51a5a7fd77, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3609,7 +3609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9911227e470f154192adb51a5a7fd77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e54cb699d99b5f4ab3759d9b03750b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7168,7 +7168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e54cb699d99b5f4ab3759d9b03750b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9911227e470f154192adb51a5a7fd77, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14063,7 +14063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.98
+      value: -16.75
       objectReference: {fileID: 0}
     - target: {fileID: 3069437968838670628, guid: bc7618c64587abf4eaacd875d268a275, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14963,7 +14963,7 @@ Transform:
   m_GameObject: {fileID: 973082000}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: -16.98, y: 9.6602545, z: 0.099999666}
+  m_LocalPosition: {x: -16.75, y: 9.6602545, z: 0.099999666}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19017,7 +19017,7 @@ Transform:
   m_GameObject: {fileID: 1339110869}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: -16.98, y: 9.6602545, z: 0.099999666}
+  m_LocalPosition: {x: -16.75, y: 9.6602545, z: 0.099999666}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19691,7 +19691,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9911227e470f154192adb51a5a7fd77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e54cb699d99b5f4ab3759d9b03750b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
