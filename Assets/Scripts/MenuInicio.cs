@@ -18,6 +18,7 @@ public class MenuInicio : MonoBehaviour
     public CinemachineVirtualCamera creditosCam;
 
     public GameObject panelCreditos;
+    public GameObject panelConfirmacionSalir;
 
     public CreditosLoop creditosLoop;
 
@@ -34,6 +35,7 @@ public class MenuInicio : MonoBehaviour
         botonAtras.SetActive(false);*/
 
         panelCreditos.SetActive(false);
+        panelConfirmacionSalir.SetActive(false);
         creditosLoop.SetSpeed(normalSpeed); // Velocidad inicial
     }
 
@@ -90,8 +92,19 @@ public class MenuInicio : MonoBehaviour
 
     public void SalirJuego()
     {
+        panelConfirmacionSalir.SetActive(true);
+    }
+
+    public void ConfirmarSalir()
+    {
         Application.Quit();
     }
+
+    public void CancelarSalir()
+    {
+        panelConfirmacionSalir.SetActive(false);
+    }
+
 
 
     // Métodos para acelerar/desacelerar los créditos con el botón UI

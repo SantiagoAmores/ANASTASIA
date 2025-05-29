@@ -287,7 +287,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12954263456727040
-    m_Localized: You watch as a large dungeon emerges before your eyes.
+    m_Localized: You watch as a large temple emerges before your eyes.
     m_Metadata:
       m_Items: []
   - m_Id: 12954314677567488
@@ -393,6 +393,42 @@ MonoBehaviour:
 
       Cat that charges at a random enemy and explodes after
       a short period of time.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14366288946806784
+    m_Localized: Victory :)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14366846361419776
+    m_Localized: "Defeat\r :(\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14368777549004800
+    m_Localized: Museum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14369357130514432
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370080429850624
+    m_Localized: Retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370441190326272
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370998776905728
+    m_Localized: Are you sure you want to restart the level?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14378406916014080
+    m_Localized: Are you sure you want to get out of the game?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14379014997819392
+    m_Localized: Are you sure you want to delete the game?
     m_Metadata:
       m_Items: []
   references:

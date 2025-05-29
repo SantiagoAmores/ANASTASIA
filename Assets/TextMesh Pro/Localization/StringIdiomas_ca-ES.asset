@@ -274,7 +274,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12954263456727040
-    m_Localized: Observes com una gran masmorra emergix davant els teus ulls.
+    m_Localized: Observes com un gran temple emergix davant els teus ulls.
     m_Metadata:
       m_Items: []
   - m_Id: 12954314677567488
@@ -378,6 +378,42 @@ MonoBehaviour:
 
       El llapis de Anastasia gira al seu al voltant i danya
       als seus enemics'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14366288946806784
+    m_Localized: Victoria :)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14366846361419776
+    m_Localized: Derrota :(
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14368777549004800
+    m_Localized: Museu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14369357130514432
+    m_Localized: Menu Principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370080429850624
+    m_Localized: Reintentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370441190326272
+    m_Localized: Pausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370998776905728
+    m_Localized: "Est\xE0s segur que vols reiniciar el nivell?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14378406916014080
+    m_Localized: Segur que vols eixir del joc?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14379014997819392
+    m_Localized: Segur que vols esborrar la partida?
     m_Metadata:
       m_Items: []
   references:

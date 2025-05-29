@@ -10,51 +10,56 @@ public class PapeleraPrefs : MonoBehaviour
     public LocaleSelector localeSelector; // Referencia al selector de idioma
     public float duracionAnimacion = 1.0f;
 
+    public GameObject panelConfirmacionBorrar;
+
     public bool estaAbierta = false;
     private float tiempoCierre;
 
     private void OnMouseDown()
     {
-        if (estaAbierta) return; // para evitar multiples clicks en la animacion
+        if (estaAbierta) return;
 
-        // animacion de la papelera
+        // Mostrar panel de confirmación
+        panelConfirmacionBorrar.SetActive(true);
+    }
+
+    public void ConfirmarBorrado()
+    {
         estaAbierta = true;
         animatorPapelera.SetBool("Abrir", true);
 
-        // Borrar todos los PlayerPrefs
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
 
-        // Reestablecer los valores por defecto en el script de opciones
         if (opcionesScript != null)
         {
-            // Brillo
             opcionesScript.CambiarBrillo(1f);
             opcionesScript.sliderBrillo.value = 1f;
 
-            // Pantalla completa
             bool pantallaCompletaDefault = true;
             opcionesScript.CambiarPantallaCompleta(pantallaCompletaDefault);
             opcionesScript.pantallaCompletaToggle.isOn = pantallaCompletaDefault;
 
-            // Volumen
             opcionesScript.CambiarVolumen(1f);
             opcionesScript.sliderVolumen.value = 1f;
 
-            // cerrar papelera
             tiempoCierre = Time.time + duracionAnimacion;
         }
 
-        // Resetear idioma al predeterminado (primer idioma de la lista)
         if (localeSelector != null)
         {
-            // Establecer el idioma predeterminado (0)
-            localeSelector.ChangeLocale(2);
-
-            // Forzar la actualización si es necesario
+            localeSelector.ChangeLocale(0);
             StartCoroutine(ForzarActualizacionIdioma());
         }
+
+        panelConfirmacionBorrar.SetActive(false); // Cerrar el panel
     }
+
+    public void CancelarBorrado()
+    {
+        panelConfirmacionBorrar.SetActive(false);
+    }
+
 
     IEnumerator ForzarActualizacionIdioma()
     {

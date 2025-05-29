@@ -351,6 +351,42 @@ MonoBehaviour:
     m_Key: gato
     m_Metadata:
       m_Items: []
+  - m_Id: 14366288946806784
+    m_Key: Victoria
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14366846361419776
+    m_Key: Derrota
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14368777549004800
+    m_Key: VolverMuseo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14369357130514432
+    m_Key: MenuPrincipal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370080429850624
+    m_Key: Reintentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370441190326272
+    m_Key: Pausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370998776905728
+    m_Key: ReinicioMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14378406916014080
+    m_Key: SalirJuego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14379014997819392
+    m_Key: BorrarPartida
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

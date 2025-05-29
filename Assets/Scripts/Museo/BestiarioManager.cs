@@ -25,6 +25,12 @@ public class BestiarioManager : MonoBehaviour
     public TextMeshProUGUI textoNombre;
     public TextMeshProUGUI textoDescripcion;
 
+    [Header("Nombres Localizados de Categorías")]
+    public LocalizedString categoriaEnemigos;
+    public LocalizedString categoriaArmas;
+    public LocalizedString categoriaJefes;
+    public LocalizedString categoriaColeccionables;
+
     [Header("Contenido Organizado")]
     public EntradaBestiario[] enemigos;
     public EntradaBestiario[] armas;
@@ -106,8 +112,30 @@ public class BestiarioManager : MonoBehaviour
         entradasActuales = entradas;
         indiceActual = 0;
 
-        // Actualizar UI
-        textoCategoria.text = categoria.ToUpper();
+        // Usar LocalizedString en lugar de texto hardcoded
+        switch (categoria.ToLower())
+        {
+            case "enemigos":
+                categoriaEnemigos.StringChanged += (valor) => textoCategoria.text = valor;
+                categoriaEnemigos.RefreshString(); // Llama a la actualización
+                break;
+
+            case "armas":
+                categoriaArmas.StringChanged += (valor) => textoCategoria.text = valor;
+                categoriaArmas.RefreshString();
+                break;
+
+            case "jefes":
+                categoriaJefes.StringChanged += (valor) => textoCategoria.text = valor;
+                categoriaJefes.RefreshString();
+                break;
+
+            case "coleccionables":
+                categoriaColeccionables.StringChanged += (valor) => textoCategoria.text = valor;
+                categoriaColeccionables.RefreshString();
+                break;
+        }
+
         MostrarEntradaActual();
     }
 

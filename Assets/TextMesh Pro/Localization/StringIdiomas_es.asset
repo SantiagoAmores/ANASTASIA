@@ -278,7 +278,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12954263456727040
-    m_Localized: Observas como una gran mazmorra emerge ante tus ojos.
+    m_Localized: Observas como un gran templo emerge ante tus ojos.
     m_Metadata:
       m_Items: []
   - m_Id: 12954314677567488
@@ -380,6 +380,42 @@ MonoBehaviour:
 
       Gato que embiste contra un enemigo al azar y
       explota tras un corto periodo de tiempo'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14366288946806784
+    m_Localized: Victoria :)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14366846361419776
+    m_Localized: Derrota :(
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14368777549004800
+    m_Localized: Museo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14369357130514432
+    m_Localized: Menu Principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370080429850624
+    m_Localized: Reintentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370441190326272
+    m_Localized: Pausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14370998776905728
+    m_Localized: "\xBFEst\xE1s seguro que quieres reiniciar el nivel?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14378406916014080
+    m_Localized: "\xBFSeguro que quieres salir del juego?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14379014997819392
+    m_Localized: "\xBFSeguro que quieres borrar la partida?"
     m_Metadata:
       m_Items: []
   references:

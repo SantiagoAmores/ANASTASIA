@@ -6662,6 +6662,42 @@ MonoBehaviour:
   imagenDisplay: {fileID: 381314289}
   textoNombre: {fileID: 1498270594}
   textoDescripcion: {fileID: 2120207844}
+  categoriaEnemigos:
+    m_TableReference:
+      m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+    m_TableEntryReference:
+      m_KeyId: 4669543736295424
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  categoriaArmas:
+    m_TableReference:
+      m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+    m_TableEntryReference:
+      m_KeyId: 4669604339793920
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  categoriaJefes:
+    m_TableReference:
+      m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+    m_TableEntryReference:
+      m_KeyId: 4669569569013760
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  categoriaColeccionables:
+    m_TableReference:
+      m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+    m_TableEntryReference:
+      m_KeyId: 4669463218241536
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   enemigos:
   - imagen: {fileID: -1262876075, guid: 73b5f8c59ee0c6a40b1bf3ccd97b7ff4, type: 3}
     escalaImagen: 1
@@ -6818,6 +6854,28 @@ MonoBehaviour:
       m_LocalVariables: []
     desbloqueado: 1
     urlItchIO: 
+  - imagen: {fileID: 21300000, guid: bf0c3a9551fe7db48ac96e1b54b97ed2, type: 3}
+    escalaImagen: 1
+    nombre:
+      m_TableReference:
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+      m_TableEntryReference:
+        m_KeyId: 4665536099794944
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    descripcion:
+      m_TableReference:
+        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
+      m_TableEntryReference:
+        m_KeyId: 4665539321020416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    desbloqueado: 0
+    urlItchIO: 
   - imagen: {fileID: 21300000, guid: b9911227e470f154192adb51a5a7fd77, type: 3}
     escalaImagen: 1
     nombre:
@@ -6838,7 +6896,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    desbloqueado: 1
+    desbloqueado: 0
     urlItchIO: 
   - imagen: {fileID: 21300000, guid: 8e54cb699d99b5f4ab3759d9b03750b6, type: 3}
     escalaImagen: 1
@@ -6860,7 +6918,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    desbloqueado: 1
+    desbloqueado: 0
     urlItchIO: 
   - imagen: {fileID: 21300000, guid: 47d14d3a5ec289646a90e232c29f0d25, type: 3}
     escalaImagen: 1
@@ -6878,28 +6936,6 @@ MonoBehaviour:
         m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
       m_TableEntryReference:
         m_KeyId: 4665587219972096
-        m_Key: 
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    desbloqueado: 0
-    urlItchIO: 
-  - imagen: {fileID: 21300000, guid: bf0c3a9551fe7db48ac96e1b54b97ed2, type: 3}
-    escalaImagen: 1
-    nombre:
-      m_TableReference:
-        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
-      m_TableEntryReference:
-        m_KeyId: 4665536099794944
-        m_Key: 
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    descripcion:
-      m_TableReference:
-        m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
-      m_TableEntryReference:
-        m_KeyId: 4665539321020416
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -7017,8 +7053,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
-    urlItchIO: https://www.kickstarter.com/projects/dmichavila/nemunai-spiral-psx-indie-horror-video-game/faqs
-  - imagen: {fileID: 0}
+    urlItchIO: https://dmichay.itch.io/nemunai
+  - imagen: {fileID: 21300000, guid: a7e0af419d1ddaf4e96ff340eaa61869, type: 3}
     escalaImagen: 1.5
     nombre:
       m_TableReference:
@@ -7033,7 +7069,7 @@ MonoBehaviour:
       m_TableReference:
         m_TableCollectionName: GUID:49b768a68a6d19e4886588b571ef486c
       m_TableEntryReference:
-        m_KeyId: 12951080613330944
+        m_KeyId: 12954263456727040
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -7061,7 +7097,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     desbloqueado: 0
-    urlItchIO: 
+    urlItchIO: https://soriniel.itch.io/my-dear-robot
   botonEnemigos: {fileID: 1804151553}
   botonArmas: {fileID: 584249204}
   botonJefes: {fileID: 1314533070}
