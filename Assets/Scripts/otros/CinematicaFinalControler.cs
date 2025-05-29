@@ -37,9 +37,9 @@ public class CinematicaFinalControler : MonoBehaviour
 
     void OnVideoFinished(VideoPlayer vp)
     {
-        // Volver al museo cuando termine la cinemática
-        SceneManager.LoadScene(escenaMuseo);
+        SceneManager.LoadScene(escenaMuseo); // "Scene_Museo"
     }
+
 
     public void SaltarCinematica()
     {

@@ -28,26 +28,27 @@ public class NivelManager : MonoBehaviour
             {
                 foreach (int indice in desbloqueo.indicesEntradas)
                 {
-                    // Guarda el índice tal cual (sin restar 1)
                     string clave = $"desbloqueo_{desbloqueo.categoria}_{indice}";
                     PlayerPrefs.SetInt(clave, 1);
-                    Debug.Log($"Guardado: {clave}"); // Para depuración
+                    Debug.Log($"Guardado: {clave}");
                 }
             }
         }
+
         PlayerPrefs.Save();
 
-        // Verificar si es el nivel 3
         if (nivelCompletado == 3)
         {
-            MostrarCinematicaFinal();
-            PlayerPrefs.SetInt(CINEMATICA_FINAL_VISTA, 1);
-            PlayerPrefs.Save();
-        }
-        else if (nivelCompletado == 3)
-        {
-            // Si ya se vio la cinemática, volver directamente al museo
-            SceneManager.LoadScene("Scene_Museo");
+            if (PlayerPrefs.GetInt(CINEMATICA_FINAL_VISTA, 0) == 0)
+            {
+                PlayerPrefs.SetInt(CINEMATICA_FINAL_VISTA, 1);
+                PlayerPrefs.Save();
+                SceneManager.LoadScene("Scene_Cinematica_Final"); // <- asegúrate de que esta escena exista
+            }
+            else
+            {
+                SceneManager.LoadScene("Scene_Museo");
+            }
         }
     }
 

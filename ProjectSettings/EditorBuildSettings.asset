@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/EscenasJuego/Scene_Cinematica.unity
     guid: d02a042071d752f4dbc4d5c5ba4324cb
   - enabled: 1
+    path: Assets/Scenes/EscenasJuego/Scene_Cinematica_Final.unity
+    guid: ea360625b72216b408a3e17c2e41981d
+  - enabled: 1
     path: Assets/Scenes/EscenasJuego/Scene_Museo.unity
     guid: e659cbf2084c66b4c92cdd95641ef2e7
   - enabled: 1
