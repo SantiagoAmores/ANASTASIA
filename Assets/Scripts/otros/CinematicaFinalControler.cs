@@ -27,11 +27,11 @@ public class CinematicaFinalControler : MonoBehaviour
     {
         int idiomaID = PlayerPrefs.GetInt("LocaleKey", 0);
 
-        if (idiomaID == 0 && videoCastellano != null)
+        if (idiomaID == 2 && videoCastellano != null)
             videoPlayer.clip = videoCastellano;
         else if (idiomaID == 1 && videoIngles != null)
             videoPlayer.clip = videoIngles;
-        else if (idiomaID == 2 && videoValenciano != null)
+        else if (idiomaID == 0 && videoValenciano != null)
             videoPlayer.clip = videoValenciano;
     }
 
