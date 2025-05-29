@@ -161,11 +161,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4661747779256320
-    m_Localized: "Cre\xEFlla"
+    m_Localized: Fritxibot
     m_Metadata:
       m_Items: []
   - m_Id: 4661873654513664
-    m_Localized: Torradora
+    m_Localized: Torradora X
     m_Metadata:
       m_Items: []
   - m_Id: 4661899772444672
@@ -179,7 +179,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4661997277429760
-    m_Localized: Robot
+    m_Localized: Rodatge Infernal
     m_Metadata:
       m_Items: []
   - m_Id: 4664779954864128

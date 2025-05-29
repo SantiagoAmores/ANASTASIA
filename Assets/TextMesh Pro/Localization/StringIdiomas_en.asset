@@ -168,11 +168,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4661747779256320
-    m_Localized: Potato
+    m_Localized: Turre - to
     m_Metadata:
       m_Items: []
   - m_Id: 4661873654513664
-    m_Localized: Toaster
+    m_Localized: ToastReaper
     m_Metadata:
       m_Items: []
   - m_Id: 4661899772444672
@@ -186,7 +186,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4661997277429760
-    m_Localized: Robot
+    m_Localized: BoltWheel
     m_Metadata:
       m_Items: []
   - m_Id: 4664779954864128
